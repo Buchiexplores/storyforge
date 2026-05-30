@@ -27,9 +27,9 @@ cron.log
 **/notifications/*
 !**/notifications/.gitkeep
 
-# Preview episode videos (copied from exports for GitHub Pages)
-docs/preview/episodes/*
-!docs/preview/episodes/*.mp4
+# Local preview staging (committed demos live in preview/example/)
+preview/output/*
+!preview/output/.gitkeep
 
 # Local ComfyUI / Flux helper artifacts (optional, not part of core pipeline)
 scripts/object_info.json

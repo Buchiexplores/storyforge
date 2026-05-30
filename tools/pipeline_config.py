@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Shared configuration for the fiction storytelling pipeline."""
+"""Shared configuration for the storyforge pipeline."""
 
 from __future__ import annotations
 

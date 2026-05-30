@@ -136,7 +136,7 @@ def render_email_html(subject: str, body: str) -> str:
   <body style="margin:0;padding:24px;background:#f3f5f7;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#18212b;">
     <div style="max-width:720px;margin:0 auto;background:#ffffff;border:1px solid #d9e0e7;border-radius:16px;overflow:hidden;">
       <div style="padding:20px 24px;background:#18212b;color:#ffffff;">
-        <div style="font-size:12px;letter-spacing:0.08em;text-transform:uppercase;opacity:0.72;">Storytelling Pipeline</div>
+        <div style="font-size:12px;letter-spacing:0.08em;text-transform:uppercase;opacity:0.72;">Storyforge</div>
         <div style="margin-top:8px;font-size:28px;line-height:1.2;font-weight:700;">{escaped_subject}</div>
       </div>
       <div style="padding:24px;">
@@ -193,7 +193,7 @@ def send_email(subject: str, body: str):
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Send or queue a storytelling pipeline update.")
+    parser = argparse.ArgumentParser(description="Send or queue a storyforge pipeline update.")
     parser.add_argument("--subject", required=True)
     parser.add_argument("--body-file", required=True)
     parser.add_argument(

@@ -23,7 +23,7 @@ This guide walks you from zero to a finished vertical episode video. For deeper 
 Optional: fal.ai key (AI motion clips), SMTP (email notifications).
 
 ```bash
-cd fiction_storytelling
+cd storyforge
 python3 -m pip install -r requirements.txt
 brew install ffmpeg   # macOS
 ```
@@ -34,7 +34,7 @@ brew install ffmpeg   # macOS
 
 ```bash
 git clone <your-repo-url>
-cd fiction_storytelling
+cd storyforge
 cp .env.story.example .env.story.local
 ```
 
@@ -119,7 +119,7 @@ Use [AI_BATCH_PROMPT.md](AI_BATCH_PROMPT.md) to write episodes with AI, then pip
 ## 7. Cron
 
 ```cron
-0 2 * * * cd /path/to/fiction_storytelling && python3 tools/run_episode_pipeline.py --episode episode_07 >> /tmp/story_pipeline.log 2>&1
+0 2 * * * cd /path/to/storyforge && python3 tools/run_episode_pipeline.py --episode episode_07 >> /tmp/story_pipeline.log 2>&1
 ```
 
 Use absolute paths; set `FFMPEG_PATH` if ffmpeg is not on cron PATH.

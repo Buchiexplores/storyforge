@@ -1417,7 +1417,7 @@ def generate_cover(force_cover: bool = False, provider: str = "openai"):
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Generate fiction-storytelling episode assets.")
+    parser = argparse.ArgumentParser(description="Generate storyforge episode assets.")
     parser.add_argument(
         "--series",
         default=None,

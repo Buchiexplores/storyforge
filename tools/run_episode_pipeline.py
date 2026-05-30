@@ -265,7 +265,7 @@ def main():
     except Exception as exc:
         if args.notify:
             send_update(
-                f"Storytelling pipeline failed: {args.episode}",
+                f"Storyforge pipeline failed: {args.episode}",
                 f"`{args.episode}` failed.\n\n```text\n{exc}\n```\n",
                 series_dir,
             )

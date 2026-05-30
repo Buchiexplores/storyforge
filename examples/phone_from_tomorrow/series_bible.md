@@ -1,4 +1,4 @@
-# Fiction Storytelling Channel Bible
+# Storyforge Channel Bible
 
 ## Chosen Lane
 

@@ -14,7 +14,7 @@ Related docs:
 ## Prompt
 
 ```text
-You are helping produce episodes for a serialized fiction storytelling pipeline.
+You are helping produce episodes for a serialized storyforge pipeline.
 
 ## Series context
 
@@ -49,7 +49,7 @@ Read before writing:
 
 ## Per-episode pipeline commands
 
-Run from the fiction_storytelling repo root. Replace {EPISODE} with episode folder name (e.g. episode_07).
+Run from the storyforge repo root. Replace {EPISODE} with episode folder name (e.g. episode_07).
 
 # Full pipeline (preferred):
 OPENAI_IMAGE_STRICT=1 python3 tools/run_episode_pipeline.py \

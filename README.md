@@ -13,29 +13,71 @@ This repo is a local production pipeline that converts an episode content packag
 
 ## Example output
 
-**Interactive player (GitHub Pages):** [https://Buchiexplores.github.io/storyforge/preview/](https://Buchiexplores.github.io/storyforge/preview/)
+**Full interactive player (sidebar + keyboard + auto-advance):** [GitHub Pages](https://Buchiexplores.github.io/storyforge/preview/example/)
 
-To publish the player, enable GitHub Pages in your repo: **Settings → Pages → Deploy from branch → `main` → `/docs`**.
+The videos below are a **sample series** included in the repo so you can see what Storyforge produces before running the pipeline yourself.
 
-Episode 1 preview (embedded for README — full player with sidebar, keyboard nav, and auto-advance lives on GitHub Pages because GitHub README does not run JavaScript):
+<!-- README-PLAYER-START -->
 
-<video src="docs/preview/episodes/episode_01.mp4" controls width="270" playsinline></video>
+**The Phone That Receives Tomorrow** — Example output from the Storyforge pipeline — Afro-futurist mystery thriller.
 
-| Ep | Title | Player |
-|----|-------|--------|
-| 1 | Do Not Open The Door | [Watch](https://Buchiexplores.github.io/storyforge/preview/?ep=1) |
-| 2 | The Bus With No Driver | [Watch](https://Buchiexplores.github.io/storyforge/preview/?ep=2) |
-| 3 | Save Her Twice | [Watch](https://Buchiexplores.github.io/storyforge/preview/?ep=3) |
-| 4 | The Price Of A Minute | [Watch](https://Buchiexplores.github.io/storyforge/preview/?ep=4) |
-| 5 | Mara's Name | [Watch](https://Buchiexplores.github.io/storyforge/preview/?ep=5) |
-| 6 | The Street That Disappears | [Watch](https://Buchiexplores.github.io/storyforge/preview/?ep=6) |
+Watch in the README: press play, then click **Next episode →** to jump to the following part. For sidebar navigation, keyboard shortcuts, and auto-advance, use the [full interactive player](https://Buchiexplores.github.io/storyforge/preview/example/) on GitHub Pages.
 
-After rendering episodes, copy exports into the preview folder:
+<p align="center">Jump to episode: <a href="#ep1">1</a> · <a href="#ep2">2</a> · <a href="#ep3">3</a> · <a href="#ep4">4</a> · <a href="#ep5">5</a> · <a href="#ep6">6</a></p>
 
-```bash
-chmod +x tools/prepare_preview_assets.sh
-./tools/prepare_preview_assets.sh
-```
+<p align="center" id="ep1">
+  <strong>Episode 1 · Do Not Open The Door</strong><br><br>
+  <video src="preview/example/episode_01.mp4" controls width="270" playsinline preload="metadata"></video>
+  <br><br>
+  <a href="#ep2"><img src="https://img.shields.io/badge/Next%20episode-%E2%86%92-238636?style=for-the-badge" alt="Next episode"></a>
+</p>
+
+<p align="center" id="ep2">
+  <strong>Episode 2 · The Bus With No Driver</strong><br><br>
+  <video src="preview/example/episode_02.mp4" controls width="270" playsinline preload="metadata"></video>
+  <br><br>
+  <a href="#ep1"><img src="https://img.shields.io/badge/%E2%86%90-Previous-555555?style=for-the-badge" alt="Previous"></a>
+  &nbsp;
+  <a href="#ep3"><img src="https://img.shields.io/badge/Next%20episode-%E2%86%92-238636?style=for-the-badge" alt="Next episode"></a>
+</p>
+
+<p align="center" id="ep3">
+  <strong>Episode 3 · Save Her Twice</strong><br><br>
+  <video src="preview/example/episode_03.mp4" controls width="270" playsinline preload="metadata"></video>
+  <br><br>
+  <a href="#ep2"><img src="https://img.shields.io/badge/%E2%86%90-Previous-555555?style=for-the-badge" alt="Previous"></a>
+  &nbsp;
+  <a href="#ep4"><img src="https://img.shields.io/badge/Next%20episode-%E2%86%92-238636?style=for-the-badge" alt="Next episode"></a>
+</p>
+
+<p align="center" id="ep4">
+  <strong>Episode 4 · The Price Of A Minute</strong><br><br>
+  <video src="preview/example/episode_04.mp4" controls width="270" playsinline preload="metadata"></video>
+  <br><br>
+  <a href="#ep3"><img src="https://img.shields.io/badge/%E2%86%90-Previous-555555?style=for-the-badge" alt="Previous"></a>
+  &nbsp;
+  <a href="#ep5"><img src="https://img.shields.io/badge/Next%20episode-%E2%86%92-238636?style=for-the-badge" alt="Next episode"></a>
+</p>
+
+<p align="center" id="ep5">
+  <strong>Episode 5 · Mara's Name</strong><br><br>
+  <video src="preview/example/episode_05.mp4" controls width="270" playsinline preload="metadata"></video>
+  <br><br>
+  <a href="#ep4"><img src="https://img.shields.io/badge/%E2%86%90-Previous-555555?style=for-the-badge" alt="Previous"></a>
+  &nbsp;
+  <a href="#ep6"><img src="https://img.shields.io/badge/Next%20episode-%E2%86%92-238636?style=for-the-badge" alt="Next episode"></a>
+</p>
+
+<p align="center" id="ep6">
+  <strong>Episode 6 · The Street That Disappears</strong><br><br>
+  <video src="preview/example/episode_06.mp4" controls width="270" playsinline preload="metadata"></video>
+  <br><br>
+  <a href="#ep5"><img src="https://img.shields.io/badge/%E2%86%90-Previous-555555?style=for-the-badge" alt="Previous"></a>
+</p>
+
+<!-- README-PLAYER-END -->
+
+Your own pipeline output is written to each episode's `assets/exports/` folder (gitignored, not pushed).
 
 ## Quick start
 
@@ -74,7 +116,8 @@ storyforge/
   .env.story.example          # Config template (copy to .env.story.local)
   config/style_templates/     # Reusable visual + platform style presets
   docs/                       # Full onboarding and reference docs
-  examples/phone_from_tomorrow/  # Complete example series (Episodes 1-9 scripts)
+  examples/phone_from_tomorrow/  # Example series scripts (Episodes 1-9)
+  preview/example/            # Sample rendered episodes (watch before you run the pipeline)
   series/                     # Your own series go here (empty by default)
   templates/                  # Scaffolding templates for new series/episodes
   tools/                      # Pipeline scripts

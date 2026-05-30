@@ -459,7 +459,7 @@ def render_still_segment(ffmpeg, scene, duration, width, height, fps):
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Render a fiction-storytelling episode.")
+    parser = argparse.ArgumentParser(description="Render a storyforge episode.")
     parser.add_argument(
         "--series",
         default=None,
