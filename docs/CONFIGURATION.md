@@ -1,0 +1,192 @@
+# Configuration Reference
+
+Complete reference for environment variables, series configuration, style templates, and CLI flags.
+
+- [GETTING_STARTED.md](GETTING_STARTED.md) — onboarding
+- [TROUBLESHOOTING.md](TROUBLESHOOTING.md) — failures and fixes
+
+---
+
+## Environment file
+
+Copy `.env.story.example` to `.env.story.local` at the repo root. Never commit `.env.story.local`.
+
+---
+
+## Environment variables (from `.env.story.example`)
+
+### Active series
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `PIPELINE_SERIES_DIR` | `examples/phone_from_tomorrow` | Active series folder (relative or absolute). Used when `--series` is omitted. |
+
+### OpenAI
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `OPENAI_API_KEY` | *(required)* | GPT Image API key |
+| `OPENAI_IMAGE_STRICT` | `1` | Stop on image failures; no local fallback when `1` |
+| `OPENAI_IMAGE_MODEL` | `gpt-image-1.5` | Image model |
+| `OPENAI_IMAGE_SIZE` | `1024x1536` | Generation size |
+| `OPENAI_IMAGE_QUALITY` | `high` | Quality setting |
+| `OPENAI_IMAGE_TIMEOUT_SECONDS` | `180` | Request timeout |
+
+### ElevenLabs
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `ELEVENLABS_API_KEY` | *(required for voice)* | API key |
+| `ELEVENLABS_VOICE_ID` | *(required for voice)* | From `--list-voices` |
+| `ELEVENLABS_MODEL_ID` | `eleven_multilingual_v2` | TTS model |
+| `ELEVENLABS_OUTPUT_FORMAT` | `mp3_44100_128` | Audio format |
+
+### fal.ai (optional)
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `FAL_KEY` | *(empty)* | fal.ai API key |
+| `PIPELINE_VIDEO_MODE` | `local` | `local` or `fal` for motion clips |
+| `FAL_VIDEO_MODEL` | `bytedance/seedance-2.0/image-to-video` | fal video model |
+| `FAL_VIDEO_RESOLUTION` | `720p` | fal resolution |
+| `FAL_VIDEO_TIMEOUT_SECONDS` | `480` | fal timeout |
+| `FAL_VIDEO_GENERATE_AUDIO` | `false` | fal clip audio |
+
+### Video render
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `EPISODE_COVER_INTRO_SECONDS` | `2.5` | Cover shown before narration |
+| `FFMPEG_PATH` | auto | ffmpeg binary path |
+| `FFPROBE_PATH` | auto | ffprobe binary path |
+
+### Notifications
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `PIPELINE_NOTIFY_ON_RUN` | `true` | Notify after pipeline run |
+| `PIPELINE_NOTIFY_EMAIL` | *(empty)* | Recipient(s), comma-separated |
+| `PIPELINE_NOTIFY_EMAILS` | *(empty)* | Alias for recipients |
+| `EMAIL_RECEIVER` | *(empty)* | Legacy alias |
+
+### SMTP
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `SMTP_HOST` | *(empty)* | SMTP server |
+| `SMTP_PORT` | `587` | Port |
+| `SMTP_USERNAME` | *(empty)* | Login (`EMAIL_SENDER` alias) |
+| `SMTP_PASSWORD` | *(empty)* | Password (`EMAIL_PASSWORD` alias) |
+| `SMTP_FROM_EMAIL` | *(empty)* | From address |
+| `SMTP_USE_TLS` | `true` | STARTTLS |
+
+Without SMTP, pending files go to `{series}/notifications/`.
+
+---
+
+## `series_config.yaml` schema
+
+Optional YAML at `{series}/series_config.yaml`. Merged with `style_template` from `config/style_templates/`.
+
+```yaml
+series:
+  title: "Your Series Title"
+  channel_name: "Your Channel Name"
+  logline: "One sentence premise."
+
+style_template: thriller_mystery   # thriller_mystery | romance_drama | sci_fi
+
+# Optional overrides:
+# visual_style: "custom style string"
+# image_prompt_rules: |
+#   Multi-line rules for image prompts.
+
+voice:
+  narrator_notes: "Pacing guidance for authors."
+
+platforms:
+  default_disclosure: "This is a fictional story."
+  publish_order:
+    - tiktok
+    - youtube_shorts
+    - instagram_reels
+
+production:
+  target_duration_seconds: "60-90"
+  scene_count: "15-25"
+  cover_intro_seconds: 2.5
+```
+
+Episode-level overrides: `scenes.json` (`style`, `image_prompt_rules`, `cover`, etc.).
+
+---
+
+## Style templates
+
+| Template | Genre |
+|----------|-------|
+| `thriller_mystery` | Suspense, cliffhangers, moody lighting |
+| `romance_drama` | Relationships, emotional close-ups |
+| `sci_fi` | Near-future tech, discovery, consequence |
+
+Each provides `visual_style`, `image_prompt_rules`, `cover` defaults, and `platforms` disclosures/hashtags.
+
+`init_series.py --style {name}` seeds a new series from a template.
+
+---
+
+## CLI: `run_episode_pipeline.py`
+
+| Flag | Description |
+|------|-------------|
+| `--series PATH` | Series dir (default: `PIPELINE_SERIES_DIR`) |
+| `--episode NAME` | Episode folder **(required)** |
+| `--force` | Regenerate images, cover, videos |
+| `--skip-voice` / `--skip-images` / `--skip-cover` / `--skip-videos` / `--skip-render` | Skip steps |
+| `--video-mode {local,fal}` | Motion provider |
+| `--notify` / `--no-notify` | Completion notification |
+
+---
+
+## CLI: `generate_episode_assets.py`
+
+| Flag | Description |
+|------|-------------|
+| `--series`, `--episode` | Target series/episode |
+| `--list-voices` | Print ElevenLabs voice IDs |
+| `--voice` | Generate voiceover |
+| `--images` | Generate scene images |
+| `--force-images` | Overwrite existing images |
+| `--image-provider {openai,fal,local}` | Image backend |
+| `--openai-images` / `--local-images` | Provider shortcuts |
+| `--image-ids IDS` | Comma-separated scene IDs only |
+| `--videos` | Generate motion clips |
+| `--force-videos` | Overwrite existing videos |
+| `--local-videos` | ffmpeg zoom-pan (no fal) |
+| `--video-ids IDS` | Comma-separated video scene IDs |
+| `--cover` | Generate cover |
+| `--force-cover` | Regenerate cover background |
+| `--cover-provider {openai,fal,local}` | Cover background provider |
+| `--openai-cover` | OpenAI cover shortcut |
+
+---
+
+## CLI: `render_episode.py`
+
+| Flag | Description |
+|------|-------------|
+| `--series`, `--episode` | Target series/episode |
+| `--intro-duration SECONDS` | Cover intro (default: `EPISODE_COVER_INTRO_SECONDS`) |
+
+Re-render only; does not call OpenAI or ElevenLabs.
+
+---
+
+## CLI: `init_series.py`
+
+| Flag | Description |
+|------|-------------|
+| `--name TITLE` | Series title **(required)** |
+| `--style TEMPLATE` | Style template (default: `thriller_mystery`) |
+| `--output-dir DIR` | Parent folder (default: `series`) |
+| `--slug SLUG` | Folder slug (default: slugified name) |

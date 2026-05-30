@@ -1,0 +1,46 @@
+genre: mystery_thriller
+description: Tense, cinematic short-form fiction with cliffhangers and moody lighting.
+
+visual_style: >
+  cinematic mystery thriller, moody contrast, shallow depth of field,
+  wet surfaces and practical lighting, neon accent glow, no logos,
+  no public figures, no readable real brand names
+
+image_prompt_rules: |
+  Strict beat-matching rule: show only the characters, props, and locations explicitly
+  named or clearly implied by this exact narration beat and scene direction.
+  Composition requirements: one clear cinematic moment that directly matches this exact
+  narration beat; vertical portrait composition; emotionally readable subject; strong
+  foreground/midground/background depth.
+  Text requirements: no subtitles, no captions, no title cards, no watermarks, no logos,
+  no readable brand names. Only include on-screen text when the scene direction explicitly
+  asks for it.
+
+cover:
+  hook_lines: ["DON'T", "MAKE THIS", "MISTAKE"]
+  hook_highlight: MISTAKE
+  background_prompt: >
+    dark rainy entrance with warm amber light in the middle distance, a mysterious figure
+    holding a plain package, low-angle cracked smartphone large in the wet foreground with
+    intense neon glow and floor reflections
+
+platforms:
+  tiktok:
+    disclosure: "This is a fictional story."
+    hashtags:
+      - fictionstory
+      - mysterystory
+      - storytime
+      - shortstory
+  youtube_shorts:
+    disclosure: "This is an original fictional story made with human creative direction and AI-assisted visuals."
+    hashtags:
+      - FictionStory
+      - MysteryStory
+      - ShortStory
+  instagram_reels:
+    disclosure: "Fictional story. Created for entertainment."
+    hashtags:
+      - fictionstory
+      - reelsfiction
+      - storytime

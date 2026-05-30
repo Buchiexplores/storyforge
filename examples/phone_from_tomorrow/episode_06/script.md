@@ -1,0 +1,39 @@
+# Episode 6: The Street That Disappears
+
+The note in Mara's handwriting led Tobi and Mara to a narrow lane behind the market before dawn.
+
+Every signboard on the street read something different depending on when he blinked.
+
+Iya Sade was waiting at the entrance with a lantern and said the city forgets places that owe tomorrow too much.
+
+New message: Enter alone if you want the street to remember Mara.
+
+Mara grabbed his sleeve, but for one missing minute she forgot why she was afraid and let him go.
+
+Inside, the lane stretched longer than the map in Mara's notebook.
+
+Shopfronts appeared and vanished between breaths, as if the street was deciding whether it had ever existed.
+
+Tobi heard payphones ringing behind closed shutters, all playing his own voice asking for help.
+
+At the far end stood a barbershop with no reflection in its mirror.
+
+On the counter lay a stack of dead phone batteries arranged like prayer beads.
+
+The cracked phone finally showed a full sentence instead of fragments.
+
+First owners never keep names. Leave yours or lose hers.
+
+Tobi carved his name into the dusty mirror to prove he was still real.
+
+The mirror answered by showing Mara alone on the empty lane outside, unable to remember which door he had used.
+
+Then the woman from the bus appeared in the reflection and said the first owner had made the same trade.
+
+She pointed beneath the counter, where an old receipt carried tomorrow's date and a single name: Iya Sade.
+
+When Tobi turned, the barbershop was gone and the dead batteries were warm in his pocket.
+
+New message: Ask Iya Sade who owned the phone first.
+
+Follow me for the next episode. Do not miss out.

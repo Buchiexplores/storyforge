@@ -1,0 +1,208 @@
+{
+  "episode_title": "The Street That Disappears",
+  "output_slug": "episode_06",
+  "resolution": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "style": "cinematic Afro-futurist mystery thriller, predawn Lagos market lane, wet concrete, faded shutters, lantern light, neon-green phone glow, uncanny disappearing architecture, realistic but slightly heightened, shallow depth of field, moody contrast, no logos, no public figures, no readable real brand names",
+  "continuity_notes": "Maintain continuity from Episodes 1 through 5. Tobi remains the same 24-year-old Nigerian delivery rider with dark green jacket, practical worn clothes, and cracked neon-green phone. Mara remains his younger sister with shoulder-length braids and wary intelligence. Iya Sade remains the older seller with patterned headscarf and calm authority, now carrying a lantern before dawn. The bus woman remains faintly uncanny and dry in the rain. The disappearing street should still feel like Lagos, but unstable, forgotten, and wrong.",
+  "characters": [
+    {
+      "name": "Tobi Adeyemi",
+      "description": "24-year-old Nigerian delivery rider, lean build, dark brown skin, short close-cropped black twists with a low fade, faint moustache and goatee, tired expressive eyes, dark green delivery jacket or hoodie with subtle reflective strips, practical worn clothes, cracked old black smartphone glowing neon green."
+    },
+    {
+      "name": "Mara Adeyemi",
+      "description": "Tobi's younger sister, early 20s Nigerian woman, slim build, dark brown skin, neat shoulder-length braids, simple clothes, intelligent face strained by fear and memory gaps."
+    },
+    {
+      "name": "Iya Sade",
+      "description": "Older Lagos street food seller, late 50s Nigerian woman, dark brown skin, patterned headscarf, practical layered clothes, calm unreadable face, carrying a lantern before dawn."
+    },
+    {
+      "name": "Bus Woman",
+      "description": "Mysterious Nigerian woman first seen on the driverless bus, calm face, plain dark clothing, unsettling direct gaze, appears dry and undisturbed."
+    }
+  ],
+  "cover": {
+    "series_title": "The Phone That Receives Tomorrow",
+    "episode_number": 6,
+    "part_number": 6,
+    "hook_lines": [
+      "THE STREET",
+      "ISN'T ON",
+      "ANY MAP"
+    ],
+    "hook_highlight": "MAP",
+    "title_lines": [
+      "THE STREET THAT",
+      "DISAPPEARS"
+    ],
+    "background_prompt": "predawn Lagos market lane with wet concrete and shuttered stalls; Tobi holds a cracked neon-green phone while standing before a barbershop whose mirror shows the wrong reflection; Mara waits at the lane entrance beside Iya Sade's lantern; unstable signboards and old payphones appear in the mist; eerie but grounded; leave dark clean space at top for title."
+  },
+  "scenes": [
+    {
+      "id": "01a_note_leads_lane",
+      "image_id": "01a_note_leads_lane",
+      "duration": 4.8,
+      "caption": "The note in Mara's handwriting led Tobi and Mara to a narrow lane behind the market before dawn.",
+      "prompt": "Exact narration beat: Before dawn behind a Lagos market, Tobi and Mara stand at the mouth of a narrow wet lane, guided by Mara's handwritten note and the glowing cracked phone. Shuttered stalls and misty lantern light ahead.",
+      "motion": "Slow approach from behind the siblings toward the narrow predawn lane."
+    },
+    {
+      "id": "02a_signboards_change",
+      "image_id": "02a_signboards_change",
+      "duration": 4.6,
+      "caption": "Every signboard on the street read something different depending on when he blinked.",
+      "prompt": "Exact narration beat: The lane's old signboards and painted shop names seem inconsistent and unstable, as if changing between glances. Tobi looks up in confusion while the green phone lights the wet lane.",
+      "motion": "Focus shifts between signboards as their meanings seem to slide and change."
+    },
+    {
+      "id": "03a_iya_lantern",
+      "image_id": "03a_iya_lantern",
+      "duration": 5.0,
+      "caption": "Iya Sade was waiting at the entrance with a lantern and said the city forgets places that owe tomorrow too much.",
+      "prompt": "Exact narration beat: Iya Sade stands at the lane entrance with a warm lantern, speaking to Tobi and Mara with calm certainty. Predawn wet market lane, green phone glow, fading night rain.",
+      "motion": "Push from the lantern glow to Iya Sade's face as she warns them."
+    },
+    {
+      "id": "04a_enter_alone",
+      "image_id": "04a_enter_alone",
+      "duration": 3.4,
+      "caption": "New message: Enter alone if you want the street to remember Mara.",
+      "prompt": "Exact narration beat: Extreme close-up of the cracked phone screen showing the message: ENTER ALONE IF YOU WANT THE STREET TO REMEMBER MARA. Tobi's fingers tense around the glowing phone.",
+      "motion": "The words arrive with a sharp green flicker against the dark lane."
+    },
+    {
+      "id": "05a_mara_forgets_fear",
+      "image_id": "05a_mara_forgets_fear",
+      "duration": 4.6,
+      "caption": "Mara grabbed his sleeve, but for one missing minute she forgot why she was afraid and let him go.",
+      "prompt": "Exact narration beat: Mara clutches Tobi's sleeve at the lane entrance, frightened, then her expression empties for a beat and her hand loosens. Iya Sade and the lantern stand nearby.",
+      "motion": "Close movement on Mara's hand slipping from Tobi's sleeve as her memory blanks."
+    },
+    {
+      "id": "06a_lane_stretches_longer",
+      "image_id": "06a_lane_stretches_longer",
+      "duration": 4.7,
+      "caption": "Inside, the lane stretched longer than the map in Mara's notebook.",
+      "prompt": "Exact narration beat: Tobi walks alone into the narrow wet lane, which seems to stretch impossibly long beyond what the hand-drawn map should allow. Shuttered stalls and green reflections recede into mist.",
+      "motion": "Long push down the lane as distance seems to lengthen unnaturally."
+    },
+    {
+      "id": "07a_shopfronts_appear_vanish",
+      "image_id": "07a_shopfronts_appear_vanish",
+      "duration": 4.8,
+      "caption": "Shopfronts appeared and vanished between breaths, as if the street was deciding whether it had ever existed.",
+      "prompt": "Exact narration beat: The lane's shopfronts flicker between present and absent as Tobi moves, some shutters appearing solid and others missing entirely. Wet concrete and green phone glow keep the Lagos setting grounded.",
+      "motion": "Subtle stutter-like reveal as storefronts seem to blink in and out."
+    },
+    {
+      "id": "08a_payphones_voice",
+      "image_id": "08a_payphones_voice",
+      "duration": 5.0,
+      "caption": "Tobi heard payphones ringing behind closed shutters, all playing his own voice asking for help.",
+      "prompt": "Exact narration beat: Closed metal shutters line the lane while old public payphones ring from behind them. Tobi pauses, listening in fear, green phone glow on his face. No readable text.",
+      "motion": "Slow pan along the shutters as distant ringing repeats from impossible places."
+    },
+    {
+      "id": "09a_barbershop_no_reflection",
+      "image_id": "09a_barbershop_no_reflection",
+      "duration": 4.5,
+      "caption": "At the far end stood a barbershop with no reflection in its mirror.",
+      "prompt": "Exact narration beat: At the end of the lane, a dim old barbershop stands open. Its front mirror reflects nothing it should. Tobi approaches with the cracked green phone lighting the doorway.",
+      "motion": "Slow push toward the reflectionless barbershop mirror."
+    },
+    {
+      "id": "10a_dead_batteries",
+      "image_id": "10a_dead_batteries",
+      "duration": 4.0,
+      "caption": "On the counter lay a stack of dead phone batteries arranged like prayer beads.",
+      "prompt": "Exact narration beat: Inside the barbershop, dead phone batteries are stacked in a careful ritual line on the counter like prayer beads. The green phone glow spills over dusty surfaces.",
+      "motion": "Table-level move across the strange battery arrangement toward the mirror."
+    },
+    {
+      "id": "11a_full_sentence",
+      "image_id": "11a_full_sentence",
+      "duration": 3.0,
+      "caption": "The cracked phone finally showed a full sentence instead of fragments.",
+      "prompt": "Exact narration beat: Close-up of the cracked phone in Tobi's hand inside the dark barbershop, about to reveal a longer message than ever before. Dusty mirror and batteries blur behind.",
+      "motion": "The phone brightens as if gathering itself before speaking plainly."
+    },
+    {
+      "id": "12a_leave_yours_lose_hers",
+      "image_id": "12a_leave_yours_lose_hers",
+      "duration": 3.7,
+      "caption": "First owners never keep names. Leave yours or lose hers.",
+      "prompt": "Exact narration beat: Extreme close-up of the cracked phone screen showing the message: FIRST OWNERS NEVER KEEP NAMES. LEAVE YOURS OR LOSE HERS. Green light blooms in the darkness.",
+      "motion": "The sentence lands in full as the camera pushes into the cracked screen."
+    },
+    {
+      "id": "13a_carves_name_mirror",
+      "image_id": "13a_carves_name_mirror",
+      "duration": 4.6,
+      "caption": "Tobi carved his name into the dusty mirror to prove he was still real.",
+      "prompt": "Exact narration beat: Tobi scratches his own name into the dusty barbershop mirror with shaking urgency while the cracked phone glows in his other hand. The mirror still feels wrong and empty.",
+      "motion": "Tight focus on letters appearing in the dust as Tobi carves his name."
+    },
+    {
+      "id": "14a_mirror_shows_mara_lost",
+      "image_id": "14a_mirror_shows_mara_lost",
+      "duration": 5.1,
+      "caption": "The mirror answered by showing Mara alone on the empty lane outside, unable to remember which door he had used.",
+      "prompt": "Exact narration beat: In the barbershop mirror, Mara is seen alone outside in the lane, turning in confusion and unable to find the right doorway. Tobi watches the impossible reflection in horror.",
+      "motion": "The mirror image drifts from Tobi to Mara lost outside while the real room stays still."
+    },
+    {
+      "id": "15a_bus_woman_reflection",
+      "image_id": "15a_bus_woman_reflection",
+      "duration": 4.6,
+      "caption": "Then the woman from the bus appeared in the reflection and said the first owner had made the same trade.",
+      "prompt": "Exact narration beat: The mysterious bus woman appears only in the mirror reflection beside Mara, speaking calmly while Tobi stands alone in the real barbershop. She remains dry and untouched by the damp air.",
+      "motion": "The woman materializes in the reflection beside Mara with unnerving stillness."
+    },
+    {
+      "id": "16a_receipt_iya_name",
+      "image_id": "16a_receipt_iya_name",
+      "duration": 4.8,
+      "caption": "She pointed beneath the counter, where an old receipt carried tomorrow's date and a single name: Iya Sade.",
+      "prompt": "Exact narration beat: Beneath the dusty barbershop counter lies an old receipt with tomorrow's date and the handwritten name Iya Sade. Tobi reaches toward it while the green phone lights the paper.",
+      "motion": "Camera drops beneath the counter to the receipt as the date and name come into view."
+    },
+    {
+      "id": "17a_barbershop_gone",
+      "image_id": "17a_barbershop_gone",
+      "duration": 4.7,
+      "caption": "When Tobi turned, the barbershop was gone and the dead batteries were warm in his pocket.",
+      "prompt": "Exact narration beat: Tobi stands back in the lane where the barbershop should have been, now replaced by a blank shuttered wall. He touches his pocket, feeling the dead batteries there, green phone glowing in disbelief.",
+      "motion": "The room seems to blink away, leaving Tobi alone with an impossible blank wall."
+    },
+    {
+      "id": "18a_ask_first_owner",
+      "image_id": "18a_ask_first_owner",
+      "duration": 4.1,
+      "caption": "New message: Ask Iya Sade who owned the phone first.",
+      "prompt": "Exact narration beat: Extreme close-up of the cracked phone screen showing the message: ASK IYA SADE WHO OWNED THE PHONE FIRST. Predawn lane reflections shimmer behind the phone.",
+      "motion": "The command glows sharper while the lane darkens around it."
+    },
+    {
+      "id": "19a_follow_cta",
+      "image_id": "19a_follow_cta",
+      "duration": 3.2,
+      "caption": "Follow me for the next episode. Do not miss out.",
+      "prompt": "Exact narration beat: Cliffhanger frame in the disappearing market lane: Tobi stands between the blank shutter where the barbershop vanished and the lane entrance where Mara and Iya Sade wait with the lantern. The green phone glows bright. No text in image.",
+      "motion": "Hold on Tobi in the uncanny lane as lantern and green light pulse from opposite ends."
+    },
+    {
+      "id": "20a_end_card",
+      "image_id": "20a_end_card",
+      "duration": 2.0,
+      "caption": "Episode 7: The First Owner.",
+      "prompt": "Exact narration beat: End-card cliffhanger visual, an old receipt with tomorrow's date and the name Iya Sade lies beside stacked dead batteries and the cracked neon-green phone on wet concrete. No text in image.",
+      "motion": "Final slow push into the receipt, dead batteries, and green-lit cracked phone.",
+      "post_roll": true
+    }
+  ]
+}

@@ -1,0 +1,297 @@
+{
+  "episode_title": "Do Not Open The Door",
+  "output_slug": "episode_01",
+  "resolution": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "style": "cinematic Afro-futurist mystery thriller, modern Lagos at night and early morning, wet asphalt, amber streetlights, green phone glow, realistic but slightly heightened, shallow depth of field, moody contrast, no logos, no public figures, no readable real brand names",
+  "cover": {
+    "series_title": "The Phone That Receives Tomorrow",
+    "episode_number": 1,
+    "part_number": 1,
+    "hook_lines": [
+      "DON'T",
+      "MAKE THIS",
+      "MISTAKE"
+    ],
+    "hook_highlight": "MISTAKE",
+    "title_lines": [
+      "DO NOT OPEN",
+      "THE DOOR"
+    ]
+  },
+  "scenes": [
+    {
+      "id": "01_phone_under_pillow",
+      "duration": 6,
+      "caption": "At 2:13 AM, Tobi's phone buzzed under his pillow.",
+      "prompt": "Close-up of a cracked old smartphone glowing under a pillow at 2:13 AM, dark modest Lagos apartment bedroom, green message light, tense cinematic lighting, shallow depth of field, no readable brand names"
+    },
+    {
+      "id": "02_message_from_self",
+      "duration": 8,
+      "caption": "The message came from his own number: Do not open the door.",
+      "prompt": "Extreme close-up of a cracked phone screen showing an ominous text message interface, message reads \"Do not open your door tomorrow at 7:40 AM.\", sender listed as \"My Number\", green glow on fingers, cinematic thriller style"
+    },
+    {
+      "id": "03_tobi_reacts",
+      "duration": 10,
+      "caption": "Tobi laughed because fear is easier to swallow when you pretend it is stupid.",
+      "prompt": "24-year-old Nigerian delivery rider sitting up in bed at night, holding a cracked phone, nervous laugh, dim room, shadows on wall, amber and green lighting, realistic cinematic frame"
+    },
+    {
+      "id": "04_morning_lagos",
+      "duration": 10,
+      "caption": "By morning, Lagos was already awake.",
+      "prompt": "Modern Lagos street just after rain at early morning, danfo-style buses in motion without readable text, generator smoke in distance, wet road reflecting amber streetlights, cinematic urban mystery"
+    },
+    {
+      "id": "05_tobi_at_door",
+      "duration": 9,
+      "caption": "At 7:39, Tobi stood beside his door with one shoe on.",
+      "prompt": "Interior apartment hallway, young Nigerian man with one shoe on standing frozen beside a door, checking a cracked phone, morning light through window, tense stillness, cinematic thriller"
+    },
+    {
+      "id": "06_three_taps",
+      "duration": 8,
+      "caption": "Then someone knocked. Three soft taps.",
+      "prompt": "Close-up of a closed apartment door from inside, faint silhouette outside, hand shadow near the door, suspenseful lighting, shallow depth of field, no gore"
+    },
+    {
+      "id": "07_second_warning",
+      "duration": 11,
+      "caption": "If you open it, she will know where you live.",
+      "prompt": "Close-up of cracked phone in a young man's hand, message reads \"If you open it, she will know where you live.\", green glow reflecting in anxious eyes, cinematic mystery thriller"
+    },
+    {
+      "id": "08_woman_with_package",
+      "duration": 12,
+      "caption": "Outside, a woman's voice said, \"Delivery for Tobi Adeyemi.\"",
+      "prompt": "View through peephole of a mysterious woman outside an apartment door holding a plain brown package, face obscured by shadow, rainy hallway light, tense cinematic composition"
+    },
+    {
+      "id": "09_package_breathing",
+      "duration": 8,
+      "caption": "But Tobi had not ordered anything.",
+      "prompt": "Plain brown paper package sitting outside an apartment door, subtle movement under the paper as if something inside is breathing, dramatic low angle, amber hallway light, no gore"
+    },
+    {
+      "id": "10_end_card",
+      "duration": 4,
+      "caption": "Episode 2: The package was breathing.",
+      "prompt": "Minimal cinematic black end card with green phone glow and amber light leak, suspenseful mystery atmosphere, no logos"
+    }
+  ],
+  "video_scenes": [
+    {
+      "id": "01_phone_under_pillow",
+      "duration": "4",
+      "motion": "The cracked phone vibrates under the pillow as green light pulses through the fabric. Slow push-in, anxious handheld micro-shake, rainy night reflections, cinematic suspense."
+    },
+    {
+      "id": "02_message_from_self",
+      "duration": "4",
+      "motion": "The cracked screen brightens and the camera glides closer to the ominous text. Fingers tense around the phone, rain streaks and city lights shimmer in the background."
+    },
+    {
+      "id": "03_tobi_reacts",
+      "duration": "4",
+      "motion": "Tobi sits up in bed with the glowing phone, nervous laugh fading into worry. Subtle head movement, shallow focus, green phone light flickering across his face."
+    },
+    {
+      "id": "04_morning_lagos",
+      "duration": "4",
+      "motion": "Wet Lagos morning street comes alive with soft traffic movement, reflections sliding across the road, generator haze drifting, slow cinematic pan."
+    },
+    {
+      "id": "05_tobi_at_door",
+      "duration": "4",
+      "motion": "Tobi freezes beside the apartment door with one shoe on, phone in hand. Slow dolly-in, tense breathing, morning light shifts across the hallway."
+    },
+    {
+      "id": "06_three_taps",
+      "duration": "4",
+      "motion": "The closed door looms from inside the apartment. A shadow moves faintly outside, the camera trembles slightly, suspense builds without showing who is there."
+    },
+    {
+      "id": "07_second_warning",
+      "duration": "4",
+      "motion": "The phone buzzes in Tobi's hand and the warning message glows brighter. Green light reflects in anxious eyes, slow push-in, thriller tension."
+    },
+    {
+      "id": "08_woman_with_package",
+      "duration": "4",
+      "motion": "Through the peephole, the mysterious woman holding the package shifts slightly toward the door. Rainy corridor glow, face remains hidden in shadow."
+    },
+    {
+      "id": "09_package_breathing",
+      "duration": "4",
+      "motion": "The brown package sits outside the door and subtly rises and falls as if breathing. Low angle, amber light flicker, paper edges moving slightly."
+    }
+  ],
+  "caption_segments": [
+    {
+      "id": "01a_phone_buzz",
+      "image_id": "01a_phone_buzz",
+      "duration": 4.2,
+      "caption": "At 2:13 in the morning, Tobi's phone buzzed under his pillow.",
+      "prompt": "Exact narration beat: At 2:13 AM, a cracked old smartphone is half-hidden under Tobi's pillow in a dark modest Lagos bedroom. The pillow edge lifts slightly from vibration, green light leaks through the fabric, rain shadows on the wall, tense close-up.",
+      "motion": "Slow push-in toward the pillow as the green phone glow pulses and the fabric trembles from vibration."
+    },
+    {
+      "id": "02a_own_number",
+      "image_id": "02a_own_number",
+      "duration": 2.8,
+      "caption": "The message came from his own number.",
+      "prompt": "Exact narration beat: Close-up of Tobi's hand holding the cracked phone in bed; the message thread header shows it is from his own number or 'My Number'. Green screen glow lights his fingers, dark bedroom background, suspenseful.",
+      "motion": "Camera creeps closer to the cracked phone screen as Tobi's thumb freezes over the message from his own number."
+    },
+    {
+      "id": "02b_warning_text",
+      "image_id": "02b_warning_text",
+      "duration": 3.5,
+      "caption": "Do not open your door tomorrow at 7:40 AM.",
+      "prompt": "Exact narration beat: Extreme close-up of the cracked phone screen in Tobi's hand showing an ominous text bubble that reads: Do not open your door tomorrow at 7:40 AM. Green glow, rain-streaked window blur behind it, high tension.",
+      "motion": "The warning text glows brighter while the camera pushes in and Tobi's hand tightens around the phone."
+    },
+    {
+      "id": "03a_tobi_laughed",
+      "image_id": "03a_tobi_laughed",
+      "duration": 2.4,
+      "caption": "Tobi stared at it, then laughed.",
+      "prompt": "Exact narration beat: Tobi, a 24-year-old Nigerian delivery rider, sits upright in bed staring at the glowing cracked phone, then gives a nervous laugh. Dim modest bedroom, amber lamp, green phone light on his face.",
+      "motion": "Tobi's nervous laugh fades as his eyes remain fixed on the phone; subtle handheld camera drift."
+    },
+    {
+      "id": "03b_fear_line",
+      "image_id": "03b_fear_line",
+      "duration": 3.8,
+      "caption": "Fear is easier to swallow when you pretend it is stupid.",
+      "prompt": "Exact narration beat: Tight emotional portrait of Tobi pretending to smile while fear shows in his eyes, cracked phone glowing green below his chin, bedroom shadows stretching behind him.",
+      "motion": "Slow dolly toward Tobi's face as the forced smile drops and the green phone glow flickers across his anxious eyes."
+    },
+    {
+      "id": "03c_stolen_phone",
+      "image_id": "03c_stolen_phone",
+      "duration": 3.0,
+      "caption": "His real phone had been stolen three days ago.",
+      "prompt": "Exact narration beat flashback: Three days earlier, Tobi stands beside his delivery motorbike on a wet Lagos roadside, patting an empty pocket in shock after realizing his real phone is gone. Blurred street crowd, rain, amber lights, no violence.",
+      "motion": "Flashback-style shot with slight camera shake as Tobi checks his empty pocket and looks around the rainy street."
+    },
+    {
+      "id": "03d_unclaimed_bag",
+      "image_id": "03d_unclaimed_bag",
+      "duration": 4.8,
+      "caption": "This one was a cracked old thing from an unclaimed delivery bag.",
+      "prompt": "Exact narration beat: Inside a worn delivery bag on Tobi's bed, a cracked old phone lies among unclaimed parcels and paper receipts. Tobi's hands hover over it, green light starting to glow from the damaged screen.",
+      "motion": "Camera slides over the open delivery bag toward the cracked old phone as its green screen glow begins to pulse."
+    },
+    {
+      "id": "04a_lagos_awake",
+      "image_id": "04a_lagos_awake",
+      "duration": 2.4,
+      "caption": "By morning, Lagos was already awake.",
+      "prompt": "Exact narration beat: Early morning Lagos after rain, city waking up, wet road reflecting amber streetlights, commuters and buses beginning to move, generator haze in the distance, cinematic urban mystery.",
+      "motion": "Slow morning pan across wet Lagos street as traffic and commuters begin moving through mist."
+    },
+    {
+      "id": "04b_lagos_sounds",
+      "image_id": "04b_lagos_sounds",
+      "duration": 4.0,
+      "caption": "Generators coughing. Buses shouting. Rainwater shining under streetlights.",
+      "prompt": "Exact narration beat: Collage-like but realistic Lagos street moment: a small generator coughing smoke near a storefront, yellow buses moving without readable text, rainwater shining on asphalt under amber streetlights.",
+      "motion": "Street-level camera glides past generator smoke, moving buses, and shimmering puddles under amber light."
+    },
+    {
+      "id": "05a_door_wait",
+      "image_id": "05a_door_wait",
+      "duration": 4.2,
+      "caption": "At 7:39, Tobi stood beside his door with one shoe on.",
+      "prompt": "Exact narration beat: At 7:39 AM inside Tobi's apartment, Tobi stands frozen beside the front door with one shoe on and one bare foot, cracked phone in hand, morning light, tense stillness.",
+      "motion": "Slow dolly-in on Tobi frozen beside the door, one shoe on, phone clutched in his hand."
+    },
+    {
+      "id": "05b_mara_line",
+      "image_id": "05b_mara_line",
+      "duration": 4.0,
+      "caption": "Mara called from the kitchen, \"Are you leaving or praying?\"",
+      "prompt": "Exact narration beat: Tobi is frozen near the apartment door while Mara, a young Nigerian woman in the kitchen doorway behind him, calls out with casual concern. Warm kitchen light contrasts with green phone glow, one shoe visible.",
+      "motion": "Camera holds on Tobi at the door while Mara shifts in the warm kitchen doorway behind him."
+    },
+    {
+      "id": "06a_three_taps",
+      "image_id": "06a_three_taps",
+      "duration": 3.0,
+      "caption": "Then someone knocked. Three soft taps.",
+      "prompt": "Exact narration beat: Interior view of Tobi's closed apartment door. A faint shadow stands outside and a hand silhouette nears the wood for three soft taps. Tobi's shoe and tense posture barely visible at frame edge.",
+      "motion": "The door stays closed as a shadow shifts outside and three soft knocks make the frame subtly tremble."
+    },
+    {
+      "id": "07a_time_check",
+      "image_id": "07a_time_check",
+      "duration": 2.6,
+      "caption": "Tobi checked the time. 7:40.",
+      "prompt": "Exact narration beat: Close-up of Tobi's cracked phone in his hand showing the time 7:40 AM. His anxious eye and the apartment door are blurred behind the phone, green glow, morning tension.",
+      "motion": "Phone tilts slightly in Tobi's hand as the camera snaps focus to the 7:40 AM time."
+    },
+    {
+      "id": "07b_phone_buzzed",
+      "image_id": "07b_phone_buzzed",
+      "duration": 2.0,
+      "caption": "The phone buzzed again.",
+      "prompt": "Exact narration beat: The cracked old phone vibrates violently in Tobi's palm beside the closed door. Green notification light pulses, his fingers tense, shallow focus.",
+      "motion": "The phone shakes in Tobi's palm as a new green notification pulse flashes."
+    },
+    {
+      "id": "07c_second_warning",
+      "image_id": "07c_second_warning",
+      "duration": 3.6,
+      "caption": "If you open it, she will know where you live.",
+      "prompt": "Exact narration beat: Over-the-shoulder close-up of the cracked phone showing a new warning message: If you open it, she will know where you live. Tobi's anxious face and the closed door are visible in the background.",
+      "motion": "Camera pushes closer to the warning message as Tobi's breath catches and the closed door looms behind."
+    },
+    {
+      "id": "08a_delivery_voice",
+      "image_id": "08a_delivery_voice",
+      "duration": 4.4,
+      "caption": "Outside, a woman's voice said, \"Delivery for Tobi Adeyemi.\"",
+      "prompt": "Exact narration beat: Peephole view from inside the door: a mysterious woman stands in the rainy hallway holding a plain brown package, face partly hidden by shadow, amber corridor light, she appears to be speaking.",
+      "motion": "Peephole perspective gently sways as the mysterious woman shifts the package and leans toward the door."
+    },
+    {
+      "id": "09a_not_ordered",
+      "image_id": "09a_not_ordered",
+      "duration": 2.6,
+      "caption": "But Tobi had not ordered anything.",
+      "prompt": "Exact narration beat: Low angle outside the apartment door: the plain brown package sits alone on the wet doormat. Tobi's door is still closed, no delivery label is visible, ominous green glow reflects on the floor.",
+      "motion": "Camera lowers toward the plain package on the wet doormat while the closed door remains still behind it."
+    },
+    {
+      "id": "09b_full_name",
+      "image_id": "09b_full_name",
+      "duration": 3.8,
+      "caption": "And no one in that building knew his full name.",
+      "prompt": "Exact narration beat: Tobi peers through the slightly opened door in shock, the brown package in the foreground and the hallway behind it. His expression says he realizes the stranger knows his full name, tense and intimate.",
+      "motion": "Slow rack focus from the package in the foreground to Tobi's shocked eye peering from behind the door."
+    },
+    {
+      "id": "10a_follow_cta",
+      "image_id": "10a_follow_cta",
+      "duration": 3.2,
+      "caption": "Follow me for the next episode. Do not miss out.",
+      "prompt": "Exact narration beat: The brown package is alone outside Tobi's closed apartment door, subtly rising and falling as if breathing. Rainy hallway, green glow from the cracked phone reflecting on wet floor, suspenseful cliffhanger frame. No people visible, no woman, no Tobi, no hands, no open-door handoff.",
+      "motion": "The package breathes subtly as green light pulses across the wet hallway floor, building cliffhanger tension."
+    },
+    {
+      "id": "10b_end_card",
+      "image_id": "10b_end_card",
+      "duration": 2.0,
+      "caption": "Episode 2: The package was breathing.",
+      "prompt": "Exact narration beat: Cliffhanger end frame on the plain brown package alone outside the closed apartment door, the paper swelling slightly as if alive, green phone glow and amber hallway light, no gore. No people visible, no woman, no Tobi, no hands, no open-door handoff.",
+      "motion": "A final slow push-in as the package rises and falls like it is breathing.",
+      "post_roll": true
+    }
+  ]
+}

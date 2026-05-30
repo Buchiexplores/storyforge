@@ -1,0 +1,367 @@
+{
+  "episode_title": "Save Her Twice",
+  "output_slug": "episode_03",
+  "resolution": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "style": "cinematic Afro-futurist mystery thriller, modern Lagos after rain, wet asphalt, amber streetlights, green phone glow, blue umbrella, street food stall smoke, yellow danfo bus, realistic but slightly heightened, shallow depth of field, moody contrast, no logos, no public figures, no readable real brand names",
+  "continuity_notes": "Maintain the same series world and characters from Episodes 1 and 2. Tobi always appears as the same 24-year-old Nigerian delivery rider: lean build, dark brown skin, short close-cropped black twists with a low fade, faint moustache and goatee, tired expressive eyes, dark green delivery jacket or hoodie with subtle reflective strips, black rider backpack, practical worn clothes, cracked old black smartphone glowing neon green. Mara is Tobi's younger sister: early 20s Nigerian woman, slim build, dark brown skin, neat shoulder-length braids, simple home T-shirt, alert protective expression. Iya Sade is an older Lagos street food seller: late 50s Nigerian woman, warm but unreadable face, patterned headscarf, rain-dark apron, blue umbrella at her roadside stall. The cracked phone must stay old, black, visibly cracked, and green-glowing. The brown package from Episodes 1 and 2 is plain, taped, and subtly breathing when shown.",
+  "characters": [
+    {
+      "name": "Tobi Adeyemi",
+      "description": "24-year-old Nigerian delivery rider, lean build, dark brown skin, short close-cropped black twists with a low fade, faint moustache and goatee, tired expressive eyes, dark green delivery jacket or hoodie with subtle reflective strips, black rider backpack, practical worn clothes, cracked old black smartphone glowing neon green."
+    },
+    {
+      "name": "Mara Adeyemi",
+      "description": "Tobi's younger sister, early 20s Nigerian woman, slim build, dark brown skin, neat shoulder-length braids, simple home T-shirt, alert protective expression."
+    },
+    {
+      "name": "Iya Sade",
+      "description": "Older Lagos street food seller, late 50s Nigerian woman, dark brown skin, patterned headscarf, rain-dark apron, calm unreadable face, blue umbrella beside her roadside akara stall."
+    }
+  ],
+  "cover": {
+    "series_title": "The Phone That Receives Tomorrow",
+    "episode_number": 3,
+    "part_number": 3,
+    "hook_lines": [
+      "SHE",
+      "DIES",
+      "TWICE"
+    ],
+    "hook_highlight": "TWICE",
+    "title_lines": [
+      "SAVE HER",
+      "TWICE"
+    ],
+    "background_prompt": "rainy Lagos junction at dawn; Tobi in a dark green delivery jacket pulls older street seller Iya Sade away from a flying metal sign; Iya Sade's blue umbrella flips in the rain; her shadow still crosses the wet road alone; cracked neon-green phone glows large in the wet foreground; amber traffic light and green reflections; leave dark clean space at top for title."
+  },
+  "scenes": [
+    {
+      "id": "01a_backseat_package_breathes",
+      "image_id": "01a_backseat_package_breathes",
+      "duration": 3.7,
+      "caption": "Tobi stared at the package on the back seat until it breathed again.",
+      "prompt": "Exact narration beat: Inside the dark back of the yellow danfo bus from Episode 2, the same plain brown package sits alone on torn leather and subtly swells as if breathing. Tobi is partly visible in the aisle, frozen, holding the cracked neon-green phone. Rain-streaked window, amber bus light, no hands touching the package.",
+      "motion": "Slow push toward the breathing package while green phone light pulses across torn leather."
+    },
+    {
+      "id": "02a_woman_warns",
+      "image_id": "02a_woman_warns",
+      "duration": 4.2,
+      "caption": "The woman from the bus whispered, Do not touch what tomorrow is still using.",
+      "prompt": "Exact narration beat: Inside the yellow danfo bus, the eerie seated woman from Episode 2 leans forward slightly and whispers toward Tobi. Other passengers remain still and shadowed. Tobi stands tense near the aisle with the cracked green-glowing phone. The brown package sits blurred on the back seat.",
+      "motion": "Rack focus from the package to the woman's whispering face, then to Tobi's shocked eyes."
+    },
+    {
+      "id": "03a_passengers_open_eyes",
+      "image_id": "03a_passengers_open_eyes",
+      "duration": 3.0,
+      "caption": "Then every sleeping passenger opened one eye.",
+      "prompt": "Exact narration beat: Interior of the yellow danfo bus. Rows of sleeping passengers simultaneously open one eye while their phones glow neon green in their laps. Tobi is framed at the aisle edge, terrified, no gore.",
+      "motion": "A slow aisle pan as one eye after another opens under green phone glow."
+    },
+    {
+      "id": "04a_tobi_runs_from_bus",
+      "image_id": "04a_tobi_runs_from_bus",
+      "duration": 3.8,
+      "caption": "Tobi ran out of the bus with the cracked phone burning green in his hand.",
+      "prompt": "Exact narration beat: Tobi bursts out of the open yellow danfo bus into rainy Lagos traffic, dark green delivery jacket and black backpack visible, cracked old phone blazing neon green in his hand. Wet road, shocked commuters, dawn haze.",
+      "motion": "Fast handheld movement as Tobi jumps from the bus into rain-slick traffic."
+    },
+    {
+      "id": "05a_save_her_twice_message",
+      "image_id": "05a_save_her_twice_message",
+      "duration": 4.5,
+      "caption": "New message: Iya Sade. 8:03 AM. Blue umbrella. Save her twice.",
+      "prompt": "Exact narration beat: Extreme close-up of Tobi's cracked black smartphone showing a neon-green message: IYA SADE. 8:03 AM. BLUE UMBRELLA. SAVE HER TWICE. Tobi's wet fingers grip the phone; rainy Lagos road blurs behind it.",
+      "motion": "The message sharpens and brightens as water drops slide across the cracked screen."
+    },
+    {
+      "id": "06a_iya_sade_blue_umbrella",
+      "image_id": "06a_iya_sade_blue_umbrella",
+      "duration": 5.8,
+      "caption": "At the junction, Iya Sade was selling akara under a blue umbrella like the phone already knew the color of the morning.",
+      "prompt": "Exact narration beat: Rainy Lagos junction at 8:03 AM. Iya Sade, an older Nigerian street food seller in a patterned headscarf and rain-dark apron, sells akara under a bright blue umbrella beside a smoking roadside stall. Tobi watches from across the wet road, phone glowing green.",
+      "motion": "Slow street-level pan from the blue umbrella to Tobi's green phone across the road."
+    },
+    {
+      "id": "07a_no_accident_yet",
+      "image_id": "07a_no_accident_yet",
+      "duration": 5.0,
+      "caption": "There was no accident yet. Just rain, traffic, and Tobi feeling stupid for being terrified.",
+      "prompt": "Exact narration beat: The junction looks normal but tense: rain, traffic, pedestrians, Iya Sade serving food, Tobi standing rigid in his dark green delivery jacket with the cracked phone. Nothing dangerous visible yet, only suspense in his face.",
+      "motion": "Traffic and pedestrians move normally while Tobi stays frozen, scanning for danger."
+    },
+    {
+      "id": "08a_truck_sign_breaks",
+      "image_id": "08a_truck_sign_breaks",
+      "duration": 4.2,
+      "caption": "Then a delivery truck hit a pothole and a metal sign tore loose from its side.",
+      "prompt": "Exact narration beat: A battered delivery truck hits a rain-filled pothole at the Lagos junction. A blank metal side sign tears loose and swings outward dangerously. Water splashes high, amber lights and green phone reflection on wet asphalt. No logos or readable text.",
+      "motion": "The truck jolts, water explodes from the pothole, and the blank metal sign rips loose."
+    },
+    {
+      "id": "09a_tobi_grabs_iya_sade",
+      "image_id": "09a_tobi_grabs_iya_sade",
+      "duration": 3.4,
+      "caption": "Tobi grabbed Iya Sade and pulled her back.",
+      "prompt": "Exact narration beat: Tobi lunges from the roadside and pulls Iya Sade backward by the shoulder just as danger enters frame. His cracked neon-green phone is clutched in one hand, her blue umbrella tips over, rain and stall smoke around them. Protective, urgent, no injury.",
+      "motion": "Fast lateral pull as Tobi yanks Iya Sade away and the blue umbrella flips in the rain."
+    },
+    {
+      "id": "10a_sign_slices_empty_air",
+      "image_id": "10a_sign_slices_empty_air",
+      "duration": 4.0,
+      "caption": "The sign sliced through the exact place her neck had been one second earlier.",
+      "prompt": "Exact narration beat: The blank metal sign cuts through empty rain exactly where Iya Sade had been standing a second earlier. Iya Sade and Tobi are safely pulled back in the foreground. Blue umbrella on wet ground, no blood, no gore.",
+      "motion": "The metal sign whips past empty air in slow motion as rain beads scatter."
+    },
+    {
+      "id": "11a_crowd_miracle",
+      "image_id": "11a_crowd_miracle",
+      "duration": 4.6,
+      "caption": "The crowd shouted miracle. Iya Sade looked at the phone and did not smile.",
+      "prompt": "Exact narration beat: Lagos commuters crowd around after the near miss, shocked and relieved. Iya Sade stands close to Tobi, staring at the cracked green-glowing phone in his hand with a calm unreadable expression. Tobi looks shaken.",
+      "motion": "Handheld crowd energy settles into a close-up on Iya Sade's unsmiling face and the phone."
+    },
+    {
+      "id": "12a_moves_debt",
+      "image_id": "12a_moves_debt",
+      "duration": 4.6,
+      "caption": "She said, That thing does not save people. It moves debt.",
+      "prompt": "Exact narration beat: Close-up of Iya Sade under the tilted blue umbrella, rain on her face, speaking directly to Tobi with grave certainty. The cracked phone's green light reflects in her eyes. Street stall smoke and wet traffic behind her.",
+      "motion": "Slow push into Iya Sade's face as green reflection flickers in her eyes."
+    },
+    {
+      "id": "13a_phone_buzz_again",
+      "image_id": "13a_phone_buzz_again",
+      "duration": 2.5,
+      "caption": "Before Tobi could answer, the phone buzzed again.",
+      "prompt": "Exact narration beat: Close-up of the cracked phone vibrating in Tobi's wet hand beside Iya Sade's blue umbrella on the ground. Neon green pulse, rain drops, tense silence.",
+      "motion": "The phone vibrates hard, green pulse flashing against wet fingers."
+    },
+    {
+      "id": "14a_first_save_complete",
+      "image_id": "14a_first_save_complete",
+      "duration": 2.5,
+      "caption": "First save complete.",
+      "prompt": "Exact narration beat: Extreme close-up of the cracked phone screen showing the message: FIRST SAVE COMPLETE. Green light, fractured glass, Tobi's anxious eyes reflected above the screen.",
+      "motion": "Hard push into the words as the glass cracks catch green light."
+    },
+    {
+      "id": "15a_second_save_required",
+      "image_id": "15a_second_save_required",
+      "duration": 4.4,
+      "caption": "Second save required tomorrow. Same woman. Same minute.",
+      "prompt": "Exact narration beat: Extreme close-up of the cracked phone screen showing the message: SECOND SAVE REQUIRED TOMORROW. SAME WOMAN. SAME MINUTE. Iya Sade's blue umbrella and wet junction are blurred behind the phone.",
+      "motion": "The new message replaces the old one with a glitchy green flicker."
+    },
+    {
+      "id": "16a_shadow_in_traffic",
+      "image_id": "16a_shadow_in_traffic",
+      "duration": 5.0,
+      "caption": "Then the road went quiet, because Iya Sade's shadow was still standing in traffic.",
+      "prompt": "Exact narration beat: Rainy Lagos road suddenly feels quiet. A dark human shadow shaped like Iya Sade stands alone in the middle of traffic even though no body casts it. Cars and buses are paused around it. Wet asphalt reflects green phone light.",
+      "motion": "Traffic sound seems frozen as the camera creeps toward the impossible shadow in the road."
+    },
+    {
+      "id": "17a_real_iya_shadow_crosses",
+      "image_id": "17a_real_iya_shadow_crosses",
+      "duration": 5.4,
+      "caption": "The real Iya Sade was beside Tobi, but her shadow was crossing the road alone.",
+      "prompt": "Exact narration beat: Tobi and the real Iya Sade stand safely on the curb under the blue umbrella, but her shadow stretches away from her and crosses the wet road by itself. The cracked green phone glows in Tobi's hand. Eerie, no gore.",
+      "motion": "The shadow slowly moves across the road while Iya Sade remains still beside Tobi."
+    },
+    {
+      "id": "18a_supposed_to_die_tomorrow",
+      "image_id": "18a_supposed_to_die_tomorrow",
+      "duration": 4.6,
+      "caption": "New message: She was supposed to die tomorrow, not today.",
+      "prompt": "Exact narration beat: Extreme close-up of Tobi's cracked phone showing the message: SHE WAS SUPPOSED TO DIE TOMORROW, NOT TODAY. In the blurred background, Iya Sade's shadow continues crossing the road alone. Green phone glow dominates.",
+      "motion": "The message flickers while the shadow moves in soft focus behind the phone."
+    },
+    {
+      "id": "19a_follow_cta",
+      "image_id": "19a_follow_cta",
+      "duration": 3.2,
+      "caption": "Follow me for the next episode. Do not miss out.",
+      "prompt": "Exact narration beat: Cliffhanger frame at the rainy Lagos junction: Tobi, Iya Sade, the blue umbrella, and her shadow crossing the road alone under green phone glow. Suspenseful hold, no text in image.",
+      "motion": "Hold on the impossible shadow crossing the wet road as green phone light pulses."
+    },
+    {
+      "id": "20a_end_card",
+      "image_id": "20a_end_card",
+      "duration": 2.0,
+      "caption": "Episode 4: The Price Of A Minute.",
+      "prompt": "Exact narration beat: End-card cliffhanger visual, rainy Lagos junction empty except for Iya Sade's blue umbrella on the wet road and a neon-green phone reflection beside a shadow with no person. No text in image.",
+      "motion": "Final slow push toward the abandoned blue umbrella and green reflection.",
+      "post_roll": true
+    }
+  ],
+  "caption_segments": [
+    {
+      "id": "01a_backseat_package_breathes",
+      "image_id": "01a_backseat_package_breathes",
+      "duration": 3.7,
+      "caption": "Tobi stared at the package on the back seat until it breathed again.",
+      "prompt": "Exact narration beat: Inside the dark back of the yellow danfo bus from Episode 2, the same plain brown package sits alone on torn leather and subtly swells as if breathing. Tobi is partly visible in the aisle, frozen, holding the cracked neon-green phone. Rain-streaked window, amber bus light, no hands touching the package.",
+      "motion": "Slow push toward the breathing package while green phone light pulses across torn leather."
+    },
+    {
+      "id": "02a_woman_warns",
+      "image_id": "02a_woman_warns",
+      "duration": 4.2,
+      "caption": "The woman from the bus whispered, Do not touch what tomorrow is still using.",
+      "prompt": "Exact narration beat: Inside the yellow danfo bus, the eerie seated woman from Episode 2 leans forward slightly and whispers toward Tobi. Other passengers remain still and shadowed. Tobi stands tense near the aisle with the cracked green-glowing phone. The brown package sits blurred on the back seat.",
+      "motion": "Rack focus from the package to the woman's whispering face, then to Tobi's shocked eyes."
+    },
+    {
+      "id": "03a_passengers_open_eyes",
+      "image_id": "03a_passengers_open_eyes",
+      "duration": 3.0,
+      "caption": "Then every sleeping passenger opened one eye.",
+      "prompt": "Exact narration beat: Interior of the yellow danfo bus. Rows of sleeping passengers simultaneously open one eye while their phones glow neon green in their laps. Tobi is framed at the aisle edge, terrified, no gore.",
+      "motion": "A slow aisle pan as one eye after another opens under green phone glow."
+    },
+    {
+      "id": "04a_tobi_runs_from_bus",
+      "image_id": "04a_tobi_runs_from_bus",
+      "duration": 3.8,
+      "caption": "Tobi ran out of the bus with the cracked phone burning green in his hand.",
+      "prompt": "Exact narration beat: Tobi bursts out of the open yellow danfo bus into rainy Lagos traffic, dark green delivery jacket and black backpack visible, cracked old phone blazing neon green in his hand. Wet road, shocked commuters, dawn haze.",
+      "motion": "Fast handheld movement as Tobi jumps from the bus into rain-slick traffic."
+    },
+    {
+      "id": "05a_save_her_twice_message",
+      "image_id": "05a_save_her_twice_message",
+      "duration": 4.5,
+      "caption": "New message: Iya Sade. 8:03 AM. Blue umbrella. Save her twice.",
+      "prompt": "Exact narration beat: Extreme close-up of Tobi's cracked black smartphone showing a neon-green message: IYA SADE. 8:03 AM. BLUE UMBRELLA. SAVE HER TWICE. Tobi's wet fingers grip the phone; rainy Lagos road blurs behind it.",
+      "motion": "The message sharpens and brightens as water drops slide across the cracked screen."
+    },
+    {
+      "id": "06a_iya_sade_blue_umbrella",
+      "image_id": "06a_iya_sade_blue_umbrella",
+      "duration": 5.8,
+      "caption": "At the junction, Iya Sade was selling akara under a blue umbrella like the phone already knew the color of the morning.",
+      "prompt": "Exact narration beat: Rainy Lagos junction at 8:03 AM. Iya Sade, an older Nigerian street food seller in a patterned headscarf and rain-dark apron, sells akara under a bright blue umbrella beside a smoking roadside stall. Tobi watches from across the wet road, phone glowing green.",
+      "motion": "Slow street-level pan from the blue umbrella to Tobi's green phone across the road."
+    },
+    {
+      "id": "07a_no_accident_yet",
+      "image_id": "07a_no_accident_yet",
+      "duration": 5.0,
+      "caption": "There was no accident yet. Just rain, traffic, and Tobi feeling stupid for being terrified.",
+      "prompt": "Exact narration beat: The junction looks normal but tense: rain, traffic, pedestrians, Iya Sade serving food, Tobi standing rigid in his dark green delivery jacket with the cracked phone. Nothing dangerous visible yet, only suspense in his face.",
+      "motion": "Traffic and pedestrians move normally while Tobi stays frozen, scanning for danger."
+    },
+    {
+      "id": "08a_truck_sign_breaks",
+      "image_id": "08a_truck_sign_breaks",
+      "duration": 4.2,
+      "caption": "Then a delivery truck hit a pothole and a metal sign tore loose from its side.",
+      "prompt": "Exact narration beat: A battered delivery truck hits a rain-filled pothole at the Lagos junction. A blank metal side sign tears loose and swings outward dangerously. Water splashes high, amber lights and green phone reflection on wet asphalt. No logos or readable text.",
+      "motion": "The truck jolts, water explodes from the pothole, and the blank metal sign rips loose."
+    },
+    {
+      "id": "09a_tobi_grabs_iya_sade",
+      "image_id": "09a_tobi_grabs_iya_sade",
+      "duration": 3.4,
+      "caption": "Tobi grabbed Iya Sade and pulled her back.",
+      "prompt": "Exact narration beat: Tobi lunges from the roadside and pulls Iya Sade backward by the shoulder just as danger enters frame. His cracked neon-green phone is clutched in one hand, her blue umbrella tips over, rain and stall smoke around them. Protective, urgent, no injury.",
+      "motion": "Fast lateral pull as Tobi yanks Iya Sade away and the blue umbrella flips in the rain."
+    },
+    {
+      "id": "10a_sign_slices_empty_air",
+      "image_id": "10a_sign_slices_empty_air",
+      "duration": 4.0,
+      "caption": "The sign sliced through the exact place her neck had been one second earlier.",
+      "prompt": "Exact narration beat: The blank metal sign cuts through empty rain exactly where Iya Sade had been standing a second earlier. Iya Sade and Tobi are safely pulled back in the foreground. Blue umbrella on wet ground, no blood, no gore.",
+      "motion": "The metal sign whips past empty air in slow motion as rain beads scatter."
+    },
+    {
+      "id": "11a_crowd_miracle",
+      "image_id": "11a_crowd_miracle",
+      "duration": 4.6,
+      "caption": "The crowd shouted miracle. Iya Sade looked at the phone and did not smile.",
+      "prompt": "Exact narration beat: Lagos commuters crowd around after the near miss, shocked and relieved. Iya Sade stands close to Tobi, staring at the cracked green-glowing phone in his hand with a calm unreadable expression. Tobi looks shaken.",
+      "motion": "Handheld crowd energy settles into a close-up on Iya Sade's unsmiling face and the phone."
+    },
+    {
+      "id": "12a_moves_debt",
+      "image_id": "12a_moves_debt",
+      "duration": 4.6,
+      "caption": "She said, That thing does not save people. It moves debt.",
+      "prompt": "Exact narration beat: Close-up of Iya Sade under the tilted blue umbrella, rain on her face, speaking directly to Tobi with grave certainty. The cracked phone's green light reflects in her eyes. Street stall smoke and wet traffic behind her.",
+      "motion": "Slow push into Iya Sade's face as green reflection flickers in her eyes."
+    },
+    {
+      "id": "13a_phone_buzz_again",
+      "image_id": "13a_phone_buzz_again",
+      "duration": 2.5,
+      "caption": "Before Tobi could answer, the phone buzzed again.",
+      "prompt": "Exact narration beat: Close-up of the cracked phone vibrating in Tobi's wet hand beside Iya Sade's blue umbrella on the ground. Neon green pulse, rain drops, tense silence.",
+      "motion": "The phone vibrates hard, green pulse flashing against wet fingers."
+    },
+    {
+      "id": "14a_first_save_complete",
+      "image_id": "14a_first_save_complete",
+      "duration": 2.5,
+      "caption": "First save complete.",
+      "prompt": "Exact narration beat: Extreme close-up of the cracked phone screen showing the message: FIRST SAVE COMPLETE. Green light, fractured glass, Tobi's anxious eyes reflected above the screen.",
+      "motion": "Hard push into the words as the glass cracks catch green light."
+    },
+    {
+      "id": "15a_second_save_required",
+      "image_id": "15a_second_save_required",
+      "duration": 4.4,
+      "caption": "Second save required tomorrow. Same woman. Same minute.",
+      "prompt": "Exact narration beat: Extreme close-up of the cracked phone screen showing the message: SECOND SAVE REQUIRED TOMORROW. SAME WOMAN. SAME MINUTE. Iya Sade's blue umbrella and wet junction are blurred behind the phone.",
+      "motion": "The new message replaces the old one with a glitchy green flicker."
+    },
+    {
+      "id": "16a_shadow_in_traffic",
+      "image_id": "16a_shadow_in_traffic",
+      "duration": 5.0,
+      "caption": "Then the road went quiet, because Iya Sade's shadow was still standing in traffic.",
+      "prompt": "Exact narration beat: Rainy Lagos road suddenly feels quiet. A dark human shadow shaped like Iya Sade stands alone in the middle of traffic even though no body casts it. Cars and buses are paused around it. Wet asphalt reflects green phone light.",
+      "motion": "Traffic sound seems frozen as the camera creeps toward the impossible shadow in the road."
+    },
+    {
+      "id": "17a_real_iya_shadow_crosses",
+      "image_id": "17a_real_iya_shadow_crosses",
+      "duration": 5.4,
+      "caption": "The real Iya Sade was beside Tobi, but her shadow was crossing the road alone.",
+      "prompt": "Exact narration beat: Tobi and the real Iya Sade stand safely on the curb under the blue umbrella, but her shadow stretches away from her and crosses the wet road by itself. The cracked green phone glows in Tobi's hand. Eerie, no gore.",
+      "motion": "The shadow slowly moves across the road while Iya Sade remains still beside Tobi."
+    },
+    {
+      "id": "18a_supposed_to_die_tomorrow",
+      "image_id": "18a_supposed_to_die_tomorrow",
+      "duration": 4.6,
+      "caption": "New message: She was supposed to die tomorrow, not today.",
+      "prompt": "Exact narration beat: Extreme close-up of Tobi's cracked phone showing the message: SHE WAS SUPPOSED TO DIE TOMORROW, NOT TODAY. In the blurred background, Iya Sade's shadow continues crossing the road alone. Green phone glow dominates.",
+      "motion": "The message flickers while the shadow moves in soft focus behind the phone."
+    },
+    {
+      "id": "19a_follow_cta",
+      "image_id": "19a_follow_cta",
+      "duration": 3.2,
+      "caption": "Follow me for the next episode. Do not miss out.",
+      "prompt": "Exact narration beat: Cliffhanger frame at the rainy Lagos junction: Tobi, Iya Sade, the blue umbrella, and her shadow crossing the road alone under green phone glow. Suspenseful hold, no text in image.",
+      "motion": "Hold on the impossible shadow crossing the wet road as green phone light pulses."
+    },
+    {
+      "id": "20a_end_card",
+      "image_id": "20a_end_card",
+      "duration": 2.0,
+      "caption": "Episode 4: The Price Of A Minute.",
+      "prompt": "Exact narration beat: End-card cliffhanger visual, rainy Lagos junction empty except for Iya Sade's blue umbrella on the wet road and a neon-green phone reflection beside a shadow with no person. No text in image.",
+      "motion": "Final slow push toward the abandoned blue umbrella and green reflection.",
+      "post_roll": true
+    }
+  ]
+}

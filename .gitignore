@@ -1,0 +1,31 @@
+.env.story.local
+.env
+.env.*
+!.env.story.example
+.venv/
+.DS_Store
+__pycache__/
+*.pyc
+.pytest_cache/
+cron.log
+
+# Generated media (keep folder structure via .gitkeep)
+**/assets/voiceover/*
+**/assets/images/*
+**/assets/video/*
+**/assets/music/*
+**/assets/exports/*
+**/assets/work/*
+!**/assets/voiceover/.gitkeep
+!**/assets/images/.gitkeep
+!**/assets/video/.gitkeep
+!**/assets/music/.gitkeep
+!**/assets/exports/.gitkeep
+!**/assets/work/.gitkeep
+
+# Runtime notification queue
+**/notifications/*
+!**/notifications/.gitkeep
+
+# Local ComfyUI / Flux helper artifacts (optional, not part of core pipeline)
+scripts/object_info.json

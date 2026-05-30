@@ -1,0 +1,216 @@
+{
+  "episode_title": "The Price Of A Minute",
+  "output_slug": "episode_04",
+  "resolution": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "style": "cinematic Afro-futurist mystery thriller, modern Lagos after rain, wet asphalt, amber traffic haze, neon-green phone glow, blue umbrella, roadside stall smoke, realistic but slightly heightened, shallow depth of field, moody contrast, no logos, no public figures, no readable real brand names",
+  "continuity_notes": "Maintain continuity from Episodes 1 through 3. Tobi is the same 24-year-old Nigerian delivery rider with lean build, dark brown skin, short close-cropped black twists with a low fade, faint moustache and goatee, tired expressive eyes, dark green delivery jacket or hoodie with subtle reflective strips, black rider backpack, practical worn clothes, and the same cracked old black smartphone glowing neon green. Mara is his younger sister with shoulder-length braids and alert expressive eyes. Iya Sade is the same older Lagos street food seller with patterned headscarf, rain-dark apron, and blue umbrella. The unnamed bus woman should appear calm, dry in the rain, and faintly uncanny. The breathing package remains plain brown, taped, and subtly alive when shown.",
+  "characters": [
+    {
+      "name": "Tobi Adeyemi",
+      "description": "24-year-old Nigerian delivery rider, lean build, dark brown skin, short close-cropped black twists with a low fade, faint moustache and goatee, tired expressive eyes, dark green delivery jacket or hoodie with subtle reflective strips, black rider backpack, practical worn clothes, cracked old black smartphone glowing neon green."
+    },
+    {
+      "name": "Mara Adeyemi",
+      "description": "Tobi's younger sister, early 20s Nigerian woman, slim build, dark brown skin, neat shoulder-length braids, simple home clothes, alert protective expression."
+    },
+    {
+      "name": "Iya Sade",
+      "description": "Older Lagos street food seller, late 50s Nigerian woman, dark brown skin, patterned headscarf, rain-dark apron, calm unreadable face, blue umbrella beside her roadside akara stall."
+    },
+    {
+      "name": "Bus Woman",
+      "description": "Mysterious Nigerian woman first seen on the driverless bus, calm face, dry in the rain, plain dark clothing, unsettling direct gaze."
+    }
+  ],
+  "cover": {
+    "series_title": "The Phone That Receives Tomorrow",
+    "episode_number": 4,
+    "part_number": 4,
+    "hook_lines": [
+      "IT COSTS",
+      "A WHOLE",
+      "MINUTE"
+    ],
+    "hook_highlight": "MINUTE",
+    "title_lines": [
+      "THE PRICE OF",
+      "A MINUTE"
+    ],
+    "background_prompt": "rainy Lagos junction after a crash; Tobi holds a cracked neon-green phone while shielding Iya Sade beside a blue umbrella and broken akara stall; a keke and fuel tanker blur in the background; the mysterious bus woman stands dry in the rain holding a plain brown package; amber haze and green reflections; leave dark clean space at top for title."
+  },
+  "scenes": [
+    {
+      "id": "01a_shadow_empty_bus",
+      "image_id": "01a_shadow_empty_bus",
+      "duration": 5.1,
+      "caption": "Tobi watched Iya Sade's shadow cross the road until a bus passed through it and came out empty.",
+      "prompt": "Exact narration beat: Rainy Lagos road at dawn. Iya Sade stands safely beside Tobi under the blue umbrella while her shadow crosses the wet road alone. A yellow bus passes through the shadow and emerges eerily empty. Tobi holds the cracked neon-green phone. No gore.",
+      "motion": "Slow creep toward the moving shadow as a bus glides through it and leaves an empty feeling behind."
+    },
+    {
+      "id": "02a_phone_802",
+      "image_id": "02a_phone_802",
+      "duration": 3.1,
+      "caption": "The next morning, the cracked phone buzzed at 8:02 AM.",
+      "prompt": "Exact narration beat: Extreme close-up of Tobi's cracked old black smartphone glowing neon green at 8:02 AM in his wet hand at the Lagos junction. Rain-blurred traffic and blue umbrella in the background.",
+      "motion": "The phone vibrates hard as the camera pushes into the green-lit cracked screen."
+    },
+    {
+      "id": "03a_pay_with_memory",
+      "image_id": "03a_pay_with_memory",
+      "duration": 3.4,
+      "caption": "Same woman. Same minute. Pay with memory.",
+      "prompt": "Exact narration beat: Extreme close-up of the cracked phone screen showing the message: SAME WOMAN. SAME MINUTE. PAY WITH MEMORY. Green light reflects in Tobi's tense eyes.",
+      "motion": "The message sharpens line by line with a cold green flicker."
+    },
+    {
+      "id": "04a_iya_waiting",
+      "image_id": "04a_iya_waiting",
+      "duration": 4.9,
+      "caption": "Iya Sade was already waiting beneath the blue umbrella, as if she had known the price before he did.",
+      "prompt": "Exact narration beat: Iya Sade waits under her blue umbrella beside the roadside akara stall at a rainy Lagos junction, calm and knowing. Tobi approaches from the road with the cracked green-glowing phone.",
+      "motion": "Street-level drift from the blue umbrella to Tobi approaching with the glowing phone."
+    },
+    {
+      "id": "05a_warning_price",
+      "image_id": "05a_warning_price",
+      "duration": 5.3,
+      "caption": "She told Tobi every warning from that phone steals one minute from whoever stands closest to the choice.",
+      "prompt": "Exact narration beat: Close-up of Iya Sade speaking gravely to Tobi beneath the blue umbrella. The cracked phone glows between them, wet traffic and stall smoke behind. Her expression says she already believes the impossible.",
+      "motion": "Slow push into Iya Sade's face as green reflection pulses on the phone between them."
+    },
+    {
+      "id": "06a_walk_away",
+      "image_id": "06a_walk_away",
+      "duration": 4.2,
+      "caption": "He promised he would walk away. The screen answered with a new line.",
+      "prompt": "Exact narration beat: Tobi turns slightly away from the junction as if trying to leave, then looks down as the cracked phone lights harder in his hand. Rainy road and blue umbrella behind him.",
+      "motion": "Tobi starts to turn away, then freezes as the phone flashes brighter."
+    },
+    {
+      "id": "07a_mara_forgets_face",
+      "image_id": "07a_mara_forgets_face",
+      "duration": 3.1,
+      "caption": "If you leave now, Mara forgets your face first.",
+      "prompt": "Exact narration beat: Extreme close-up of the cracked phone screen showing the message: IF YOU LEAVE NOW, MARA FORGETS YOUR FACE FIRST. Tobi's fingers tighten around the phone.",
+      "motion": "Hard push into the words as rain drops smear across the cracked glass."
+    },
+    {
+      "id": "08a_tanker_skids",
+      "image_id": "08a_tanker_skids",
+      "duration": 4.8,
+      "caption": "At 8:03, a fuel tanker skidded at the junction and knocked a parked keke toward Iya Sade's stall.",
+      "prompt": "Exact narration beat: A large fuel tanker skids across a rain-slick Lagos junction and clips a parked keke, sending it toward Iya Sade's roadside akara stall. Tobi and Iya Sade are in frame, danger arriving fast. No logos, no fire.",
+      "motion": "The tanker fishtails and the keke jerks toward the stall in a sudden wet slide."
+    },
+    {
+      "id": "09a_tobi_shoves_iya",
+      "image_id": "09a_tobi_shoves_iya",
+      "duration": 4.0,
+      "caption": "Tobi shoved her behind a concrete divider just before the keke smashed through the akara table.",
+      "prompt": "Exact narration beat: Tobi urgently pushes Iya Sade behind a low concrete divider as the keke crashes through the akara table beside the blue umbrella. His neon-green phone remains clutched in one hand. No injury shown.",
+      "motion": "Fast lateral motion as Tobi throws Iya Sade to safety and the stall explodes apart behind them."
+    },
+    {
+      "id": "10a_silent_minute",
+      "image_id": "10a_silent_minute",
+      "duration": 4.3,
+      "caption": "The whole street went silent for exactly one minute.",
+      "prompt": "Exact narration beat: Wide view of the rainy Lagos junction frozen in eerie silence after the crash. People stand mid-reaction, traffic paused, smoke hanging still, green phone glow sharp in Tobi's hand.",
+      "motion": "Everything feels unnaturally still while the camera glides through the frozen street."
+    },
+    {
+      "id": "11a_people_arrive_late",
+      "image_id": "11a_people_arrive_late",
+      "duration": 4.6,
+      "caption": "When sound returned, the bystanders stared at the wreckage like they had just arrived.",
+      "prompt": "Exact narration beat: Commuters and vendors at the junction stare at the smashed stall and wrecked keke with blank confusion, as though they only just noticed the crash. Tobi stands among them, alarmed.",
+      "motion": "Street noise returns as confused faces turn toward the wreckage all at once."
+    },
+    {
+      "id": "12a_mara_photo_call",
+      "image_id": "12a_mara_photo_call",
+      "duration": 5.0,
+      "caption": "Mara called crying because she was at home with a photograph of Tobi she could not remember taking.",
+      "prompt": "Exact narration beat: Split-focus style scene: Tobi at the junction listening to a phone call, while Mara at home stares in tears at an old photograph of her and Tobi that feels unfamiliar to her. The cracked green phone dominates the foreground.",
+      "motion": "Push from Tobi's shocked face into the green-lit phone as Mara's blurred photo trembles in the distance."
+    },
+    {
+      "id": "13a_missing_minute_realized",
+      "image_id": "13a_missing_minute_realized",
+      "duration": 4.9,
+      "caption": "Tobi looked around and realized every person nearest him had lost the same missing minute.",
+      "prompt": "Exact narration beat: Tobi scans the crowd at the junction and notices the same confused expression on every nearby face. The green phone glows in his hand; the broken stall and blue umbrella remain behind him.",
+      "motion": "Slow circular pan around Tobi as identical confusion settles across nearby faces."
+    },
+    {
+      "id": "14a_debt_learning_name",
+      "image_id": "14a_debt_learning_name",
+      "duration": 4.7,
+      "caption": "Iya Sade touched the cracked phone and said the debt was learning his family's name.",
+      "prompt": "Exact narration beat: Close-up of Iya Sade lightly touching the cracked phone in Tobi's hand, looking at it with dread and certainty. Rain beads on the screen. The blue umbrella shades them both.",
+      "motion": "The camera tightens on Iya Sade's fingertips near the glowing cracks as she speaks."
+    },
+    {
+      "id": "15a_price_paid",
+      "image_id": "15a_price_paid",
+      "duration": 3.0,
+      "caption": "The screen lit again. Price paid. Balance moving.",
+      "prompt": "Exact narration beat: Extreme close-up of the cracked phone screen showing the message: PRICE PAID. BALANCE MOVING. Green light floods the frame.",
+      "motion": "The new message replaces the old one with a glitchy pulse."
+    },
+    {
+      "id": "16a_bus_woman_package",
+      "image_id": "16a_bus_woman_package",
+      "duration": 5.0,
+      "caption": "Then the woman from the bus stepped out of the crowd, dry in the rain, holding the breathing package.",
+      "prompt": "Exact narration beat: The mysterious bus woman steps calmly out of a rainy Lagos crowd completely dry, holding the plain brown breathing package at waist height. Tobi stares at her in disbelief; the blue umbrella and broken stall remain behind.",
+      "motion": "Crowd movement parts around the dry woman as the package subtly rises and falls."
+    },
+    {
+      "id": "17a_cannot_afford_twice",
+      "image_id": "17a_cannot_afford_twice",
+      "duration": 4.8,
+      "caption": "She smiled and told Tobi the phone only charges what he cannot afford twice.",
+      "prompt": "Exact narration beat: Close-up of the bus woman speaking directly to Tobi with a faint unsettling smile, the breathing package in her arms. Rain falls around everyone else but not on her.",
+      "motion": "Slow push into the woman's dry face while rain streaks the background."
+    },
+    {
+      "id": "18a_crowd_forgets_her",
+      "image_id": "18a_crowd_forgets_her",
+      "duration": 4.2,
+      "caption": "Before he could chase her, the crowd forgot her first.",
+      "prompt": "Exact narration beat: Tobi turns to chase the bus woman, but nearby commuters look straight through the space where she stood, no longer noticing her. The package is gone with her. Tobi is the only one alarmed.",
+      "motion": "Tobi lunges forward while the crowd resets into blank indifference."
+    },
+    {
+      "id": "19a_mara_second_call",
+      "image_id": "19a_mara_second_call",
+      "duration": 4.6,
+      "caption": "New message: Mara Adeyemi. Tonight. Do not let her answer the second call.",
+      "prompt": "Exact narration beat: Extreme close-up of Tobi's cracked phone showing the message: MARA ADEYEMI. TONIGHT. DO NOT LET HER ANSWER THE SECOND CALL. Green light reflects on rainwater and Tobi's eyes.",
+      "motion": "The message locks into place as the camera pushes closer and closer."
+    },
+    {
+      "id": "20a_follow_cta",
+      "image_id": "20a_follow_cta",
+      "duration": 3.2,
+      "caption": "Follow me for the next episode. Do not miss out.",
+      "prompt": "Exact narration beat: Cliffhanger frame at the rainy junction: Tobi stands beside Iya Sade and the blue umbrella, staring at the green-glowing phone while the wrecked stall smolders behind them. No text in image.",
+      "motion": "Hold on Tobi and the glowing phone as rain ripples through the wrecked street."
+    },
+    {
+      "id": "21a_end_card",
+      "image_id": "21a_end_card",
+      "duration": 2.0,
+      "caption": "Episode 5: Mara's Name.",
+      "prompt": "Exact narration beat: End-card cliffhanger visual, the cracked neon-green phone glowing beside a forgotten family photograph on a wet windowsill, with the blue umbrella blurred outside. No text in image.",
+      "motion": "Final slow push toward the green phone and the family photograph.",
+      "post_roll": true
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+# Episode 4: The Price Of A Minute
+
+Tobi watched Iya Sade's shadow cross the road until a bus passed through it and came out empty.
+
+The next morning, the cracked phone buzzed at 8:02 AM.
+
+Same woman. Same minute. Pay with memory.
+
+Iya Sade was already waiting beneath the blue umbrella, as if she had known the price before he did.
+
+She told Tobi every warning from that phone steals one minute from whoever stands closest to the choice.
+
+He promised he would walk away. The screen answered with a new line.
+
+If you leave now, Mara forgets your face first.
+
+At 8:03, a fuel tanker skidded at the junction and knocked a parked keke toward Iya Sade's stall.
+
+Tobi shoved her behind a concrete divider just before the keke smashed through the akara table.
+
+The whole street went silent for exactly one minute.
+
+When sound returned, the bystanders stared at the wreckage like they had just arrived.
+
+Mara called crying because she was at home with a photograph of Tobi she could not remember taking.
+
+Tobi looked around and realized every person nearest him had lost the same missing minute.
+
+Iya Sade touched the cracked phone and said the debt was learning his family's name.
+
+The screen lit again.
+
+Price paid. Balance moving.
+
+Then the woman from the bus stepped out of the crowd, dry in the rain, holding the breathing package.
+
+She smiled and told Tobi the phone only charges what he cannot afford twice.
+
+Before he could chase her, the crowd forgot her first.
+
+New message: Mara Adeyemi. Tonight. Do not let her answer the second call.
+
+Follow me for the next episode. Do not miss out.

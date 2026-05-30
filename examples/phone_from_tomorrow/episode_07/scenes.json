@@ -1,0 +1,224 @@
+{
+  "episode_title": "The First Owner",
+  "output_slug": "episode_07",
+  "resolution": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "style": "cinematic Afro-futurist mystery thriller, Lagos before sunrise, roadside stall steam, shuttered old cinema, dust-filled projection room, neon-green phone glow, amber lantern light, realistic but slightly heightened, shallow depth of field, moody contrast, no logos, no public figures, no readable real brand names",
+  "continuity_notes": "Maintain continuity from Episodes 1 through 6. Tobi remains the same lean 24-year-old Nigerian delivery rider with dark green jacket, tired eyes, and cracked neon-green phone. Mara remains his younger sister with shoulder-length braids and growing exhaustion. Iya Sade remains the older seller with patterned headscarf and unreadable authority. The bus woman remains dry, calm, and uncanny. The dead batteries from the disappearing street should reappear exactly as before.",
+  "characters": [
+    {
+      "name": "Tobi Adeyemi",
+      "description": "24-year-old Nigerian delivery rider, lean build, dark brown skin, short close-cropped black twists with a low fade, faint moustache and goatee, tired expressive eyes, dark green delivery jacket or hoodie with subtle reflective strips, practical worn clothes, cracked old black smartphone glowing neon green."
+    },
+    {
+      "name": "Mara Adeyemi",
+      "description": "Tobi's younger sister, early 20s Nigerian woman, slim build, dark brown skin, neat shoulder-length braids, simple clothes, alert face marked by poor sleep and memory fear."
+    },
+    {
+      "name": "Iya Sade",
+      "description": "Older Lagos street food seller, late 50s Nigerian woman, dark brown skin, patterned headscarf, layered practical clothes, calm severe face, blue umbrella and roadside stall nearby."
+    },
+    {
+      "name": "Bus Woman",
+      "description": "Mysterious Nigerian woman from the driverless bus, plain dark clothing, calm expression, unsettling direct gaze, always slightly untouched by weather."
+    }
+  ],
+  "cover": {
+    "series_title": "The Phone That Receives Tomorrow",
+    "episode_number": 7,
+    "part_number": 7,
+    "hook_lines": [
+      "SHE KNEW",
+      "THE FIRST",
+      "OWNER"
+    ],
+    "hook_highlight": "OWNER",
+    "title_lines": [
+      "THE FIRST",
+      "OWNER"
+    ],
+    "background_prompt": "before dawn in Lagos, Tobi confronts Iya Sade at her smoking roadside stall with warm dead phone batteries in his palm and the cracked neon-green phone glowing between them; behind them a shuttered old cinema waits in shadow; Mara stands tense nearby; amber mist and green reflections; leave dark clean space at top for title."
+  },
+  "scenes": [
+    {
+      "id": "01a_batteries_on_stall",
+      "image_id": "01a_batteries_on_stall",
+      "duration": 4.9,
+      "caption": "Tobi dropped the warm dead batteries and the receipt with tomorrow's date onto Iya Sade's stall before dawn.",
+      "prompt": "Exact narration beat: Before dawn at Iya Sade's Lagos roadside stall, Tobi drops several warm dead phone batteries and a receipt dated tomorrow onto the counter while the cracked neon-green phone glows in his other hand. Mara stands nearby in tense silence.",
+      "motion": "Fast tabletop drop onto the stall, ending on the batteries and impossible receipt."
+    },
+    {
+      "id": "02a_iya_afraid",
+      "image_id": "02a_iya_afraid",
+      "duration": 4.3,
+      "caption": "For the first time, the old woman looked afraid of the cracked phone.",
+      "prompt": "Exact narration beat: Close-up of Iya Sade at the stall before sunrise, her usually steady face finally showing fear as the cracked green-glowing phone lights her eyes. Steam from the stall drifts around her.",
+      "motion": "Slow push into Iya Sade's face as fear breaks through her control."
+    },
+    {
+      "id": "03a_family_before_tobi",
+      "image_id": "03a_family_before_tobi",
+      "duration": 4.8,
+      "caption": "She said the phone had belonged to someone in her family before Tobi ever touched it.",
+      "prompt": "Exact narration beat: Iya Sade speaks gravely to Tobi and Mara at the stall, the cracked phone between them, dawn haze and blue umbrella behind. Her posture says she has hidden this truth for years.",
+      "motion": "Street-level drift from Tobi to Iya Sade as she finally starts speaking."
+    },
+    {
+      "id": "04a_first_owner_seven_days",
+      "image_id": "04a_first_owner_seven_days",
+      "duration": 4.7,
+      "caption": "The first owner lasted seven days and spent every warning trying to save people who never knew his name.",
+      "prompt": "Exact narration beat: Suggestive memory image, not a full flashback: a young Nigerian man on Lagos streets at dawn holding the same cracked neon-green phone while helping strangers who move past him without recognizing him. No logos, grounded realism.",
+      "motion": "Layered slow motion of the young man helping others while the world blurs past him."
+    },
+    {
+      "id": "05a_matching_battery",
+      "image_id": "05a_matching_battery",
+      "duration": 4.0,
+      "caption": "Iya Sade opened her palm and showed Tobi a matching dead battery she had kept for years.",
+      "prompt": "Exact narration beat: Iya Sade opens her palm to reveal an old dead phone battery that exactly matches the warm batteries from the lane. The cracked phone glows green across her hand.",
+      "motion": "Tight move from her closed fist to the battery revealed in her palm."
+    },
+    {
+      "id": "06a_phone_lit_between_them",
+      "image_id": "06a_phone_lit_between_them",
+      "duration": 2.8,
+      "caption": "The cracked phone lit green between them.",
+      "prompt": "Exact narration beat: Close-up of the cracked phone on the stall between Tobi and Iya Sade, neon-green light flaring brighter in the dim predawn air.",
+      "motion": "The green glow pulses hard outward from the center of the frame."
+    },
+    {
+      "id": "07a_hid_him_message",
+      "image_id": "07a_hid_him_message",
+      "duration": 3.6,
+      "caption": "New message: The first owner did not vanish. She hid him.",
+      "prompt": "Exact narration beat: Extreme close-up of the cracked phone screen showing the message: THE FIRST OWNER DID NOT VANISH. SHE HID HIM. Green light floods Tobi's knuckles.",
+      "motion": "Hard push into the accusation as the text arrives line by line."
+    },
+    {
+      "id": "08a_mara_stares_iya",
+      "image_id": "08a_mara_stares_iya",
+      "duration": 4.2,
+      "caption": "Mara stared at Iya Sade until the woman finally led them behind a locked cinema near the market.",
+      "prompt": "Exact narration beat: Mara gives Iya Sade a cold, demanding stare at dawn; then the three move toward a shuttered old cinema near the Lagos market, the cracked phone glowing in Tobi's hand.",
+      "motion": "Start on Mara's stare, then follow them walking toward the dark cinema."
+    },
+    {
+      "id": "09a_projection_room_names",
+      "image_id": "09a_projection_room_names",
+      "duration": 5.0,
+      "caption": "Inside a dust-choked projection room, names and dates covered the walls in layers of chalk.",
+      "prompt": "Exact narration beat: Inside an abandoned cinema projection room full of dust and old reels, the walls are covered in chalked names and dates layered over one another. Tobi, Mara, and Iya Sade enter under green phone light.",
+      "motion": "Wide reveal of the projection room walls crowded with chalked names."
+    },
+    {
+      "id": "10a_day_seven_wall",
+      "image_id": "10a_day_seven_wall",
+      "duration": 4.0,
+      "caption": "Every name ended on day seven.",
+      "prompt": "Exact narration beat: Close-up on the chalk wall in the projection room, where each sequence of dates ends on DAY 7 or a seventh mark. Tobi studies the pattern in dread.",
+      "motion": "Camera tracks along the wall as the repeating seventh day pattern becomes undeniable."
+    },
+    {
+      "id": "11a_ritual_charger",
+      "image_id": "11a_ritual_charger",
+      "duration": 4.7,
+      "caption": "On a wooden table sat a strange charger made from stripped copper wire, prayer beads, and old phone parts.",
+      "prompt": "Exact narration beat: On a worn wooden table in the dusty projection room sits a handmade charger built from stripped copper wire, prayer beads, and salvaged phone parts. The object feels ritualistic, not futuristic.",
+      "motion": "Slow tabletop glide across the improvised charger and scattered old parts."
+    },
+    {
+      "id": "12a_one_percent_plugged",
+      "image_id": "12a_one_percent_plugged",
+      "duration": 4.2,
+      "caption": "When Tobi plugged the phone into it, the screen stayed at one percent.",
+      "prompt": "Exact narration beat: Tobi plugs the cracked neon-green phone into the ritual charger in the projection room, but the screen still shows one percent. Mara and Iya Sade watch behind him.",
+      "motion": "Close on the cable connecting, then hold on the stubborn one percent display."
+    },
+    {
+      "id": "13a_message_changed",
+      "image_id": "13a_message_changed",
+      "duration": 2.8,
+      "caption": "Then the message changed.",
+      "prompt": "Exact narration beat: Close-up of the cracked phone screen in the dim projection room as its green light shifts and a new message begins to form.",
+      "motion": "The screen flickers from battery icon to incoming text."
+    },
+    {
+      "id": "14a_confession_rule",
+      "image_id": "14a_confession_rule",
+      "duration": 3.5,
+      "caption": "Power does not take current. It takes confession.",
+      "prompt": "Exact narration beat: Extreme close-up of the cracked phone screen showing the message: POWER DOES NOT TAKE CURRENT. IT TAKES CONFESSION. Dust motes glow green in the dark room.",
+      "motion": "The words arrive with a stern, deliberate green pulse."
+    },
+    {
+      "id": "15a_tobi_chosen_truth",
+      "image_id": "15a_tobi_chosen_truth",
+      "duration": 4.7,
+      "caption": "Tobi admitted he had started to need the warnings because they made him feel chosen.",
+      "prompt": "Exact narration beat: Tobi stands in the projection room admitting a painful truth to Mara and Iya Sade, eyes lowered, cracked phone in his hand. The green light reflects shame and relief.",
+      "motion": "Slow push into Tobi as he forces himself to say the truth."
+    },
+    {
+      "id": "16a_battery_two_percent",
+      "image_id": "16a_battery_two_percent",
+      "duration": 2.8,
+      "caption": "The battery climbed to two percent.",
+      "prompt": "Exact narration beat: Extreme close-up of the cracked phone battery icon ticking from one percent to two percent in neon green.",
+      "motion": "A tiny jump in battery level becomes the whole dramatic beat."
+    },
+    {
+      "id": "17a_mara_mum_truth",
+      "image_id": "17a_mara_mum_truth",
+      "duration": 4.8,
+      "caption": "Mara confessed she had wanted to hear the second call because she missed their mother's voice.",
+      "prompt": "Exact narration beat: Mara stands in the dusty projection room, confessing through tears that she wanted to hear the impossible call because she misses their mother. Tobi listens, shattered.",
+      "motion": "Move gently from Mara's face to Tobi's reaction as the confession lands."
+    },
+    {
+      "id": "18a_seyi_truth",
+      "image_id": "18a_seyi_truth",
+      "duration": 5.0,
+      "caption": "The battery climbed again, and Iya Sade finally told the truth: the first owner was not her brother. It was her son, Seyi.",
+      "prompt": "Exact narration beat: Iya Sade breaks at last in the projection room and admits the first owner was her son Seyi, not her brother. The battery level rises on the phone while green light cuts across her face.",
+      "motion": "Push from the brightening phone to Iya Sade's confession."
+    },
+    {
+      "id": "19a_bus_woman_glass",
+      "image_id": "19a_bus_woman_glass",
+      "duration": 4.9,
+      "caption": "In the cracked projector glass, the bus woman appeared and said seven days ends when the phone learns your truest lie.",
+      "prompt": "Exact narration beat: In a cracked pane of old projector glass, the mysterious bus woman appears as a reflection only, calmly speaking to Tobi while the others stand in the real room. Dust, green light, and abandoned cinema machinery surround them.",
+      "motion": "The woman resolves inside the cracked glass with unnerving stillness."
+    },
+    {
+      "id": "20a_midnight_message",
+      "image_id": "20a_midnight_message",
+      "duration": 4.1,
+      "caption": "New message: Keep the battery alive until midnight.",
+      "prompt": "Exact narration beat: Extreme close-up of the cracked phone screen showing the message: KEEP THE BATTERY ALIVE UNTIL MIDNIGHT. Projection room darkness and chalked walls blur behind it.",
+      "motion": "The command sharpens as the surrounding room falls darker."
+    },
+    {
+      "id": "21a_follow_cta",
+      "image_id": "21a_follow_cta",
+      "duration": 3.1,
+      "caption": "Follow me for the next episode. Do not miss out.",
+      "prompt": "Exact narration beat: Cliffhanger frame in the abandoned projection room: Tobi stands with the glowing phone, Mara near the chalk wall, and Iya Sade beneath the looming projector glass where the bus woman just appeared. No text in image.",
+      "motion": "Hold on the three of them in the charged silence of the room."
+    },
+    {
+      "id": "22a_end_card",
+      "image_id": "22a_end_card",
+      "duration": 2.0,
+      "caption": "Episode 8: Battery At One Percent.",
+      "prompt": "Exact narration beat: End-card cliffhanger visual, the ritual charger, a dead battery in Iya Sade's palm, and the cracked neon-green phone still showing one percent inside the dusty cinema room. No text in image.",
+      "motion": "Final slow push into the one percent battery icon and the dead cell beside it.",
+      "post_roll": true
+    }
+  ]
+}

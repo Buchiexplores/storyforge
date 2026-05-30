@@ -1,0 +1,39 @@
+# Episode 3: Save Her Twice
+
+Tobi stared at the package on the back seat until it breathed again.
+
+The woman from the bus whispered, Do not touch what tomorrow is still using.
+
+Then every sleeping passenger opened one eye.
+
+Tobi ran out of the bus with the cracked phone burning green in his hand.
+
+New message: Iya Sade. 8:03 AM. Blue umbrella. Save her twice.
+
+At the junction, Iya Sade was selling akara under a blue umbrella like the phone already knew the color of the morning.
+
+There was no accident yet. Just rain, traffic, and Tobi feeling stupid for being terrified.
+
+Then a delivery truck hit a pothole and a metal sign tore loose from its side.
+
+Tobi grabbed Iya Sade and pulled her back.
+
+The sign sliced through the exact place her neck had been one second earlier.
+
+The crowd shouted miracle. Iya Sade looked at the phone and did not smile.
+
+She said, That thing does not save people. It moves debt.
+
+Before Tobi could answer, the phone buzzed again.
+
+First save complete.
+
+Second save required tomorrow. Same woman. Same minute.
+
+Then the road went quiet, because Iya Sade's shadow was still standing in traffic.
+
+The real Iya Sade was beside Tobi, but her shadow was crossing the road alone.
+
+New message: She was supposed to die tomorrow, not today.
+
+Follow me for the next episode. Do not miss out.

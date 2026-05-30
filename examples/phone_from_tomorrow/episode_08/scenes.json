@@ -1,0 +1,224 @@
+{
+  "episode_title": "Battery At One Percent",
+  "output_slug": "episode_08",
+  "resolution": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "style": "cinematic Afro-futurist mystery thriller, one hot day across Lagos from sunrise to midnight, apartment interiors, repair stalls, traffic haze, harsh daylight, neon-green phone glow, realistic but slightly heightened, shallow depth of field, moody contrast, no logos, no public figures, no readable real brand names",
+  "continuity_notes": "Maintain continuity from Episodes 1 through 7. Tobi remains the same lean Nigerian delivery rider with cracked neon-green phone and accumulating exhaustion. Mara remains observant, emotionally frayed, and newly involved in the rules of the phone. Iya Sade remains a grave guide who knows more than she says. The bus woman should appear unsettling even in full daylight. The battery icon must remain a recurring visual motif.",
+  "characters": [
+    {
+      "name": "Tobi Adeyemi",
+      "description": "24-year-old Nigerian delivery rider, lean build, dark brown skin, short close-cropped black twists with a low fade, faint moustache and goatee, tired expressive eyes, dark green delivery jacket or hoodie with subtle reflective strips, practical worn clothes, cracked old black smartphone glowing neon green."
+    },
+    {
+      "name": "Mara Adeyemi",
+      "description": "Tobi's younger sister, early 20s Nigerian woman, slim build, dark brown skin, neat shoulder-length braids, simple clothes, intelligent face carrying lack of sleep and hidden grief."
+    },
+    {
+      "name": "Iya Sade",
+      "description": "Older Lagos street food seller, late 50s Nigerian woman, dark brown skin, patterned headscarf, practical layered clothes, calm stern face, old knowledge held tightly."
+    },
+    {
+      "name": "Bus Woman",
+      "description": "Mysterious Nigerian woman in plain dark clothing, calm and dry even in discomfort, direct gaze, presence feels wrong in broad daylight."
+    }
+  ],
+  "cover": {
+    "series_title": "The Phone That Receives Tomorrow",
+    "episode_number": 8,
+    "part_number": 8,
+    "hook_lines": [
+      "THE PHONE",
+      "CHARGES ON",
+      "TRUTH"
+    ],
+    "hook_highlight": "TRUTH",
+    "title_lines": [
+      "BATTERY AT",
+      "ONE PERCENT"
+    ],
+    "background_prompt": "hot Lagos afternoon with Tobi astride his delivery bike in traffic, holding a cracked neon-green phone showing one percent while Mara stands beside him and the bus woman appears calmly in daylight nearby; dead charging cables and a small repair stall in frame; amber heat haze and green reflections; leave dark clean space at top for title."
+  },
+  "scenes": [
+    {
+      "id": "01a_sunrise_one_percent",
+      "image_id": "01a_sunrise_one_percent",
+      "duration": 3.9,
+      "caption": "By sunrise, the phone still showed one percent.",
+      "prompt": "Exact narration beat: Sunrise light enters the modest Lagos apartment as Tobi stares at the cracked neon-green phone still showing one percent on the screen. The room looks sleepless and tense.",
+      "motion": "Slow push from window light to the stubborn one percent display in Tobi's hand."
+    },
+    {
+      "id": "02a_dead_chargers",
+      "image_id": "02a_dead_chargers",
+      "duration": 4.8,
+      "caption": "Every wall socket, power bank, and charging cable Tobi tried went dead the moment it touched the cracked screen.",
+      "prompt": "Exact narration beat: In the apartment, multiple charging cables, a power bank, and wall socket all fail around the cracked phone as if drained on contact. Tobi kneels among dead devices while green light reflects off them.",
+      "motion": "Quick sequence-like move across lifeless chargers converging on the phone."
+    },
+    {
+      "id": "03a_refuse_to_say",
+      "image_id": "03a_refuse_to_say",
+      "duration": 3.6,
+      "caption": "New message: Battery rises only for what you refuse to say.",
+      "prompt": "Exact narration beat: Extreme close-up of the cracked phone screen showing the message: BATTERY RISES ONLY FOR WHAT YOU REFUSE TO SAY. Green glow spills over Tobi's fingers.",
+      "motion": "The instruction burns into the cracked screen with a cold green flicker."
+    },
+    {
+      "id": "04a_mechanic_truth",
+      "image_id": "04a_mechanic_truth",
+      "duration": 4.7,
+      "caption": "Mara made him test it on the street by telling a bike mechanic the truth about why his hands would not stop shaking.",
+      "prompt": "Exact narration beat: Daytime Lagos roadside repair stall. Mara pushes Tobi to speak honestly to a bike mechanic while Tobi admits his fear, holding the cracked phone low at his side. Heat haze and metal tools around them.",
+      "motion": "Move from Mara urging him forward to Tobi forcing out the truth."
+    },
+    {
+      "id": "05a_battery_climbs_then_drops",
+      "image_id": "05a_battery_climbs_then_drops",
+      "duration": 4.6,
+      "caption": "The battery climbed, then dropped again when Tobi lied to his dispatch boss about missing deliveries.",
+      "prompt": "Exact narration beat: Split-moment scene: Tobi on a call with his dispatch boss in bright Lagos daylight, the cracked phone briefly showing a higher battery before dipping again as he lies. Mara watches, disappointed.",
+      "motion": "Battery rises, then falls as Tobi's expression betrays the lie."
+    },
+    {
+      "id": "06a_iya_truth_rule",
+      "image_id": "06a_iya_truth_rule",
+      "duration": 4.2,
+      "caption": "Iya Sade said the phone eats borrowed futures, but it drinks spoken truth.",
+      "prompt": "Exact narration beat: Iya Sade speaks firmly to Tobi and Mara in midday shadow beside her stall, explaining the rule while the cracked phone glows green between them.",
+      "motion": "Push from the phone up to Iya Sade as she states the rule."
+    },
+    {
+      "id": "07a_confessions_across_lagos",
+      "image_id": "07a_confessions_across_lagos",
+      "duration": 4.9,
+      "caption": "So Tobi and Mara spent the day feeding it confessions across Lagos.",
+      "prompt": "Exact narration beat: Montage-like daylight scene across Lagos streets and stops, with Tobi and Mara moving through the city while using painful honest conversations to charge the cracked neon-green phone.",
+      "motion": "Rhythmic travel motion suggesting many small confessions across one long day."
+    },
+    {
+      "id": "08a_tobi_liked_power",
+      "image_id": "08a_tobi_liked_power",
+      "duration": 4.8,
+      "caption": "He admitted to Mara that part of him liked being the only one who could stop disaster.",
+      "prompt": "Exact narration beat: Tobi and Mara stand in a quieter Lagos side street as Tobi confesses that part of him liked having the power to stop disasters. The phone glows guiltily in his hand.",
+      "motion": "Slow inward drift as Tobi says the thing he hates about himself."
+    },
+    {
+      "id": "09a_mara_remembers_phone_first",
+      "image_id": "09a_mara_remembers_phone_first",
+      "duration": 4.7,
+      "caption": "She admitted that some mornings she remembered the phone before she remembered her own dreams.",
+      "prompt": "Exact narration beat: Mara confesses in a quiet alley or courtyard that the phone now enters her mind before her own dreams do. Tobi listens with fear and pity.",
+      "motion": "Camera lingers on Mara's face as the truth leaves her."
+    },
+    {
+      "id": "10a_bus_woman_daylight",
+      "image_id": "10a_bus_woman_daylight",
+      "duration": 5.0,
+      "caption": "At a traffic jam under hard noon light, the bus woman appeared beside Tobi's bike and said the battery was preparing for one call only.",
+      "prompt": "Exact narration beat: Bright Lagos traffic jam at noon. The mysterious bus woman stands beside Tobi's stopped delivery bike in impossible calm, speaking to him while everyone else ignores her. Mara is nearby, alarmed.",
+      "motion": "The chaos of traffic slows around the stillness of the bus woman."
+    },
+    {
+      "id": "11a_nine_percent",
+      "image_id": "11a_nine_percent",
+      "duration": 3.1,
+      "caption": "The phone reached nine percent when Tobi told the truth about their mother.",
+      "prompt": "Exact narration beat: Close-up of the cracked phone battery icon rising to nine percent while Tobi stands emotionally exposed in daylight. Green light shakes in his hand.",
+      "motion": "Tight focus on the battery icon climbing to nine percent."
+    },
+    {
+      "id": "12a_betray_anything",
+      "image_id": "12a_betray_anything",
+      "duration": 5.0,
+      "caption": "He said if tomorrow offered him one more day with her, he would betray almost anything to take it.",
+      "prompt": "Exact narration beat: Tobi confesses to Mara in a raw daylight moment that he would betray almost anything for one more day with their mother. The city blurs around them.",
+      "motion": "Push in close as the confession lands harder than he expected."
+    },
+    {
+      "id": "13a_full_then_one",
+      "image_id": "13a_full_then_one",
+      "duration": 3.9,
+      "caption": "The battery flashed full green, then fell back to one percent.",
+      "prompt": "Exact narration beat: Extreme close-up of the cracked phone battery icon suddenly filling bright green, then collapsing back to one percent in an instant.",
+      "motion": "A violent surge to full, followed by an immediate drop."
+    },
+    {
+      "id": "14a_voice_waiting_message",
+      "image_id": "14a_voice_waiting_message",
+      "duration": 3.7,
+      "caption": "New message: Charge complete. Voice waiting at midnight.",
+      "prompt": "Exact narration beat: Extreme close-up of the cracked phone screen showing the message: CHARGE COMPLETE. VOICE WAITING AT MIDNIGHT. Daylight glare reflects across the cracked glass.",
+      "motion": "The message stabilizes while the green light deepens."
+    },
+    {
+      "id": "15a_unplugged_apartment",
+      "image_id": "15a_unplugged_apartment",
+      "duration": 4.6,
+      "caption": "That night, Tobi unplugged every device in the apartment and made Mara promise not to answer any ringing phone.",
+      "prompt": "Exact narration beat: Night inside the apartment. Tobi unplugs lamps, chargers, and devices while speaking seriously to Mara, making her promise not to answer any ringing phone. The cracked phone glows on the table.",
+      "motion": "Move through the darkening apartment as devices are unplugged one by one."
+    },
+    {
+      "id": "16a_city_lights_out",
+      "image_id": "16a_city_lights_out",
+      "duration": 4.1,
+      "caption": "At 11:59 PM, the city light outside their window blinked out block by block.",
+      "prompt": "Exact narration beat: Viewed from the apartment window at night, Lagos lights go dark block by block in eerie sequence while green phone light reflects inside the room.",
+      "motion": "Wide city view darkens in sections like a countdown."
+    },
+    {
+      "id": "17a_own_number_ring",
+      "image_id": "17a_own_number_ring",
+      "duration": 4.3,
+      "caption": "The cracked phone began to ring from Tobi's own number.",
+      "prompt": "Exact narration beat: Close-up of the cracked phone ringing in the dark apartment, showing Tobi's own number as caller while the screen glows unnaturally green.",
+      "motion": "The phone vibrates hard against the table as the caller number holds."
+    },
+    {
+      "id": "18a_stairwell_alone",
+      "image_id": "18a_stairwell_alone",
+      "duration": 4.8,
+      "caption": "He carried it to the stairwell alone while Mara watched from the doorway, terrified.",
+      "prompt": "Exact narration beat: Tobi steps into a dim apartment stairwell with the ringing cracked phone in hand while Mara remains in the doorway behind him, frightened and helpless.",
+      "motion": "Follow Tobi into the stairwell as Mara recedes in the doorway."
+    },
+    {
+      "id": "19a_before_answer_message",
+      "image_id": "19a_before_answer_message",
+      "duration": 3.0,
+      "caption": "Before he could answer, a second message burned across the screen.",
+      "prompt": "Exact narration beat: In the dark stairwell, the ringing phone abruptly overlays itself with a new glowing message before Tobi can answer.",
+      "motion": "Ringtone stutters as message text burns over the call screen."
+    },
+    {
+      "id": "20a_funeral_warning",
+      "image_id": "20a_funeral_warning",
+      "duration": 4.0,
+      "caption": "If she hears this call, she hears her funeral.",
+      "prompt": "Exact narration beat: Extreme close-up of the cracked phone screen showing the warning: IF SHE HEARS THIS CALL, SHE HEARS HER FUNERAL. Stairwell darkness surrounds the green-lit screen.",
+      "motion": "Hard push into the warning until the green text fills the frame."
+    },
+    {
+      "id": "21a_follow_cta",
+      "image_id": "21a_follow_cta",
+      "duration": 3.1,
+      "caption": "Follow me for the next episode. Do not miss out.",
+      "prompt": "Exact narration beat: Cliffhanger frame in the apartment stairwell at midnight: Tobi holds the ringing green phone alone while Mara watches from the lit doorway above, the whole block dark beyond them. No text in image.",
+      "motion": "Hold on the distance between Tobi and Mara as the phone keeps ringing."
+    },
+    {
+      "id": "22a_end_card",
+      "image_id": "22a_end_card",
+      "duration": 2.0,
+      "caption": "Episode 9: Tomorrow Calls Back.",
+      "prompt": "Exact narration beat: End-card cliffhanger visual, the cracked neon-green phone ringing in Tobi's hand against the dark stairwell, with the battery icon still at one percent. No text in image.",
+      "motion": "Final slow push into the ringing phone and one percent battery icon.",
+      "post_roll": true
+    }
+  ]
+}

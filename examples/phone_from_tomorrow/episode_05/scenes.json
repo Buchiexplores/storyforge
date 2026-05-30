@@ -1,0 +1,216 @@
+{
+  "episode_title": "Mara's Name",
+  "output_slug": "episode_05",
+  "resolution": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "style": "cinematic Afro-futurist mystery thriller, modest Lagos apartment at night, rain on windows, amber practical light, neon-green phone glow, intimate family tension, realistic but slightly heightened, shallow depth of field, moody contrast, no logos, no public figures, no readable real brand names",
+  "continuity_notes": "Maintain continuity from Episodes 1 through 4. Tobi remains the same lean 24-year-old Nigerian delivery rider with dark green jacket, black rider backpack when outside, tired eyes, and the same cracked old black smartphone glowing neon green. Mara remains his younger sister with shoulder-length braids, expressive face, and modest home clothes. The family apartment should match the earlier episodes. The breathing package stays plain brown, taped, and faintly alive until it stops. When a second phone appears, it should be an older simple keypad-style phone with no visible brand.",
+  "characters": [
+    {
+      "name": "Tobi Adeyemi",
+      "description": "24-year-old Nigerian delivery rider, lean build, dark brown skin, short close-cropped black twists with a low fade, faint moustache and goatee, tired expressive eyes, dark green delivery jacket or hoodie with subtle reflective strips, practical worn clothes, cracked old black smartphone glowing neon green."
+    },
+    {
+      "name": "Mara Adeyemi",
+      "description": "Tobi's younger sister, early 20s Nigerian woman, slim build, dark brown skin, neat shoulder-length braids, simple home clothes, observant expression that shifts from calm to frightened."
+    }
+  ],
+  "cover": {
+    "series_title": "The Phone That Receives Tomorrow",
+    "episode_number": 5,
+    "part_number": 5,
+    "hook_lines": [
+      "THE PHONE",
+      "KNOWS MY",
+      "SISTER"
+    ],
+    "hook_highlight": "SISTER",
+    "title_lines": [
+      "MARA'S",
+      "NAME"
+    ],
+    "background_prompt": "inside a modest Lagos apartment at rainy night; Mara stares at the cracked neon-green phone while Tobi reaches toward her; an open notebook shows a hand-drawn impossible street map; a second keypad phone glows nearby; the hallway door beyond them hints at a breathing brown package outside; amber light and green reflections; leave dark clean space at top for title."
+  },
+  "scenes": [
+    {
+      "id": "01a_mara_stares_phone",
+      "image_id": "01a_mara_stares_phone",
+      "duration": 4.9,
+      "caption": "Tobi got home before sunset and found Mara staring at the cracked phone like it already belonged to her.",
+      "prompt": "Exact narration beat: Inside the modest Lagos apartment at rainy dusk, Mara sits staring at Tobi's cracked neon-green phone on the table with a distant expression, as if hypnotized by it. Tobi has just entered and freezes in the doorway.",
+      "motion": "Slow push from Tobi in the doorway to Mara and the green-glowing phone on the table."
+    },
+    {
+      "id": "02a_phone_rang_once",
+      "image_id": "02a_phone_rang_once",
+      "duration": 4.0,
+      "caption": "She said it had rung once in his room even though he had carried it all day.",
+      "prompt": "Exact narration beat: Mara explains something uneasy to Tobi in the apartment, gesturing toward the glowing cracked phone while Tobi holds it in his own hand. Rain-dark window and kitchen light behind them.",
+      "motion": "Subtle handheld drift as Mara points at the phone Tobi already holds."
+    },
+    {
+      "id": "03a_say_nothing_name",
+      "image_id": "03a_say_nothing_name",
+      "duration": 3.2,
+      "caption": "New message: Mara Adeyemi. Say nothing until she says your name.",
+      "prompt": "Exact narration beat: Extreme close-up of the cracked phone screen showing the message: MARA ADEYEMI. SAY NOTHING UNTIL SHE SAYS YOUR NAME. Green glow on Tobi's knuckles.",
+      "motion": "The message sharpens while the camera edges closer to the cracked glass."
+    },
+    {
+      "id": "04a_mara_stranger",
+      "image_id": "04a_mara_stranger",
+      "duration": 5.0,
+      "caption": "For one full minute, Mara looked at him like a stranger and asked who he was.",
+      "prompt": "Exact narration beat: Mara stands in the apartment staring at Tobi with blank, frightened confusion, as if she does not know him. Tobi is rigid and hurt, holding the green-glowing phone at his side.",
+      "motion": "Slow cold push into Mara's unfamiliar expression while Tobi remains frozen."
+    },
+    {
+      "id": "05a_memory_rushes_back",
+      "image_id": "05a_memory_rushes_back",
+      "duration": 3.8,
+      "caption": "Then memory rushed back and she dropped the bowl in her hands.",
+      "prompt": "Exact narration beat: Mara suddenly remembers and drops a small bowl in shock on the apartment floor. Tobi lunges toward her, the green phone lighting the moment.",
+      "motion": "The bowl slips and falls as Mara's expression changes all at once."
+    },
+    {
+      "id": "06a_tobi_tells_truth",
+      "image_id": "06a_tobi_tells_truth",
+      "duration": 4.9,
+      "caption": "Tobi finally told her about the messages, the bus, and Iya Sade's warning about debt.",
+      "prompt": "Exact narration beat: Tobi sits with Mara in the apartment and finally explains the impossible story to her, speaking urgently over the cracked green phone on the table. The mood is intimate, rainy, and tense.",
+      "motion": "Slow table-level move between Tobi speaking and Mara listening hard."
+    },
+    {
+      "id": "07a_notebook_street",
+      "image_id": "07a_notebook_street",
+      "duration": 5.0,
+      "caption": "Mara did not panic. She opened her notebook and showed him a street she had drawn in her sleep three nights in a row.",
+      "prompt": "Exact narration beat: Mara opens a notebook on the table to reveal repeated hand-drawn sketches of the same narrow street. Tobi leans in, stunned. The cracked phone glows green beside the pages.",
+      "motion": "Camera glides down onto the notebook pages filled with the same street sketch."
+    },
+    {
+      "id": "08a_ojo_not_on_map",
+      "image_id": "08a_ojo_not_on_map",
+      "duration": 4.4,
+      "caption": "Ojo Crescent was on the page, but not on any map in Lagos.",
+      "prompt": "Exact narration beat: Close-up on Mara's notebook showing Ojo Crescent sketched by hand while a map search on another phone shows no such Lagos street. Green glow from the cracked phone spills over both.",
+      "motion": "Focus shifts from the handwritten street name to the blank search result."
+    },
+    {
+      "id": "09a_phone_vibrated_again",
+      "image_id": "09a_phone_vibrated_again",
+      "duration": 2.7,
+      "caption": "The phone vibrated again.",
+      "prompt": "Exact narration beat: Close-up of the cracked phone jolting against the wooden table, neon-green light flashing across the apartment room.",
+      "motion": "The phone rattles sharply against the table as green light pulses."
+    },
+    {
+      "id": "10a_street_keeps_her",
+      "image_id": "10a_street_keeps_her",
+      "duration": 3.5,
+      "caption": "If she answers the second call, the street keeps her.",
+      "prompt": "Exact narration beat: Extreme close-up of the cracked phone screen showing the warning: IF SHE ANSWERS THE SECOND CALL, THE STREET KEEPS HER. Tobi and Mara blur behind the screen.",
+      "motion": "Push through the warning text toward the frightened siblings in soft focus."
+    },
+    {
+      "id": "11a_first_call_tobi_number",
+      "image_id": "11a_first_call_tobi_number",
+      "duration": 4.8,
+      "caption": "At 11:14 PM, Mara's old keypad phone rang from Tobi's own number while the cracked phone stayed warm in his pocket.",
+      "prompt": "Exact narration beat: Night inside the apartment. Mara's old keypad phone rings on the table showing Tobi's own number as caller while Tobi holds the cracked green phone in his pocket hand. Both siblings stare in dread.",
+      "motion": "The keypad phone rings insistently while green light leaks from Tobi's pocket."
+    },
+    {
+      "id": "12a_first_call_dies",
+      "image_id": "12a_first_call_dies",
+      "duration": 3.7,
+      "caption": "He let the first call die. The apartment lights blinked once.",
+      "prompt": "Exact narration beat: Tobi and Mara watch the ringing keypad phone time out untouched as the apartment lights flicker once overhead. The rain-dark room feels suddenly colder.",
+      "motion": "The ringtone stops and the room blinks dim for a beat."
+    },
+    {
+      "id": "13a_second_call_mum",
+      "image_id": "13a_second_call_mum",
+      "duration": 5.2,
+      "caption": "Thirty seconds later, the second call came from a number saved as Mum, even though their mother's SIM had been buried years ago.",
+      "prompt": "Exact narration beat: Close-up of the old keypad phone ringing again, this time displaying the saved contact name Mum. Mara and Tobi are reflected in shock above it. No brand visible.",
+      "motion": "The caller name Mum glows as the camera tightens and their reflections tremble."
+    },
+    {
+      "id": "14a_mara_reaches",
+      "image_id": "14a_mara_reaches",
+      "duration": 3.4,
+      "caption": "Mara reached for it before Tobi could stop her.",
+      "prompt": "Exact narration beat: Mara reaches toward the ringing keypad phone across the table while Tobi lunges to stop her. The cracked green phone flashes between them.",
+      "motion": "Fast push as Mara's hand moves for the phone and Tobi reacts too late."
+    },
+    {
+      "id": "15a_phone_screamed_green",
+      "image_id": "15a_phone_screamed_green",
+      "duration": 2.7,
+      "caption": "The cracked phone screamed green.",
+      "prompt": "Exact narration beat: The cracked phone erupts in an intense neon-green burst on the table, overwhelming the amber apartment light. No text visible yet, just emergency glow.",
+      "motion": "The green light surges violently outward from the cracked screen."
+    },
+    {
+      "id": "16a_break_window",
+      "image_id": "16a_break_window",
+      "duration": 2.8,
+      "caption": "Break the window.",
+      "prompt": "Exact narration beat: Extreme close-up of the cracked phone screen showing the command: BREAK THE WINDOW. Tobi's eye is reflected above the glowing words.",
+      "motion": "Hard snap into the command on the screen."
+    },
+    {
+      "id": "17a_tobi_smashes_window",
+      "image_id": "17a_tobi_smashes_window",
+      "duration": 4.9,
+      "caption": "Tobi smashed the rain-stuck window beside the front door just as the hallway filled with the sound of a ringing phone from outside.",
+      "prompt": "Exact narration beat: Tobi smashes open the rain-stuck window beside the apartment front door while Mara recoils behind him. Beyond the doorway, the dark hallway seems full of a phone ringing from outside. Green light and flying glass, no injury.",
+      "motion": "Fast impact as the window gives way and the hallway sound rushes in."
+    },
+    {
+      "id": "18a_package_note",
+      "image_id": "18a_package_note",
+      "duration": 4.8,
+      "caption": "On the landing sat the breathing package, and tucked beneath its tape was a note in Mara's handwriting.",
+      "prompt": "Exact narration beat: Outside the apartment door on the landing, the plain brown breathing package sits alone. A folded note in Mara's handwriting is tucked beneath its tape. No people touching it. Green phone light spills from the doorway.",
+      "motion": "Slow push toward the package and handwritten note as the paper rises and falls once."
+    },
+    {
+      "id": "19a_package_stops_breathing",
+      "image_id": "19a_package_stops_breathing",
+      "duration": 5.1,
+      "caption": "The second call stopped. The package stopped breathing. Mara whispered that she had written the same words in her sleep.",
+      "prompt": "Exact narration beat: Tobi and Mara kneel near the landing package as it finally goes still. Mara looks terrified at the note in her own handwriting while Tobi holds the glowing cracked phone. Rainy hallway light, no one else present.",
+      "motion": "The ringing cuts out and the package slowly settles lifeless as Mara reads the note."
+    },
+    {
+      "id": "20a_street_disappears_note",
+      "image_id": "20a_street_disappears_note",
+      "duration": 4.5,
+      "caption": "The note said: Come before the street disappears.",
+      "prompt": "Exact narration beat: Extreme close-up of the handwritten note reading: COME BEFORE THE STREET DISAPPEARS, held near the cracked green phone. The apartment hallway blurs behind it.",
+      "motion": "The camera pushes into the note while green light trembles across the paper."
+    },
+    {
+      "id": "21a_follow_cta",
+      "image_id": "21a_follow_cta",
+      "duration": 3.2,
+      "caption": "Follow me for the next episode. Do not miss out.",
+      "prompt": "Exact narration beat: Cliffhanger frame inside the apartment doorway at night: Tobi and Mara stand over the stopped package and handwritten note while the cracked phone glows green between them. No text in image.",
+      "motion": "Hold on the siblings, the package, and the green glow in the doorway."
+    },
+    {
+      "id": "22a_end_card",
+      "image_id": "22a_end_card",
+      "duration": 2.0,
+      "caption": "Episode 6: The Street That Disappears.",
+      "prompt": "Exact narration beat: End-card cliffhanger visual, Mara's notebook open to the impossible street map beside the cracked neon-green phone and the folded note from the package. No text in image.",
+      "motion": "Final slow push toward the hand-drawn street map and green-lit note.",
+      "post_roll": true
+    }
+  ]
+}

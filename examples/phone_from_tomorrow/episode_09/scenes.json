@@ -1,0 +1,224 @@
+{
+  "episode_title": "Tomorrow Calls Back",
+  "output_slug": "episode_09",
+  "resolution": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "style": "cinematic Afro-futurist mystery thriller, midnight apartment stairwell, rainy telecom yard by Lagos lagoon, abandoned switchboards and ringing desk phones, neon-green phone glow, realistic but slightly heightened, shallow depth of field, moody contrast, no logos, no public figures, no readable real brand names",
+  "continuity_notes": "Maintain continuity from Episodes 1 through 8. Tobi is more exhausted and cornered but still the same rider with the same cracked neon-green phone. Mara remains brave and emotionally raw. Iya Sade remains burdened by history and guilt. The bus woman should finally feel like a witness from outside normal time rather than just a stranger. The abandoned telecom exchange must still feel grounded in Lagos, wet, neglected, and real.",
+  "characters": [
+    {
+      "name": "Tobi Adeyemi",
+      "description": "24-year-old Nigerian delivery rider, lean build, dark brown skin, short close-cropped black twists with a low fade, faint moustache and goatee, tired expressive eyes, dark green delivery jacket or hoodie with subtle reflective strips, practical worn clothes, cracked old black smartphone glowing neon green."
+    },
+    {
+      "name": "Mara Adeyemi",
+      "description": "Tobi's younger sister, early 20s Nigerian woman, slim build, dark brown skin, neat shoulder-length braids, simple clothes, frightened but steady, carrying deepening knowledge of the phone."
+    },
+    {
+      "name": "Iya Sade",
+      "description": "Older Lagos street food seller, late 50s Nigerian woman, dark brown skin, patterned headscarf, practical layered clothes, grave face, moving like someone who has seen this place in stories before."
+    },
+    {
+      "name": "Bus Woman",
+      "description": "Mysterious Nigerian woman in plain dark clothing, calm expression, direct gaze, appears like a witness from erased timelines, always untouched by rain."
+    }
+  ],
+  "cover": {
+    "series_title": "The Phone That Receives Tomorrow",
+    "episode_number": 9,
+    "part_number": 9,
+    "hook_lines": [
+      "HE CALLED",
+      "FROM",
+      "TOMORROW"
+    ],
+    "hook_highlight": "TOMORROW",
+    "title_lines": [
+      "TOMORROW",
+      "CALLS BACK"
+    ],
+    "background_prompt": "midnight apartment stairwell with Tobi answering a cracked neon-green phone that shows his own number, Mara watching from the doorway behind him; beyond this, a rain-soaked abandoned telecom exchange full of old desk phones glows faintly in imagination; tense, cinematic, green reflections and wet night air; leave dark clean space at top for title."
+  },
+  "scenes": [
+    {
+      "id": "01a_answered_in_stairwell",
+      "image_id": "01a_answered_in_stairwell",
+      "duration": 4.5,
+      "caption": "At midnight, Tobi finally answered the call in the stairwell.",
+      "prompt": "Exact narration beat: In the dim apartment stairwell at midnight, Tobi finally answers the cracked neon-green phone while standing alone one landing below Mara. The block outside is dark.",
+      "motion": "Push in as Tobi lifts the phone to his ear and commits to the call."
+    },
+    {
+      "id": "02a_older_voice",
+      "image_id": "02a_older_voice",
+      "duration": 4.6,
+      "caption": "The voice on the other end was his own, older and ragged, as if every word had been running for miles.",
+      "prompt": "Exact narration beat: Tobi listens in shock in the stairwell, hearing his own older voice through the cracked phone. His face reflects fear and recognition under green light.",
+      "motion": "Tight drift across Tobi's face as recognition sets in."
+    },
+    {
+      "id": "03a_stop_saving",
+      "image_id": "03a_stop_saving",
+      "duration": 4.2,
+      "caption": "Future Tobi begged him to stop saving people the phone had chosen.",
+      "prompt": "Exact narration beat: Tobi grips the stairwell rail as the older voice begs him through the phone to stop saving the people chosen by the device. Mara remains blurred above.",
+      "motion": "Phone at Tobi's ear, his hand tightening on the rail as the plea hits."
+    },
+    {
+      "id": "04a_debt_to_mara",
+      "image_id": "04a_debt_to_mara",
+      "duration": 4.3,
+      "caption": "He said every rescue moved the debt closer to Mara.",
+      "prompt": "Exact narration beat: Tobi stands frozen in the stairwell as the call explains that every rescue pushes the debt toward Mara. The green phone glow makes the warning feel physical.",
+      "motion": "Slow inward move as dread settles on Tobi's face."
+    },
+    {
+      "id": "05a_screen_flashes_over_call",
+      "image_id": "05a_screen_flashes_over_call",
+      "duration": 2.9,
+      "caption": "The cracked screen flashed over the call.",
+      "prompt": "Exact narration beat: Close-up of the call screen on the cracked phone suddenly interrupted by a green text overlay while the call is still active.",
+      "motion": "The call interface jerks aside as message text burns over it."
+    },
+    {
+      "id": "06a_keep_obedient",
+      "image_id": "06a_keep_obedient",
+      "duration": 3.6,
+      "caption": "New message: He is lying to keep you obedient.",
+      "prompt": "Exact narration beat: Extreme close-up of the cracked phone screen showing the message: HE IS LYING TO KEEP YOU OBEDIENT. Stairwell darkness surrounds the green text.",
+      "motion": "Hard push into the accusation over the active call screen."
+    },
+    {
+      "id": "07a_dont_trust_screen",
+      "image_id": "07a_dont_trust_screen",
+      "duration": 4.6,
+      "caption": "Future Tobi shouted through the interference and told him not to trust anything the screen said.",
+      "prompt": "Exact narration beat: Tobi recoils slightly in the stairwell as the older version of his own voice urgently shouts through interference, warning him not to trust the screen. Green static light hits his face.",
+      "motion": "Subtle stutter and distortion as the voice breaks through interference."
+    },
+    {
+      "id": "08a_delete_before_sunrise",
+      "image_id": "08a_delete_before_sunrise",
+      "duration": 4.4,
+      "caption": "Delete your number before sunrise, he said, or tomorrow will always find you.",
+      "prompt": "Exact narration beat: Tobi hears the instruction in the stairwell, stunned, the cracked phone held inches from his face while the dark window behind him hints at approaching dawn hours.",
+      "motion": "Slow push into Tobi as the impossible instruction lands."
+    },
+    {
+      "id": "09a_mara_question_setup",
+      "image_id": "09a_mara_question_setup",
+      "duration": 4.0,
+      "caption": "Mara heard enough from the doorway to ask the one question Tobi could not bear.",
+      "prompt": "Exact narration beat: Mara steps into the stairwell doorway, having overheard part of the call, looking at Tobi with terrified clarity. The green phone glows between them.",
+      "motion": "Move from Mara in the doorway to Tobi unable to face her."
+    },
+    {
+      "id": "10a_dead_somewhere",
+      "image_id": "10a_dead_somewhere",
+      "duration": 3.6,
+      "caption": "Am I already dead somewhere?",
+      "prompt": "Exact narration beat: Close-up of Mara asking Tobi if she is already dead somewhere, her face lit by the cracked phone's green glow in the stairwell.",
+      "motion": "Hold on Mara's question with almost no movement."
+    },
+    {
+      "id": "11a_exchange_address",
+      "image_id": "11a_exchange_address",
+      "duration": 4.1,
+      "caption": "Before he could answer, the phone sent an address to an abandoned telecom exchange by the lagoon.",
+      "prompt": "Exact narration beat: Extreme close-up of the cracked phone showing a new destination or address for an abandoned telecom exchange near the Lagos lagoon. Tobi and Mara blur behind the screen.",
+      "motion": "The address appears as the call drops into silence."
+    },
+    {
+      "id": "12a_reached_exchange",
+      "image_id": "12a_reached_exchange",
+      "duration": 4.9,
+      "caption": "Tobi, Mara, and Iya Sade reached it while night rain rolled in over the empty yard.",
+      "prompt": "Exact narration beat: Night rain at an abandoned telecom exchange yard near the lagoon. Tobi, Mara, and Iya Sade approach the neglected building under storm-dark sky with the cracked green phone leading them.",
+      "motion": "Forward tracking through rain toward the abandoned exchange."
+    },
+    {
+      "id": "13a_rows_of_phones",
+      "image_id": "13a_rows_of_phones",
+      "duration": 4.9,
+      "caption": "Inside, dead desk phones rang on their own in long rows.",
+      "prompt": "Exact narration beat: Inside the abandoned telecom exchange, long rows of old desk phones ring by themselves on dusty switchboards. Tobi, Mara, and Iya Sade enter under green light.",
+      "motion": "Wide reveal across the long rows of ringing dead phones."
+    },
+    {
+      "id": "14a_many_tobi_voices",
+      "image_id": "14a_many_tobi_voices",
+      "duration": 4.8,
+      "caption": "Every receiver carried a different version of Tobi's voice asking for help.",
+      "prompt": "Exact narration beat: Tobi moves through the switchboard room as multiple old receivers hang or ring around him, each representing a different version of his own future voice pleading for help. No supernatural faces, keep it grounded in objects and reaction.",
+      "motion": "Orbit slightly around Tobi while ringing receivers multiply the pressure."
+    },
+    {
+      "id": "15a_replacement_first_owner",
+      "image_id": "15a_replacement_first_owner",
+      "duration": 4.5,
+      "caption": "Future Tobi said the final save would create a replacement first owner.",
+      "prompt": "Exact narration beat: Tobi listens in the exchange as the older voice explains the final save creates a replacement first owner. The cracked phone glows harshly against the old telecom equipment.",
+      "motion": "Push from receiver rows to Tobi's face as the rule is revealed."
+    },
+    {
+      "id": "16a_replacement_is_mara",
+      "image_id": "16a_replacement_is_mara",
+      "duration": 3.2,
+      "caption": "The replacement was Mara.",
+      "prompt": "Exact narration beat: Tobi turns toward Mara in horror inside the ringing switchboard room as the truth lands that she is the replacement first owner. Mara stands frozen under green and rain-gray light.",
+      "motion": "Sharp turn from Tobi to Mara as the reveal hits."
+    },
+    {
+      "id": "17a_bus_woman_switchboards",
+      "image_id": "17a_bus_woman_switchboards",
+      "duration": 5.0,
+      "caption": "Then the bus woman stepped out from between the ringing switchboards and said the deleted futures were using Tobi as a doorway back into the world.",
+      "prompt": "Exact narration beat: In the abandoned exchange, the bus woman steps calmly out from between ringing switchboards, dry despite the rain outside, and speaks to Tobi with grave certainty. Mara and Iya Sade stare at her.",
+      "motion": "The woman emerges from the aisle between switchboards with unnatural calm."
+    },
+    {
+      "id": "18a_last_choice_setup",
+      "image_id": "18a_last_choice_setup",
+      "duration": 3.0,
+      "caption": "The screen burned with one last choice.",
+      "prompt": "Exact narration beat: Close-up of the cracked neon-green phone in the telecom exchange as its screen brightens into a final message choice.",
+      "motion": "The green light intensifies until it dominates the frame."
+    },
+    {
+      "id": "19a_delete_or_save",
+      "image_id": "19a_delete_or_save",
+      "duration": 4.3,
+      "caption": "Delete my number and lose her forever. Keep it and save her once.",
+      "prompt": "Exact narration beat: Extreme close-up of the cracked phone screen showing the final choice: DELETE MY NUMBER AND LOSE HER FOREVER. KEEP IT AND SAVE HER ONCE. Green light reflects in Tobi's eye.",
+      "motion": "The choice arrives in two crushing lines as the camera pushes closer."
+    },
+    {
+      "id": "20a_dawn_waiting",
+      "image_id": "20a_dawn_waiting",
+      "duration": 4.5,
+      "caption": "By the time dawn touched the windows, Tobi was still holding the phone.",
+      "prompt": "Exact narration beat: Pale dawn begins to touch the high dirty windows of the telecom exchange while Tobi stands still holding the cracked phone, unable to choose. Mara and Iya Sade wait nearby.",
+      "motion": "Slow still hold as dawn light creeps into the room."
+    },
+    {
+      "id": "21a_follow_final",
+      "image_id": "21a_follow_final",
+      "duration": 3.1,
+      "caption": "Follow me for the final episode. Do not miss out.",
+      "prompt": "Exact narration beat: Cliffhanger frame inside the abandoned telecom exchange at dawn: Tobi holds the glowing phone between Mara, Iya Sade, and the bus woman while rows of old phones sit around them in silence. No text in image.",
+      "motion": "Hold on the impossible four-way standoff around the phone."
+    },
+    {
+      "id": "22a_end_card",
+      "image_id": "22a_end_card",
+      "duration": 2.0,
+      "caption": "Episode 10: Delete My Number.",
+      "prompt": "Exact narration beat: End-card cliffhanger visual, the cracked neon-green phone displaying a final choice beside old ringing desk phones gone still at dawn in the telecom exchange. No text in image.",
+      "motion": "Final slow push into the glowing phone and silent receivers.",
+      "post_roll": true
+    }
+  ]
+}

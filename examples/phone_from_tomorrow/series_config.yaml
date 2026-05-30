@@ -1,0 +1,21 @@
+series:
+  title: "The Phone That Receives Tomorrow"
+  channel_name: "Tomorrow Came Early"
+  logline: "A Lagos delivery rider finds an old phone that receives text messages exactly 24 hours before disasters happen."
+
+style_template: thriller_mystery
+
+voice:
+  narrator_notes: "Modern, tense, intimate, cinematic. Pause before cliffhangers."
+
+platforms:
+  default_disclosure: "This is a fictional story."
+  publish_order:
+    - tiktok
+    - youtube_shorts
+    - instagram_reels
+
+production:
+  target_duration_seconds: "60-90"
+  scene_count: "15-25"
+  cover_intro_seconds: 2.5

@@ -1,0 +1,367 @@
+{
+  "episode_title": "The Bus With No Driver",
+  "output_slug": "episode_02",
+  "resolution": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "style": "cinematic Afro-futurist mystery thriller, modern Lagos at rainy dawn, wet asphalt, amber streetlights, green phone glow, yellow danfo bus, realistic but slightly heightened, shallow depth of field, moody contrast, no logos, no public figures, no readable real brand names",
+  "continuity_notes": "Maintain the same series world and characters from Episode 1. Tobi always appears as the same 24-year-old Nigerian delivery rider: lean build, dark brown skin, short close-cropped black twists with a low fade, faint moustache and goatee, tired expressive eyes, dark green delivery jacket or hoodie with subtle reflective strips, black rider backpack, practical worn clothes, cracked old smartphone glowing neon green. Mara is Tobi's younger sister: early 20s Nigerian woman, slim build, dark brown skin, neat shoulder-length braids, simple home T-shirt, alert protective expression. Iya Sade is an older Lagos street food seller: late 50s Nigerian woman, warm but unreadable face, patterned headscarf, rain-dark apron. The cracked phone must stay old, black, visibly cracked, and green-glowing across the series.",
+  "characters": [
+    {
+      "name": "Tobi Adeyemi",
+      "description": "24-year-old Nigerian delivery rider, lean build, dark brown skin, short close-cropped black twists with a low fade, faint moustache and goatee, tired expressive eyes, dark green delivery jacket or hoodie with subtle reflective strips, black rider backpack, practical worn clothes, cracked old black smartphone glowing neon green."
+    },
+    {
+      "name": "Mara Adeyemi",
+      "description": "Tobi's younger sister, early 20s Nigerian woman, slim build, dark brown skin, neat shoulder-length braids, simple home T-shirt, alert protective expression."
+    },
+    {
+      "name": "Iya Sade",
+      "description": "Older Lagos street food seller, late 50s Nigerian woman, patterned headscarf, rain-dark apron, calm face that suggests she knows more than she says."
+    }
+  ],
+  "cover": {
+    "series_title": "The Phone That Receives Tomorrow",
+    "episode_number": 2,
+    "part_number": 2,
+    "hook_lines": [
+      "DON'T",
+      "BOARD THIS",
+      "BUS"
+    ],
+    "hook_highlight": "BUS",
+    "title_lines": [
+      "THE BUS WITH",
+      "NO DRIVER"
+    ],
+    "background_prompt": "rainy Lagos bus stop at dawn; a yellow danfo bus with no visible driver waits in the amber mist; Tobi stands tense near the road holding the cracked neon-green phone; wet asphalt reflects green light; the bus interior is dark and unsettling; leave dark clean space at top for title."
+  },
+  "scenes": [
+    {
+      "id": "01a_package_breathing",
+      "image_id": "01a_package_breathing",
+      "duration": 3.4,
+      "caption": "The package outside Tobi's door was breathing.",
+      "prompt": "Exact narration beat: The plain brown package from Episode 1 sits alone outside Tobi's closed apartment door at rainy dawn, subtly swelling as if breathing. Wet hallway floor, amber corridor light, faint neon green reflection from Tobi's cracked phone under the door. No people visible.",
+      "motion": "Slow low push-in as the package rises and falls once, green light pulsing across the wet floor."
+    },
+    {
+      "id": "02a_mara_waiting",
+      "image_id": "02a_mara_waiting",
+      "duration": 4.8,
+      "caption": "He did not open it. He dragged Mara away from the hallway and waited until sunrise.",
+      "prompt": "Exact narration beat: Inside the modest Lagos apartment, Tobi pulls Mara gently but urgently away from the closed front door. Both look exhausted after a sleepless night. Warm kitchen light, rain on window, green phone glow in Tobi's hand. The door stays closed in the background.",
+      "motion": "Subtle handheld drift as Tobi and Mara back away from the closed door, sunrise light creeping through the room."
+    },
+    {
+      "id": "03a_phone_lit_again",
+      "image_id": "03a_phone_lit_again",
+      "duration": 3.0,
+      "caption": "At 6:12 AM, the cracked phone lit up again.",
+      "prompt": "Exact narration beat: Close-up of Tobi's cracked old black smartphone lighting up neon green at 6:12 AM on a small table beside cold tea and keys. Rain-dim morning light, tense silence, no other characters visible.",
+      "motion": "The phone screen flickers awake as the camera creeps closer over the table."
+    },
+    {
+      "id": "04a_bus_plate_warning",
+      "image_id": "04a_bus_plate_warning",
+      "duration": 5.8,
+      "caption": "This time, it showed a bus plate: KJA-404. Do not let it reach Third Mainland.",
+      "prompt": "Exact narration beat: Extreme close-up of the cracked phone in Tobi's hand showing a message with fictional bus plate KJA-404 and warning text: Do not let it reach Third Mainland. Green glow on his fingers, blurred rainy Lagos street through window.",
+      "motion": "The warning text brightens while Tobi's hand tightens around the phone."
+    },
+    {
+      "id": "05a_delivery_job",
+      "image_id": "05a_delivery_job",
+      "duration": 5.6,
+      "caption": "Tobi had a delivery due in twenty minutes. Missing it meant losing the only job still answering his calls.",
+      "prompt": "Exact narration beat: Tobi in his dark green delivery jacket with black rider backpack checks a delivery app on one phone while the cracked green-glowing phone sits beside it. He looks torn and tired. Modest apartment doorway, raincoat, worn helmet, urgent morning light.",
+      "motion": "Slow push from the delivery bag to Tobi's conflicted face as the green warning phone glows beside the work phone."
+    },
+    {
+      "id": "06a_mara_police",
+      "image_id": "06a_mara_police",
+      "duration": 4.6,
+      "caption": "Mara told him to call the police. Tobi looked at the phone and saw one more line.",
+      "prompt": "Exact narration beat: Mara stands close to Tobi in the apartment, worried and protective, gesturing toward a phone as if telling him to call the police. Tobi stares down at the cracked green phone instead. Closed apartment door behind them.",
+      "motion": "Mara's worried gesture freezes as the camera tilts down to the green phone in Tobi's hand."
+    },
+    {
+      "id": "07a_no_driver_text",
+      "image_id": "07a_no_driver_text",
+      "duration": 2.4,
+      "caption": "The driver will not be inside.",
+      "prompt": "Exact narration beat: Extreme close-up of the cracked phone screen showing the message: The driver will not be inside. The green glow reflects in Tobi's anxious eyes above the phone. Dark apartment background.",
+      "motion": "Hard slow push into the sentence on the cracked screen."
+    },
+    {
+      "id": "08a_lagos_loud",
+      "image_id": "08a_lagos_loud",
+      "duration": 5.5,
+      "caption": "By 6:45, Lagos was already loud. Horns, rainwater, generator smoke, everything moving except Tobi.",
+      "prompt": "Exact narration beat: Rainy Lagos roadside at 6:45 AM, wet asphalt, yellow buses, motorcycles, generator smoke, horn energy implied by movement. Tobi stands still at the edge of the road in his dark green delivery jacket, black backpack, cracked phone glowing in his hand.",
+      "motion": "Traffic streaks past while Tobi remains still, green phone glow steady in his hand."
+    },
+    {
+      "id": "09a_danfo_plate",
+      "image_id": "09a_danfo_plate",
+      "duration": 6.4,
+      "caption": "Then he saw it: a yellow danfo with the exact plate number, rolling through traffic like somebody invisible had both hands on the wheel.",
+      "prompt": "Exact narration beat: A yellow Lagos danfo bus with fictional plate KJA-404 rolls through wet traffic at dawn. The driver's area is shadowed and strange, suggesting no visible driver. Tobi watches from the roadside, shocked, green phone in hand.",
+      "motion": "Tracking shot energy as the yellow bus glides through rain-slick traffic toward Tobi."
+    },
+    {
+      "id": "10a_empty_driver_seat",
+      "image_id": "10a_empty_driver_seat",
+      "duration": 2.4,
+      "caption": "The driver's seat was empty.",
+      "prompt": "Exact narration beat: Interior view through the front window of the yellow danfo bus, driver's seat completely empty while the steering wheel turns slightly. Rain beads on glass, amber dashboard light, no driver visible.",
+      "motion": "Tiny impossible turn of the steering wheel as rain slides down the windshield."
+    },
+    {
+      "id": "11a_people_laugh",
+      "image_id": "11a_people_laugh",
+      "duration": 5.2,
+      "caption": "People laughed when Tobi shouted. In Lagos, every bus looks haunted when you are late for work.",
+      "prompt": "Exact narration beat: At a rainy Lagos bus stop, commuters laugh and wave Tobi away as he shouts toward the driverless bus. Tobi looks desperate but not aggressive. Yellow bus behind him, wet road, green phone glow.",
+      "motion": "Handheld street-level movement as commuters laugh and Tobi keeps pointing at the bus."
+    },
+    {
+      "id": "12a_tobi_jumps",
+      "image_id": "12a_tobi_jumps",
+      "duration": 2.4,
+      "caption": "So he jumped in front of it.",
+      "prompt": "Exact narration beat: Tobi steps into the rain-slick road directly in front of the yellow danfo bus, arms out, dark green delivery jacket and black backpack visible, green phone clutched in one hand. High tension, no impact.",
+      "motion": "Fast push toward Tobi as he plants himself in front of the bus, rain splashing around his shoes."
+    },
+    {
+      "id": "13a_bus_stops",
+      "image_id": "13a_bus_stops",
+      "duration": 2.7,
+      "caption": "The bus stopped one inch from his knees.",
+      "prompt": "Exact narration beat: Low angle on Tobi's knees and shoes as the yellow bus bumper stops impossibly close, one inch away, rainwater splashing between them. Neon green phone reflection on wet asphalt.",
+      "motion": "The bus lurches to a stop inches from Tobi, water rippling outward."
+    },
+    {
+      "id": "14a_sleeping_passengers",
+      "image_id": "14a_sleeping_passengers",
+      "duration": 4.2,
+      "caption": "Inside, every passenger was asleep with their phones glowing green.",
+      "prompt": "Exact narration beat: Interior of the yellow danfo bus, passengers asleep in their seats, each holding or resting near a phone glowing neon green. Tobi peers in from the open doorway, shocked. Moody amber and green light, no gore.",
+      "motion": "Slow pan down the aisle past sleeping passengers and multiple green-glowing phones."
+    },
+    {
+      "id": "15a_woman_whispers",
+      "image_id": "15a_woman_whispers",
+      "duration": 5.4,
+      "caption": "One woman opened her eyes and whispered, Tobi Adeyemi, you already changed tomorrow once.",
+      "prompt": "Exact narration beat: Inside the bus, one seated woman opens her eyes while other passengers remain asleep. She looks directly at Tobi with eerie calm. Tobi stands near the doorway in his green delivery jacket, stunned, cracked phone glowing.",
+      "motion": "Rack focus from Tobi's shocked face to the woman's open eyes as the green phone glow flickers."
+    },
+    {
+      "id": "16a_phone_buzzed_again",
+      "image_id": "16a_phone_buzzed_again",
+      "duration": 2.6,
+      "caption": "Before he could move, his phone buzzed again.",
+      "prompt": "Exact narration beat: Tobi inside the bus freezes as the cracked phone buzzes in his hand, green light pulsing against the yellow bus interior. Sleeping passengers blur behind him.",
+      "motion": "Close-up phone vibration in Tobi's hand, green pulse reflecting on bus seats."
+    },
+    {
+      "id": "17a_check_back_seat",
+      "image_id": "17a_check_back_seat",
+      "duration": 2.6,
+      "caption": "New message: Check the back seat.",
+      "prompt": "Exact narration beat: Extreme close-up of the cracked phone screen in Tobi's hand showing the message: Check the back seat. The bus aisle is blurred behind the phone, green light and amber shadows.",
+      "motion": "The camera pushes from the phone message toward the dark back of the bus."
+    },
+    {
+      "id": "18a_package_back_seat",
+      "image_id": "18a_package_back_seat",
+      "duration": 4.3,
+      "caption": "There, on the torn leather, was the same brown package from his doorway.",
+      "prompt": "Exact narration beat: At the back seat of the yellow danfo bus, the same plain brown package from Tobi's doorway sits on torn dark leather, faintly pulsing. Tobi's green phone glow spills into frame from the aisle. No people touching it.",
+      "motion": "Slow push-in on the package on the torn back seat as the paper subtly swells."
+    },
+    {
+      "id": "19a_follow_cta",
+      "image_id": "19a_follow_cta",
+      "duration": 3.2,
+      "caption": "Follow me for the next episode. Do not miss out.",
+      "prompt": "Exact narration beat: Cliffhanger frame inside the dark back of the bus: the brown package alone on torn leather, green glow from Tobi's phone, rain-streaked window behind it. No hands, no people touching the package.",
+      "motion": "The package breathes subtly as green phone light pulses, holding the cliffhanger."
+    },
+    {
+      "id": "20a_end_card",
+      "image_id": "20a_end_card",
+      "duration": 2.0,
+      "caption": "Episode 3: Save Her Twice.",
+      "prompt": "Exact narration beat: End-card cliffhanger visual, the brown package alone on the back seat of the driverless yellow danfo bus, neon green light reflecting across torn leather, rain outside, no text in the image.",
+      "motion": "Final slow push-in toward the package on the back seat.",
+      "post_roll": true
+    }
+  ],
+  "caption_segments": [
+    {
+      "id": "01a_package_breathing",
+      "image_id": "01a_package_breathing",
+      "duration": 3.4,
+      "caption": "The package outside Tobi's door was breathing.",
+      "prompt": "Exact narration beat: The plain brown package from Episode 1 sits alone outside Tobi's closed apartment door at rainy dawn, subtly swelling as if breathing. Wet hallway floor, amber corridor light, faint neon green reflection from Tobi's cracked phone under the door. No people visible.",
+      "motion": "Slow low push-in as the package rises and falls once, green light pulsing across the wet floor."
+    },
+    {
+      "id": "02a_mara_waiting",
+      "image_id": "02a_mara_waiting",
+      "duration": 4.8,
+      "caption": "He did not open it. He dragged Mara away from the hallway and waited until sunrise.",
+      "prompt": "Exact narration beat: Inside the modest Lagos apartment, Tobi pulls Mara gently but urgently away from the closed front door. Both look exhausted after a sleepless night. Warm kitchen light, rain on window, green phone glow in Tobi's hand. The door stays closed in the background.",
+      "motion": "Subtle handheld drift as Tobi and Mara back away from the closed door, sunrise light creeping through the room."
+    },
+    {
+      "id": "03a_phone_lit_again",
+      "image_id": "03a_phone_lit_again",
+      "duration": 3.0,
+      "caption": "At 6:12 AM, the cracked phone lit up again.",
+      "prompt": "Exact narration beat: Close-up of Tobi's cracked old black smartphone lighting up neon green at 6:12 AM on a small table beside cold tea and keys. Rain-dim morning light, tense silence, no other characters visible.",
+      "motion": "The phone screen flickers awake as the camera creeps closer over the table."
+    },
+    {
+      "id": "04a_bus_plate_warning",
+      "image_id": "04a_bus_plate_warning",
+      "duration": 5.8,
+      "caption": "This time, it showed a bus plate: KJA-404. Do not let it reach Third Mainland.",
+      "prompt": "Exact narration beat: Extreme close-up of the cracked phone in Tobi's hand showing a message with fictional bus plate KJA-404 and warning text: Do not let it reach Third Mainland. Green glow on his fingers, blurred rainy Lagos street through window.",
+      "motion": "The warning text brightens while Tobi's hand tightens around the phone."
+    },
+    {
+      "id": "05a_delivery_job",
+      "image_id": "05a_delivery_job",
+      "duration": 5.6,
+      "caption": "Tobi had a delivery due in twenty minutes. Missing it meant losing the only job still answering his calls.",
+      "prompt": "Exact narration beat: Tobi in his dark green delivery jacket with black rider backpack checks a delivery app on one phone while the cracked green-glowing phone sits beside it. He looks torn and tired. Modest apartment doorway, raincoat, worn helmet, urgent morning light.",
+      "motion": "Slow push from the delivery bag to Tobi's conflicted face as the green warning phone glows beside the work phone."
+    },
+    {
+      "id": "06a_mara_police",
+      "image_id": "06a_mara_police",
+      "duration": 4.6,
+      "caption": "Mara told him to call the police. Tobi looked at the phone and saw one more line.",
+      "prompt": "Exact narration beat: Mara stands close to Tobi in the apartment, worried and protective, gesturing toward a phone as if telling him to call the police. Tobi stares down at the cracked green phone instead. Closed apartment door behind them.",
+      "motion": "Mara's worried gesture freezes as the camera tilts down to the green phone in Tobi's hand."
+    },
+    {
+      "id": "07a_no_driver_text",
+      "image_id": "07a_no_driver_text",
+      "duration": 2.4,
+      "caption": "The driver will not be inside.",
+      "prompt": "Exact narration beat: Extreme close-up of the cracked phone screen showing the message: The driver will not be inside. The green glow reflects in Tobi's anxious eyes above the phone. Dark apartment background.",
+      "motion": "Hard slow push into the sentence on the cracked screen."
+    },
+    {
+      "id": "08a_lagos_loud",
+      "image_id": "08a_lagos_loud",
+      "duration": 5.5,
+      "caption": "By 6:45, Lagos was already loud. Horns, rainwater, generator smoke, everything moving except Tobi.",
+      "prompt": "Exact narration beat: Rainy Lagos roadside at 6:45 AM, wet asphalt, yellow buses, motorcycles, generator smoke, horn energy implied by movement. Tobi stands still at the edge of the road in his dark green delivery jacket, black backpack, cracked phone glowing in his hand.",
+      "motion": "Traffic streaks past while Tobi remains still, green phone glow steady in his hand."
+    },
+    {
+      "id": "09a_danfo_plate",
+      "image_id": "09a_danfo_plate",
+      "duration": 6.4,
+      "caption": "Then he saw it: a yellow danfo with the exact plate number, rolling through traffic like somebody invisible had both hands on the wheel.",
+      "prompt": "Exact narration beat: A yellow Lagos danfo bus with fictional plate KJA-404 rolls through wet traffic at dawn. The driver's area is shadowed and strange, suggesting no visible driver. Tobi watches from the roadside, shocked, green phone in hand.",
+      "motion": "Tracking shot energy as the yellow bus glides through rain-slick traffic toward Tobi."
+    },
+    {
+      "id": "10a_empty_driver_seat",
+      "image_id": "10a_empty_driver_seat",
+      "duration": 2.4,
+      "caption": "The driver's seat was empty.",
+      "prompt": "Exact narration beat: Interior view through the front window of the yellow danfo bus, driver's seat completely empty while the steering wheel turns slightly. Rain beads on glass, amber dashboard light, no driver visible.",
+      "motion": "Tiny impossible turn of the steering wheel as rain slides down the windshield."
+    },
+    {
+      "id": "11a_people_laugh",
+      "image_id": "11a_people_laugh",
+      "duration": 5.2,
+      "caption": "People laughed when Tobi shouted. In Lagos, every bus looks haunted when you are late for work.",
+      "prompt": "Exact narration beat: At a rainy Lagos bus stop, commuters laugh and wave Tobi away as he shouts toward the driverless bus. Tobi looks desperate but not aggressive. Yellow bus behind him, wet road, green phone glow.",
+      "motion": "Handheld street-level movement as commuters laugh and Tobi keeps pointing at the bus."
+    },
+    {
+      "id": "12a_tobi_jumps",
+      "image_id": "12a_tobi_jumps",
+      "duration": 2.4,
+      "caption": "So he jumped in front of it.",
+      "prompt": "Exact narration beat: Tobi steps into the rain-slick road directly in front of the yellow danfo bus, arms out, dark green delivery jacket and black backpack visible, green phone clutched in one hand. High tension, no impact.",
+      "motion": "Fast push toward Tobi as he plants himself in front of the bus, rain splashing around his shoes."
+    },
+    {
+      "id": "13a_bus_stops",
+      "image_id": "13a_bus_stops",
+      "duration": 2.7,
+      "caption": "The bus stopped one inch from his knees.",
+      "prompt": "Exact narration beat: Low angle on Tobi's knees and shoes as the yellow bus bumper stops impossibly close, one inch away, rainwater splashing between them. Neon green phone reflection on wet asphalt.",
+      "motion": "The bus lurches to a stop inches from Tobi, water rippling outward."
+    },
+    {
+      "id": "14a_sleeping_passengers",
+      "image_id": "14a_sleeping_passengers",
+      "duration": 4.2,
+      "caption": "Inside, every passenger was asleep with their phones glowing green.",
+      "prompt": "Exact narration beat: Interior of the yellow danfo bus, passengers asleep in their seats, each holding or resting near a phone glowing neon green. Tobi peers in from the open doorway, shocked. Moody amber and green light, no gore.",
+      "motion": "Slow pan down the aisle past sleeping passengers and multiple green-glowing phones."
+    },
+    {
+      "id": "15a_woman_whispers",
+      "image_id": "15a_woman_whispers",
+      "duration": 5.4,
+      "caption": "One woman opened her eyes and whispered, Tobi Adeyemi, you already changed tomorrow once.",
+      "prompt": "Exact narration beat: Inside the bus, one seated woman opens her eyes while other passengers remain asleep. She looks directly at Tobi with eerie calm. Tobi stands near the doorway in his green delivery jacket, stunned, cracked phone glowing.",
+      "motion": "Rack focus from Tobi's shocked face to the woman's open eyes as the green phone glow flickers."
+    },
+    {
+      "id": "16a_phone_buzzed_again",
+      "image_id": "16a_phone_buzzed_again",
+      "duration": 2.6,
+      "caption": "Before he could move, his phone buzzed again.",
+      "prompt": "Exact narration beat: Tobi inside the bus freezes as the cracked phone buzzes in his hand, green light pulsing against the yellow bus interior. Sleeping passengers blur behind him.",
+      "motion": "Close-up phone vibration in Tobi's hand, green pulse reflecting on bus seats."
+    },
+    {
+      "id": "17a_check_back_seat",
+      "image_id": "17a_check_back_seat",
+      "duration": 2.6,
+      "caption": "New message: Check the back seat.",
+      "prompt": "Exact narration beat: Extreme close-up of the cracked phone screen in Tobi's hand showing the message: Check the back seat. The bus aisle is blurred behind the phone, green light and amber shadows.",
+      "motion": "The camera pushes from the phone message toward the dark back of the bus."
+    },
+    {
+      "id": "18a_package_back_seat",
+      "image_id": "18a_package_back_seat",
+      "duration": 4.3,
+      "caption": "There, on the torn leather, was the same brown package from his doorway.",
+      "prompt": "Exact narration beat: At the back seat of the yellow danfo bus, the same plain brown package from Tobi's doorway sits on torn dark leather, faintly pulsing. Tobi's green phone glow spills into frame from the aisle. No people touching it.",
+      "motion": "Slow push-in on the package on the torn back seat as the paper subtly swells."
+    },
+    {
+      "id": "19a_follow_cta",
+      "image_id": "19a_follow_cta",
+      "duration": 3.2,
+      "caption": "Follow me for the next episode. Do not miss out.",
+      "prompt": "Exact narration beat: Cliffhanger frame inside the dark back of the bus: the brown package alone on torn leather, green glow from Tobi's phone, rain-streaked window behind it. No hands, no people touching the package.",
+      "motion": "The package breathes subtly as green phone light pulses, holding the cliffhanger."
+    },
+    {
+      "id": "20a_end_card",
+      "image_id": "20a_end_card",
+      "duration": 2.0,
+      "caption": "Episode 3: Save Her Twice.",
+      "prompt": "Exact narration beat: End-card cliffhanger visual, the brown package alone on the back seat of the driverless yellow danfo bus, neon green light reflecting across torn leather, rain outside, no text in the image.",
+      "motion": "Final slow push-in toward the package on the back seat.",
+      "post_roll": true
+    }
+  ]
+}

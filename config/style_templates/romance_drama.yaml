@@ -1,0 +1,41 @@
+genre: romance_drama
+description: Emotional, intimate short-form fiction focused on relationships and choices.
+
+visual_style: >
+  cinematic romance drama, soft natural light, warm skin tones, expressive close-ups,
+  modern urban or domestic settings, shallow depth of field, no logos,
+  no public figures, no readable real brand names
+
+image_prompt_rules: |
+  Strict beat-matching rule: visualize only what this narration beat explicitly describes.
+  Composition requirements: emotionally readable faces and body language; vertical portrait;
+  intimate framing; clean backgrounds that support the feeling of the moment.
+  Text requirements: no subtitles, captions, title cards, watermarks, logos, or readable brand names.
+
+cover:
+  hook_lines: ["SHE", "NEVER", "SAID"]
+  hook_highlight: NEVER
+  background_prompt: >
+    soft golden-hour window light in a modern apartment, two silhouettes near a doorway,
+    phone or letter as foreground story object, emotional but clean composition
+
+platforms:
+  tiktok:
+    disclosure: "This is a fictional story."
+    hashtags:
+      - fictionstory
+      - romancedrama
+      - storytime
+      - dramatiktok
+  youtube_shorts:
+    disclosure: "Original fictional romance drama with human creative direction and AI-assisted visuals."
+    hashtags:
+      - FictionStory
+      - RomanceDrama
+      - ShortStory
+  instagram_reels:
+    disclosure: "Fictional story for entertainment."
+    hashtags:
+      - fictionstory
+      - romancedrama
+      - reelsfiction

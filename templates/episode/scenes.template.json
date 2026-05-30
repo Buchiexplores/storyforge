@@ -1,0 +1,46 @@
+{
+  "episode_title": "Your Episode Title Here",
+  "output_slug": "episode_01",
+  "resolution": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "style": "REPLACE_WITH_VISUAL_STYLE_FROM_YOUR_STYLE_TEMPLATE",
+  "continuity_notes": "Describe character appearance, wardrobe, key props, and setting rules that must stay consistent across episodes.",
+  "characters": [
+    {
+      "name": "Main Character",
+      "description": "Age, role, appearance, wardrobe, and signature prop."
+    }
+  ],
+  "cover": {
+    "series_title": "Your Series Title",
+    "episode_number": 1,
+    "part_number": 1,
+    "hook_lines": ["DON'T", "MISS", "THIS"],
+    "hook_highlight": "THIS",
+    "title_lines": ["YOUR EPISODE", "TITLE HERE"],
+    "background_prompt": "Describe the cinematic background plate for the cover. No text in the image."
+  },
+  "scenes": [
+    {
+      "id": "01_opening_hook",
+      "duration": 6,
+      "caption": "Opening narration line that hooks the viewer immediately.",
+      "prompt": "Visual direction for the opening scene. Be specific about subject, location, lighting, and mood."
+    },
+    {
+      "id": "02_rising_tension",
+      "duration": 8,
+      "caption": "Second beat that adds context or raises the stakes.",
+      "prompt": "Visual direction for scene two."
+    },
+    {
+      "id": "03_cliffhanger",
+      "duration": 10,
+      "caption": "Final beat that ends on a specific cliffhanger.",
+      "prompt": "Visual direction for the cliffhanger frame."
+    }
+  ]
+}

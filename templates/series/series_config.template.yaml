@@ -1,0 +1,32 @@
+# Copy this file to your series folder as series_config.yaml and customize it.
+
+series:
+  title: "Your Series Title"
+  channel_name: "Your Channel Name"
+  logline: "One sentence describing the core premise."
+
+# Pick a built-in style template: thriller_mystery, romance_drama, sci_fi
+style_template: thriller_mystery
+
+# Optional override for the visual style string injected into every image prompt.
+# visual_style: "your custom visual style description"
+
+# Optional override for image-generation rules (multi-line string).
+# image_prompt_rules: |
+#   Your custom beat-matching and composition rules.
+
+voice:
+  # Set ELEVENLABS_VOICE_ID in .env.story.local after running --list-voices
+  narrator_notes: "Calm, intimate, slightly urgent. Pause before cliffhangers."
+
+platforms:
+  default_disclosure: "This is a fictional story."
+  publish_order:
+    - tiktok
+    - youtube_shorts
+    - instagram_reels
+
+production:
+  target_duration_seconds: "60-90"
+  scene_count: "15-25"
+  cover_intro_seconds: 2.5
