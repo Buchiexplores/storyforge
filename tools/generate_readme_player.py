@@ -35,17 +35,28 @@ def nav_button(href: str, label: str, color: str) -> str:
     return f'<a href="{href}"><img src="{badge(label, color)}" alt="{label}"></a>'
 
 
-def github_video_url(file_name: str, catalog: dict) -> str:
-    """Absolute URL so GitHub README renders the <video> player reliably."""
+def pages_episode_url(pages_player: str, number: int) -> str:
+    base = pages_player.rstrip("/")
+    return f"{base}/?ep={number}"
+
+
+def github_blob_video_url(file_name: str, catalog: dict) -> str:
+    """GitHub's file viewer plays MP4 inline — works without GitHub Pages."""
     github = {**DEFAULT_GITHUB, **(catalog.get("github") or {})}
     owner = os.getenv("STORYFORGE_GITHUB_OWNER", github["owner"])
     repo = os.getenv("STORYFORGE_GITHUB_REPO", github["repo"])
     branch = os.getenv("STORYFORGE_GITHUB_BRANCH", github["branch"])
     preview_path = github["preview_path"].strip("/")
-    return (
-        f"https://media.githubusercontent.com/media/{owner}/{repo}/"
-        f"{branch}/{preview_path}/{file_name}"
-    )
+    return f"https://github.com/{owner}/{repo}/blob/{branch}/{preview_path}/{file_name}"
+
+
+def poster_src(ep: dict, catalog: dict) -> str:
+    github = {**DEFAULT_GITHUB, **(catalog.get("github") or {})}
+    preview_path = github["preview_path"].strip("/")
+    if ep.get("poster"):
+        return f"{preview_path}/{ep['poster'].lstrip('/')}"
+    stem = Path(ep.get("file", f"episode_{ep['number']:02d}.mp4")).stem
+    return f"{preview_path}/posters/{stem}.jpg"
 
 
 def build_player_block(catalog: dict) -> str:
@@ -76,9 +87,13 @@ def build_player_block(catalog: dict) -> str:
         "",
         f"**{series_title}** — {series_description}",
         "",
-        "Press **play** on any episode below, then use **Next episode →** to continue. "
-        f"For the full player (sidebar, keyboard shortcuts, auto-advance), open "
-        f"[GitHub Pages]({pages_player}).",
+        "**Click any poster below to watch** that episode (opens GitHub's built-in video player). "
+        f"For sidebar navigation, keyboard shortcuts, and auto-advance, use the "
+        f"[interactive player on GitHub Pages]({pages_player}) "
+        "(enable Pages under repo Settings → Pages → branch `main`, folder `/`).",
+        "",
+        "> GitHub README cannot embed in-page video players for repo-hosted MP4s. "
+        "Posters link to each episode's MP4 on GitHub where you can press play.",
         "",
         f'<p align="center">Jump to episode: {picker}</p>',
         "",
@@ -89,23 +104,30 @@ def build_player_block(catalog: dict) -> str:
         title = ep["title"]
         file_name = ep.get("file", f"episode_{number:02d}.mp4")
         anchor = f"ep{number}"
-        video_src = github_video_url(file_name, catalog)
+        watch_url = github_blob_video_url(file_name, catalog)
+        img_src = poster_src(ep, catalog)
+        alt = f"Episode {number} · {title} — click to watch"
         prev_href = f"#ep{episodes[index - 1]['number']}" if index > 0 else None
         next_href = f"#ep{episodes[index + 1]['number']}" if index < len(episodes) - 1 else None
 
         nav_parts = []
         if prev_href:
             nav_parts.append(nav_button(prev_href, "← Previous", "555555"))
+        nav_parts.append(
+            nav_button(watch_url, "▶ Watch this episode", "238636")
+        )
         if next_href:
             nav_parts.append(nav_button(next_href, "Next episode →", "238636"))
 
-        nav_html = " &nbsp; ".join(nav_parts) if nav_parts else ""
+        nav_html = " &nbsp; ".join(nav_parts)
 
         lines.extend(
             [
                 f'<p align="center" id="{anchor}">',
                 f"  <strong>Episode {number} · {title}</strong><br><br>",
-                f'  <video src="{video_src}" controls width="270" playsinline preload="metadata"></video>',
+                f'  <a href="{watch_url}">',
+                f'    <img src="{img_src}" width="270" alt="{alt}">',
+                "  </a>",
                 "  <br><br>",
                 f"  {nav_html}",
                 "</p>",

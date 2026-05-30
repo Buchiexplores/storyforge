@@ -25,6 +25,19 @@ for episode_dir in "$SERIES_PATH"/episode_*; do
   fi
 done
 
+mkdir -p "$DEST/posters"
+for slug in "${copied_slugs[@]}"; do
+  cover="$SERIES_PATH/$slug/assets/exports/${slug}_cover.png"
+  poster="$DEST/posters/${slug}.jpg"
+  if [ -f "$cover" ] && command -v ffmpeg >/dev/null 2>&1; then
+    ffmpeg -y -loglevel error -i "$cover" -vf scale=270:-1 -frames:v 1 -update 1 -q:v 3 "$poster"
+    echo "Poster $slug"
+  elif [ -f "$DEST/${slug}.mp4" ] && command -v ffmpeg >/dev/null 2>&1; then
+    ffmpeg -y -loglevel error -ss 1 -i "$DEST/${slug}.mp4" -vf scale=270:-1 -frames:v 1 -update 1 -q:v 3 "$poster"
+    echo "Poster $slug (from video)"
+  fi
+done
+
 if [ "$copied" -eq 0 ]; then
   echo "No episode exports found under $SERIES." >&2
   echo "Run the pipeline first, e.g.:" >&2
