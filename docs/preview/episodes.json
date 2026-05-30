@@ -1,0 +1,42 @@
+{
+  "series_title": "The Phone That Receives Tomorrow",
+  "series_description": "Example output from the Storyforge pipeline — Afro-futurist mystery thriller.",
+  "episodes": [
+    {
+      "id": "episode_01",
+      "number": 1,
+      "title": "Do Not Open The Door",
+      "file": "episodes/episode_01.mp4"
+    },
+    {
+      "id": "episode_02",
+      "number": 2,
+      "title": "The Bus With No Driver",
+      "file": "episodes/episode_02.mp4"
+    },
+    {
+      "id": "episode_03",
+      "number": 3,
+      "title": "Save Her Twice",
+      "file": "episodes/episode_03.mp4"
+    },
+    {
+      "id": "episode_04",
+      "number": 4,
+      "title": "The Price Of A Minute",
+      "file": "episodes/episode_04.mp4"
+    },
+    {
+      "id": "episode_05",
+      "number": 5,
+      "title": "Mara's Name",
+      "file": "episodes/episode_05.mp4"
+    },
+    {
+      "id": "episode_06",
+      "number": 6,
+      "title": "The Street That Disappears",
+      "file": "episodes/episode_06.mp4"
+    }
+  ]
+}

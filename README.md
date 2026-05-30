@@ -1,4 +1,4 @@
-# Fiction Storytelling Pipeline
+# Storyforge
 
 Turn written short-fiction episodes into vertical videos for **TikTok**, **Instagram Reels**, and **YouTube Shorts**.
 
@@ -11,11 +11,37 @@ This repo is a local production pipeline that converts an episode content packag
 - Final synced 1080×1920 vertical MP4 with cover intro
 - Preview grid, image contact sheet, and optional email notifications
 
+## Example output
+
+**Interactive player (GitHub Pages):** [https://Buchiexplores.github.io/storyforge/preview/](https://Buchiexplores.github.io/storyforge/preview/)
+
+To publish the player, enable GitHub Pages in your repo: **Settings → Pages → Deploy from branch → `main` → `/docs`**.
+
+Episode 1 preview (embedded for README — full player with sidebar, keyboard nav, and auto-advance lives on GitHub Pages because GitHub README does not run JavaScript):
+
+<video src="docs/preview/episodes/episode_01.mp4" controls width="270" playsinline></video>
+
+| Ep | Title | Player |
+|----|-------|--------|
+| 1 | Do Not Open The Door | [Watch](https://Buchiexplores.github.io/storyforge/preview/?ep=1) |
+| 2 | The Bus With No Driver | [Watch](https://Buchiexplores.github.io/storyforge/preview/?ep=2) |
+| 3 | Save Her Twice | [Watch](https://Buchiexplores.github.io/storyforge/preview/?ep=3) |
+| 4 | The Price Of A Minute | [Watch](https://Buchiexplores.github.io/storyforge/preview/?ep=4) |
+| 5 | Mara's Name | [Watch](https://Buchiexplores.github.io/storyforge/preview/?ep=5) |
+| 6 | The Street That Disappears | [Watch](https://Buchiexplores.github.io/storyforge/preview/?ep=6) |
+
+After rendering episodes, copy exports into the preview folder:
+
+```bash
+chmod +x tools/prepare_preview_assets.sh
+./tools/prepare_preview_assets.sh
+```
+
 ## Quick start
 
 ```bash
 git clone <your-repo-url>
-cd fiction_storytelling
+cd storyforge
 
 ./setup.sh  # creates .venv, installs deps, copies .env.story.example
 # Edit .env.story.local with your API keys
@@ -44,7 +70,7 @@ Optional: fal.ai key if you want AI-generated motion clips instead of local Ken 
 ## Repository layout
 
 ```text
-fiction_storytelling/
+storyforge/
   .env.story.example          # Config template (copy to .env.story.local)
   config/style_templates/     # Reusable visual + platform style presets
   docs/                       # Full onboarding and reference docs
