@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import json
+import os
 import re
 import sys
 from pathlib import Path
@@ -13,6 +14,12 @@ EPISODES_JSON = ROOT / "preview" / "example" / "episodes.json"
 README = ROOT / "README.md"
 START = "<!-- README-PLAYER-START -->"
 END = "<!-- README-PLAYER-END -->"
+DEFAULT_GITHUB = {
+    "owner": "Buchiexplores",
+    "repo": "storyforge",
+    "branch": "main",
+    "preview_path": "preview/example",
+}
 
 
 def badge(label: str, color: str) -> str:
@@ -28,6 +35,19 @@ def nav_button(href: str, label: str, color: str) -> str:
     return f'<a href="{href}"><img src="{badge(label, color)}" alt="{label}"></a>'
 
 
+def github_video_url(file_name: str, catalog: dict) -> str:
+    """Absolute URL so GitHub README renders the <video> player reliably."""
+    github = {**DEFAULT_GITHUB, **(catalog.get("github") or {})}
+    owner = os.getenv("STORYFORGE_GITHUB_OWNER", github["owner"])
+    repo = os.getenv("STORYFORGE_GITHUB_REPO", github["repo"])
+    branch = os.getenv("STORYFORGE_GITHUB_BRANCH", github["branch"])
+    preview_path = github["preview_path"].strip("/")
+    return (
+        f"https://media.githubusercontent.com/media/{owner}/{repo}/"
+        f"{branch}/{preview_path}/{file_name}"
+    )
+
+
 def build_player_block(catalog: dict) -> str:
     episodes = catalog.get("episodes", [])
     series_title = catalog.get("series_title", "Storyforge Preview")
@@ -35,11 +55,15 @@ def build_player_block(catalog: dict) -> str:
         "series_description",
         "Example output from the Storyforge pipeline.",
     )
+    pages_player = catalog.get(
+        "pages_player_url",
+        "https://Buchiexplores.github.io/storyforge/preview/example/",
+    )
 
     if not episodes:
         return (
             f"{START}\n\n"
-            "_No preview episodes found. Run `./tools/prepare_preview_assets.sh`._\n\n"
+            "_No preview episodes in `preview/example/`._\n\n"
             f"{END}"
         )
 
@@ -52,9 +76,9 @@ def build_player_block(catalog: dict) -> str:
         "",
         f"**{series_title}** — {series_description}",
         "",
-        "Watch in the README (play below, then use **Next episode** to jump to the following part). "
-        "For sidebar navigation, keyboard shortcuts, and auto-advance, open the "
-        "[full interactive player](https://Buchiexplores.github.io/storyforge/preview/example/) on GitHub Pages.",
+        "Press **play** on any episode below, then use **Next episode →** to continue. "
+        f"For the full player (sidebar, keyboard shortcuts, auto-advance), open "
+        f"[GitHub Pages]({pages_player}).",
         "",
         f'<p align="center">Jump to episode: {picker}</p>',
         "",
@@ -65,6 +89,7 @@ def build_player_block(catalog: dict) -> str:
         title = ep["title"]
         file_name = ep.get("file", f"episode_{number:02d}.mp4")
         anchor = f"ep{number}"
+        video_src = github_video_url(file_name, catalog)
         prev_href = f"#ep{episodes[index - 1]['number']}" if index > 0 else None
         next_href = f"#ep{episodes[index + 1]['number']}" if index < len(episodes) - 1 else None
 
@@ -80,7 +105,7 @@ def build_player_block(catalog: dict) -> str:
             [
                 f'<p align="center" id="{anchor}">',
                 f"  <strong>Episode {number} · {title}</strong><br><br>",
-                f'  <video src="preview/example/{file_name}" controls width="270" playsinline preload="metadata"></video>',
+                f'  <video src="{video_src}" controls width="270" playsinline preload="metadata"></video>',
                 "  <br><br>",
                 f"  {nav_html}",
                 "</p>",
@@ -107,7 +132,7 @@ def patch_readme(block: str) -> None:
 
 def main() -> int:
     if not EPISODES_JSON.exists():
-        raise SystemExit(f"Missing {EPISODES_JSON}. Run tools/prepare_preview_assets.sh first.")
+        raise SystemExit(f"Missing {EPISODES_JSON}.")
 
     catalog = json.loads(EPISODES_JSON.read_text(encoding="utf-8"))
     block = build_player_block(catalog)

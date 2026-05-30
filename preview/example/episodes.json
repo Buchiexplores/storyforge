@@ -1,6 +1,13 @@
 {
   "series_title": "The Phone That Receives Tomorrow",
-  "series_description": "Example output from the Storyforge pipeline \u2014 Afro-futurist mystery thriller.",
+  "series_description": "Example output from the Storyforge pipeline — Afro-futurist mystery thriller.",
+  "pages_player_url": "https://Buchiexplores.github.io/storyforge/preview/example/",
+  "github": {
+    "owner": "Buchiexplores",
+    "repo": "storyforge",
+    "branch": "main",
+    "preview_path": "preview/example"
+  },
   "episodes": [
     {
       "id": "episode_01",

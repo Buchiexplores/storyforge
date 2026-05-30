@@ -27,14 +27,14 @@ Watch in the README: press play, then click **Next episode →** to jump to the 
 
 <p align="center" id="ep1">
   <strong>Episode 1 · Do Not Open The Door</strong><br><br>
-  <video src="preview/example/episode_01.mp4" controls width="270" playsinline preload="metadata"></video>
+  <video src="https://media.githubusercontent.com/media/Buchiexplores/storyforge/main/preview/example/episode_01.mp4" controls width="270" playsinline preload="metadata"></video>
   <br><br>
   <a href="#ep2"><img src="https://img.shields.io/badge/Next%20episode-%E2%86%92-238636?style=for-the-badge" alt="Next episode"></a>
 </p>
 
 <p align="center" id="ep2">
   <strong>Episode 2 · The Bus With No Driver</strong><br><br>
-  <video src="preview/example/episode_02.mp4" controls width="270" playsinline preload="metadata"></video>
+  <video src="https://media.githubusercontent.com/media/Buchiexplores/storyforge/main/preview/example/episode_02.mp4" controls width="270" playsinline preload="metadata"></video>
   <br><br>
   <a href="#ep1"><img src="https://img.shields.io/badge/%E2%86%90-Previous-555555?style=for-the-badge" alt="Previous"></a>
   &nbsp;
@@ -43,7 +43,7 @@ Watch in the README: press play, then click **Next episode →** to jump to the 
 
 <p align="center" id="ep3">
   <strong>Episode 3 · Save Her Twice</strong><br><br>
-  <video src="preview/example/episode_03.mp4" controls width="270" playsinline preload="metadata"></video>
+  <video src="https://media.githubusercontent.com/media/Buchiexplores/storyforge/main/preview/example/episode_03.mp4" controls width="270" playsinline preload="metadata"></video>
   <br><br>
   <a href="#ep2"><img src="https://img.shields.io/badge/%E2%86%90-Previous-555555?style=for-the-badge" alt="Previous"></a>
   &nbsp;
@@ -52,7 +52,7 @@ Watch in the README: press play, then click **Next episode →** to jump to the 
 
 <p align="center" id="ep4">
   <strong>Episode 4 · The Price Of A Minute</strong><br><br>
-  <video src="preview/example/episode_04.mp4" controls width="270" playsinline preload="metadata"></video>
+  <video src="https://media.githubusercontent.com/media/Buchiexplores/storyforge/main/preview/example/episode_04.mp4" controls width="270" playsinline preload="metadata"></video>
   <br><br>
   <a href="#ep3"><img src="https://img.shields.io/badge/%E2%86%90-Previous-555555?style=for-the-badge" alt="Previous"></a>
   &nbsp;
@@ -61,7 +61,7 @@ Watch in the README: press play, then click **Next episode →** to jump to the 
 
 <p align="center" id="ep5">
   <strong>Episode 5 · Mara's Name</strong><br><br>
-  <video src="preview/example/episode_05.mp4" controls width="270" playsinline preload="metadata"></video>
+  <video src="https://media.githubusercontent.com/media/Buchiexplores/storyforge/main/preview/example/episode_05.mp4" controls width="270" playsinline preload="metadata"></video>
   <br><br>
   <a href="#ep4"><img src="https://img.shields.io/badge/%E2%86%90-Previous-555555?style=for-the-badge" alt="Previous"></a>
   &nbsp;
@@ -70,7 +70,7 @@ Watch in the README: press play, then click **Next episode →** to jump to the 
 
 <p align="center" id="ep6">
   <strong>Episode 6 · The Street That Disappears</strong><br><br>
-  <video src="preview/example/episode_06.mp4" controls width="270" playsinline preload="metadata"></video>
+  <video src="https://media.githubusercontent.com/media/Buchiexplores/storyforge/main/preview/example/episode_06.mp4" controls width="270" playsinline preload="metadata"></video>
   <br><br>
   <a href="#ep5"><img src="https://img.shields.io/badge/%E2%86%90-Previous-555555?style=for-the-badge" alt="Previous"></a>
 </p>
