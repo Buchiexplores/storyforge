@@ -114,7 +114,7 @@ python3 tools/run_episode_pipeline.py --series examples/phone_from_tomorrow --ep
 python3 tools/init_series.py
 ```
 
-The wizard asks for your **story name**, **style**, **number of episodes**, and **logline**, scaffolds everything, prints clickable links to every file it created, and offers to set the series as active. Then:
+The wizard asks for your **story name**, **style**, **number of episodes**, **logline**, and a brief **story description for AI context**, scaffolds everything, prints clickable links to every file it created, and offers to set the series as active. Then:
 
 ```bash
 # 1. Author episode_01 (scenes.json + voiceover_text.txt) — links are printed by the wizard

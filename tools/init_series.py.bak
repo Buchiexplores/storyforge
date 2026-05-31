@@ -19,66 +19,11 @@ from pathlib import Path
 from pipeline_config import ROOT, load_style_template
 from scaffold import STYLE_CHOICES, ScaffoldResult, create_series, slugify
 
-MAX_SERIES_TITLE_CHARS = 80
-MAX_SERIES_TITLE_WORDS = 10
-
-
-def print_section(title: str) -> None:
-    width = max(len(title) + 4, 50)
-    print()
-    print("┌" + "─" * (width - 2) + "┐")
-    print(f"│ {title:<{width - 4}} │")
-    print("└" + "─" * (width - 2) + "┘")
-
-
-def rel_path(path: Path) -> str:
-    try:
-        return str(path.relative_to(ROOT))
-    except ValueError:
-        return str(path)
-
-
-def validate_title(title: str) -> str | None:
-    stripped = title.strip()
-    if not stripped:
-        return "A title is required."
-    if len(stripped) > MAX_SERIES_TITLE_CHARS:
-        return (
-            f"Title must be at most {MAX_SERIES_TITLE_CHARS} characters "
-            f"(got {len(stripped)})."
-        )
-    word_count = len(stripped.split())
-    if word_count > MAX_SERIES_TITLE_WORDS:
-        return (
-            f"Title must be at most {MAX_SERIES_TITLE_WORDS} words "
-            f"(got {word_count})."
-        )
-    return None
-
 
 def prompt(question: str, default: str | None = None) -> str:
     suffix = f" [{default}]" if default else ""
     answer = input(f"{question}{suffix}: ").strip()
     return answer or (default or "")
-
-
-def prompt_multiline(intro: str, default: str | None = None) -> str:
-    print(intro)
-    print("  (Paste paragraphs freely. Press Enter on a blank line when done.)")
-    lines: list[str] = []
-    while True:
-        try:
-            line = input()
-        except EOFError:
-            break
-        if not line.strip():
-            if lines:
-                break
-            if default:
-                return default
-            continue
-        lines.append(line)
-    return "\n".join(lines).strip() or (default or "")
 
 
 def choose_style() -> str:
@@ -105,104 +50,34 @@ def prompt_int(question: str, default: int, minimum: int = 1) -> int:
         print(f"  Please enter a whole number >= {minimum}.")
 
 
-def print_plan(
-    *,
-    name: str,
-    style: str,
-    episodes: int,
-    logline: str,
-    story_context: str,
-    series_rel: str,
-) -> None:
-    print_section("Plan summary")
-    print(f"  Title:               {name}")
-    print(f"  Style:               {style}")
-    print(f"  Episodes:            {episodes}")
-    print(f"  Logline:             {logline}")
-    context_preview = story_context.replace("\n", " ")
-    if len(context_preview) > 72:
-        context_preview = context_preview[:69] + "..."
-    print(f"  Story context:       {context_preview or '(none)'}")
-    print(f"  Folder:              {series_rel}/")
-    print(f"  PIPELINE_SERIES_DIR: {series_rel}")
-
-
-def confirm_create() -> bool:
-    answer = input("\nCreate this series? [Y/n]: ").strip().lower()
-    return answer in {"", "y", "yes"}
-
-
-def run_wizard() -> argparse.Namespace | None:
+def run_wizard() -> argparse.Namespace:
     print("=" * 60)
     print("  Storyforge — new series wizard")
     print("=" * 60)
-
-    print_section("Step 1 of 6 — Series title")
-    print(
-        f"  Enter a short title only (max {MAX_SERIES_TITLE_CHARS} chars, "
-        f"{MAX_SERIES_TITLE_WORDS} words)."
-    )
-    print("  Long story notes belong in Step 5 — they will NOT become the folder name.")
     name = ""
-    while True:
+    while not name:
         name = prompt("Series title (e.g. The Last Signal)").strip()
-        error = validate_title(name)
-        if error:
-            print(f"  {error}")
-            continue
-        break
-
-    print_section("Step 2 of 6 — Visual style")
+        if not name:
+            print("  A title is required.")
     style = choose_style()
-
-    print_section("Step 3 of 6 — Episode count")
     episodes = prompt_int("How many episode folders to scaffold", 5)
-
-    print_section("Step 4 of 6 — Logline")
-    print("  One sentence that captures the core premise.")
     logline = prompt(
-        "Logline",
+        "One-sentence premise (logline)",
         "Describe your series premise in one sentence.",
     )
-
-    print_section("Step 5 of 6 — Story description for AI")
-    print("  Saved to story_context.md and ai_authoring_brief.md.")
-    print("  Paste character notes, world rules, or season arc details.")
-    story_context = prompt_multiline(
-        "\nStory description for AI assistants:",
-        "",
-    )
-
-    print_section("Step 6 of 6 — Folder location")
-    slug = slugify(name)
-    default_series_rel = f"series/{slug}"
-    print(f"  Folder slug (from title): {slug}")
-    print(f"  Default path:             {default_series_rel}/")
     output_dir = prompt("Parent folder", "series")
-    slug = slugify(prompt("Folder slug (override)", slug) or slug)
-    series_rel = f"{output_dir}/{slug}"
-
-    print_plan(
-        name=name,
-        style=style,
-        episodes=episodes,
-        logline=logline,
-        story_context=story_context,
-        series_rel=series_rel,
-    )
-    if not confirm_create():
-        print("\nCancelled — no series created.")
-        return None
+    slug = slugify(name)
+    print(f"\nSlug folder name: {slug}  (override below or press Enter to keep)")
+    slug = prompt("Folder slug", slug) or slug
 
     return argparse.Namespace(
         name=name,
         style=style,
         episodes=episodes,
         logline=logline,
-        story_context=story_context,
         output_dir=output_dir,
         slug=slug,
-        set_active=None,
+        set_active=None,  # decided interactively after creation
     )
 
 
@@ -210,10 +85,18 @@ def print_review_links(result: ScaffoldResult, series_rel: str) -> None:
     print("\n" + "-" * 60)
     print("Review your generated templates (open these to author content):")
     print("-" * 60)
-    for path in result.created_files:
+    bible = result.target_dir / "series_bible.md"
+    outline = result.target_dir / "season_outline.md"
+    for path in (bible, outline):
         if path.exists():
-            print(f"  {rel_path(path)}")
-            print(f"    {path.as_uri()}")
+            print(f"  {path.as_uri()}")
+    episodes = sorted(p for p in result.target_dir.glob("episode_*") if p.is_dir())
+    for episode in episodes:
+        print(f"\n  {episode.name}/")
+        for filename in ("scenes.json", "voiceover_text.txt", "upload_package.md"):
+            target = episode / filename
+            if target.exists():
+                print(f"    {target.as_uri()}")
 
 
 def maybe_set_active_series(series_rel: str, decision: bool | None) -> None:
@@ -247,7 +130,7 @@ def maybe_set_active_series(series_rel: str, decision: bool | None) -> None:
     if not found:
         updated.append(f"PIPELINE_SERIES_DIR={series_rel}")
     env_path.write_text("\n".join(updated) + "\n", encoding="utf-8")
-    print(f"\n✓ Updated .env.story.local → PIPELINE_SERIES_DIR={series_rel}")
+    print(f"\nUpdated .env.story.local -> PIPELINE_SERIES_DIR={series_rel}")
 
 
 def main() -> int:
@@ -256,11 +139,6 @@ def main() -> int:
     parser.add_argument("--style", default="thriller_mystery", choices=STYLE_CHOICES)
     parser.add_argument("--episodes", type=int, default=1, help="Number of episode folders to create.")
     parser.add_argument("--logline", default="Describe your series premise in one sentence.")
-    parser.add_argument(
-        "--story-context",
-        default="",
-        help="Extended story description for AI assistants (characters, world, arc).",
-    )
     parser.add_argument("--output-dir", default="series", help="Parent directory under the repo root.")
     parser.add_argument("--slug", help="Optional folder slug. Defaults to a slugified --name.")
     parser.add_argument(
@@ -274,15 +152,9 @@ def main() -> int:
     if not args.name:
         if not sys.stdin.isatty():
             parser.error("--name is required when not running interactively.")
-        wizard_args = run_wizard()
-        if wizard_args is None:
-            return 1
-        args = wizard_args
-    else:
-        title_error = validate_title(args.name)
-        if title_error:
-            parser.error(title_error)
-        args.slug = slugify(args.slug or args.name)
+        args = run_wizard()
+    elif not getattr(args, "slug", None):
+        args.slug = slugify(args.name)
 
     style = load_style_template(args.style)
     if not style:
@@ -294,7 +166,6 @@ def main() -> int:
         raise SystemExit(f"Series directory already exists and is not empty: {series_dir}")
 
     episode_count = max(1, int(args.episodes))
-    story_context = getattr(args, "story_context", "") or ""
     result = create_series(
         series_dir=series_dir,
         series_title=args.name,
@@ -302,12 +173,11 @@ def main() -> int:
         style_name=args.style,
         style=style,
         episode_count=episode_count,
-        story_context=story_context,
     )
 
     series_rel = f"{args.output_dir}/{slug}"
-    print(f"\n✓ Series scaffold created at: {series_rel}/")
-    print(f"✓ Episodes scaffolded: {episode_count}")
+    print(f"\nSeries scaffold created at: {series_dir}")
+    print(f"Episodes scaffolded: {episode_count}")
     print_review_links(result, series_rel)
     maybe_set_active_series(series_rel, getattr(args, "set_active", None))
 

@@ -14,7 +14,7 @@ import argparse
 import re
 
 from pipeline_config import ROOT, get_series_dir, load_series_config, load_style_template
-from scaffold import create_episode, episode_folder_name
+from scaffold import create_episode, episode_folder_name, load_story_context
 
 
 def next_episode_number(series_dir) -> int:
@@ -58,7 +58,16 @@ def main() -> int:
     if episode_dir.exists() and any(episode_dir.glob("scenes.json")):
         raise SystemExit(f"Episode already exists: {episode_dir}")
 
-    result = create_episode(series_dir, number, series_title, logline, style)
+    story_context = load_story_context(series_dir)
+    result = create_episode(
+        series_dir,
+        number,
+        series_title,
+        logline,
+        style,
+        story_context=story_context,
+        style_name=style_name,
+    )
 
     try:
         series_rel = series_dir.relative_to(ROOT)

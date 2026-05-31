@@ -8,6 +8,13 @@
 
 **Tone:** Describe how the story should feel (tense, romantic, hopeful, etc.).
 
+## Story Context (authoring brief)
+
+{{STORY_CONTEXT}}
+
+Expand this section with character bios, world rules, and season arc notes. AI assistants
+and `story_context.md` should stay aligned with this bible as you publish.
+
 ## Main Character
 
 - **Name:**
