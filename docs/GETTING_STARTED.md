@@ -24,6 +24,9 @@ This guide walks you from zero to a finished vertical episode video. For deeper 
 
 Optional: fal.ai key (AI motion clips), SMTP (email notifications).
 
+**Cost note:** Default video motion is **local ffmpeg** (free, no API). Image and voice backends are pluggable — see [README → Contributing](../README.md#contributing) if you want to use open-source or alternative providers.
+
+
 ```bash
 cd storyforge
 ./setup.sh   # venv + deps + ffmpeg/ffprobe detection (offers Homebrew install on macOS)
@@ -270,9 +273,12 @@ Cron tips:
 ## 8. Cost controls
 
 - Keep `OPENAI_IMAGE_STRICT=1` so billing failures stop the batch (no silent fallbacks)
-- Default `PIPELINE_VIDEO_MODE=local` avoids fal video credits
+- Default `PIPELINE_VIDEO_MODE=local` — ffmpeg Ken Burns motion, **no video API credits**
+- Use `--local-videos` or leave `PIPELINE_VIDEO_MODE=local`; only pass `--video-mode fal` when you want paid fal motion
 - Use skip flags and `--image-ids` for selective regeneration
 - Batch 1–3 episodes; verify before continuing
+
+Image (`--image-provider`), cover (`--cover-provider`), and voice providers are swappable — community contributions for open-source backends are welcome; see [README → Contributing AI provider integrations](../README.md#contributing-ai-provider-integrations).
 
 See [TROUBLESHOOTING.md](TROUBLESHOOTING.md).
 

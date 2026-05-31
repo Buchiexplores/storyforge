@@ -286,6 +286,7 @@ Contributions are welcome for **pipeline tools**, **documentation**, and **style
 | **Scaffolding & authoring** | `init_series.py`, `author_series.py`, `new_episode.py`, templates | `tools/`, `templates/` |
 | **Docs** | Onboarding, troubleshooting, platform tips | `docs/` |
 | **Style templates** | New visual/platform presets | `config/style_templates/` |
+| **AI providers & models** | New/back-end integrations for text, image, voice, motion | `tools/generate_episode_assets.py`, `tools/author_series.py` |
 
 You do **not** need API keys to improve docs, templates, or Python tooling. Keys are only required to test a full render locally.
 
@@ -336,6 +337,31 @@ Before opening a PR:
 - [ ] Keep changes focused on one tool or concern
 - [ ] Update docs if CLI flags or behavior changed
 - [ ] Do not commit `series/`, `.env.story.local`, or generated `assets/` media
+
+
+### Contributing AI provider integrations
+
+Storyforge today ships with opinionated defaults (OpenAI images, ElevenLabs voice, local ffmpeg motion). **We welcome PRs that add alternative providers** — especially open-source and local backends — without breaking existing workflows.
+
+| Pipeline stage | Current providers | Contribution ideas |
+|----------------|-------------------|-------------------|
+| **Text authoring** (`author_series.py`) | OpenAI chat (`OPENAI_TEXT_MODEL`) | Anthropic, Google Gemini, Ollama/LM Studio, OpenRouter, local GGUF |
+| **Scene images** (`generate_episode_assets.py`) | `openai`, `fal`, `local` via `--image-provider` | ComfyUI, Stable Diffusion / SDXL, Replicate, Together, local diffusers |
+| **Cover backgrounds** | `openai`, `fal`, `local` via `--cover-provider` | Same image backends as scene images |
+| **Voice** (`generate_episode_assets.py`) | ElevenLabs only | Piper, Coqui TTS, Bark, OpenAI TTS, Azure Speech, local XTTS |
+| **Video motion** | `local` (ffmpeg Ken Burns, **default, zero API cost**) or `fal` via `--video-mode fal` / `--local-videos` | Runway, Pika, Luma, AnimateDiff, Deforum, more ffmpeg presets |
+
+**How to add a provider:**
+
+1. Follow the existing switch pattern — see `--image-provider`, `--cover-provider`, and `--video-mode` in `tools/generate_episode_assets.py` and `tools/run_episode_pipeline.py`.
+2. Keep **OpenAI + ElevenLabs + local motion** as defaults so current users are unaffected.
+3. Gate optional dependencies — comment new packages in `requirements.txt` (like `fal-client` today).
+4. Document new env vars and flags in [docs/CONFIGURATION.md](docs/CONFIGURATION.md).
+5. Add a `--skip-*` path or mock so contributors can smoke-test without every API key.
+
+**Motion note:** Local ffmpeg Ken Burns is the zero-cost default (`PIPELINE_VIDEO_MODE=local`). fal.ai motion is optional. PRs for additional motion backends (cloud or local) are especially welcome — the pipeline already falls back to local motion when fal fails.
+
+Open a [GitHub Issue](https://github.com/Buchiexplores/storyforge/issues) first if you are planning a large provider refactor; small, focused provider PRs can go straight to draft PR.
 
 ### Pull request guidelines
 

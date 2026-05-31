@@ -13,6 +13,44 @@ Copy `.env.story.example` to `.env.story.local` at the repo root. Never commit `
 
 ---
 
+## Provider architecture (contributions welcome)
+
+Each pipeline stage maps to a tool module and supports one or more backends today. **Alternative providers (open-source, local, or hosted) are welcome** — see [README.md → Contributing AI provider integrations](../README.md#contributing-ai-provider-integrations).
+
+| Stage | File / function | Providers today | CLI / env switch |
+|-------|-----------------|-----------------|------------------|
+| Text authoring | `tools/author_series.py` → OpenAI chat | OpenAI only | `--model` / `OPENAI_TEXT_MODEL` |
+| Scene images | `tools/generate_episode_assets.py` → `generate_images()` | `openai`, `fal`, `local` | `--image-provider`, `--openai-images`, `--local-images` |
+| Cover background | `generate_episode_assets.py` → `generate_cover()` | `openai`, `fal`, `local` | `--cover-provider`, `--openai-cover` |
+| Voice | `generate_episode_assets.py` → `generate_voice()` | ElevenLabs only | `--voice` (no provider flag yet) |
+| Video motion | `generate_episode_assets.py` → `generate_videos()` | `local` (ffmpeg Ken Burns), `fal` | `--local-videos`, `--video-mode {local,fal}`, `PIPELINE_VIDEO_MODE` |
+| Final render | `tools/render_episode.py` | ffmpeg only | No API keys |
+
+### Environment variables by provider
+
+| Provider | Variables |
+|----------|-----------|
+| **OpenAI** (images + text) | `OPENAI_API_KEY`, `OPENAI_IMAGE_MODEL`, `OPENAI_IMAGE_SIZE`, `OPENAI_IMAGE_QUALITY`, `OPENAI_IMAGE_STRICT`, `OPENAI_IMAGE_TIMEOUT_SECONDS`, `OPENAI_TEXT_MODEL`, `OPENAI_TEXT_TIMEOUT_SECONDS` |
+| **ElevenLabs** (voice) | `ELEVENLABS_API_KEY`, `ELEVENLABS_VOICE_ID`, `ELEVENLABS_MODEL_ID`, `ELEVENLABS_OUTPUT_FORMAT` |
+| **fal.ai** (optional images + motion) | `FAL_KEY`, `FAL_VIDEO_MODEL`, `FAL_VIDEO_RESOLUTION`, `FAL_VIDEO_TIMEOUT_SECONDS`, `FAL_VIDEO_GENERATE_AUDIO` |
+| **Local motion** (default) | `FFMPEG_PATH`, `FFPROBE_PATH` — no API key |
+| **Local images** (`--image-provider local`) | None — generates storyboard placeholders |
+
+Default motion is **local ffmpeg** (`PIPELINE_VIDEO_MODE=local`): zero API cost. fal motion is opt-in via `--video-mode fal` or env override.
+
+### Adding a provider (contributor checklist)
+
+1. **Find the stage** in the table above and read the existing branch (e.g. `generate_images()` provider switch).
+2. **Add a provider value** to the relevant argparse choices (`--image-provider`, `--cover-provider`, etc.) or introduce a new flag if the stage has none (e.g. voice).
+3. **Implement** the backend in an isolated function; reuse download/save helpers where possible.
+4. **Keep defaults unchanged** — OpenAI for images/text, ElevenLabs for voice, local for motion.
+5. **Optional deps** — add commented lines to `requirements.txt`; fail with a clear install message when the package is missing.
+6. **Env vars** — extend `.env.story.example` and document them in this file.
+7. **Test** — smoke-test with `--skip-voice --skip-images --skip-cover --skip-videos` for tooling changes; document which key is needed for your provider.
+8. **Update README** Contributing section if you add a major new backend.
+
+---
+
 ## Environment variables (from `.env.story.example`)
 
 ### Active series
