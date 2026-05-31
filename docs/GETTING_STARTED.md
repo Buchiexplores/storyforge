@@ -18,7 +18,7 @@ This guide walks you from zero to a finished vertical episode video. For deeper 
 | Requirement | Purpose |
 |-------------|---------|
 | **Python 3.10+** | Run pipeline scripts |
-| **ffmpeg + ffprobe** | Video rendering and verification |
+| **ffmpeg + ffprobe** | Video rendering and verification (auto-detected by `./setup.sh`) |
 | **OpenAI API key** | Scene images and cover backgrounds |
 | **ElevenLabs API key + voice ID** | Narrator voiceover |
 
@@ -26,8 +26,7 @@ Optional: fal.ai key (AI motion clips), SMTP (email notifications).
 
 ```bash
 cd storyforge
-python3 -m pip install -r requirements.txt
-brew install ffmpeg   # macOS
+./setup.sh   # venv + deps + ffmpeg/ffprobe detection (offers Homebrew install on macOS)
 ```
 
 ---
@@ -37,21 +36,24 @@ brew install ffmpeg   # macOS
 ```bash
 git clone <your-repo-url>
 cd storyforge
-cp .env.story.example .env.story.local
+./setup.sh
 ```
 
-Edit `.env.story.local` with your keys. Never commit this file.
+`setup.sh` creates `.env.story.local`, locates `ffmpeg`/`ffprobe`, and writes `FFMPEG_PATH` / `FFPROBE_PATH` into that file (useful for cron jobs with a minimal `PATH`).
+
+Edit `.env.story.local` with your API keys. Never commit this file.
 **Don't have keys yet? Follow [API_KEYS.md](API_KEYS.md)** for step-by-step instructions on getting each one.
 
 ```text
-PIPELINE_SERIES_DIR=examples/phone_from_tomorrow
+# Your series (set after init_series.py). examples/ is for published demos only.
+PIPELINE_SERIES_DIR=series/the_last_signal
 OPENAI_API_KEY=sk-...
 OPENAI_IMAGE_STRICT=1
 ELEVENLABS_API_KEY=...
 ELEVENLABS_VOICE_ID=...
 ```
 
-List ElevenLabs voices: `python3 tools/generate_episode_assets.py --list-voices`
+List ElevenLabs voices (after `ELEVENLABS_API_KEY` is set): `python3 tools/generate_episode_assets.py --list-voices` — see [API_KEYS.md](API_KEYS.md#2-elevenlabs-voiceover--required) for full steps.
 
 ---
 
@@ -72,8 +74,10 @@ See [STORY_AUTHORING.md](STORY_AUTHORING.md).
 
 ## 3. Run the example
 
+Render the **published demo** under `examples/` (does not require changing `PIPELINE_SERIES_DIR`):
+
 ```bash
-python3 tools/run_episode_pipeline.py --episode episode_01
+python3 tools/run_episode_pipeline.py --series examples/phone_from_tomorrow --episode episode_01
 ```
 
 Output: `examples/phone_from_tomorrow/episode_01/assets/exports/episode_01_vertical.mp4`

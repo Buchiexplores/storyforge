@@ -33,11 +33,15 @@ Env file must be `.env.story.local` at repo root.
 
 ## ffmpeg not found
 
+`./setup.sh` tries to locate ffmpeg/ffprobe and writes `FFMPEG_PATH` / `FFPROBE_PATH` into `.env.story.local`. On macOS with Homebrew it can also offer to run `brew install ffmpeg`.
+
+Manual install:
+
 ```bash
 brew install ffmpeg   # macOS
 ```
 
-Set in `.env.story.local` if not on PATH:
+If binaries are installed but not on cron's `PATH`, keep the paths in `.env.story.local`:
 
 ```text
 FFMPEG_PATH=/opt/homebrew/bin/ffmpeg
@@ -60,7 +64,7 @@ Regenerate voice: `--voice` then `render_episode.py`
 
 ## Notifications / SMTP
 
-**No email:** Set `PIPELINE_NOTIFY_EMAIL` + SMTP vars (`SMTP_HOST`, `SMTP_USERNAME`, `SMTP_PASSWORD`, etc.)
+**No email:** Set `PIPELINE_NOTIFY_EMAIL` + `SMTP_*` vars (`SMTP_HOST`, `SMTP_USERNAME`, `SMTP_PASSWORD`, etc.). Legacy `EMAIL_SENDER` / `EMAIL_PASSWORD` / `EMAIL_RECEIVER` still work — see [API_KEYS.md](API_KEYS.md#4-email-notifications-optional).
 
 **Pending files:** Normal without SMTP — check `{series}/notifications/`
 

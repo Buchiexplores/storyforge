@@ -96,7 +96,7 @@ Then add your API keys to `.env.story.local`. **New to API keys? Follow [docs/AP
 # REQUIRED keys (see docs/API_KEYS.md for step-by-step):
 OPENAI_API_KEY=sk-...
 ELEVENLABS_API_KEY=...
-ELEVENLABS_VOICE_ID=...      # run: python3 tools/generate_episode_assets.py --list-voices
+ELEVENLABS_VOICE_ID=...      # see docs/API_KEYS.md — run: python3 tools/generate_episode_assets.py --list-voices
 ```
 
 Now choose a path:
@@ -104,7 +104,7 @@ Now choose a path:
 ### Path A — Render the included example
 
 ```bash
-python3 tools/run_episode_pipeline.py --episode episode_01
+python3 tools/run_episode_pipeline.py --series examples/phone_from_tomorrow --episode episode_01
 # → examples/phone_from_tomorrow/episode_01/assets/exports/episode_01_vertical.mp4
 ```
 
@@ -178,7 +178,7 @@ Want AI to draft a batch of episodes for you? Use **[docs/AI_BATCH_PROMPT.md](do
 | Requirement | Purpose | How to get it |
 |-------------|---------|---------------|
 | Python 3.10+ | Run the pipeline | [python.org](https://www.python.org/downloads/) |
-| ffmpeg + ffprobe | Video rendering | `brew install ffmpeg` (macOS) / [ffmpeg.org](https://ffmpeg.org/download.html) |
+| ffmpeg + ffprobe | Video rendering | `./setup.sh` auto-detects paths; offers `brew install ffmpeg` on macOS |
 | OpenAI API key | Scene images & covers | [docs/API_KEYS.md](docs/API_KEYS.md) |
 | ElevenLabs key + voice ID | Narrator voiceover | [docs/API_KEYS.md](docs/API_KEYS.md) |
 | fal.ai key *(optional)* | AI motion clips | [docs/API_KEYS.md](docs/API_KEYS.md) |
@@ -193,8 +193,8 @@ storyforge/
   config/style_templates/     # Reusable visual + platform style presets
   docs/                       # Onboarding & reference docs (start with GETTING_STARTED.md)
   docs/preview/               # Embedded YouTube episode viewer (index.html)
-  examples/phone_from_tomorrow/  # Example series scripts (Episodes 1–10)
-  series/                     # Your own series go here (empty by default)
+  series/                     # Your working series (init_series.py scaffolds here)
+  examples/phone_from_tomorrow/  # Published demo series for the repo (Episodes 1–10)
   templates/                  # Scaffolding templates for new series/episodes
   tools/                      # The pipeline (init, new_episode, run, run_next_episode, render, generate)
 ```
@@ -228,6 +228,73 @@ python3 tools/run_episode_pipeline.py --series series/my_series --episode episod
 | `--no-notify` | Disable run notifications |
 
 Render-only (no API calls): `--skip-voice --skip-images --skip-cover --skip-videos`
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome — code, docs, style presets, pipeline fixes, and **original example stories** that help others learn the workflow.
+
+### Ways to help
+
+| Area | What to contribute | Where |
+|------|-------------------|-------|
+| **Bugs & ideas** | Repro steps, feature requests, render failures | [GitHub Issues](https://github.com/Buchiexplores/storyforge/issues) |
+| **Pipeline tools** | Render fixes, new CLI flags, automation | `tools/` |
+| **Docs** | Onboarding, troubleshooting, platform tips | `docs/` |
+| **Style templates** | New visual/platform presets | `config/style_templates/` |
+| **Example stories** | Scripted episodes others can render (text only) | `examples/<series_slug>/` |
+| **Scaffolding** | Episode/series templates | `templates/` |
+
+You do **not** need API keys to improve docs, templates, or Python tooling. Keys are only required to test a full render locally.
+
+### Development setup
+
+```bash
+git clone https://github.com/Buchiexplores/storyforge.git
+cd storyforge
+git checkout -b your-branch-name
+
+./setup.sh
+# Add keys to .env.story.local for render testing — never commit this file
+```
+
+Smoke-test a change without spending API credits:
+
+```bash
+python3 tools/run_episode_pipeline.py --episode episode_01 \
+  --skip-voice --skip-images --skip-cover --skip-videos
+```
+
+### Pull request guidelines
+
+1. **Keep PRs focused** — one fix or feature per PR when possible.
+2. **Never commit secrets** — `.env.story.local`, API keys, or voice IDs.
+3. **Do not commit generated media** — MP4s, scene PNGs, voiceover WAVs, and covers under `assets/` are gitignored on purpose. Submit **authoring files only** (`scenes.json`, `voiceover_text.txt`, `script.md`, etc.).
+4. **Say what you tested** — e.g. "rendered episode_01" or "docs-only change".
+5. **Original fiction only** — if adding example episodes, use your own characters and mark content as fictional (see [docs/PLATFORM_GUIDE.md](docs/PLATFORM_GUIDE.md)).
+
+### Contributing an example series
+
+Want to share a story others can render?
+
+```bash
+python3 tools/init_series.py --name "Your Series" --style thriller_mystery --output-dir examples
+python3 tools/new_episode.py --series examples/your_series
+```
+
+Commit the **text authoring files** (`scenes.json`, `voiceover_text.txt`, optional `script.md` / `upload_package.md`). Skip `assets/` — each contributor renders locally with their own keys.
+
+To add your published Shorts to the README viewer, open a PR updating:
+
+- `docs/preview/episodes.json` — YouTube IDs and titles
+- `docs/preview/posters/episode_XX.jpg` — cover JPEGs (540px wide is enough)
+- The `<!-- README-PLAYER-START -->` table in this README
+
+### Questions before you start?
+
+Open a [GitHub Issue](https://github.com/Buchiexplores/storyforge/issues) with the **question** label, or describe your idea in a draft PR. No contribution is too small — typo fixes and clearer error messages count.
+
 
 ---
 

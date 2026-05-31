@@ -15,7 +15,7 @@ except ImportError:  # pragma: no cover - optional dependency
 
 ROOT = Path(__file__).resolve().parents[1]
 ENV_PATH = ROOT / ".env.story.local"
-DEFAULT_SERIES_REL = "examples/phone_from_tomorrow"
+DEFAULT_SERIES_REL = ""
 
 
 def load_local_env() -> None:
@@ -34,7 +34,14 @@ def env_bool(name: str, default: bool = False) -> bool:
 
 def get_series_dir(series: str | None = None) -> Path:
     """Resolve the active series directory."""
-    configured = series or os.getenv("PIPELINE_SERIES_DIR", DEFAULT_SERIES_REL)
+    configured = (series or os.getenv("PIPELINE_SERIES_DIR", DEFAULT_SERIES_REL)).strip()
+    if not configured:
+        raise SystemExit(
+            "No active series configured. Set PIPELINE_SERIES_DIR in .env.story.local "
+            "(for example series/the_last_signal after running init_series.py), "
+            "or pass --series on the command line. "
+            "The examples/ folder is for published demo stories — put your own work under series/."
+        )
     path = Path(configured).expanduser()
     if path.is_absolute():
         return path

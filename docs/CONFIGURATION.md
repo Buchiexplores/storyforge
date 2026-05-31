@@ -19,7 +19,7 @@ Copy `.env.story.example` to `.env.story.local` at the repo root. Never commit `
 
 | Variable | Default | Description |
 |----------|---------|-------------|
-| `PIPELINE_SERIES_DIR` | `examples/phone_from_tomorrow` | Active series folder (relative or absolute). Used when `--series` is omitted. |
+| `PIPELINE_SERIES_DIR` | *(empty)* | Active series folder (relative or absolute). Set to `series/<slug>` after `init_series.py`. Use `--series examples/...` for published demos without changing this. |
 
 ### OpenAI
 
@@ -57,8 +57,8 @@ Copy `.env.story.example` to `.env.story.local` at the repo root. Never commit `
 | Variable | Default | Description |
 |----------|---------|-------------|
 | `EPISODE_COVER_INTRO_SECONDS` | `2.5` | Cover shown before narration |
-| `FFMPEG_PATH` | auto | ffmpeg binary path |
-| `FFPROBE_PATH` | auto | ffprobe binary path |
+| `FFMPEG_PATH` | auto (`setup.sh`) | ffmpeg binary path — written by `./setup.sh` when found |
+| `FFPROBE_PATH` | auto (`setup.sh`) | ffprobe binary path — written by `./setup.sh` when found |
 
 ### Notifications
 
@@ -67,7 +67,7 @@ Copy `.env.story.example` to `.env.story.local` at the repo root. Never commit `
 | `PIPELINE_NOTIFY_ON_RUN` | `true` | Notify after pipeline run |
 | `PIPELINE_NOTIFY_EMAIL` | *(empty)* | Recipient(s), comma-separated |
 | `PIPELINE_NOTIFY_EMAILS` | *(empty)* | Alias for recipients |
-| `EMAIL_RECEIVER` | *(empty)* | Legacy alias |
+| `EMAIL_RECEIVER` | *(empty)* | Legacy alias for `PIPELINE_NOTIFY_EMAIL` |
 
 ### SMTP
 
@@ -75,10 +75,12 @@ Copy `.env.story.example` to `.env.story.local` at the repo root. Never commit `
 |----------|---------|-------------|
 | `SMTP_HOST` | *(empty)* | SMTP server |
 | `SMTP_PORT` | `587` | Port |
-| `SMTP_USERNAME` | *(empty)* | Login (`EMAIL_SENDER` alias) |
-| `SMTP_PASSWORD` | *(empty)* | Password (`EMAIL_PASSWORD` alias) |
+| `SMTP_USERNAME` | *(empty)* | SMTP login |
+| `SMTP_PASSWORD` | *(empty)* | SMTP password or app password |
 | `SMTP_FROM_EMAIL` | *(empty)* | From address |
 | `SMTP_USE_TLS` | `true` | STARTTLS |
+
+Legacy aliases still read by `send_pipeline_update.py`: `EMAIL_SENDER` → `SMTP_USERNAME`/`SMTP_FROM_EMAIL`, `EMAIL_PASSWORD` → `SMTP_PASSWORD`. Prefer `SMTP_*` in new configs.
 
 Without SMTP, pending files go to `{series}/notifications/`.
 
