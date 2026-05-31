@@ -20,56 +20,56 @@ The sample series **"The Phone That Receives Tomorrow"** (an Afro-futurist myste
 
 **▶ [Watch all 10 episodes in the browser (embedded player)](docs/preview/index.html)** — playable YouTube embeds, no leaving the page.
 
-On GitHub.com, README thumbnails link out to YouTube (GitHub strips iframe embeds). Click any poster below, or open the [episode viewer](docs/preview/index.html).
+On GitHub.com, README cover art links out to YouTube (GitHub strips iframe embeds). Click any poster below, or open the [episode viewer](docs/preview/index.html).
 
 <!-- README-PLAYER-START -->
 
 <table>
   <tr>
     <td align="center" width="33%">
-      <a href="https://youtube.com/shorts/Bh6mAgm_QtI"><img src="https://img.youtube.com/vi/Bh6mAgm_QtI/hqdefault.jpg" width="200" alt="Episode 1 · Do Not Open The Door"></a><br>
+      <a href="https://youtube.com/shorts/Bh6mAgm_QtI"><img src="docs/preview/posters/episode_01.jpg" width="200" alt="Episode 1 · Do Not Open The Door"></a><br>
       <b><a href="https://youtube.com/shorts/Bh6mAgm_QtI">Ep 1 · Do Not Open The Door</a></b>
     </td>
     <td align="center" width="33%">
-      <a href="https://youtube.com/shorts/Y2-6ruKLOF8"><img src="https://img.youtube.com/vi/Y2-6ruKLOF8/hqdefault.jpg" width="200" alt="Episode 2 · The Bus With No Driver"></a><br>
+      <a href="https://youtube.com/shorts/Y2-6ruKLOF8"><img src="docs/preview/posters/episode_02.jpg" width="200" alt="Episode 2 · The Bus With No Driver"></a><br>
       <b><a href="https://youtube.com/shorts/Y2-6ruKLOF8">Ep 2 · The Bus With No Driver</a></b>
     </td>
     <td align="center" width="33%">
-      <a href="https://youtube.com/shorts/P7XBdPvjcJ8"><img src="https://img.youtube.com/vi/P7XBdPvjcJ8/hqdefault.jpg" width="200" alt="Episode 3 · Save Her Twice"></a><br>
+      <a href="https://youtube.com/shorts/P7XBdPvjcJ8"><img src="docs/preview/posters/episode_03.jpg" width="200" alt="Episode 3 · Save Her Twice"></a><br>
       <b><a href="https://youtube.com/shorts/P7XBdPvjcJ8">Ep 3 · Save Her Twice</a></b>
     </td>
   </tr>
   <tr>
     <td align="center" width="33%">
-      <a href="https://youtube.com/shorts/DLaWm1o32fY"><img src="https://img.youtube.com/vi/DLaWm1o32fY/hqdefault.jpg" width="200" alt="Episode 4 · The Price Of A Minute"></a><br>
+      <a href="https://youtube.com/shorts/DLaWm1o32fY"><img src="docs/preview/posters/episode_04.jpg" width="200" alt="Episode 4 · The Price Of A Minute"></a><br>
       <b><a href="https://youtube.com/shorts/DLaWm1o32fY">Ep 4 · The Price Of A Minute</a></b>
     </td>
     <td align="center" width="33%">
-      <a href="https://youtube.com/shorts/-NcfeG9QFpE"><img src="https://img.youtube.com/vi/-NcfeG9QFpE/hqdefault.jpg" width="200" alt="Episode 5 · Mara's Name"></a><br>
+      <a href="https://youtube.com/shorts/-NcfeG9QFpE"><img src="docs/preview/posters/episode_05.jpg" width="200" alt="Episode 5 · Mara's Name"></a><br>
       <b><a href="https://youtube.com/shorts/-NcfeG9QFpE">Ep 5 · Mara's Name</a></b>
     </td>
     <td align="center" width="33%">
-      <a href="https://youtube.com/shorts/AcZlC_kdeNs"><img src="https://img.youtube.com/vi/AcZlC_kdeNs/hqdefault.jpg" width="200" alt="Episode 6 · The Street That Disappears"></a><br>
+      <a href="https://youtube.com/shorts/AcZlC_kdeNs"><img src="docs/preview/posters/episode_06.jpg" width="200" alt="Episode 6 · The Street That Disappears"></a><br>
       <b><a href="https://youtube.com/shorts/AcZlC_kdeNs">Ep 6 · The Street That Disappears</a></b>
     </td>
   </tr>
   <tr>
     <td align="center" width="33%">
-      <a href="https://youtube.com/shorts/L8ZU78CpKuc"><img src="https://img.youtube.com/vi/L8ZU78CpKuc/hqdefault.jpg" width="200" alt="Episode 7 · The First Owner"></a><br>
+      <a href="https://youtube.com/shorts/L8ZU78CpKuc"><img src="docs/preview/posters/episode_07.jpg" width="200" alt="Episode 7 · The First Owner"></a><br>
       <b><a href="https://youtube.com/shorts/L8ZU78CpKuc">Ep 7 · The First Owner</a></b>
     </td>
     <td align="center" width="33%">
-      <a href="https://youtube.com/shorts/YWWyK7UIfWQ"><img src="https://img.youtube.com/vi/YWWyK7UIfWQ/hqdefault.jpg" width="200" alt="Episode 8 · Battery At One Percent"></a><br>
+      <a href="https://youtube.com/shorts/YWWyK7UIfWQ"><img src="docs/preview/posters/episode_08.jpg" width="200" alt="Episode 8 · Battery At One Percent"></a><br>
       <b><a href="https://youtube.com/shorts/YWWyK7UIfWQ">Ep 8 · Battery At One Percent</a></b>
     </td>
     <td align="center" width="33%">
-      <a href="https://youtube.com/shorts/qTONDPdGxa8"><img src="https://img.youtube.com/vi/qTONDPdGxa8/hqdefault.jpg" width="200" alt="Episode 9 · Tomorrow Calls Back"></a><br>
+      <a href="https://youtube.com/shorts/qTONDPdGxa8"><img src="docs/preview/posters/episode_09.jpg" width="200" alt="Episode 9 · Tomorrow Calls Back"></a><br>
       <b><a href="https://youtube.com/shorts/qTONDPdGxa8">Ep 9 · Tomorrow Calls Back</a></b>
     </td>
   </tr>
   <tr>
     <td align="center" width="33%">
-      <a href="https://youtube.com/shorts/shIX0gKaJDs"><img src="https://img.youtube.com/vi/shIX0gKaJDs/hqdefault.jpg" width="200" alt="Episode 10 · Delete My Number"></a><br>
+      <a href="https://youtube.com/shorts/shIX0gKaJDs"><img src="docs/preview/posters/episode_10.jpg" width="200" alt="Episode 10 · Delete My Number"></a><br>
       <b><a href="https://youtube.com/shorts/shIX0gKaJDs">Ep 10 · Delete My Number</a></b>
     </td>
     <td colspan="2"></td>
