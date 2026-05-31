@@ -117,10 +117,15 @@ python3 tools/init_series.py
 The wizard asks for your **story name**, **style**, **number of episodes**, **logline**, and a brief **story description for AI context**, scaffolds everything, prints clickable links to every file it created, and offers to set the series as active. Then:
 
 ```bash
-# 1. Author episode_01 (scenes.json + voiceover_text.txt) — links are printed by the wizard
-# 2. Render it:
+# Optional: auto-author all scaffolded episodes with OpenAI (needs OPENAI_API_KEY in .env.story.local)
+python3 tools/author_series.py --series series/<your_slug>
+
+# Or hand-author episode_01 (scenes.json + voiceover_text.txt) — links are printed by the wizard
+# Then render:
 python3 tools/run_episode_pipeline.py --series series/<your_slug> --episode episode_01
 ```
+
+The same `OPENAI_API_KEY` powers scene/cover image generation and optional text authoring via `author_series.py` (chat tokens are billed separately from images).
 
 Prefer flags over prompts? `python3 tools/init_series.py --name "The Last Signal" --style sci_fi --episodes 5`
 

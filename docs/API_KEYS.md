@@ -6,7 +6,7 @@ Add each value to `.env.story.local` (copied from `.env.story.example` by `./set
 
 | Key | Required? | What it powers | Cost model |
 |-----|-----------|----------------|------------|
-| `OPENAI_API_KEY` | **Required** | Scene images + cover backgrounds | Pay-as-you-go per image |
+| `OPENAI_API_KEY` | **Required** | Scene images + cover backgrounds; optional episode text authoring via `author_series.py` | Pay-as-you-go per image / chat token |
 | `ELEVENLABS_API_KEY` + `ELEVENLABS_VOICE_ID` | **Required** | Narrator voiceover | Monthly character quota |
 | `FAL_KEY` | Optional | AI motion clips (instead of free local motion) | Pay-as-you-go per clip |
 | `PIPELINE_NOTIFY_EMAIL` + `SMTP_*` | Optional | Email when a render finishes | Free (your own mail provider) |
@@ -28,6 +28,8 @@ Add each value to `.env.story.local` (copied from `.env.story.example` by `./set
 6. *(Recommended)* Set a monthly spend limit under **Billing → Limits** so a runaway batch cannot surprise you.
 
 Keep `OPENAI_IMAGE_STRICT=1` (the default) so the pipeline stops on billing/quota errors instead of shipping blank frames.
+
+The same key also powers optional episode text authoring via `python3 tools/author_series.py` (uses `OPENAI_TEXT_MODEL` / chat tokens — separate from image billing).
 
 **Verify:** after saving the key, a dry run that skips image generation should start without an OpenAI error:
 

@@ -7,7 +7,7 @@ Two ways to run it:
       python3 tools/init_series.py
 
   Non-interactive (scriptable / CI) — pass everything as flags:
-      python3 tools/init_series.py --name "The Last Signal" --style sci_fi --episodes 5
+      python3 tools/init_series.py --name "The Last Signal" --style sci_fi --episodes 5 --auto-author
 """
 
 from __future__ import annotations
@@ -269,8 +269,15 @@ def main() -> int:
         default=None,
         help="Write PIPELINE_SERIES_DIR into .env.story.local (default: ask).",
     )
+    parser.add_argument(
+        "--auto-author",
+        action=argparse.BooleanOptionalAction,
+        default=None,
+        help="Run OpenAI author_series after scaffold (default: ask when interactive).",
+    )
     args = parser.parse_args()
 
+    auto_author_pref = getattr(args, "auto_author", None)
     if not args.name:
         if not sys.stdin.isatty():
             parser.error("--name is required when not running interactively.")
@@ -278,6 +285,7 @@ def main() -> int:
         if wizard_args is None:
             return 1
         args = wizard_args
+        args.auto_author = auto_author_pref
     else:
         title_error = validate_title(args.name)
         if title_error:
@@ -311,9 +319,26 @@ def main() -> int:
     print_review_links(result, series_rel)
     maybe_set_active_series(series_rel, getattr(args, "set_active", None))
 
+    auto_author = getattr(args, "auto_author", None)
+    if auto_author is None:
+        if sys.stdin.isatty():
+            auto_author = (
+                input("\nAuto-author all episodes with OpenAI now? [y/N]: ").strip().lower()
+                in {"y", "yes"}
+            )
+        else:
+            auto_author = False
+    if auto_author:
+        from author_series import author_series
+
+        code = author_series(series_dir)
+        if code != 0:
+            return code
+
     print("\nNext steps:")
     print("  1. Add your API keys to .env.story.local (see docs/API_KEYS.md)")
-    print(f"  2. Author episode_01 content in {series_rel}/episode_01/")
+    print(f"  2. Auto-author episodes (optional): python3 tools/author_series.py --series {series_rel}")
+    print(f"     Or hand-author episode_01 in {series_rel}/episode_01/")
     print(f"  3. Render it: python3 tools/run_episode_pipeline.py --series {series_rel} --episode episode_01")
     print(f"  4. Add the next episode: python3 tools/new_episode.py --series {series_rel}")
     return 0
