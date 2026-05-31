@@ -211,7 +211,7 @@ Always human-review:
 
 ## Quality bar before publishing
 
-From `weekly_pipeline.md` — ask before posting:
+From [WEEKLY_PIPELINE.md](WEEKLY_PIPELINE.md) — ask before posting:
 
 - Did a human write or meaningfully revise the story?
 - Is this episode materially different from the last one?

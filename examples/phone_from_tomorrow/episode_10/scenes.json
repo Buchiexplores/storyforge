@@ -1,0 +1,224 @@
+{
+  "episode_title": "Delete My Number",
+  "output_slug": "episode_10",
+  "resolution": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30
+  },
+  "style": "cinematic Afro-futurist mystery thriller, abandoned Lagos telecom exchange at dawn, long rows of dead desk phones and dusty switchboards, pale gold sunrise through high dirty windows mixing with fading neon-green phone glow, realistic but slightly heightened, shallow depth of field, moody contrast, no logos, no public figures, no readable real brand names",
+  "continuity_notes": "Maintain continuity from Episodes 1 through 9. This is the season finale, picking up at the exact moment Episode 9 ended: dawn in the abandoned telecom exchange by the lagoon, Tobi still holding the cracked neon-green phone, the final choice burning on the screen. Tobi is exhausted to the bone but finally resolved. Mara is frightened but no longer passive; she has accepted she is the replacement first owner and chooses to face it with Tobi. Iya Sade carries the full weight of the old stories and finally tells how the chain can be broken. The bus woman is revealed as the very first owner, a witness from an erased timeline. The cracked phone must remain the same grounded object throughout. The green glow fades as dawn light wins. Keep everything grounded in Lagos, wet, neglected, and real.",
+  "characters": [
+    {
+      "name": "Tobi Adeyemi",
+      "description": "24-year-old Nigerian delivery rider, lean build, dark brown skin, short close-cropped black twists with a low fade, faint moustache and goatee, hollow exhausted eyes, dark green delivery jacket or hoodie with subtle reflective strips, practical worn clothes, cracked old black smartphone glowing fading neon green."
+    },
+    {
+      "name": "Mara Adeyemi",
+      "description": "Tobi's younger sister, early 20s Nigerian woman, slim build, dark brown skin, neat shoulder-length braids, simple clothes, frightened but steady and resolved, finally stepping forward instead of watching."
+    },
+    {
+      "name": "Iya Sade",
+      "description": "Older Lagos street food seller, late 50s Nigerian woman, dark brown skin, patterned headscarf, practical layered clothes, grave face, speaking the old stories as if confessing them."
+    },
+    {
+      "name": "Bus Woman",
+      "description": "Mysterious Nigerian woman in plain dark clothing, calm expression, direct gaze, revealed as the original first owner from an erased timeline, always untouched by rain, beginning to fade as dawn arrives."
+    }
+  ],
+  "cover": {
+    "series_title": "The Phone That Receives Tomorrow",
+    "episode_number": 10,
+    "part_number": 10,
+    "hook_lines": [
+      "DELETE",
+      "MY",
+      "NUMBER"
+    ],
+    "hook_highlight": "DELETE",
+    "title_lines": [
+      "DELETE MY",
+      "NUMBER"
+    ],
+    "background_prompt": "abandoned Lagos telecom exchange at dawn, Tobi standing among long rows of dead desk phones holding the cracked neon-green phone showing a final choice, Mara stepping toward him, pale gold sunrise cutting through high dirty windows and overpowering the green glow; tense, cinematic, season-finale weight; leave dark clean space at top for title."
+  },
+  "scenes": [
+    {
+      "id": "01a_dawn_still_holding",
+      "image_id": "01a_dawn_still_holding",
+      "duration": 4.6,
+      "caption": "Dawn filled the exchange, and Tobi was still holding the choice in his hand.",
+      "prompt": "Exact narration beat: Pale gold dawn floods the abandoned telecom exchange through high dirty windows. Tobi stands among long rows of dead desk phones, cracked neon-green phone in his hand, the final choice still glowing on the screen. Mara and Iya Sade wait nearby.",
+      "motion": "Slow push in on Tobi frozen between the two glowing lines."
+    },
+    {
+      "id": "02a_two_lines_burning",
+      "image_id": "02a_two_lines_burning",
+      "duration": 3.8,
+      "caption": "Delete my number and lose her forever. Keep it and save her once.",
+      "prompt": "Exact narration beat: Extreme close-up of the cracked phone screen showing the two-line final choice: DELETE MY NUMBER AND LOSE HER FOREVER. KEEP IT AND SAVE HER ONCE. The green light is already thinner against the dawn.",
+      "motion": "Hold tight on the screen as the green dims one shade."
+    },
+    {
+      "id": "03a_mara_steps_forward",
+      "image_id": "03a_mara_steps_forward",
+      "duration": 4.3,
+      "caption": "For the first time, Mara stepped in front of the phone instead of behind it.",
+      "prompt": "Exact narration beat: Mara walks forward through the rows of dead desk phones and places herself directly in front of Tobi and the glowing screen, no longer watching from a doorway. Dawn light edges her braids.",
+      "motion": "Track with Mara as she steps into the light between Tobi and the phones."
+    },
+    {
+      "id": "04a_dont_save_me",
+      "image_id": "04a_dont_save_me",
+      "duration": 4.4,
+      "caption": "Do not save me, she said. I will not be the next first owner.",
+      "prompt": "Exact narration beat: Close-up of Mara speaking firmly to Tobi, telling him not to use the phone to save her, refusing to become the replacement first owner. Her face is frightened but certain under the mixed gold and green light.",
+      "motion": "Slow inward move on Mara as she refuses her own rescue."
+    },
+    {
+      "id": "05a_iya_sade_old_ending",
+      "image_id": "05a_iya_sade_old_ending",
+      "duration": 4.8,
+      "caption": "Then Iya Sade finally told the ending the old stories always hid.",
+      "prompt": "Exact narration beat: Iya Sade steps closer among the switchboards, her grave face lit by dawn, beginning to tell the true ending of the old stories she has only ever half-told before. Tobi and Mara listen.",
+      "motion": "Push from the dusty switchboards toward Iya Sade's confessing face."
+    },
+    {
+      "id": "06a_chain_breaks",
+      "image_id": "06a_chain_breaks",
+      "duration": 4.5,
+      "caption": "The chain only breaks when an owner refuses the trade and lets the phone go dark.",
+      "prompt": "Exact narration beat: Iya Sade explains that the only way to break the chain is for an owner to refuse the final trade and let the phone die, never passing it on. Tobi looks down at the cracked phone with new understanding.",
+      "motion": "Slow rack from Iya Sade's hands to the cracked phone in Tobi's grip."
+    },
+    {
+      "id": "07a_bus_woman_first_owner",
+      "image_id": "07a_bus_woman_first_owner",
+      "duration": 5.0,
+      "caption": "The bus woman stepped from the rows and said she had been the very first owner, long erased.",
+      "prompt": "Exact narration beat: The bus woman walks calmly out from between the long rows of dead desk phones, dry and untouched, and reveals she was the original first owner from a timeline that no longer exists. Dawn passes through her like she is already half gone.",
+      "motion": "The woman emerges from the aisle as dawn light begins to pass through her."
+    },
+    {
+      "id": "08a_saved_lives_speak",
+      "image_id": "08a_saved_lives_speak",
+      "duration": 4.7,
+      "caption": "Every dead phone rang at once with the voices of the lives he had already saved.",
+      "prompt": "Exact narration beat: All the long rows of dead desk phones ring at once around Tobi, each receiver carrying a voice of someone he saved in earlier episodes, pleading from futures that no longer exist. Keep it grounded in ringing objects and reaction, no faces.",
+      "motion": "Wide reveal sweeping across rows of phones ringing in unison."
+    },
+    {
+      "id": "09a_messages_were_them",
+      "image_id": "09a_messages_were_them",
+      "duration": 4.6,
+      "caption": "The messages had never been from tomorrow. They were the saved, begging not to be erased.",
+      "prompt": "Exact narration beat: Tobi stands among the ringing phones as the truth lands that the messages always came from the people he saved, speaking from futures the phone deleted to make room. His face breaks with the weight of it.",
+      "motion": "Orbit slightly around Tobi as the revelation closes in."
+    },
+    {
+      "id": "10a_keep_means_feed",
+      "image_id": "10a_keep_means_feed",
+      "duration": 4.2,
+      "caption": "Keeping the phone meant feeding it Mara to free the rest.",
+      "prompt": "Exact narration beat: Close-up of the cracked phone as Tobi understands that keeping it and saving Mara once would only make her the next voice trapped in the rows. The KEEP option pulses hungrily on the green screen.",
+      "motion": "Hard push into the pulsing KEEP option on the screen."
+    },
+    {
+      "id": "11a_mara_takes_his_hand",
+      "image_id": "11a_mara_takes_his_hand",
+      "duration": 4.3,
+      "caption": "Mara closed her hand over his on the phone.",
+      "prompt": "Exact narration beat: Mara wraps her hand over Tobi's hand and the cracked phone, choosing the moment with him. Dawn light warms both their hands while the green glow keeps fading.",
+      "motion": "Tight hold on their two hands closing over the dimming phone."
+    },
+    {
+      "id": "12a_dials_himself",
+      "image_id": "12a_dials_himself",
+      "duration": 4.4,
+      "caption": "Instead of choosing, Tobi dialed his own number one last time.",
+      "prompt": "Exact narration beat: Tobi ignores both on-screen options and instead dials his own number on the cracked phone, the call screen replacing the choice. Mara watches, the rows of phones falling quieter.",
+      "motion": "Push into the screen as the call to his own number connects."
+    },
+    {
+      "id": "13a_tells_future_no",
+      "image_id": "13a_tells_future_no",
+      "duration": 4.6,
+      "caption": "He told his future self that no one else would pay for him again.",
+      "prompt": "Exact narration beat: Tobi lifts the phone to his ear and speaks firmly to his own future voice, telling him the trading stops here and no one else will pay the cost. His exhaustion turns to resolve in the dawn light.",
+      "motion": "Slow drift across Tobi's face as fear hardens into resolve."
+    },
+    {
+      "id": "14a_future_goes_quiet",
+      "image_id": "14a_future_goes_quiet",
+      "duration": 3.6,
+      "caption": "For the first time, the voice on the other end had nothing left to say.",
+      "prompt": "Exact narration beat: Tobi holds the phone to his ear in the silent exchange as the future voice finally falls quiet, no more pleading or bargaining. The green glow is nearly gone now.",
+      "motion": "Hold almost still as the line goes silent."
+    },
+    {
+      "id": "15a_finger_over_delete",
+      "image_id": "15a_finger_over_delete",
+      "duration": 4.0,
+      "caption": "He brought up the number and held his thumb over delete.",
+      "prompt": "Exact narration beat: Extreme close-up of the cracked phone screen showing Tobi's own contact number with the delete option highlighted, his thumb hovering over it in the dawn light. Mara's hand still steadies his.",
+      "motion": "Macro push onto the thumb trembling over the delete option."
+    },
+    {
+      "id": "16a_press_delete",
+      "image_id": "16a_press_delete",
+      "duration": 4.5,
+      "caption": "He chose the ending the phone could not survive, and pressed it.",
+      "prompt": "Exact narration beat: Tobi presses delete on his own number. The cracked phone's green glow collapses inward as the screen begins to go black for the first time in the series. Mara holds onto him.",
+      "motion": "Sharp inward collapse of the green light as delete is pressed."
+    },
+    {
+      "id": "17a_phones_fall_silent",
+      "image_id": "17a_phones_fall_silent",
+      "duration": 4.6,
+      "caption": "Every receiver in the exchange went silent together.",
+      "prompt": "Exact narration beat: All the ringing desk phones across the long rows fall silent at once as the cracked phone dies. Dust settles in the gold dawn light pouring through the high windows.",
+      "motion": "Wide reveal of the rows going still as silence sweeps the room."
+    },
+    {
+      "id": "18a_bus_woman_freed",
+      "image_id": "18a_bus_woman_freed",
+      "duration": 4.4,
+      "caption": "The first owner finally let go, fading into the daylight she was owed.",
+      "prompt": "Exact narration beat: The bus woman closes her eyes and dissolves gently into the dawn light among the switchboards, released at last from the erased timeline. Tobi and Mara watch her go.",
+      "motion": "Slow dissolve of the bus woman into the gold morning light."
+    },
+    {
+      "id": "19a_mara_still_here",
+      "image_id": "19a_mara_still_here",
+      "duration": 4.3,
+      "caption": "And when the light filled the room, Mara was still standing there.",
+      "prompt": "Exact narration beat: Full dawn floods the abandoned exchange. Mara stands beside Tobi, alive and unchanged, the dead phone dark in his hand. Relief and grief mix on both their faces.",
+      "motion": "Gentle pull back to hold Tobi and Mara together in the light."
+    },
+    {
+      "id": "20a_walk_out_dead_phone",
+      "image_id": "20a_walk_out_dead_phone",
+      "duration": 4.4,
+      "caption": "They walked out into Lagos morning, the phone finally dead in his pocket.",
+      "prompt": "Exact narration beat: Tobi and Mara walk out of the telecom exchange into a bright wet Lagos morning, danfo buses and yellow streetlights of the city waking around them, the cracked phone dark and silent in Tobi's pocket.",
+      "motion": "Follow behind them out of the exchange into the waking city."
+    },
+    {
+      "id": "21a_final_glow",
+      "image_id": "21a_final_glow",
+      "duration": 4.2,
+      "caption": "Behind them, on a market stall, one old phone flickered faintly green.",
+      "prompt": "Exact narration beat: As Tobi and Mara disappear into the Lagos morning crowd, the camera finds a single old phone resting on a distant market stall, flickering once with a faint neon-green glow that no one notices.",
+      "motion": "Slow drift past the couple to settle on the faint green flicker."
+    },
+    {
+      "id": "22a_end_card",
+      "image_id": "22a_end_card",
+      "duration": 2.4,
+      "caption": "The Phone That Receives Tomorrow. Thank you for watching the season.",
+      "prompt": "Exact narration beat: End-card finale visual, a single old phone on a market stall in bright Lagos morning light flickering once with faint green, the busy street blurred behind it. No text in image.",
+      "motion": "Final slow push into the faint green flicker as the season closes.",
+      "post_roll": true
+    }
+  ]
+}

@@ -27,9 +27,5 @@ cron.log
 **/notifications/*
 !**/notifications/.gitkeep
 
-# Local preview staging (committed demos live in preview/example/)
-preview/output/*
-!preview/output/.gitkeep
-
-# Local ComfyUI / Flux helper artifacts (optional, not part of core pipeline)
-scripts/object_info.json
+# Local-only developer/maintainer scripts (not part of the public release)
+scripts/

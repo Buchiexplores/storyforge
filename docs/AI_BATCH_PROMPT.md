@@ -32,7 +32,7 @@ Read before writing:
 
 1. Generate up to {MAX_EPISODES_PER_BATCH} subsequent episodes per run, starting after the highest numbered episode folder that already has a completed vertical export.
 2. Stop at episode {FINAL_EPISODE_NUMBER} if set. When the final episode is complete, notify that the season arc is done and suggest planning the next season or a new series.
-3. Do NOT run tools/add_thriller_music.py or create thriller-music copies.
+3. Scaffold each new episode folder with `python3 tools/new_episode.py --series {SERIES_DIR}` before authoring its content.
 4. Use OpenAI image generation strictly for all scene images and cover backgrounds. Assume OPENAI_IMAGE_STRICT=1.
 5. If OpenAI image generation fails (especially billing/quota errors), STOP the batch and report the error. Do NOT fall back to fal.ai or local storyboard art.
 6. Keep the same narrator voice and character continuity from earlier episodes. Reference continuity_notes and characters in scenes.json.
@@ -146,4 +146,4 @@ Run the pipeline after writing content files. Verify with ffprobe. Send batch no
 - Write `scenes.json` before running the pipeline — the pipeline does not generate story content
 - Reuse `continuity_notes` and `characters` from earlier episodes for visual consistency
 - See [COVER_STYLE.md](COVER_STYLE.md) for per-episode cover fields in `scenes.json`
-- For weekly planning prompts, see `weekly_pipeline.md` in the repo root
+- For weekly planning prompts, see [WEEKLY_PIPELINE.md](WEEKLY_PIPELINE.md)

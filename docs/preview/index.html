@@ -2,14 +2,157 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="refresh" content="0; url=https://Buchiexplores.github.io/storyforge/preview/example/">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Storyforge Preview — moved</title>
-  <link rel="canonical" href="https://Buchiexplores.github.io/storyforge/preview/example/">
+  <title>The Phone That Receives Tomorrow — Episode Viewer</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #0a0f0a;
+      --panel: #111811;
+      --text: #e8f5e8;
+      --muted: #8aa88a;
+      --accent: #39ff14;
+      --border: #1f3d1f;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      background: radial-gradient(circle at top, #142014 0%, var(--bg) 55%);
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    header {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 1.25rem 1rem;
+      text-align: center;
+    }
+
+    h1 {
+      margin: 0 0 0.35rem;
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--accent);
+      text-shadow: 0 0 18px rgba(57, 255, 20, 0.25);
+    }
+
+    .subtitle {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem 1.25rem 3rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    }
+
+    .card-header {
+      padding: 0.85rem 1rem 0.65rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .card-header h2 {
+      margin: 0;
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .card-header p {
+      margin: 0.15rem 0 0;
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    .player {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 9 / 16;
+      background: #000;
+    }
+
+    .player iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    footer {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.25rem 2rem;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    footer a { color: var(--accent); }
+  </style>
 </head>
 <body>
-  <p>The preview player has moved to
-    <a href="https://Buchiexplores.github.io/storyforge/preview/example/">preview/example/</a>.
-  </p>
+  <header>
+    <h1>The Phone That Receives Tomorrow</h1>
+    <p class="subtitle">Afro-futurist mystery thriller · 10 episodes · watch in order</p>
+  </header>
+
+  <main>
+    <div class="grid" id="grid"></div>
+  </main>
+
+  <footer>
+    Original fictional story · human creative direction · AI-assisted visuals ·
+    <a href="https://github.com/Buchiexplores/storyforge">Storyforge</a>
+  </footer>
+
+  <script>
+    fetch("episodes.json")
+      .then((response) => response.json())
+      .then((episodes) => {
+        const grid = document.getElementById("grid");
+        grid.innerHTML = episodes.map((episode) => `
+          <article class="card">
+            <div class="card-header">
+              <h2>Episode ${episode.episode}: ${episode.title}</h2>
+              <p><a href="${episode.url}" target="_blank" rel="noopener noreferrer">Open on YouTube</a></p>
+            </div>
+            <div class="player">
+              <iframe
+                src="https://www.youtube.com/embed/${episode.youtube_id}"
+                title="Episode ${episode.episode}: ${episode.title}"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+                loading="lazy"
+              ></iframe>
+            </div>
+          </article>
+        `).join("");
+      })
+      .catch(() => {
+        document.getElementById("grid").innerHTML =
+          "<p>Could not load episodes.json. Open this page from the Storyforge repo.</p>";
+      });
+  </script>
 </body>
 </html>

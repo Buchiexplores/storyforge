@@ -1,171 +1,236 @@
 # Storyforge
 
-Turn written short-fiction episodes into vertical videos for **TikTok**, **Instagram Reels**, and **YouTube Shorts**.
+**Turn written short-fiction episodes into vertical videos for TikTok, Instagram Reels, and YouTube Shorts — from your laptop.**
 
-This repo is a local production pipeline that converts an episode content package into:
+Storyforge is a local production pipeline. You write an episode (a short script + a few scene prompts), and it produces a finished, ready-to-post vertical video:
 
-- ElevenLabs narrator voiceover
-- OpenAI scene images
-- OpenAI cover background + local typography compositing
-- Local motion clips from still images (no video API credits required)
-- Final synced 1080×1920 vertical MP4 with cover intro
-- Preview grid, image contact sheet, and optional email notifications
+- 🎙️ ElevenLabs narrator voiceover
+- 🖼️ OpenAI scene images
+- 🎬 A branded cover/poster intro (AI background + local typography)
+- 🎞️ Motion clips from stills — **no video-API credits required** (optional fal.ai motion if you want it)
+- 📱 Final synced **1080×1920** vertical MP4, plus a preview grid and image contact sheet
 
-## Example output
+> No timeline editor, no manual rendering. Author text → run one command → get an MP4.
 
-**Full interactive player (sidebar + keyboard + auto-advance):** [GitHub Pages](https://Buchiexplores.github.io/storyforge/preview/example/)
+---
 
-The sample series below is included in the repo. **Click a poster** to watch an episode, or use the buttons to browse.
+## ▶️ Watch example episodes
+
+The sample series **"The Phone That Receives Tomorrow"** (an Afro-futurist mystery thriller) was produced entirely with this pipeline.
+
+**▶ [Watch all 10 episodes in the browser (embedded player)](docs/preview/index.html)** — playable YouTube embeds, no leaving the page.
+
+On GitHub.com, README thumbnails link out to YouTube (GitHub strips iframe embeds). Click any poster below, or open the [episode viewer](docs/preview/index.html).
 
 <!-- README-PLAYER-START -->
 
-**The Phone That Receives Tomorrow** — Example output from the Storyforge pipeline — Afro-futurist mystery thriller.
-
-**Click any poster below to watch** that episode (opens GitHub's built-in video player). For sidebar navigation, keyboard shortcuts, and auto-advance, use the [interactive player on GitHub Pages](https://Buchiexplores.github.io/storyforge/preview/example/) (enable Pages under repo Settings → Pages → branch `main`, folder `/`).
-
-> GitHub README cannot embed in-page video players for repo-hosted MP4s. Posters link to each episode's MP4 on GitHub where you can press play.
-
-<p align="center">Jump to episode: <a href="#ep1">1</a> · <a href="#ep2">2</a> · <a href="#ep3">3</a> · <a href="#ep4">4</a> · <a href="#ep5">5</a> · <a href="#ep6">6</a></p>
-
-<p align="center" id="ep1">
-  <strong>Episode 1 · Do Not Open The Door</strong><br><br>
-  <a href="https://github.com/Buchiexplores/storyforge/blob/main/preview/example/episode_01.mp4">
-    <img src="preview/example/posters/episode_01.jpg" width="270" alt="Episode 1 · Do Not Open The Door — click to watch">
-  </a>
-  <br><br>
-  <a href="https://github.com/Buchiexplores/storyforge/blob/main/preview/example/episode_01.mp4"><img src="https://img.shields.io/badge/%E2%96%B6%20Watch%20this%20episode-238636?style=for-the-badge" alt="▶ Watch this episode"></a> &nbsp; <a href="#ep2"><img src="https://img.shields.io/badge/Next%20episode%20%E2%86%92-238636?style=for-the-badge" alt="Next episode →"></a>
-</p>
-
-<p align="center" id="ep2">
-  <strong>Episode 2 · The Bus With No Driver</strong><br><br>
-  <a href="https://github.com/Buchiexplores/storyforge/blob/main/preview/example/episode_02.mp4">
-    <img src="preview/example/posters/episode_02.jpg" width="270" alt="Episode 2 · The Bus With No Driver — click to watch">
-  </a>
-  <br><br>
-  <a href="#ep1"><img src="https://img.shields.io/badge/%E2%86%90%20Previous-555555?style=for-the-badge" alt="← Previous"></a> &nbsp; <a href="https://github.com/Buchiexplores/storyforge/blob/main/preview/example/episode_02.mp4"><img src="https://img.shields.io/badge/%E2%96%B6%20Watch%20this%20episode-238636?style=for-the-badge" alt="▶ Watch this episode"></a> &nbsp; <a href="#ep3"><img src="https://img.shields.io/badge/Next%20episode%20%E2%86%92-238636?style=for-the-badge" alt="Next episode →"></a>
-</p>
-
-<p align="center" id="ep3">
-  <strong>Episode 3 · Save Her Twice</strong><br><br>
-  <a href="https://github.com/Buchiexplores/storyforge/blob/main/preview/example/episode_03.mp4">
-    <img src="preview/example/posters/episode_03.jpg" width="270" alt="Episode 3 · Save Her Twice — click to watch">
-  </a>
-  <br><br>
-  <a href="#ep2"><img src="https://img.shields.io/badge/%E2%86%90%20Previous-555555?style=for-the-badge" alt="← Previous"></a> &nbsp; <a href="https://github.com/Buchiexplores/storyforge/blob/main/preview/example/episode_03.mp4"><img src="https://img.shields.io/badge/%E2%96%B6%20Watch%20this%20episode-238636?style=for-the-badge" alt="▶ Watch this episode"></a> &nbsp; <a href="#ep4"><img src="https://img.shields.io/badge/Next%20episode%20%E2%86%92-238636?style=for-the-badge" alt="Next episode →"></a>
-</p>
-
-<p align="center" id="ep4">
-  <strong>Episode 4 · The Price Of A Minute</strong><br><br>
-  <a href="https://github.com/Buchiexplores/storyforge/blob/main/preview/example/episode_04.mp4">
-    <img src="preview/example/posters/episode_04.jpg" width="270" alt="Episode 4 · The Price Of A Minute — click to watch">
-  </a>
-  <br><br>
-  <a href="#ep3"><img src="https://img.shields.io/badge/%E2%86%90%20Previous-555555?style=for-the-badge" alt="← Previous"></a> &nbsp; <a href="https://github.com/Buchiexplores/storyforge/blob/main/preview/example/episode_04.mp4"><img src="https://img.shields.io/badge/%E2%96%B6%20Watch%20this%20episode-238636?style=for-the-badge" alt="▶ Watch this episode"></a> &nbsp; <a href="#ep5"><img src="https://img.shields.io/badge/Next%20episode%20%E2%86%92-238636?style=for-the-badge" alt="Next episode →"></a>
-</p>
-
-<p align="center" id="ep5">
-  <strong>Episode 5 · Mara's Name</strong><br><br>
-  <a href="https://github.com/Buchiexplores/storyforge/blob/main/preview/example/episode_05.mp4">
-    <img src="preview/example/posters/episode_05.jpg" width="270" alt="Episode 5 · Mara's Name — click to watch">
-  </a>
-  <br><br>
-  <a href="#ep4"><img src="https://img.shields.io/badge/%E2%86%90%20Previous-555555?style=for-the-badge" alt="← Previous"></a> &nbsp; <a href="https://github.com/Buchiexplores/storyforge/blob/main/preview/example/episode_05.mp4"><img src="https://img.shields.io/badge/%E2%96%B6%20Watch%20this%20episode-238636?style=for-the-badge" alt="▶ Watch this episode"></a> &nbsp; <a href="#ep6"><img src="https://img.shields.io/badge/Next%20episode%20%E2%86%92-238636?style=for-the-badge" alt="Next episode →"></a>
-</p>
-
-<p align="center" id="ep6">
-  <strong>Episode 6 · The Street That Disappears</strong><br><br>
-  <a href="https://github.com/Buchiexplores/storyforge/blob/main/preview/example/episode_06.mp4">
-    <img src="preview/example/posters/episode_06.jpg" width="270" alt="Episode 6 · The Street That Disappears — click to watch">
-  </a>
-  <br><br>
-  <a href="#ep5"><img src="https://img.shields.io/badge/%E2%86%90%20Previous-555555?style=for-the-badge" alt="← Previous"></a> &nbsp; <a href="https://github.com/Buchiexplores/storyforge/blob/main/preview/example/episode_06.mp4"><img src="https://img.shields.io/badge/%E2%96%B6%20Watch%20this%20episode-238636?style=for-the-badge" alt="▶ Watch this episode"></a>
-</p>
-
+<table>
+  <tr>
+    <td align="center" width="33%">
+      <a href="https://youtube.com/shorts/Bh6mAgm_QtI"><img src="https://img.youtube.com/vi/Bh6mAgm_QtI/hqdefault.jpg" width="200" alt="Episode 1 · Do Not Open The Door"></a><br>
+      <b><a href="https://youtube.com/shorts/Bh6mAgm_QtI">Ep 1 · Do Not Open The Door</a></b>
+    </td>
+    <td align="center" width="33%">
+      <a href="https://youtube.com/shorts/Y2-6ruKLOF8"><img src="https://img.youtube.com/vi/Y2-6ruKLOF8/hqdefault.jpg" width="200" alt="Episode 2 · The Bus With No Driver"></a><br>
+      <b><a href="https://youtube.com/shorts/Y2-6ruKLOF8">Ep 2 · The Bus With No Driver</a></b>
+    </td>
+    <td align="center" width="33%">
+      <a href="https://youtube.com/shorts/P7XBdPvjcJ8"><img src="https://img.youtube.com/vi/P7XBdPvjcJ8/hqdefault.jpg" width="200" alt="Episode 3 · Save Her Twice"></a><br>
+      <b><a href="https://youtube.com/shorts/P7XBdPvjcJ8">Ep 3 · Save Her Twice</a></b>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" width="33%">
+      <a href="https://youtube.com/shorts/DLaWm1o32fY"><img src="https://img.youtube.com/vi/DLaWm1o32fY/hqdefault.jpg" width="200" alt="Episode 4 · The Price Of A Minute"></a><br>
+      <b><a href="https://youtube.com/shorts/DLaWm1o32fY">Ep 4 · The Price Of A Minute</a></b>
+    </td>
+    <td align="center" width="33%">
+      <a href="https://youtube.com/shorts/-NcfeG9QFpE"><img src="https://img.youtube.com/vi/-NcfeG9QFpE/hqdefault.jpg" width="200" alt="Episode 5 · Mara's Name"></a><br>
+      <b><a href="https://youtube.com/shorts/-NcfeG9QFpE">Ep 5 · Mara's Name</a></b>
+    </td>
+    <td align="center" width="33%">
+      <a href="https://youtube.com/shorts/AcZlC_kdeNs"><img src="https://img.youtube.com/vi/AcZlC_kdeNs/hqdefault.jpg" width="200" alt="Episode 6 · The Street That Disappears"></a><br>
+      <b><a href="https://youtube.com/shorts/AcZlC_kdeNs">Ep 6 · The Street That Disappears</a></b>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" width="33%">
+      <a href="https://youtube.com/shorts/L8ZU78CpKuc"><img src="https://img.youtube.com/vi/L8ZU78CpKuc/hqdefault.jpg" width="200" alt="Episode 7 · The First Owner"></a><br>
+      <b><a href="https://youtube.com/shorts/L8ZU78CpKuc">Ep 7 · The First Owner</a></b>
+    </td>
+    <td align="center" width="33%">
+      <a href="https://youtube.com/shorts/YWWyK7UIfWQ"><img src="https://img.youtube.com/vi/YWWyK7UIfWQ/hqdefault.jpg" width="200" alt="Episode 8 · Battery At One Percent"></a><br>
+      <b><a href="https://youtube.com/shorts/YWWyK7UIfWQ">Ep 8 · Battery At One Percent</a></b>
+    </td>
+    <td align="center" width="33%">
+      <a href="https://youtube.com/shorts/qTONDPdGxa8"><img src="https://img.youtube.com/vi/qTONDPdGxa8/hqdefault.jpg" width="200" alt="Episode 9 · Tomorrow Calls Back"></a><br>
+      <b><a href="https://youtube.com/shorts/qTONDPdGxa8">Ep 9 · Tomorrow Calls Back</a></b>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" width="33%">
+      <a href="https://youtube.com/shorts/shIX0gKaJDs"><img src="https://img.youtube.com/vi/shIX0gKaJDs/hqdefault.jpg" width="200" alt="Episode 10 · Delete My Number"></a><br>
+      <b><a href="https://youtube.com/shorts/shIX0gKaJDs">Ep 10 · Delete My Number</a></b>
+    </td>
+    <td colspan="2"></td>
+  </tr>
+</table>
 <!-- README-PLAYER-END -->
 
-Your own pipeline output is written to each episode's `assets/exports/` folder (gitignored, not pushed).
+Your own renders land in each episode's `assets/exports/` folder (gitignored — never pushed).
 
-## Quick start
+---
+
+## ⚡ Quick start (5 minutes)
 
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/Buchiexplores/storyforge.git
 cd storyforge
 
-./setup.sh  # creates .venv, installs deps, copies .env.story.example
-# Edit .env.story.local with your API keys
-
-# Option A: use the included example series
-python3 tools/run_episode_pipeline.py --episode episode_01
-
-# Option B: scaffold your own series
-python3 tools/init_series.py --name "My Story Series" --style thriller_mystery
-# Set PIPELINE_SERIES_DIR=series/my_story_series in .env.story.local
-# Edit series/my_story_series/episode_01/scenes.json and voiceover_text.txt
-python3 tools/run_episode_pipeline.py --series series/my_story_series --episode episode_01
+./setup.sh            # creates .venv, installs deps, copies .env.story.example → .env.story.local
 ```
 
-## What you need
+Then add your API keys to `.env.story.local`. **New to API keys? Follow [docs/API_KEYS.md](docs/API_KEYS.md)** — it walks you through getting each one.
 
-| Requirement | Purpose |
-|-------------|---------|
-| Python 3.10+ | Run pipeline scripts |
-| ffmpeg + ffprobe | Video rendering |
-| OpenAI API key | Scene images and cover backgrounds |
-| ElevenLabs API key + voice ID | Narrator voiceover |
+```bash
+# REQUIRED keys (see docs/API_KEYS.md for step-by-step):
+OPENAI_API_KEY=sk-...
+ELEVENLABS_API_KEY=...
+ELEVENLABS_VOICE_ID=...      # run: python3 tools/generate_episode_assets.py --list-voices
+```
 
-Optional: fal.ai key if you want AI-generated motion clips instead of local Ken Burns-style motion.
+Now choose a path:
 
-## Repository layout
+### Path A — Render the included example
+
+```bash
+python3 tools/run_episode_pipeline.py --episode episode_01
+# → examples/phone_from_tomorrow/episode_01/assets/exports/episode_01_vertical.mp4
+```
+
+### Path B — Start your own series (interactive wizard)
+
+```bash
+python3 tools/init_series.py
+```
+
+The wizard asks for your **story name**, **style**, **number of episodes**, and **logline**, scaffolds everything, prints clickable links to every file it created, and offers to set the series as active. Then:
+
+```bash
+# 1. Author episode_01 (scenes.json + voiceover_text.txt) — links are printed by the wizard
+# 2. Render it:
+python3 tools/run_episode_pipeline.py --series series/<your_slug> --episode episode_01
+```
+
+Prefer flags over prompts? `python3 tools/init_series.py --name "The Last Signal" --style sci_fi --episodes 5`
+
+---
+
+## 🎬 Generate a story, episode by episode
+
+Storyforge is built for serialized content. Add and render one episode at a time:
+
+```bash
+# Scaffold the next episode folder (auto-increments: episode_02, episode_03, ...)
+python3 tools/new_episode.py --series series/<your_slug>
+
+# Author its scenes.json + voiceover_text.txt, then render:
+python3 tools/run_episode_pipeline.py --series series/<your_slug> --episode episode_02
+```
+
+Each render also produces a cover, a preview grid, and an image contact sheet so you can review before posting.
+
+### 🤖 Or automate it — a new episode every morning
+
+Pre-author several episodes, then let cron render the next pending one daily and email you when it's done:
+
+```bash
+# Renders the lowest-numbered episode that has content but no video yet
+python3 tools/run_next_episode.py
+```
+
+```cron
+# crontab -e — every morning at 7:00
+0 7 * * * cd /absolute/path/to/storyforge && .venv/bin/python tools/run_next_episode.py >> /tmp/storyforge.log 2>&1
+```
+
+Full setup (SMTP/email + cron tips): **[docs/GETTING_STARTED.md → Automate it](docs/GETTING_STARTED.md#7-automate-it-daily-cron--email)**.
+
+---
+
+## ✍️ Authoring an episode (manual)
+
+Every episode folder needs just two files to render. You can write them by hand or with the AI batch prompt.
+
+| File | Required | What it is |
+|------|----------|-----------|
+| `scenes.json` | ✅ | Scene list (caption + visual prompt per beat) and cover settings |
+| `voiceover_text.txt` | ✅ | The exact narration ElevenLabs will speak |
+| `script.md`, `voice_direction.md`, `visual_prompts.md`, `upload_package.md` | optional | Human-facing authoring notes + publishing copy |
+
+Full guide with examples: **[docs/STORY_AUTHORING.md](docs/STORY_AUTHORING.md)**.
+Want AI to draft a batch of episodes for you? Use **[docs/AI_BATCH_PROMPT.md](docs/AI_BATCH_PROMPT.md)**.
+
+---
+
+## 🧰 What you need
+
+| Requirement | Purpose | How to get it |
+|-------------|---------|---------------|
+| Python 3.10+ | Run the pipeline | [python.org](https://www.python.org/downloads/) |
+| ffmpeg + ffprobe | Video rendering | `brew install ffmpeg` (macOS) / [ffmpeg.org](https://ffmpeg.org/download.html) |
+| OpenAI API key | Scene images & covers | [docs/API_KEYS.md](docs/API_KEYS.md) |
+| ElevenLabs key + voice ID | Narrator voiceover | [docs/API_KEYS.md](docs/API_KEYS.md) |
+| fal.ai key *(optional)* | AI motion clips | [docs/API_KEYS.md](docs/API_KEYS.md) |
+
+---
+
+## 📁 Repository layout
 
 ```text
 storyforge/
-  .env.story.example          # Config template (copy to .env.story.local)
+  .env.story.example          # Config template (copied to .env.story.local by setup.sh)
   config/style_templates/     # Reusable visual + platform style presets
-  docs/                       # Full onboarding and reference docs
-  examples/phone_from_tomorrow/  # Example series scripts (Episodes 1-9)
-  preview/example/            # Sample rendered episodes (watch before you run the pipeline)
+  docs/                       # Onboarding & reference docs (start with GETTING_STARTED.md)
+  docs/preview/               # Embedded YouTube episode viewer (index.html)
+  examples/phone_from_tomorrow/  # Example series scripts (Episodes 1–10)
   series/                     # Your own series go here (empty by default)
   templates/                  # Scaffolding templates for new series/episodes
-  tools/                      # Pipeline scripts
+  tools/                      # The pipeline (init, new_episode, run, run_next_episode, render, generate)
 ```
 
-## Documentation
+---
 
-Start here for full onboarding:
+## 📚 Documentation
 
 - **[docs/GETTING_STARTED.md](docs/GETTING_STARTED.md)** — install, configure, first render, batch workflow
-- **[docs/STORY_AUTHORING.md](docs/STORY_AUTHORING.md)** — write scripts, scenes.json, style templates
+- **[docs/API_KEYS.md](docs/API_KEYS.md)** — how to obtain every API key, step by step
+- **[docs/STORY_AUTHORING.md](docs/STORY_AUTHORING.md)** — write scripts, `scenes.json`, style templates
 - **[docs/CONFIGURATION.md](docs/CONFIGURATION.md)** — all environment variables and series config
-- **[docs/PLATFORM_GUIDE.md](docs/PLATFORM_GUIDE.md)** — TikTok, Instagram Reels, YouTube Shorts publishing
+- **[docs/PLATFORM_GUIDE.md](docs/PLATFORM_GUIDE.md)** — TikTok, Reels, and Shorts publishing
 - **[docs/TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md)** — common failures and fixes
-- **[docs/AI_BATCH_PROMPT.md](docs/AI_BATCH_PROMPT.md)** — prompt for AI-assisted episode writing batches
+- **[docs/AI_BATCH_PROMPT.md](docs/AI_BATCH_PROMPT.md)** — AI-assisted episode writing
+- **[docs/WEEKLY_PIPELINE.md](docs/WEEKLY_PIPELINE.md)** — a weekly production cadence
 
-## Run one episode
+---
 
-```bash
-python3 tools/run_episode_pipeline.py \
-  --series examples/phone_from_tomorrow \
-  --episode episode_01 \
-  --force
-```
-
-Output:
-
-```text
-examples/phone_from_tomorrow/episode_01/assets/exports/episode_01_vertical.mp4
-```
-
-## Create a new series
+## 🧪 Pipeline flags (cheat sheet)
 
 ```bash
-python3 tools/init_series.py \
-  --name "The Last Signal" \
-  --style sci_fi \
-  --output-dir series
+python3 tools/run_episode_pipeline.py --series series/my_series --episode episode_01 [flags]
 ```
 
-Built-in style templates: `thriller_mystery`, `romance_drama`, `sci_fi`
+| Flag | Effect |
+|------|--------|
+| `--force` | Regenerate images, cover, and motion clips |
+| `--skip-voice` / `--skip-images` / `--skip-cover` / `--skip-videos` / `--skip-render` | Skip a stage |
+| `--video-mode fal` | Use fal.ai motion (needs `FAL_KEY`) |
+| `--no-notify` | Disable run notifications |
+
+Render-only (no API calls): `--skip-voice --skip-images --skip-cover --skip-videos`
+
+---
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
+MIT — see [LICENSE](LICENSE). The example story and characters are original works included for demonstration.

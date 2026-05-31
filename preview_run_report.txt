@@ -1,6 +1,0 @@
-hello
-episodes
-episodes.json
-index.html
-player.css
-player.js

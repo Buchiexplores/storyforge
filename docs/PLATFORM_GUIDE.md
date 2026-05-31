@@ -115,4 +115,4 @@ Episode 2: The package was breathing. Should Tobi open the door or wait?
 - [ ] Full watch-through — hook, captions, cliffhanger
 - [ ] Pinned comment ready
 
-Weekly compilations: see `weekly_pipeline.md`.
+Weekly compilations: see [WEEKLY_PIPELINE.md](WEEKLY_PIPELINE.md).
