@@ -1,0 +1,50 @@
+genre: anime
+description: All-ages anime adventure — wonder, heart, and momentum without horror or gore.
+
+visual_style: >
+  high-quality anime illustration, cinematic 2D animation still, expressive faces,
+  clean linework, rich color gradients, soft atmospheric lighting, dynamic but readable
+  composition, family-friendly tone, Studio Ghibli-meets-modern anime polish,
+  no photorealism, no logos, no public figures, no readable real brand names
+
+image_prompt_rules: |
+  Strict beat-matching rule: show only characters, props, and environments implied by this
+  exact narration beat. Keep the tone all-ages — no gore, no horror, no sexual content,
+  no graphic violence, no frightening body horror.
+  Composition requirements: one clear story moment; vertical portrait; emotionally readable
+  character expressions; layered backgrounds with depth (sky, city, forest, or interior);
+  one accent color for magic, devices, or emotional highlights.
+  Anime look requirements: cel-shaded or painted anime finish, large expressive eyes when
+  characters appear, clean silhouettes, cinematic camera angle, subtle motion lines only
+  when action is implied.
+  Text requirements: no subtitles, captions, title cards, watermarks, logos, or readable
+  brand names unless the scene direction explicitly requests device-screen text.
+
+cover:
+  hook_lines: ["A NEW", "STORY", "BEGINS"]
+  hook_highlight: STORY
+  background_prompt: >
+    anime-style hero standing on a hill at golden hour, wind in hair, wide sky with soft
+    clouds, distant town or floating lights, warm hopeful mood, large negative space for
+    title typography, family-friendly adventure poster composition
+
+platforms:
+  tiktok:
+    disclosure: "This is a fictional story for all ages."
+    hashtags:
+      - fictionstory
+      - anime
+      - storytime
+      - animestory
+  youtube_shorts:
+    disclosure: "Original fictional anime-style story for all ages. Human creative direction and AI-assisted visuals."
+    hashtags:
+      - FictionStory
+      - AnimeStory
+      - ShortStory
+  instagram_reels:
+    disclosure: "Fictional all-ages anime-style story."
+    hashtags:
+      - fictionstory
+      - anime
+      - reelsfiction

@@ -1,0 +1,43 @@
+genre: western
+description: Classic western — dust, duels, frontier justice, and wide empty horizons.
+
+visual_style: >
+  cinematic western, golden-hour desert light, dusty frontier towns, leather and denim,
+  wide hats and long shadows, saloon wood interiors, heat haze, muted earth palette
+  with sun-bleached highlights, no logos, no public figures, no readable real brand names
+
+image_prompt_rules: |
+  Strict beat-matching rule: show only characters, horses, and locations implied by this
+  beat. One iconic western moment — standoff, ride, camp, or saloon reveal.
+  Composition requirements: vertical portrait; horizon depth; strong silhouette or
+  sun-backlit figure; dust in the air when action is implied.
+  Text requirements: no subtitles, captions, title cards, watermarks, logos, or readable
+  brand names unless explicitly requested.
+
+cover:
+  hook_lines: ["HIGH", "NOON", "SHOWDOWN"]
+  hook_highlight: NOON
+  background_prompt: >
+    lone gunslinger on empty main street, tumbleweed and heat shimmer, saloon doors in
+    background, low sun, classic western poster composition
+
+platforms:
+  tiktok:
+    disclosure: "This is a fictional story."
+    hashtags:
+      - fictionstory
+      - western
+      - storytime
+      - westernstory
+  youtube_shorts:
+    disclosure: "Original fictional western story with human creative direction and AI-assisted visuals."
+    hashtags:
+      - FictionStory
+      - WesternStory
+      - ShortStory
+  instagram_reels:
+    disclosure: "Fictional western story."
+    hashtags:
+      - fictionstory
+      - western
+      - reelsfiction

@@ -1,0 +1,43 @@
+genre: comedy
+description: Lighthearted comedy — awkward beats, surprise reversals, and warm humor.
+
+visual_style: >
+  bright cinematic comedy, clean daylight or warm interior lighting, expressive faces,
+  slightly exaggerated reactions, colorful wardrobe and props, shallow depth of field,
+  upbeat palette, no logos, no public figures, no readable real brand names
+
+image_prompt_rules: |
+  Strict beat-matching rule: show the comedic beat explicitly — the misunderstanding,
+  surprise, or punchline moment. Keep humor character-driven, not cruel or hateful.
+  Composition requirements: vertical portrait; face or reaction readable; clean background
+  that supports the joke; one prop that sells the gag if relevant.
+  Text requirements: no subtitles, captions, title cards, watermarks, logos, or readable
+  brand names unless explicitly requested.
+
+cover:
+  hook_lines: ["WRONG", "PERSON", "TEXTED"]
+  hook_highlight: WRONG
+  background_prompt: >
+    person staring at phone with shocked funny expression, bright apartment kitchen,
+    coffee mug mid-spill, warm comedy poster composition with space for title type
+
+platforms:
+  tiktok:
+    disclosure: "This is a fictional story."
+    hashtags:
+      - fictionstory
+      - comedy
+      - storytime
+      - comedystory
+  youtube_shorts:
+    disclosure: "Original fictional comedy with human creative direction and AI-assisted visuals."
+    hashtags:
+      - FictionStory
+      - ComedyStory
+      - ShortStory
+  instagram_reels:
+    disclosure: "Fictional comedy story."
+    hashtags:
+      - fictionstory
+      - comedy
+      - reelsfiction

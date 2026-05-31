@@ -209,6 +209,13 @@ Always human-review:
 - One accent glow color for devices
 - Template: `sci_fi`
 
+### Anime (all ages)
+
+- Lead with wonder, friendship, or discovery — not fear
+- Visual style: expressive anime faces, painted skies, clean linework
+- Keep stories family-friendly: no gore, horror, or graphic violence
+- Template: `anime`
+
 ## Quality bar before publishing
 
 From [WEEKLY_PIPELINE.md](WEEKLY_PIPELINE.md) — ask before posting:
@@ -226,3 +233,44 @@ From [WEEKLY_PIPELINE.md](WEEKLY_PIPELINE.md) — ask before posting:
 - [CONFIGURATION.md](CONFIGURATION.md) — environment variables
 - [PLATFORM_GUIDE.md](PLATFORM_GUIDE.md) — publishing
 - [COVER_STYLE.md](COVER_STYLE.md) — cover design system
+### Horror
+
+- Suggest dread; avoid gore in visuals unless the platform audience expects it
+- Use shadows, empty rooms, and off-frame threat
+- Template: `horror`
+
+### Noir / crime
+
+- Rain, neon, case files, morally gray choices
+- Template: `noir`
+
+### Action
+
+- One kinetic beat per scene; readable motion
+- Template: `action`
+
+### Cyberpunk
+
+- Neon, rain, megacity layers — distinct from grounded `sci_fi`
+- Template: `cyberpunk`
+
+### Fantasy
+
+- Epic scale, magic as accent, clear quest objects
+- Template: `fantasy`
+
+### Comedy
+
+- Lead with the reaction or reversal
+- Template: `comedy`
+
+### Western
+
+- Wide horizons, dust, standoffs, saloon interiors
+- Template: `western`
+
+### Period drama
+
+- Pick one era per episode and stay consistent
+- Template: `period_drama`
+

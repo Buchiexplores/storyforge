@@ -1,0 +1,44 @@
+genre: action
+description: High-stakes action — chases, confrontations, and countdown tension.
+
+visual_style: >
+  cinematic action blockbuster, dynamic camera angles, motion blur on movement,
+  high contrast, urban or tactical environments, sweat and grit without gore,
+  practical stunts feel, teal-orange grade, no logos, no public figures,
+  no readable real brand names
+
+image_prompt_rules: |
+  Strict beat-matching rule: visualize only the action beat described — one clear stunt,
+  chase, or standoff moment. Avoid excessive blood or graphic injury.
+  Composition requirements: vertical portrait; strong diagonal energy; readable subject
+  mid-action; environmental stakes visible (helicopter, rooftop, tunnel, crowd).
+  Text requirements: no subtitles, captions, title cards, watermarks, logos, or readable
+  brand names unless explicitly requested.
+
+cover:
+  hook_lines: ["NO", "TIME", "LEFT"]
+  hook_highlight: TIME
+  background_prompt: >
+    protagonist sprinting through rain-slick city street, helicopter light in background,
+    low-angle hero framing, explosive motion energy, blockbuster poster feel
+
+platforms:
+  tiktok:
+    disclosure: "This is a fictional story."
+    hashtags:
+      - fictionstory
+      - action
+      - storytime
+      - actionmovie
+  youtube_shorts:
+    disclosure: "Original fictional action story with human creative direction and AI-assisted visuals."
+    hashtags:
+      - FictionStory
+      - ActionStory
+      - ShortStory
+  instagram_reels:
+    disclosure: "Fictional action story."
+    hashtags:
+      - fictionstory
+      - action
+      - reelsfiction

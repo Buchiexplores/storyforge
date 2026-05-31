@@ -1,0 +1,45 @@
+genre: horror
+description: Supernatural horror — dread, shadows, and the thing you should not open.
+
+visual_style: >
+  cinematic horror thriller, deep shadows, cold blue-green undertones, fog and rain,
+  isolated locations, practical darkness, implied threat off-frame, no gore,
+  no jump-scare monsters in full reveal unless the beat requires it,
+  no logos, no public figures, no readable real brand names
+
+image_prompt_rules: |
+  Strict beat-matching rule: show only what this narration beat implies — a door, phone,
+  hallway, mirror, or silhouette. Prefer psychological dread over graphic violence.
+  No gore, dismemberment, or torture. Keep scares suggestive and story-specific.
+  Composition requirements: vertical portrait; strong negative space; one unsettling
+  focal detail; depth into darkness.
+  Text requirements: no subtitles, captions, title cards, watermarks, logos, or readable
+  brand names unless explicitly requested.
+
+cover:
+  hook_lines: ["DO NOT", "OPEN", "IT"]
+  hook_highlight: OPEN
+  background_prompt: >
+    dark hallway with one door cracked open, cold light spill, wet floor reflections,
+    empty foreground object (box, phone, or key), horror poster tension without gore
+
+platforms:
+  tiktok:
+    disclosure: "This is a fictional horror story."
+    hashtags:
+      - fictionstory
+      - horror
+      - storytime
+      - horrorstory
+  youtube_shorts:
+    disclosure: "Original fictional horror story with human creative direction and AI-assisted visuals."
+    hashtags:
+      - FictionStory
+      - HorrorStory
+      - ShortStory
+  instagram_reels:
+    disclosure: "Fictional horror story."
+    hashtags:
+      - fictionstory
+      - horror
+      - reelsfiction

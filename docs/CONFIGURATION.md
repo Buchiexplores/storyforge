@@ -96,7 +96,7 @@ series:
   channel_name: "Your Channel Name"
   logline: "One sentence premise."
 
-style_template: thriller_mystery   # thriller_mystery | romance_drama | sci_fi
+style_template: thriller_mystery   # thriller_mystery | horror | noir | action | sci_fi | cyberpunk | fantasy | anime | romance_drama | comedy | western | period_drama
 
 # Optional overrides:
 # visual_style: "custom style string"
@@ -128,8 +128,17 @@ Episode-level overrides: `scenes.json` (`style`, `image_prompt_rules`, `cover`, 
 | Template | Genre |
 |----------|-------|
 | `thriller_mystery` | Suspense, cliffhangers, moody lighting |
-| `romance_drama` | Relationships, emotional close-ups |
+| `horror` | Supernatural dread, shadows, implied threat |
+| `noir` | Crime noir, rain, detectives, neon reflections |
+| `action` | Blockbuster chases, standoffs, high energy |
 | `sci_fi` | Near-future tech, discovery, consequence |
+| `cyberpunk` | Neon dystopia, megacity rain, hackers |
+| `fantasy` | Epic quests, magic, mythic worlds |
+| `anime` | All-ages anime adventure — wonder and heart |
+| `romance_drama` | Relationships, emotional close-ups |
+| `comedy` | Lighthearted humor, bright reactions |
+| `western` | Frontier dust, duels, wide horizons |
+| `period_drama` | Historical costume drama, elegant interiors |
 
 Each provides `visual_style`, `image_prompt_rules`, `cover` defaults, and `platforms` disclosures/hashtags.
 

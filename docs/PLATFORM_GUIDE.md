@@ -92,6 +92,15 @@ Template defaults:
 | `thriller_mystery` | `#fictionstory` `#mysterystory` `#storytime` |
 | `romance_drama` | `#fictionstory` `#romancedrama` `#dramatiktok` |
 | `sci_fi` | `#fictionstory` `#scifistory` `#futuristic` |
+| `anime` | `#fictionstory` `#anime` `#animestory` |
+| `horror` | `#fictionstory` `#horror` `#horrorstory` |
+| `noir` | `#fictionstory` `#noir` `#crimestory` |
+| `action` | `#fictionstory` `#action` `#actionmovie` |
+| `cyberpunk` | `#fictionstory` `#cyberpunk` `#scifistory` |
+| `fantasy` | `#fictionstory` `#fantasy` `#fantasyworld` |
+| `comedy` | `#fictionstory` `#comedy` `#comedystory` |
+| `western` | `#fictionstory` `#western` `#westernstory` |
+| `period_drama` | `#fictionstory` `#perioddrama` `#historicalfiction` |
 
 ---
 

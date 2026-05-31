@@ -29,7 +29,10 @@ def prompt(question: str, default: str | None = None) -> str:
 def choose_style() -> str:
     print("\nChoose a built-in style template:")
     for index, name in enumerate(STYLE_CHOICES, start=1):
-        print(f"  {index}. {name}")
+        template = load_style_template(name) or {}
+        description = template.get("description", "")
+        suffix = f" — {description}" if description else ""
+        print(f"  {index}. {name}{suffix}")
     while True:
         raw = input(f"Style [1-{len(STYLE_CHOICES)}] (1): ").strip() or "1"
         if raw.isdigit() and 1 <= int(raw) <= len(STYLE_CHOICES):

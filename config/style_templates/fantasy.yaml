@@ -1,0 +1,43 @@
+genre: fantasy
+description: Epic fantasy adventure — magic, quests, and worlds larger than the hero.
+
+visual_style: >
+  cinematic high fantasy, painterly realism, ancient forests and stone ruins,
+  torchlight and moonlight, rich jewel-tone palette, subtle magic glow,
+  medieval or mythic wardrobe, no logos, no public figures, no readable real brand names
+
+image_prompt_rules: |
+  Strict beat-matching rule: show only characters, creatures, and locations implied by
+  this exact narration beat. Keep magic story-specific and visually grounded.
+  Composition requirements: one epic story moment; vertical portrait; clear hero or focal
+  subject; layered depth (foreground relic, midground figure, distant castle or mountains).
+  Text requirements: no subtitles, captions, title cards, watermarks, logos, or readable
+  brand names unless device-screen text is explicitly requested.
+
+cover:
+  hook_lines: ["THE", "QUEST", "AWAITS"]
+  hook_highlight: QUEST
+  background_prompt: >
+    lone hero on a cliff overlooking a misty valley, distant castle or portal glow,
+    sword or relic in foreground, golden rim light, epic fantasy poster composition
+
+platforms:
+  tiktok:
+    disclosure: "This is a fictional story."
+    hashtags:
+      - fictionstory
+      - fantasy
+      - storytime
+      - fantasyworld
+  youtube_shorts:
+    disclosure: "Original fictional fantasy story with human creative direction and AI-assisted visuals."
+    hashtags:
+      - FictionStory
+      - FantasyStory
+      - ShortStory
+  instagram_reels:
+    disclosure: "Fictional fantasy story."
+    hashtags:
+      - fictionstory
+      - fantasy
+      - reelsfiction

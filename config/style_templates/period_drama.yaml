@@ -1,0 +1,45 @@
+genre: period_drama
+description: Historical drama — costume, class, longing, and rooms that remember.
+
+visual_style: >
+  cinematic period drama, natural window light, film grain subtlety, historically inspired
+  wardrobe without copying specific real people, elegant interiors, candlelight warmth,
+  restrained palette, shallow depth of field, no logos, no public figures,
+  no readable real brand names
+
+image_prompt_rules: |
+  Strict beat-matching rule: show only characters, rooms, and objects implied by this beat.
+  Keep era consistent within the episode (Regency, Victorian, 1920s, etc.) as established
+  in the script — do not mix decades in one scene.
+  Composition requirements: vertical portrait; emotionally readable faces; architectural
+  depth; props that signal era (letter, gloves, carriage window).
+  Text requirements: no subtitles, captions, title cards, watermarks, logos, or readable
+  brand names unless explicitly requested.
+
+cover:
+  hook_lines: ["A LETTER", "ARRIVED", "TODAY"]
+  hook_highlight: LETTER
+  background_prompt: >
+    elegant period parlor with tall windows, sealed letter on silver tray in foreground,
+    figure in historical dress blurred midground, soft natural light, prestige drama poster
+
+platforms:
+  tiktok:
+    disclosure: "This is a fictional story."
+    hashtags:
+      - fictionstory
+      - perioddrama
+      - storytime
+      - historicalfiction
+  youtube_shorts:
+    disclosure: "Original fictional period drama with human creative direction and AI-assisted visuals."
+    hashtags:
+      - FictionStory
+      - PeriodDrama
+      - ShortStory
+  instagram_reels:
+    disclosure: "Fictional period drama."
+    hashtags:
+      - fictionstory
+      - perioddrama
+      - reelsfiction

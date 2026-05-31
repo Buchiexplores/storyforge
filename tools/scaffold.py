@@ -16,7 +16,20 @@ from typing import Any
 
 from pipeline_config import ROOT
 
-STYLE_CHOICES = ("thriller_mystery", "romance_drama", "sci_fi")
+STYLE_CHOICES = (
+    "thriller_mystery",
+    "horror",
+    "noir",
+    "action",
+    "sci_fi",
+    "cyberpunk",
+    "fantasy",
+    "anime",
+    "romance_drama",
+    "comedy",
+    "western",
+    "period_drama",
+)
 
 ASSET_SUBDIRS = ("voiceover", "images", "video", "music", "exports", "work")
 

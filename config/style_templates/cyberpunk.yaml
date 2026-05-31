@@ -1,0 +1,44 @@
+genre: cyberpunk
+description: Neon dystopia — hackers, megacities, and rain-soaked futures.
+
+visual_style: >
+  cinematic cyberpunk, neon magenta and cyan on wet asphalt, dense megacity layers,
+  holographic ads as color blobs without readable text, augmented humans, trench coats
+  and tech visors, blade-runner mood, no logos, no public figures,
+  no readable real brand names
+
+image_prompt_rules: |
+  Strict beat-matching rule: show only tech, characters, and city details from this beat.
+  Keep futurism gritty and lived-in — cables, steam, rain, crowded alleys.
+  Composition requirements: vertical portrait; neon rim light; layered depth through
+  fog and signage; one handheld device or implant as focal prop when relevant.
+  Text requirements: no subtitles, captions, title cards, watermarks, logos, or readable
+  brand names unless device-screen text is explicitly requested.
+
+cover:
+  hook_lines: ["NEON", "RAIN", "PROTOCOL"]
+  hook_highlight: RAIN
+  background_prompt: >
+    hooded figure on rooftop overlooking neon megacity, rain streaks, holographic glow
+    without readable text, cyberpunk poster composition with title space
+
+platforms:
+  tiktok:
+    disclosure: "This is a fictional story."
+    hashtags:
+      - fictionstory
+      - cyberpunk
+      - storytime
+      - scifistory
+  youtube_shorts:
+    disclosure: "Original fictional cyberpunk story with human creative direction and AI-assisted visuals."
+    hashtags:
+      - FictionStory
+      - CyberpunkStory
+      - ShortStory
+  instagram_reels:
+    disclosure: "Fictional cyberpunk story."
+    hashtags:
+      - fictionstory
+      - cyberpunk
+      - reelsfiction

@@ -98,7 +98,7 @@ Prefer flags (scriptable / CI)?
 python3 tools/init_series.py --name "The Last Signal" --style sci_fi --episodes 5 --output-dir series
 ```
 
-Styles: `thriller_mystery`, `romance_drama`, `sci_fi`
+Styles: `thriller_mystery`, `horror`, `noir`, `action`, `sci_fi`, `cyberpunk`, `fantasy`, `anime`, `romance_drama`, `comedy`, `western`, `period_drama`
 
 The wizard offers to set `PIPELINE_SERIES_DIR` for you. After authoring `episode_01`:
 

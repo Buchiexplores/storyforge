@@ -5,7 +5,7 @@ series:
   channel_name: "Your Channel Name"
   logline: "One sentence describing the core premise."
 
-# Pick a built-in style template: thriller_mystery, romance_drama, sci_fi
+# Pick a built-in style template: thriller_mystery, horror, noir, action, sci_fi, cyberpunk, fantasy, anime, romance_drama, comedy, western, period_drama
 style_template: thriller_mystery
 
 # Optional override for the visual style string injected into every image prompt.

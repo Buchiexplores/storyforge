@@ -20,7 +20,7 @@ You are helping produce episodes for a serialized storyforge pipeline.
 
 - Series directory: {SERIES_DIR}          # e.g. examples/phone_from_tomorrow or series/my_series
 - Series title: {SERIES_TITLE}
-- Style template: {STYLE_TEMPLATE}      # thriller_mystery | romance_drama | sci_fi
+- Style template: {STYLE_TEMPLATE}      # thriller_mystery | horror | noir | action | sci_fi | cyberpunk | fantasy | anime | romance_drama | comedy | western | period_drama
 - Narrator tone: {NARRATOR_NOTES}       # from series_config.yaml or series bible
 
 Read before writing:

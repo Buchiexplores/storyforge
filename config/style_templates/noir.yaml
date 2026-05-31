@@ -1,0 +1,44 @@
+genre: noir
+description: Crime noir — rain, secrets, detectives, and neon reflections.
+
+visual_style: >
+  cinematic film noir, high-contrast black and white or muted color with neon accents,
+  wet asphalt reflections, venetian blind shadows, cigarette smoke haze, fedora and trench
+  coat silhouettes, 1940s-1950s urban mood, no logos, no public figures,
+  no readable real brand names
+
+image_prompt_rules: |
+  Strict beat-matching rule: show only detectives, suspects, and crime-scene details
+  named in this beat. One morally gray moment per frame.
+  Composition requirements: vertical portrait; strong shadow geometry; rain or window
+  light; foreground prop (case file, gun on table, payphone) when relevant.
+  Text requirements: no subtitles, captions, title cards, watermarks, logos, or readable
+  brand names unless explicitly requested.
+
+cover:
+  hook_lines: ["CASE", "FILE", "CLOSED"]
+  hook_highlight: FILE
+  background_prompt: >
+    detective in trench coat under streetlamp rain, neon sign blur in background,
+    case folder in foreground, classic noir poster composition
+
+platforms:
+  tiktok:
+    disclosure: "This is a fictional story."
+    hashtags:
+      - fictionstory
+      - noir
+      - storytime
+      - crimestory
+  youtube_shorts:
+    disclosure: "Original fictional noir crime story with human creative direction and AI-assisted visuals."
+    hashtags:
+      - FictionStory
+      - NoirStory
+      - ShortStory
+  instagram_reels:
+    disclosure: "Fictional noir story."
+    hashtags:
+      - fictionstory
+      - noir
+      - reelsfiction
