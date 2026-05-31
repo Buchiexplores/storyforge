@@ -275,7 +275,7 @@ Render-only (no API calls): `--skip-voice --skip-images --skip-cover --skip-vide
 
 ## 🤝 Contributing
 
-Contributions are welcome — code, docs, style presets, pipeline fixes, and **original example stories** that help others learn the workflow.
+Contributions are welcome for **pipeline tools**, **documentation**, and **style templates**. Keep your personal stories in local `series/` — do not submit them in PRs.
 
 ### Ways to help
 
@@ -283,10 +283,9 @@ Contributions are welcome — code, docs, style presets, pipeline fixes, and **o
 |------|-------------------|-------|
 | **Bugs & ideas** | Repro steps, feature requests, render failures | [GitHub Issues](https://github.com/Buchiexplores/storyforge/issues) |
 | **Pipeline tools** | Render fixes, new CLI flags, automation | `tools/` |
+| **Scaffolding & authoring** | `init_series.py`, `author_series.py`, `new_episode.py`, templates | `tools/`, `templates/` |
 | **Docs** | Onboarding, troubleshooting, platform tips | `docs/` |
 | **Style templates** | New visual/platform presets | `config/style_templates/` |
-| **Example stories** | Scripted episodes others can render (text only) | `examples/<series_slug>/` |
-| **Scaffolding** | Episode/series templates | `templates/` |
 
 You do **not** need API keys to improve docs, templates, or Python tooling. Keys are only required to test a full render locally.
 
@@ -301,42 +300,55 @@ git checkout -b your-branch-name
 # Add keys to .env.story.local for render testing — never commit this file
 ```
 
-Smoke-test a change without spending API credits:
+Smoke-test a change without spending API credits (uses the bundled example series):
 
 ```bash
-python3 tools/run_episode_pipeline.py --episode episode_01 \
+python3 tools/run_episode_pipeline.py \
+  --series examples/phone_from_tomorrow --episode episode_01 \
   --skip-voice --skip-images --skip-cover --skip-videos
 ```
 
-### Pull request guidelines
-
-1. **Keep PRs focused** — one fix or feature per PR when possible.
-2. **Never commit secrets** — `.env.story.local`, API keys, or voice IDs.
-3. **Do not commit generated media** — MP4s, scene PNGs, voiceover WAVs, and covers under `assets/` are gitignored on purpose. Submit **authoring files only** (`scenes.json`, `voiceover_text.txt`, `script.md`, etc.).
-4. **Say what you tested** — e.g. "rendered episode_01" or "docs-only change".
-5. **Original fiction only** — if adding example episodes, use your own characters and mark content as fictional (see [docs/PLATFORM_GUIDE.md](docs/PLATFORM_GUIDE.md)).
-
-### Contributing an example series
-
-Want to share a story others can render?
+Test scaffolding without touching your working series or invoking OpenAI:
 
 ```bash
-python3 tools/init_series.py --name "Your Series" --style thriller_mystery --output-dir examples
-python3 tools/new_episode.py --series examples/your_series
+python3 tools/init_series.py \
+  --name "Test Series" --style sci_fi --episodes 1 \
+  --output-dir /tmp \
+  --no-auto-author
 ```
 
-Commit the **text authoring files** (`scenes.json`, `voiceover_text.txt`, optional `script.md` / `upload_package.md`). Skip `assets/` — each contributor renders locally with their own keys.
+### Contributing to pipeline tools
 
-To add your published Shorts to the README viewer, open a PR updating:
+| Tool | Purpose |
+|------|---------|
+| `init_series.py` | Interactive or flag-driven series scaffold |
+| `author_series.py` | OpenAI batch authoring for scaffolded episodes |
+| `new_episode.py` | Add the next episode folder to an existing series |
+| `run_episode_pipeline.py` | Full episode pipeline (voice → images → cover → motion → render) |
+| `run_next_episode.py` | Render the next pending episode (automation/cron) |
+| `generate_episode_assets.py` | Standalone asset generation stages |
+| `render_episode.py` | FFmpeg render from existing assets |
+| `send_pipeline_update.py` | Email/notification helper |
 
-- `docs/preview/episodes.json` — YouTube IDs and titles
-- `docs/preview/posters/episode_XX.jpg` — cover JPEGs (540px wide is enough)
-- The `<!-- README-PLAYER-START -->` table in this README
+Before opening a PR:
+
+- [ ] Smoke test with skip flags (see above) or run the specific tool you changed
+- [ ] Keep changes focused on one tool or concern
+- [ ] Update docs if CLI flags or behavior changed
+- [ ] Do not commit `series/`, `.env.story.local`, or generated `assets/` media
+
+### Pull request guidelines
+
+1. **Tooling PRs only** — pipeline code, docs, templates, and style presets. Do not submit personal series content.
+2. **Never commit secrets** — `.env.story.local`, API keys, or voice IDs.
+3. **Do not commit generated media** — MP4s, scene PNGs, voiceover WAVs, and covers under `assets/` are gitignored on purpose.
+4. **Keep PRs focused** — one fix or feature per PR when possible.
+5. **Say what you tested** — e.g. "smoke-tested with skip flags" or "docs-only change".
+6. **`examples/` is maintainer-maintained** — the demo series and README viewer are updated by project maintainers, not community PRs.
 
 ### Questions before you start?
 
 Open a [GitHub Issue](https://github.com/Buchiexplores/storyforge/issues) with the **question** label, or describe your idea in a draft PR. No contribution is too small — typo fixes and clearer error messages count.
-
 
 ---
 
