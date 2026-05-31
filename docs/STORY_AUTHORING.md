@@ -16,7 +16,13 @@ How to write episodes, define visual style, and configure the pipeline for any f
 
 ## Step 1: Series bible
 
-Use `templates/series/series_bible.template.md` or run `init_series.py` to scaffold one.
+Run `init_series.py` (interactive wizard or flags) to scaffold a full series. It creates:
+
+**Series level:** `series_config.yaml`, `series_bible.md`, `story_context.md`, `season_outline.md`, `ai_authoring_brief.md`
+
+**Per episode:** `script.md`, `voiceover_text.txt`, `voice_direction.md`, `visual_prompts.md`, `scenes.json`, `upload_package.md` (pre-filled placeholders)
+
+Or copy `templates/series/series_bible.template.md` manually.
 
 Your series bible should define:
 
@@ -162,24 +168,50 @@ Before running the pipeline:
 
 ## Step 6: Scaffold new episodes
 
-For Episode 2+, copy the previous episode folder structure:
+For Episode 2+, use `new_episode.py` — it reads `story_context.md` and auto-increments the episode number:
 
 ```bash
-cp -R series/my_series/episode_01 series/my_series/episode_02
-rm -rf series/my_series/episode_02/assets/*
-# Re-create asset dirs or run init and copy content files only
+python3 tools/new_episode.py --series series/my_series
+# Or specify a number:
+python3 tools/new_episode.py --series series/my_series --episode 7
 ```
 
-Update in `episode_02/scenes.json`:
+Then author the printed files (manually, via `author_series.py --from N`, or with an external AI tool).
+
+Update in the new episode's `scenes.json`:
 
 - `episode_title`
-- `output_slug` → `episode_02`
-- `cover.episode_number` → `2`
+- `output_slug` → `episode_NN`
+- `cover.episode_number`
 - All scenes for the new story
 
-## AI-assisted writing
+## Auto-author with OpenAI (`author_series.py`)
 
-Use `docs/AI_BATCH_PROMPT.md` as a system prompt for Claude, ChatGPT, or similar tools to generate episode batches.
+Built-in alternative to hand-writing or external AI batch prompts. Runs after `init_series.py` or anytime placeholder episodes exist.
+
+```bash
+python3 tools/author_series.py --series series/my_series
+python3 tools/author_series.py --series series/my_series --from 3 --to 5
+python3 tools/author_series.py --series series/my_series --force
+```
+
+What it does:
+
+- Reads `story_context.md`, `series_bible.md`, `season_outline.md`, and `ai_authoring_brief.md`
+- Maintains continuity via `{series}/authoring_state.json` (characters, world rules, per-episode summaries)
+- Enriches `series_bible.md` if template placeholders remain
+- Writes all episode content files sequentially (each episode sees prior summaries)
+- Skips episodes that already look authored unless `--force`
+
+Requires `OPENAI_API_KEY`. Optional: `OPENAI_TEXT_MODEL` (default `gpt-4.1-mini`), `OPENAI_TEXT_TIMEOUT_SECONDS`.
+
+Chain from init: `python3 tools/init_series.py --name "My Series" --style sci_fi --episodes 5 --auto-author`
+
+Always human-review auto-authored content before publishing.
+
+## AI-assisted writing (external AI)
+
+Use `docs/AI_BATCH_PROMPT.md` as a system prompt for Claude, ChatGPT, or similar tools when you want custom prompts or more control than `author_series.py` provides.
 
 Always human-review:
 

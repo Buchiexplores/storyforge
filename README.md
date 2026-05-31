@@ -114,7 +114,16 @@ python3 tools/run_episode_pipeline.py --series examples/phone_from_tomorrow --ep
 python3 tools/init_series.py
 ```
 
-The wizard asks for your **story name**, **style**, **number of episodes**, **logline**, and a brief **story description for AI context**, scaffolds everything, prints clickable links to every file it created, and offers to set the series as active. Then:
+The 6-step wizard asks for:
+
+1. **Series title** — short name only (becomes the folder slug)
+2. **Visual style** — pick from 12 built-in templates
+3. **Episode count** — how many `episode_XX` folders to scaffold
+4. **Logline** — one-sentence premise
+5. **Story description for AI** — characters, world rules, season arc (saved to `story_context.md`)
+6. **Folder location** — defaults to `series/<slug>/`
+
+It scaffolds `series_config.yaml`, `series_bible.md`, `story_context.md`, `season_outline.md`, `ai_authoring_brief.md`, and pre-filled episode templates, then prints `file://` clickable links to every file. It offers to set `PIPELINE_SERIES_DIR` and optionally auto-author with OpenAI.
 
 ```bash
 # Optional: auto-author all scaffolded episodes with OpenAI (needs OPENAI_API_KEY in .env.story.local)
@@ -127,7 +136,18 @@ python3 tools/run_episode_pipeline.py --series series/<your_slug> --episode epis
 
 The same `OPENAI_API_KEY` powers scene/cover image generation and optional text authoring via `author_series.py` (chat tokens are billed separately from images).
 
-Prefer flags over prompts? `python3 tools/init_series.py --name "The Last Signal" --style sci_fi --episodes 5`
+Prefer flags over prompts?
+
+```bash
+python3 tools/init_series.py \
+  --name "The Last Signal" \
+  --style sci_fi \
+  --episodes 5 \
+  --logline "A radio operator intercepts messages from a future that hasn't happened yet." \
+  --story-context "Mara is a night-shift dispatcher in Lagos. The phone only rings at 2:13 AM..." \
+  --auto-author \
+  --set-active
+```
 
 ---
 
@@ -144,6 +164,16 @@ python3 tools/run_episode_pipeline.py --series series/<your_slug> --episode epis
 ```
 
 Each render also produces a cover, a preview grid, and an image contact sheet so you can review before posting.
+
+**Auto-author episodes with OpenAI** (after scaffolding):
+
+```bash
+python3 tools/author_series.py --series series/<your_slug>           # all placeholder episodes
+python3 tools/author_series.py --series series/<your_slug> --from 3  # resume from episode 3
+python3 tools/author_series.py --series series/<your_slug> --force   # regenerate authored episodes
+```
+
+Writes `script.md`, `voiceover_text.txt`, `voice_direction.md`, `visual_prompts.md`, `scenes.json`, `upload_package.md`, and updates `authoring_state.json` for continuity across episodes.
 
 ### 🤖 Or automate it — a new episode every morning
 
@@ -163,18 +193,25 @@ Full setup (SMTP/email + cron tips): **[docs/GETTING_STARTED.md → Automate it]
 
 ---
 
-## ✍️ Authoring an episode (manual)
+## ✍️ Authoring an episode
 
-Every episode folder needs just two files to render. You can write them by hand or with the AI batch prompt.
+Every episode folder needs two files to render: `scenes.json` and `voiceover_text.txt`. The `init_series.py` wizard pre-fills starter templates for every scaffolded episode — replace the placeholders before rendering, or let OpenAI do it for you.
 
-| File | Required | What it is |
-|------|----------|-----------|
+**Three paths:**
+
+| Path | Tool | Best for |
+|------|------|----------|
+| Auto-author | `author_series.py` | Fast first draft of all episodes; sequential continuity |
+| Manual | Edit scaffold files | Full creative control |
+| External AI | [AI_BATCH_PROMPT.md](docs/AI_BATCH_PROMPT.md) | Claude/ChatGPT batch workflows with custom prompts |
+
+| File | Required to render | What it is |
+|------|-------------------|------------|
 | `scenes.json` | ✅ | Scene list (caption + visual prompt per beat) and cover settings |
 | `voiceover_text.txt` | ✅ | The exact narration ElevenLabs will speak |
-| `script.md`, `voice_direction.md`, `visual_prompts.md`, `upload_package.md` | optional | Human-facing authoring notes + publishing copy |
+| `script.md`, `voice_direction.md`, `visual_prompts.md`, `upload_package.md` | optional | Authoring notes + publishing copy (auto-written by `author_series.py`) |
 
 Full guide with examples: **[docs/STORY_AUTHORING.md](docs/STORY_AUTHORING.md)**.
-Want AI to draft a batch of episodes for you? Use **[docs/AI_BATCH_PROMPT.md](docs/AI_BATCH_PROMPT.md)**.
 
 ---
 
@@ -201,7 +238,7 @@ storyforge/
   series/                     # Your working series (init_series.py scaffolds here)
   examples/phone_from_tomorrow/  # Published demo series for the repo (Episodes 1–10)
   templates/                  # Scaffolding templates for new series/episodes
-  tools/                      # The pipeline (init, new_episode, run, run_next_episode, render, generate)
+  tools/                      # Pipeline CLI (init_series, author_series, new_episode, run, run_next_episode, render, generate)
 ```
 
 ---

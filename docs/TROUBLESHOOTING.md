@@ -31,6 +31,48 @@ Env file must be `.env.story.local` at repo root.
 
 ---
 
+## `PIPELINE_SERIES_DIR` not set
+
+**Symptoms:** `run_next_episode.py` or tools without `--series` fail; "Series directory not found" or empty default.
+
+**Fix:** Set your active series after `init_series.py`:
+
+```bash
+# Accept the wizard prompt, or add manually to .env.story.local:
+PIPELINE_SERIES_DIR=series/the_last_signal
+```
+
+Or pass `--series` on every command:
+
+```bash
+python3 tools/run_episode_pipeline.py --series series/the_last_signal --episode episode_01
+python3 tools/author_series.py --series series/the_last_signal
+python3 tools/new_episode.py --series series/the_last_signal
+```
+
+Use `examples/phone_from_tomorrow` for the shipped demo without changing `PIPELINE_SERIES_DIR`.
+
+---
+
+## `author_series.py` failures
+
+**Symptoms:** `Missing OPENAI_API_KEY`; OpenAI timeout or rate-limit errors; episodes skipped with "already authored".
+
+| Issue | Fix |
+|-------|-----|
+| `Missing OPENAI_API_KEY` | Add key to `.env.story.local` (see [API_KEYS.md](API_KEYS.md)) |
+| Timeout / slow responses | Increase `OPENAI_TEXT_TIMEOUT_SECONDS` (default `180`) |
+| Episode skipped | Placeholder content was replaced — use `--force` to regenerate |
+| Partial batch failure | Re-run with `--from N` to resume from the failed episode |
+| Bad continuity | Delete or edit `{series}/authoring_state.json`, then re-run with `--force` |
+| Missing `openai` package | `pip install openai` or `pip install -r requirements.txt` |
+
+```bash
+python3 tools/author_series.py --series series/my_series --from 3 --force
+```
+
+---
+
 ## ffmpeg not found
 
 `./setup.sh` tries to locate ffmpeg/ffprobe and writes `FFMPEG_PATH` / `FFPROBE_PATH` into `.env.story.local`. On macOS with Homebrew it can also offer to run `brew install ffmpeg`.

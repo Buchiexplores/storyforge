@@ -31,6 +31,8 @@ Copy `.env.story.example` to `.env.story.local` at the repo root. Never commit `
 | `OPENAI_IMAGE_SIZE` | `1024x1536` | Generation size |
 | `OPENAI_IMAGE_QUALITY` | `high` | Quality setting |
 | `OPENAI_IMAGE_TIMEOUT_SECONDS` | `180` | Request timeout |
+| `OPENAI_TEXT_MODEL` | `gpt-4.1-mini` | Chat model for `author_series.py` |
+| `OPENAI_TEXT_TIMEOUT_SECONDS` | `180` | Chat request timeout for `author_series.py` |
 
 ### ElevenLabs
 
@@ -195,9 +197,77 @@ Re-render only; does not call OpenAI or ElevenLabs.
 
 ## CLI: `init_series.py`
 
+Run with no flags to launch the 6-step interactive wizard (title → style → episode count → logline → story description → folder).
+
 | Flag | Description |
 |------|-------------|
-| `--name TITLE` | Series title **(required)** |
+| *(no flags)* | Launch interactive wizard |
+| `--name TITLE` | Series title **(required for non-interactive)** |
 | `--style TEMPLATE` | Style template (default: `thriller_mystery`) |
+| `--episodes N` | Number of episode folders to scaffold (default: `1`) |
+| `--logline TEXT` | One-sentence premise |
+| `--story-context TEXT` | Extended AI context (characters, world, arc) |
 | `--output-dir DIR` | Parent folder (default: `series`) |
 | `--slug SLUG` | Folder slug (default: slugified name) |
+| `--set-active` / `--no-set-active` | Write `PIPELINE_SERIES_DIR` to `.env.story.local` (default: ask) |
+| `--auto-author` / `--no-auto-author` | Run `author_series.py` after scaffold (default: ask when interactive) |
+
+---
+
+## CLI: `author_series.py`
+
+OpenAI auto-authors scaffolded episodes sequentially for continuity. Requires `OPENAI_API_KEY`.
+
+| Flag | Description |
+|------|-------------|
+| `--series PATH` | Series dir (default: `PIPELINE_SERIES_DIR`) |
+| `--from N` | First episode number (default: `1`) |
+| `--to N` | Last episode number (default: highest scaffolded) |
+| `--force` | Regenerate even if episode looks authored |
+| `--model NAME` | OpenAI chat model (default: `OPENAI_TEXT_MODEL`) |
+
+Writes per episode: `script.md`, `voiceover_text.txt`, `voice_direction.md`, `visual_prompts.md`, `scenes.json`, `upload_package.md`. Creates/updates `{series}/authoring_state.json` for character and plot continuity. Enriches `series_bible.md` if placeholders remain.
+
+---
+
+## CLI: `new_episode.py`
+
+Scaffold the next episode folder in an existing series. Reads `story_context.md` for template pre-fill.
+
+| Flag | Description |
+|------|-------------|
+| `--series PATH` | Series dir (default: `PIPELINE_SERIES_DIR`) |
+| `--episode N` | Explicit episode number (default: next available) |
+
+---
+
+## Series folder layout
+
+After `init_series.py`, a typical series looks like:
+
+```text
+series/my_series/
+  series_config.yaml       # Title, logline, style_template, voice notes
+  series_bible.md          # Characters, world rules, tone
+  story_context.md         # Extended AI context (from wizard step 5)
+  season_outline.md        # Per-episode hook/cliffhanger placeholders
+  ai_authoring_brief.md    # Instructions for AI assistants
+  authoring_state.json     # Created by author_series.py — continuity state
+  notifications/           # Pipeline notification files (when SMTP not set)
+  episode_01/
+    script.md
+    voiceover_text.txt
+    voice_direction.md
+    visual_prompts.md
+    scenes.json            # Required to render
+    upload_package.md
+    assets/                # Created by pipeline (gitignored)
+  episode_02/
+    ...
+```
+
+| File | Purpose |
+|------|---------|
+| `story_context.md` | Characters, world rules, season arc — fed to `author_series.py` and `new_episode.py` |
+| `ai_authoring_brief.md` | System-level instructions for external AI tools |
+| `authoring_state.json` | Character list, world rules, per-episode summaries — updated after each `author_series.py` run |

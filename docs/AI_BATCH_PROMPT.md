@@ -2,6 +2,22 @@
 
 Use this prompt with an AI assistant (Claude, ChatGPT, etc.) to write and produce multiple episodes in a batch. Copy the entire **Prompt** section below into your AI tool, then fill in the bracketed placeholders.
 
+## Built-in alternative: `author_series.py`
+
+Storyforge includes a first-party CLI that auto-authors scaffolded episodes with OpenAI:
+
+```bash
+python3 tools/author_series.py --series series/my_series
+```
+
+| Use `author_series.py` when… | Use this batch prompt when… |
+|------------------------------|----------------------------|
+| You want a fast first draft from scaffold templates | You want custom system prompts or a specific AI tool |
+| Sequential continuity via `authoring_state.json` is enough | You need human-in-the-loop review at each step |
+| You're starting from `init_series.py` output | You're extending an existing series with complex rules |
+
+Both approaches produce the same content files. The pipeline still requires `run_episode_pipeline.py` to generate images, voice, and video.
+
 Related docs:
 
 - [STORY_AUTHORING.md](STORY_AUTHORING.md) — episode structure and `scenes.json`
@@ -25,7 +41,10 @@ You are helping produce episodes for a serialized storyforge pipeline.
 
 Read before writing:
 - {SERIES_DIR}/series_bible.md
+- {SERIES_DIR}/story_context.md
+- {SERIES_DIR}/ai_authoring_brief.md
 - {SERIES_DIR}/season_outline.md
+- {SERIES_DIR}/authoring_state.json (if present — from author_series.py)
 - Existing episodes for continuity (script.md, scenes.json, voiceover_text.txt)
 
 ## Batch rules
@@ -143,7 +162,7 @@ Run the pipeline after writing content files. Verify with ffprobe. Send batch no
 
 ## Tips
 
-- Write `scenes.json` before running the pipeline — the pipeline does not generate story content
+- Write `scenes.json` before running the pipeline — the render pipeline does not generate story content (exception: `author_series.py` writes all authoring files via OpenAI)
 - Reuse `continuity_notes` and `characters` from earlier episodes for visual consistency
 - See [COVER_STYLE.md](COVER_STYLE.md) for per-episode cover fields in `scenes.json`
 - For weekly planning prompts, see [WEEKLY_PIPELINE.md](WEEKLY_PIPELINE.md)

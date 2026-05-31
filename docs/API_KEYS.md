@@ -13,7 +13,7 @@ Add each value to `.env.story.local` (copied from `.env.story.example` by `./set
 
 ---
 
-## 1. OpenAI (scene images + cover) — required
+## 1. OpenAI (scene images + cover + optional text authoring) — required
 
 1. Create an account at [platform.openai.com/signup](https://platform.openai.com/signup).
 2. Open **Settings → Billing** and add a payment method. Image generation is pay-as-you-go; there is no free image API tier.
@@ -23,13 +23,31 @@ Add each value to `.env.story.local` (copied from `.env.story.example` by `./set
 
    ```bash
    OPENAI_API_KEY=sk-your-key-here
+   # Optional — chat model for author_series.py (default: gpt-4.1-mini)
+   OPENAI_TEXT_MODEL=gpt-4.1-mini
+   OPENAI_TEXT_TIMEOUT_SECONDS=180
    ```
 
 6. *(Recommended)* Set a monthly spend limit under **Billing → Limits** so a runaway batch cannot surprise you.
 
 Keep `OPENAI_IMAGE_STRICT=1` (the default) so the pipeline stops on billing/quota errors instead of shipping blank frames.
 
-The same key also powers optional episode text authoring via `python3 tools/author_series.py` (uses `OPENAI_TEXT_MODEL` / chat tokens — separate from image billing).
+The same key powers scene/cover **image** generation and optional episode **text** authoring via `author_series.py` (chat tokens billed separately from images).
+
+**Auto-author example** (after scaffolding a series):
+
+```bash
+python3 tools/init_series.py \
+  --name "The Last Signal" \
+  --style sci_fi \
+  --episodes 5 \
+  --story-context "Mara is a night-shift dispatcher. The phone only rings at 2:13 AM..." \
+  --auto-author
+
+# Or run separately:
+python3 tools/author_series.py --series series/the_last_signal
+python3 tools/author_series.py --series series/the_last_signal --from 3 --force
+```
 
 **Verify:** after saving the key, a dry run that skips image generation should start without an OpenAI error:
 
@@ -170,7 +188,11 @@ This is not an API key, but you need it for daily runs.
 After creating a series:
 
 ```bash
-python3 tools/init_series.py --name "The Last Signal" --style sci_fi --episodes 5
+python3 tools/init_series.py \
+  --name "The Last Signal" \
+  --style sci_fi \
+  --episodes 5 \
+  --story-context "Mara is a night-shift dispatcher in Lagos..."
 # Accept setting PIPELINE_SERIES_DIR when prompted, or add manually:
 ```
 

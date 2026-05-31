@@ -49,6 +49,9 @@ Edit `.env.story.local` with your API keys. Never commit this file.
 PIPELINE_SERIES_DIR=series/the_last_signal
 OPENAI_API_KEY=sk-...
 OPENAI_IMAGE_STRICT=1
+# Optional: chat model for author_series.py (default: gpt-4.1-mini)
+OPENAI_TEXT_MODEL=gpt-4.1-mini
+OPENAI_TEXT_TIMEOUT_SECONDS=180
 ELEVENLABS_API_KEY=...
 ELEVENLABS_VOICE_ID=...
 ```
@@ -86,21 +89,81 @@ Output: `examples/phone_from_tomorrow/episode_01/assets/exports/episode_01_verti
 
 ## 4. Create your own series
 
-The interactive wizard prompts for your story name, style, episode count, and logline, then prints links to every file it scaffolds:
+Run the interactive wizard (no flags needed):
 
 ```bash
 python3 tools/init_series.py
 ```
 
-Prefer flags (scriptable / CI)?
+### Wizard steps (6 total)
+
+| Step | Prompt | Saved to |
+|------|--------|----------|
+| 1 | Series title | folder slug under `series/` |
+| 2 | Visual style (12 templates) | `series_config.yaml` |
+| 3 | Episode count | `episode_01` … `episode_NN` folders |
+| 4 | Logline | `series_config.yaml`, `series_bible.md` |
+| 5 | Story description for AI | `story_context.md`, `ai_authoring_brief.md` |
+| 6 | Folder location | `series/<slug>/` (default) |
+
+### Scaffolded files
+
+After the wizard finishes, you get:
+
+**Series level:** `series_config.yaml`, `series_bible.md`, `story_context.md`, `season_outline.md`, `ai_authoring_brief.md`, `notifications/.gitkeep`
+
+**Per episode:** `script.md`, `voiceover_text.txt`, `voice_direction.md`, `visual_prompts.md`, `scenes.json`, `upload_package.md` (pre-filled placeholders)
+
+The wizard prints `file://` clickable links to every file and offers to set `PIPELINE_SERIES_DIR` in `.env.story.local`.
+
+### Non-interactive (scriptable / CI)
 
 ```bash
-python3 tools/init_series.py --name "The Last Signal" --style sci_fi --episodes 5 --output-dir series
+python3 tools/init_series.py \
+  --name "The Last Signal" \
+  --style sci_fi \
+  --episodes 5 \
+  --logline "A radio operator intercepts messages from a future that hasn't happened yet." \
+  --story-context "Mara is a night-shift dispatcher. The phone only rings at 2:13 AM..." \
+  --output-dir series \
+  --set-active
 ```
+
+| Flag | Purpose |
+|------|---------|
+| `--name` | Series title **(required for non-interactive)** |
+| `--style` | Style template (default: `thriller_mystery`) |
+| `--episodes` | Number of episode folders (default: `1`) |
+| `--logline` | One-sentence premise |
+| `--story-context` | Extended AI context (characters, world, arc) |
+| `--output-dir` | Parent folder (default: `series`) |
+| `--slug` | Override folder slug |
+| `--set-active` / `--no-set-active` | Write `PIPELINE_SERIES_DIR` (default: ask) |
+| `--auto-author` / `--no-auto-author` | Run `author_series.py` after scaffold (default: ask) |
 
 Styles: `thriller_mystery`, `horror`, `noir`, `action`, `sci_fi`, `cyberpunk`, `fantasy`, `anime`, `romance_drama`, `comedy`, `western`, `period_drama`
 
-The wizard offers to set `PIPELINE_SERIES_DIR` for you. After authoring `episode_01`:
+Put your working series in `series/`. Use `examples/` only for published demos shipped with the repo.
+
+### 4.5 Auto-author with OpenAI (`author_series.py`)
+
+After scaffolding, auto-write all placeholder episodes sequentially (maintains continuity via `authoring_state.json`):
+
+```bash
+python3 tools/author_series.py --series series/the_last_signal
+```
+
+Or chain it from init:
+
+```bash
+python3 tools/init_series.py --name "The Last Signal" --style sci_fi --episodes 5 --auto-author --set-active
+```
+
+Requires `OPENAI_API_KEY` in `.env.story.local`. Optional: `OPENAI_TEXT_MODEL` (default `gpt-4.1-mini`), `OPENAI_TEXT_TIMEOUT_SECONDS`.
+
+`author_series.py` writes all episode content files, enriches `series_bible.md` if placeholders remain, and skips episodes that already look authored (use `--force` to regenerate).
+
+Then render:
 
 ```bash
 python3 tools/run_episode_pipeline.py --series series/the_last_signal --episode episode_01
@@ -108,11 +171,11 @@ python3 tools/run_episode_pipeline.py --series series/the_last_signal --episode 
 
 ### Add the next episode
 
-Scaffold episodes one at a time — the slug auto-increments:
+Scaffold episodes one at a time — reads `story_context.md` and auto-increments the slug:
 
 ```bash
 python3 tools/new_episode.py --series series/the_last_signal
-# Author the printed files, then:
+# Author the printed files (or run author_series.py --from N), then:
 python3 tools/run_episode_pipeline.py --series series/the_last_signal --episode episode_02
 ```
 
@@ -137,7 +200,19 @@ Render only (no API calls): `--skip-voice --skip-images --skip-cover --skip-vide
 
 ## 6. Batch workflow
 
-Use [AI_BATCH_PROMPT.md](AI_BATCH_PROMPT.md) to write episodes with AI, then pipeline each one. Verify with `ffprobe`. Notify with `tools/send_pipeline_update.py`. See [WEEKLY_PIPELINE.md](WEEKLY_PIPELINE.md) for weekly rhythm.
+**Option A — built-in auto-author (recommended for first drafts):**
+
+```bash
+python3 tools/init_series.py --name "My Series" --style thriller_mystery --episodes 10 --auto-author
+python3 tools/run_episode_pipeline.py --series series/my_series --episode episode_01
+# Repeat pipeline for each episode, or use run_next_episode.py for daily automation
+```
+
+**Option B — external AI batch prompt:** Use [AI_BATCH_PROMPT.md](AI_BATCH_PROMPT.md) with Claude, ChatGPT, or similar for custom prompts and human-in-the-loop review.
+
+**Option C — manual:** Edit scaffold files by hand, then pipeline each episode.
+
+For all options: verify with `ffprobe`, notify with `tools/send_pipeline_update.py`. See [WEEKLY_PIPELINE.md](WEEKLY_PIPELINE.md) for weekly rhythm.
 
 ---
 
