@@ -141,6 +141,7 @@ Each scene needs:
 
 ```json
 "cover": {
+  "design_style": "thriller_neon_rain",
   "series_title": "Your Series Title",
   "episode_number": 1,
   "part_number": 1,
@@ -151,7 +152,7 @@ Each scene needs:
 }
 ```
 
-See `docs/COVER_STYLE.md` for the full cover design system.
+Set `cover.design_style` to a preset id from `config/cover_styles.yaml` (see the catalog in [COVER_STYLE.md](COVER_STYLE.md)). After editing cover copy or style, regenerate with `python3 tools/regenerate_cover.py --series series/my_series --episode episode_01` or `python3 tools/generate_episode_assets.py --cover`. Full flags, resolution order, and all 26 styles: [COVER_STYLE.md](COVER_STYLE.md).
 
 The cover displays for `EPISODE_COVER_INTRO_SECONDS` (default 2.5s) before narration begins.
 
@@ -163,7 +164,7 @@ Before running the pipeline:
 - [ ] Every scene has `id`, `duration`, `caption`, `prompt`
 - [ ] `voiceover_text.txt` is complete and matches the script
 - [ ] `continuity_notes` or `characters[]` is filled in
-- [ ] `cover` section has title lines and hook
+- [ ] `cover` section has `design_style`, title lines, and hook
 - [ ] `output_slug` matches your naming convention
 
 ## Step 6: Scaffold new episodes

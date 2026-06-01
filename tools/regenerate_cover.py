@@ -13,7 +13,7 @@ from cover_styles import (
     list_styles,
     resolve_cover_style_id,
 )
-from generate_episode_assets import EXPORTS_DIR, configure_episode, configure_series, generate_cover
+from generate_episode_assets import configure_episode, configure_series, generate_cover
 from pipeline_config import episode_output_slug, get_series_dir, load_local_env, load_series_config, resolve_episode_path
 
 
@@ -34,10 +34,30 @@ def _pick_style_interactive(styles: list[dict], default_id: str) -> str:
     raise SystemExit(f"Invalid style selection: {choice}")
 
 
+def _resolve_episode_name(args: argparse.Namespace) -> str:
+    positional = getattr(args, "episode_pos", None)
+    flagged = args.episode
+    if flagged and positional and flagged != positional:
+        raise SystemExit(
+            f"Conflicting episode arguments: --episode {flagged!r} vs positional {positional!r}"
+        )
+    return flagged or positional or "episode_01"
+
+
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Regenerate an episode cover.")
+    parser = argparse.ArgumentParser(
+        description="Regenerate an episode cover.",
+        epilog="Example: regenerate_cover.py --series series/my_show episode_01",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+    )
     parser.add_argument("--series", default=None, help="Series directory (default PIPELINE_SERIES_DIR).")
-    parser.add_argument("--episode", default="episode_01", help="Episode folder name.")
+    parser.add_argument(
+        "episode_pos",
+        nargs="?",
+        metavar="EPISODE",
+        help="Episode folder (e.g. episode_01). Same as --episode.",
+    )
+    parser.add_argument("--episode", default=None, help="Episode folder name (default: episode_01).")
     parser.add_argument("--list-styles", action="store_true", help="List cover styles for this series template.")
     parser.add_argument("--style", metavar="STYLE_ID", help="Cover design style id.")
     parser.add_argument("--compose-only", action="store_true", help="Compose typography onto existing cover base.")
@@ -51,10 +71,11 @@ def main() -> int:
     )
     parser.add_argument("--openai-cover", action="store_true", help="Use OpenAI for cover background.")
     args = parser.parse_args()
+    episode_name = _resolve_episode_name(args)
 
     load_local_env()
     series_dir = get_series_dir(args.series)
-    episode_dir = resolve_episode_path(args.episode, series_dir)
+    episode_dir = resolve_episode_path(episode_name, series_dir)
     scenes_path = episode_dir / "scenes.json"
     if not scenes_path.exists():
         raise SystemExit(f"Missing scenes.json: {scenes_path}")
@@ -84,11 +105,10 @@ def main() -> int:
         scenes_path.write_text(json.dumps(scenes_data, indent=2) + "\n", encoding="utf-8")
         print(f"Saved cover.design_style={style_id} to {scenes_path}")
 
-    configure_series(args.series)
-    configure_episode(args.episode)
     slug = episode_output_slug(episode_dir)
-    base_path = EXPORTS_DIR / f"{slug}_cover_base.png"
-    out_path = EXPORTS_DIR / f"{slug}_cover.png"
+    exports_dir = episode_dir / "assets" / "exports"
+    base_path = exports_dir / f"{slug}_cover_base.png"
+    out_path = exports_dir / f"{slug}_cover.png"
 
     if args.compose_only:
         if not base_path.exists():
@@ -96,6 +116,8 @@ def main() -> int:
         compose_cover(base_path, out_path, scenes_data, style_id=style_id, series_dir=series_dir)
         return 0
 
+    configure_series(args.series)
+    configure_episode(episode_name)
     cover_provider = args.cover_provider
     if args.openai_cover:
         cover_provider = "openai"

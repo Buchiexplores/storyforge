@@ -18,9 +18,9 @@ Storyforge is a local production pipeline. You write an episode (a short script 
 
 The sample series **"The Phone That Receives Tomorrow"** (an Afro-futurist mystery thriller) was produced entirely with this pipeline.
 
-**▶ [Watch all 10 episodes in the browser (embedded player)](docs/preview/index.html)** — playable YouTube embeds, no leaving the page.
+**▶ [Watch all 10 episodes in the browser](docs/preview/index.html)** — playable YouTube embeds.
 
-On GitHub.com, README cover art links out to YouTube (GitHub strips iframe embeds). Click any poster below, or open the [episode viewer](docs/preview/index.html).
+Click any poster below, or open the [episode viewer](docs/preview/index.html).
 
 <!-- README-PLAYER-START -->
 
