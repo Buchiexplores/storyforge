@@ -4,7 +4,6 @@
 from __future__ import annotations
 
 import random
-import textwrap
 from pathlib import Path
 from typing import Any
 
@@ -12,6 +11,15 @@ import yaml
 from PIL import Image, ImageDraw, ImageEnhance, ImageFilter, ImageFont
 
 from pipeline_config import ROOT, get_series_dir, load_series_config, merged_series_settings
+
+COVER_WIDTH = 1080
+COVER_HEIGHT = 1920
+SAFE_MARGIN = 56
+
+
+def content_width(margin: int = SAFE_MARGIN) -> int:
+    return COVER_WIDTH - 2 * margin
+
 
 _COVER_STYLES_PATH = ROOT / "config" / "cover_styles.yaml"
 _CACHE: dict[str, Any] | None = None
@@ -89,7 +97,14 @@ def cover_config(scenes_data: dict[str, Any], series_dir: Path | None = None, st
         if episode_title.upper() == "DO NOT OPEN THE DOOR":
             title_lines = ["DO NOT OPEN", "THE DOOR"]
         else:
-            title_lines = textwrap.wrap(episode_title.upper(), width=13)[:2]
+            title_lines = wrap_text_lines(
+                episode_title.upper(),
+                content_width() - 112,
+                "impact",
+                max_lines=2,
+                start_size=104,
+                min_size=48,
+            )
     series = series_dir or get_series_dir()
     settings = merged_series_settings(series)
     series_title = cover.get(
@@ -159,29 +174,97 @@ def text_width(draw, text, font, stroke_width=0):
     return box[2] - box[0]
 
 
-def fit_font(text, max_width, start_size, min_size, kind, stroke_width=0):
+def fit_font(text, max_width, start_size, min_size, kind, stroke_width=0, absolute_min=18):
     probe = ImageDraw.Draw(Image.new("RGB", (10, 10)))
-    for size in range(start_size, min_size - 1, -2):
+    floor = min(min_size, absolute_min)
+    for size in range(start_size, floor - 1, -2):
         font = load_font(size, font_candidates(kind))
         if text_width(probe, text, font, stroke_width=stroke_width) <= max_width:
             return font
-    return load_font(min_size, font_candidates(kind))
+    return load_font(floor, font_candidates(kind))
 
 
-def fit_font_box(text, max_width, max_height, start_size, min_size, kind, stroke_width=0):
+def fit_font_box(text, max_width, max_height, start_size, min_size, kind, stroke_width=0, absolute_min=18):
     probe = ImageDraw.Draw(Image.new("RGB", (10, 10)))
-    for size in range(start_size, min_size - 1, -2):
+    floor = min(min_size, absolute_min)
+    for size in range(start_size, floor - 1, -2):
         font = load_font(size, font_candidates(kind))
         box = probe.textbbox((0, 0), text, font=font, stroke_width=stroke_width)
         if box[2] - box[0] <= max_width and box[3] - box[1] <= max_height:
             return font
-    return load_font(min_size, font_candidates(kind))
+    return load_font(floor, font_candidates(kind))
+
+
+def text_height(draw, text, font, stroke_width=0):
+    box = draw.textbbox((0, 0), text, font=font, stroke_width=stroke_width)
+    return box[3] - box[1]
+
+
+def wrap_text_lines(
+    text,
+    max_width,
+    kind,
+    max_lines=2,
+    start_size=60,
+    min_size=20,
+    stroke_width=0,
+):
+    words = text.split()
+    if not words:
+        return [""]
+
+    probe = ImageDraw.Draw(Image.new("RGB", (10, 10)))
+    lines: list[str] = []
+    idx = 0
+
+    while idx < len(words) and len(lines) < max_lines:
+        current: list[str] = []
+        while idx < len(words):
+            trial = " ".join(current + [words[idx]])
+            font = fit_font(trial, max_width, start_size, min_size, kind, stroke_width=stroke_width)
+            if text_width(probe, trial, font, stroke_width=stroke_width) <= max_width or not current:
+                current.append(words[idx])
+                idx += 1
+            else:
+                break
+        if current:
+            lines.append(" ".join(current))
+
+    if idx < len(words) and lines:
+        lines[-1] = " ".join(lines[-1].split() + words[idx:])
+
+    return lines if lines else [text]
+
+
+def normalize_hook_lines(hook_lines, kind, max_width=400, max_lines=5):
+    result: list[str] = []
+    for line in hook_lines:
+        if not line:
+            continue
+        wrapped = wrap_text_lines(
+            str(line).upper(),
+            max_width,
+            kind,
+            max_lines=max_lines,
+            start_size=60,
+            min_size=18,
+            stroke_width=2,
+        )
+        for wrapped_line in wrapped:
+            if len(result) >= max_lines:
+                break
+            result.append(wrapped_line)
+        if len(result) >= max_lines:
+            break
+    return result if result else ["DON'T", "MAKE THIS", "MISTAKE"]
 
 
 def centered_text(draw, text, y, font, fill, stroke_width=0, stroke_fill=(0, 0, 0, 255)):
-    width = 1080
     box = draw.textbbox((0, 0), text, font=font, stroke_width=stroke_width)
-    x = (width - (box[2] - box[0])) / 2
+    text_w = box[2] - box[0]
+    x = int((COVER_WIDTH - text_w) / 2)
+    max_x = COVER_WIDTH - SAFE_MARGIN - text_w
+    x = max(SAFE_MARGIN, min(x, max_x))
     draw.text((x, y), text, font=font, fill=fill, stroke_width=stroke_width, stroke_fill=stroke_fill)
     return y + box[3] - box[1]
 
@@ -241,21 +324,26 @@ def add_poster_grade(image, style: dict[str, Any]):
 
 
 def draw_glitch_word(base, text, y, colors: dict[str, str], enabled: bool = True):
-    width = 1080
+    max_w = content_width() - 24
     accent = hex_rgba(colors.get("accent", "#00F55E"))
     if not enabled:
-        font = fit_font(text, 960, 205, 120, "impact", stroke_width=2)
+        font = fit_font(text, max_w, 205, 120, "impact", stroke_width=2)
         draw = ImageDraw.Draw(base)
         box = draw.textbbox((0, 0), text, font=font, stroke_width=2)
-        x = int((width - (box[2] - box[0])) / 2)
+        text_w = box[2] - box[0]
+        x = int((COVER_WIDTH - text_w) / 2)
+        max_x = COVER_WIDTH - SAFE_MARGIN - text_w
+        x = max(SAFE_MARGIN, min(x, max_x))
         draw.text((x, y), text, font=font, fill=accent, stroke_width=2, stroke_fill=(0, 0, 0, 255))
         return y + box[3] - box[1] + 8
-    font = fit_font(text, 960, 205, 120, "impact", stroke_width=2)
-    probe = ImageDraw.Draw(Image.new("RGBA", (width, 260), (0, 0, 0, 0)))
+    font = fit_font(text, max_w, 205, 120, "impact", stroke_width=2)
+    probe = ImageDraw.Draw(Image.new("RGBA", (COVER_WIDTH, 260), (0, 0, 0, 0)))
     box = probe.textbbox((0, 0), text, font=font, stroke_width=2)
     text_w = box[2] - box[0]
     text_h = box[3] - box[1]
-    x = int((width - text_w) / 2)
+    x = int((COVER_WIDTH - text_w) / 2)
+    max_x = COVER_WIDTH - SAFE_MARGIN - text_w
+    x = max(SAFE_MARGIN, min(x, max_x))
     layer = Image.new("RGBA", base.size, (0, 0, 0, 0))
     draw = ImageDraw.Draw(layer)
     glow = Image.new("RGBA", base.size, (0, 0, 0, 0))
@@ -285,16 +373,18 @@ def draw_handwritten_hook(base, cfg):
         return
     colors = cfg["colors"]
     draw = ImageDraw.Draw(base)
-    hook_lines = [line.upper() for line in cfg["hook_lines"]]
+    hook_max_width = 420
+    hook_lines = normalize_hook_lines(cfg["hook_lines"], "hand", max_width=hook_max_width)
     highlight = cfg["hook_highlight"]
     x, y = 92, 760
     white = hex_rgba(colors.get("title", "#FFFFFF"))
     accent = hex_rgba(colors.get("hook_highlight", colors.get("accent", "#23FF70")))
     for line in hook_lines:
-        font = load_font(58 if line != highlight else 66, font_candidates("hand"))
+        start_size = 66 if line == highlight else 58
+        font = fit_font(line, hook_max_width, start_size, 28, "hand", stroke_width=2)
         fill = accent if line == highlight else white
         draw.text((x, y), line, font=font, fill=fill, stroke_width=2, stroke_fill=(0, 0, 0, 210))
-        y += 62
+        y += text_height(draw, line, font, stroke_width=2) + 10
     if hook_style == "handwritten_arrow":
         draw.line((120, y - 8, 320, y - 42), fill=accent, width=6)
         draw.line((308, y + 35, 365, y + 112), fill=white, width=6)
@@ -308,16 +398,18 @@ def draw_block_hook(base, cfg):
         return
     colors = cfg["colors"]
     draw = ImageDraw.Draw(base)
-    hook_lines = [line.upper() for line in cfg["hook_lines"]]
+    hook_max_width = 420
+    hook_lines = normalize_hook_lines(cfg["hook_lines"], "block", max_width=hook_max_width)
     highlight = cfg["hook_highlight"]
     x, y = 72, 780
     white = hex_rgba(colors.get("title", "#FFFFFF"))
     accent = hex_rgba(colors.get("hook_highlight", colors.get("accent", "#23FF70")))
     for line in hook_lines:
-        font = load_font(52 if line != highlight else 60, font_candidates("block"))
+        start_size = 60 if line == highlight else 52
+        font = fit_font(line, hook_max_width, start_size, 28, "block", stroke_width=2)
         fill = accent if line == highlight else white
         draw.text((x, y), line, font=font, fill=fill, stroke_width=2, stroke_fill=(0, 0, 0, 220))
-        y += 58
+        y += text_height(draw, line, font, stroke_width=2) + 8
 
 
 
@@ -344,25 +436,42 @@ def draw_episode_badge(base, episode_number, style):
 
 def draw_distressed_text(base, text, y, max_width, start_size, kind, fill, stroke_width=2, max_height=None, scratch=True):
     if max_height:
-        font = fit_font_box(text, max_width, max_height, start_size, 58, kind, stroke_width=stroke_width)
+        font = fit_font_box(text, max_width, max_height, start_size, 48, kind, stroke_width=stroke_width)
     else:
-        font = fit_font(text, max_width, start_size, 58, kind, stroke_width=stroke_width)
+        font = fit_font(text, max_width, start_size, 48, kind, stroke_width=stroke_width)
     layer = Image.new("RGBA", base.size, (0, 0, 0, 0))
     draw = ImageDraw.Draw(layer)
     box = draw.textbbox((0, 0), text, font=font, stroke_width=stroke_width)
-    x = int((1080 - (box[2] - box[0])) / 2)
+    text_w = box[2] - box[0]
+    x = int((COVER_WIDTH - text_w) / 2)
+    max_x = COVER_WIDTH - SAFE_MARGIN - text_w
+    x = max(SAFE_MARGIN, min(x, max_x))
     draw.text((x, y), text, font=font, fill=fill, stroke_width=stroke_width, stroke_fill=(0, 0, 0, 255))
     if scratch:
         alpha = layer.getchannel("A")
         scratch_draw = ImageDraw.Draw(alpha)
         rng = random.Random(sum(ord(ch) for ch in text))
         for _ in range(150):
-            sx = rng.randint(max(0, x), min(1079, x + box[2] - box[0]))
-            sy = rng.randint(y, min(1919, y + box[3] - box[1] + 20))
+            sx = rng.randint(max(0, x), min(COVER_WIDTH - 1, x + text_w))
+            sy = rng.randint(y, min(COVER_HEIGHT - 1, y + box[3] - box[1] + 20))
             scratch_draw.line((sx, sy, sx + rng.randint(8, 28), sy + rng.randint(-3, 3)), fill=0, width=rng.randint(1, 3))
         layer.putalpha(alpha)
     base.alpha_composite(layer)
     return y + box[3] - box[1] + 8
+
+
+def _estimate_title_block_height(title_lines, max_width, layout, scratch):
+    probe = ImageDraw.Draw(Image.new("RGB", (10, 10)))
+    total = 0
+    for i, line in enumerate(title_lines):
+        kind = "hand" if i == 1 and layout == "brush_accent" else "impact"
+        start_size = 104 if i == 0 else (102 if layout == "brush_accent" else 100)
+        sublines = wrap_text_lines(line, max_width, kind, max_lines=2, start_size=start_size, min_size=48, stroke_width=2)
+        for sub in sublines:
+            max_h = 118 if i == 0 else 120
+            font = fit_font_box(sub, max_width, max_h, start_size, 48, kind, stroke_width=2)
+            total += text_height(probe, sub, font, stroke_width=2) + 8
+    return total
 
 
 def draw_bottom_title(base, cfg):
@@ -374,26 +483,41 @@ def draw_bottom_title(base, cfg):
     accent_fill = hex_rgba(colors.get("accent", "#00F55E"))
     layout = style.get("title_layout", "brush_accent")
     scratch = bool(effects.get("scratch", True))
-    y = 1552
+    max_width = content_width() - 56
+    part_y = 1842
+    block_height = _estimate_title_block_height(title_lines, max_width, layout, scratch)
+    y = max(1540, part_y - block_height - 24)
+
     if title_lines:
-        y = draw_distressed_text(base, title_lines[0], y, 900, 104, "impact", title_fill, max_height=118, scratch=scratch)
+        sublines = wrap_text_lines(title_lines[0], max_width, "impact", max_lines=2, start_size=104, min_size=48, stroke_width=2)
+        for sub in sublines:
+            y = draw_distressed_text(base, sub, y, max_width, 104, "impact", title_fill, max_height=118, scratch=scratch)
+
     if len(title_lines) > 1:
         if layout == "brush_accent":
-            brush_layer = Image.new("RGBA", base.size, (0, 0, 0, 0))
-            brush_y = max(y + 14, 1686)
-            draw_distressed_text(brush_layer, title_lines[1], brush_y, 930, 102, "hand", accent_fill, max_height=120, scratch=scratch)
-            brush_layer = brush_layer.rotate(-2.2, resample=Image.Resampling.BICUBIC, center=(540, brush_y + 70))
-            base.alpha_composite(brush_layer)
+            accent_sublines = wrap_text_lines(title_lines[1], max_width, "hand", max_lines=2, start_size=102, min_size=48, stroke_width=2)
+            for sub in accent_sublines:
+                brush_layer = Image.new("RGBA", base.size, (0, 0, 0, 0))
+                brush_y = y + 6
+                draw_distressed_text(brush_layer, sub, brush_y, max_width, 102, "hand", accent_fill, max_height=120, scratch=scratch)
+                brush_layer = brush_layer.rotate(-2.2, resample=Image.Resampling.BICUBIC, center=(540, brush_y + 70))
+                base.alpha_composite(brush_layer)
+                probe = ImageDraw.Draw(Image.new("RGB", (10, 10)))
+                font = fit_font_box(sub, max_width, 120, 102, 48, "hand", stroke_width=2)
+                y += text_height(probe, sub, font, stroke_width=2) + 8
         else:
-            y = draw_distressed_text(base, title_lines[1], max(y + 10, 1680), 930, 100, "impact", title_fill, max_height=120, scratch=scratch)
+            impact_sublines = wrap_text_lines(title_lines[1], max_width, "impact", max_lines=2, start_size=100, min_size=48, stroke_width=2)
+            for sub in impact_sublines:
+                y = draw_distressed_text(base, sub, y + 6, max_width, 100, "impact", title_fill, max_height=120, scratch=scratch)
+
     draw = ImageDraw.Draw(base)
     part_number = cfg.get("part_number", "1")
     part_text = "PART " + str(part_number)
     font = fit_font(part_text, 235, 44, 30, "block", stroke_width=1)
     box = draw.textbbox((0, 0), part_text, font=font, stroke_width=1)
     part_w = box[2] - box[0] + 88
-    x1 = int((1080 - part_w) / 2)
-    y1 = 1842
+    x1 = int((COVER_WIDTH - part_w) / 2)
+    y1 = part_y
     outline = hex_rgba(colors.get("part_outline", colors.get("accent", "#00E652")))
     part_text_color = hex_rgba(colors.get("part_text", colors.get("accent", "#24FF69")))
     draw.rectangle((x1, y1, x1 + part_w, y1 + 52), outline=outline, width=3)
@@ -407,23 +531,49 @@ def draw_series_header(base, cfg):
     series_words = cfg["series_title"].split()
     title_white = hex_rgba(colors.get("title", "#FFFFFF"))
     draw = ImageDraw.Draw(base)
-    if layout == "minimal_top":
-        centered_text(draw, cfg["series_title"], 48, fit_font(cfg["series_title"], 900, 56, 40, "condensed"), title_white, stroke_width=1)
-        return
-    if layout == "single_impact":
-        centered_text(draw, cfg["series_title"], 72, fit_font(cfg["series_title"], 960, 120, 72, "impact"), title_white, stroke_width=3)
-        return
-    top_line = " ".join(series_words[:3]) or cfg["series_title"]
-    receive_line = " ".join(series_words[3:-1]) or "RECEIVES"
-    last_word = series_words[-1] if series_words else "TOMORROW"
-    centered_text(draw, top_line, 58, fit_font(top_line, 820, 92, 54, "condensed"), title_white, stroke_width=2)
-    centered_text(draw, receive_line, 166, fit_font(receive_line, 880, 150, 96, "impact"), title_white, stroke_width=3)
+    header_max_w = content_width() - 24
     glitch_on = layout == "stacked_glitch" and style.get("effects", {}).get("glitch", True)
+
+    if layout == "minimal_top":
+        font = fit_font(cfg["series_title"], header_max_w, 56, 40, "condensed", stroke_width=1)
+        centered_text(draw, cfg["series_title"], 48, font, title_white, stroke_width=1)
+        return
+
+    if layout == "single_impact":
+        lines = wrap_text_lines(cfg["series_title"], header_max_w, "impact", max_lines=2, start_size=120, min_size=72, stroke_width=3)
+        y = 72
+        for line in lines:
+            font = fit_font(line, header_max_w, 120, 72, "impact", stroke_width=3)
+            y = centered_text(draw, line, y, font, title_white, stroke_width=3) + 8
+        return
+
+    if len(series_words) <= 4:
+        if len(series_words) <= 1:
+            draw_glitch_word(base, series_words[0] if series_words else cfg["series_title"], 58, colors, enabled=glitch_on)
+            return
+        prefix = " ".join(series_words[:-1])
+        last_word = series_words[-1]
+        prefix_lines = wrap_text_lines(prefix, header_max_w, "condensed", max_lines=2, start_size=92, min_size=54, stroke_width=2)
+        y = 58
+        for line in prefix_lines:
+            font = fit_font(line, header_max_w, 92, 54, "condensed", stroke_width=2)
+            y = centered_text(draw, line, y, font, title_white, stroke_width=2) + 10
+        draw_glitch_word(base, last_word, y + 8, colors, enabled=glitch_on)
+        return
+
+    top_line = " ".join(series_words[:3]) or cfg["series_title"]
+    receive_line = " ".join(series_words[3:-1])
+    last_word = series_words[-1] if series_words else "TOMORROW"
+    top_font = fit_font(top_line, header_max_w, 92, 54, "condensed", stroke_width=2)
+    centered_text(draw, top_line, 58, top_font, title_white, stroke_width=2)
+    if receive_line:
+        receive_font = fit_font(receive_line, header_max_w, 150, 96, "impact", stroke_width=3)
+        centered_text(draw, receive_line, 166, receive_font, title_white, stroke_width=3)
     draw_glitch_word(base, last_word, 356, colors, enabled=glitch_on)
 
 
 def compose_cover(base_path, out_path, scenes_data, style_id=None, series_dir=None):
-    width, height = 1080, 1920
+    width, height = COVER_WIDTH, COVER_HEIGHT
     image = Image.open(base_path).convert("RGB")
     ratio = max(width / image.width, height / image.height)
     image = image.resize((int(image.width * ratio), int(image.height * ratio)), Image.Resampling.LANCZOS)
