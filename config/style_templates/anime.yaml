@@ -21,6 +21,7 @@ image_prompt_rules: |
   brand names unless the scene direction explicitly requests device-screen text.
 
 cover:
+  default_design_style: anime_pop
   hook_lines: ["A NEW", "STORY", "BEGINS"]
   hook_highlight: STORY
   background_prompt: >

@@ -17,6 +17,7 @@ image_prompt_rules: |
   asks for it.
 
 cover:
+  default_design_style: thriller_neon_rain
   hook_lines: ["DON'T", "MAKE THIS", "MISTAKE"]
   hook_highlight: MISTAKE
   background_prompt: >

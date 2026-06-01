@@ -328,6 +328,7 @@ python3 tools/init_series.py \
 | `run_episode_pipeline.py` | Full episode pipeline (voice → images → cover → motion → render) |
 | `run_next_episode.py` | Render the next pending episode (automation/cron) |
 | `generate_episode_assets.py` | Standalone asset generation stages |
+| `regenerate_cover.py` | Regenerate cover background and/or typography (`--style`, `--compose-only`) |
 | `render_episode.py` | FFmpeg render from existing assets |
 | `send_pipeline_update.py` | Email/notification helper |
 
@@ -349,7 +350,7 @@ Storyforge today ships with opinionated defaults (OpenAI images, ElevenLabs voic
 | **Scene images** (`generate_episode_assets.py`) | `openai`, `fal`, `local` via `--image-provider` | ComfyUI, Stable Diffusion / SDXL, Replicate, Together, local diffusers |
 | **Cover backgrounds** | `openai`, `fal`, `local` via `--cover-provider` | Same image backends as scene images |
 | **Voice** (`generate_episode_assets.py`) | ElevenLabs only | Piper, Coqui TTS, Bark, OpenAI TTS, Azure Speech, local XTTS |
-| **Video motion** | `local` (ffmpeg Ken Burns, **default, zero API cost**) or `fal` via `--video-mode fal` / `--local-videos` | Runway, Pika, Luma, AnimateDiff, Deforum, more ffmpeg presets |
+| **Video motion** | `local` (ffmpeg Ken Burns, **default, zero API cost**) or `fal` via `--video-mode fal` / `--local-videos`. fal default: **ByteDance Seedance 2.0** (`bytedance/seedance-2.0/image-to-video` via `FAL_VIDEO_MODEL`) | **Google Veo 3** (`fal-ai/veo3/image-to-video`), **Veo 3.1** (`fal-ai/veo3.1/image-to-video`), Seedance Fast, direct Google API, Runway, local AnimateDiff |
 
 **How to add a provider:**
 
@@ -359,7 +360,16 @@ Storyforge today ships with opinionated defaults (OpenAI images, ElevenLabs voic
 4. Document new env vars and flags in [docs/CONFIGURATION.md](docs/CONFIGURATION.md).
 5. Add a `--skip-*` path or mock so contributors can smoke-test without every API key.
 
-**Motion note:** Local ffmpeg Ken Burns is the zero-cost default (`PIPELINE_VIDEO_MODE=local`). fal.ai motion is optional. PRs for additional motion backends (cloud or local) are especially welcome — the pipeline already falls back to local motion when fal fails.
+**Motion note:** Local ffmpeg Ken Burns is the zero-cost default (`PIPELINE_VIDEO_MODE=local`). fal.ai motion is optional and uses **ByteDance Seedance 2.0** by default; switch models with `FAL_VIDEO_MODEL`:
+
+```bash
+PIPELINE_VIDEO_MODE=fal
+FAL_VIDEO_MODEL=bytedance/seedance-2.0/image-to-video   # default in code
+# FAL_VIDEO_MODEL=fal-ai/veo3/image-to-video
+# FAL_VIDEO_MODEL=fal-ai/veo3.1/image-to-video
+```
+
+PRs for additional motion backends (cloud or local) are especially welcome — the pipeline already falls back to local motion when fal fails. PRs are also welcome to add first-class `--video-model` switching or Veo-specific argument mapping if APIs differ.
 
 Open a [GitHub Issue](https://github.com/Buchiexplores/storyforge/issues) first if you are planning a large provider refactor; small, focused provider PRs can go straight to draft PR.
 

@@ -15,6 +15,7 @@ image_prompt_rules: |
   brand names unless device-screen text is explicitly requested.
 
 cover:
+  default_design_style: fantasy_gold
   hook_lines: ["THE", "QUEST", "AWAITS"]
   hook_highlight: QUEST
   background_prompt: >

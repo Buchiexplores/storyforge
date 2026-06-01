@@ -16,6 +16,7 @@ image_prompt_rules: |
   brand names unless explicitly requested.
 
 cover:
+  default_design_style: action_fire
   hook_lines: ["NO", "TIME", "LEFT"]
   hook_highlight: TIME
   background_prompt: >

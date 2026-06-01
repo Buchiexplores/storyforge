@@ -13,6 +13,7 @@ image_prompt_rules: |
   Text requirements: no subtitles, captions, title cards, watermarks, logos, or readable brand names.
 
 cover:
+  default_design_style: romance_soft
   hook_lines: ["SHE", "NEVER", "SAID"]
   hook_highlight: NEVER
   background_prompt: >

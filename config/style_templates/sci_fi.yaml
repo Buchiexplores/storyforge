@@ -15,6 +15,7 @@ image_prompt_rules: |
   unless the scene direction explicitly requests device-screen text.
 
 cover:
+  default_design_style: sci_fi_cyan
   hook_lines: ["THE", "SIGNAL", "ARRIVED"]
   hook_highlight: SIGNAL
   background_prompt: >

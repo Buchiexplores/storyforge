@@ -21,6 +21,7 @@
     "hook_lines": ["DON'T", "MISS", "THIS"],
     "hook_highlight": "THIS",
     "title_lines": ["YOUR EPISODE", "TITLE HERE"],
+    "design_style": "thriller_neon_rain",
     "background_prompt": "Describe the cinematic background plate for the cover. No text in the image."
   },
   "scenes": [

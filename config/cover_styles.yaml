@@ -1,0 +1,650 @@
+default_for_template:
+  thriller_mystery: thriller_neon_rain
+  horror: horror_frost
+  noir: noir_classic
+  action: action_fire
+  sci_fi: sci_fi_cyan
+  cyberpunk: cyberpunk_magenta
+  fantasy: fantasy_gold
+  anime: anime_pop
+  romance_drama: romance_soft
+  comedy: comedy_bright
+  western: western_dust
+  period_drama: period_drama_ivory
+styles:
+  thriller_neon_rain:
+    id: thriller_neon_rain
+    name: Thriller Neon Rain
+    description: Dark rainy thriller with neon green glitch accent.
+    style_templates:
+    - thriller_mystery
+    - noir
+    - action
+    grade: rain_neon
+    series_layout: stacked_glitch
+    title_layout: brush_accent
+    badge_style: red_episode
+    hook_style: handwritten_arrow
+    colors:
+      accent: '#00F55E'
+      accent2: '#FFFFFF'
+      title: '#FFFFFF'
+      badge_fill: '#D21212'
+      hook_highlight: '#23FF70'
+      part_outline: '#00E652'
+      part_text: '#24FF69'
+    effects:
+      rain: true
+      glitch: true
+      scratch: true
+  thriller_cold_case:
+    id: thriller_cold_case
+    name: Thriller Cold Case
+    description: Desaturated crime scene with icy blue accents.
+    style_templates:
+    - thriller_mystery
+    - noir
+    grade: cold_fog
+    series_layout: stacked_clean
+    title_layout: distressed_stack
+    badge_style: cyan_episode
+    hook_style: block_left
+    colors:
+      accent: '#6EC8FF'
+      accent2: '#E8F4FF'
+      title: '#F5F8FC'
+      badge_fill: '#1A6FA8'
+      hook_highlight: '#6EC8FF'
+      part_outline: '#4A90C4'
+      part_text: '#B8DCFF'
+    effects:
+      rain: false
+      glitch: false
+      scratch: true
+  horror_frost:
+    id: horror_frost
+    name: Horror Frost
+    description: Pale frozen dread with cyan frost highlights.
+    style_templates:
+    - horror
+    - thriller_mystery
+    grade: cold_fog
+    series_layout: stacked_clean
+    title_layout: distressed_stack
+    badge_style: cyan_episode
+    hook_style: handwritten_arrow
+    colors:
+      accent: '#7FE8FF'
+      accent2: '#D4F7FF'
+      title: '#EEF8FF'
+      badge_fill: '#0E4A5C'
+      hook_highlight: '#7FE8FF'
+      part_outline: '#5BC4DE'
+      part_text: '#A8EFFF'
+    effects:
+      rain: false
+      glitch: false
+      scratch: true
+  horror_blood_moon:
+    id: horror_blood_moon
+    name: Horror Blood Moon
+    description: High-contrast horror with deep red moonlight accents.
+    style_templates:
+    - horror
+    - action
+    grade: high_contrast
+    series_layout: stacked_glitch
+    title_layout: brush_accent
+    badge_style: red_episode
+    hook_style: block_left
+    colors:
+      accent: '#FF2A3D'
+      accent2: '#FFB3BC'
+      title: '#FFFFFF'
+      badge_fill: '#8B0000'
+      hook_highlight: '#FF4D5E'
+      part_outline: '#CC1F2E'
+      part_text: '#FF6B7A'
+    effects:
+      rain: false
+      glitch: true
+      scratch: true
+  noir_gold:
+    id: noir_gold
+    name: Noir Gold
+    description: Classic film noir with gold title accents.
+    style_templates:
+    - noir
+    - thriller_mystery
+    - period_drama
+    grade: noir_shadow
+    series_layout: stacked_clean
+    title_layout: uniform_impact
+    badge_style: gold_episode
+    hook_style: block_left
+    colors:
+      accent: '#D4AF37'
+      accent2: '#F5E6B8'
+      title: '#F2EFE6'
+      badge_fill: '#8A6B1F'
+      hook_highlight: '#E8C547'
+      part_outline: '#C9A227'
+      part_text: '#F0D78C'
+    effects:
+      rain: false
+      glitch: false
+      scratch: false
+  noir_classic:
+    id: noir_classic
+    name: Noir Classic
+    description: Monochrome detective poster with silver-white typography.
+    style_templates:
+    - noir
+    - thriller_mystery
+    grade: noir_shadow
+    series_layout: stacked_clean
+    title_layout: uniform_impact
+    badge_style: outline_minimal
+    hook_style: none
+    colors:
+      accent: '#C8C8C8'
+      accent2: '#FFFFFF'
+      title: '#FFFFFF'
+      badge_fill: '#2A2A2A'
+      hook_highlight: '#E0E0E0'
+      part_outline: '#9A9A9A'
+      part_text: '#D8D8D8'
+    effects:
+      rain: false
+      glitch: false
+      scratch: false
+  sci_fi_cyan:
+    id: sci_fi_cyan
+    name: Sci-Fi Cyan
+    description: Near-future lab glow with cyan HUD accents.
+    style_templates:
+    - sci_fi
+    - cyberpunk
+    grade: terminal_scan
+    series_layout: stacked_glitch
+    title_layout: brush_accent
+    badge_style: cyan_episode
+    hook_style: block_left
+    colors:
+      accent: '#00E5FF'
+      accent2: '#B8FFFF'
+      title: '#FFFFFF'
+      badge_fill: '#006B7A'
+      hook_highlight: '#00E5FF'
+      part_outline: '#00B8CC'
+      part_text: '#66F0FF'
+    effects:
+      rain: false
+      glitch: true
+      scratch: false
+  sci_fi_terminal:
+    id: sci_fi_terminal
+    name: Sci-Fi Terminal
+    description: Green phosphor terminal aesthetic.
+    style_templates:
+    - sci_fi
+    - cyberpunk
+    grade: terminal_scan
+    series_layout: minimal_top
+    title_layout: uniform_impact
+    badge_style: cyan_episode
+    hook_style: block_left
+    colors:
+      accent: '#39FF14'
+      accent2: '#C8FFC0'
+      title: '#E8FFE0'
+      badge_fill: '#0D3D0A'
+      hook_highlight: '#39FF14'
+      part_outline: '#2ECC1A'
+      part_text: '#7CFF6B'
+    effects:
+      rain: false
+      glitch: true
+      scratch: false
+  cyberpunk_magenta:
+    id: cyberpunk_magenta
+    name: Cyberpunk Magenta
+    description: Neon megacity with magenta and electric blue.
+    style_templates:
+    - cyberpunk
+    - sci_fi
+    grade: high_contrast
+    series_layout: stacked_glitch
+    title_layout: brush_accent
+    badge_style: magenta_episode
+    hook_style: handwritten_arrow
+    colors:
+      accent: '#FF00E5'
+      accent2: '#00F0FF'
+      title: '#FFFFFF'
+      badge_fill: '#7A008C'
+      hook_highlight: '#FF4DF0'
+      part_outline: '#FF00E5'
+      part_text: '#FF80F0'
+    effects:
+      rain: true
+      glitch: true
+      scratch: true
+  cyberpunk_acid:
+    id: cyberpunk_acid
+    name: Cyberpunk Acid
+    description: Acid yellow-green neon on rain-slick streets.
+    style_templates:
+    - cyberpunk
+    - sci_fi
+    - action
+    grade: rain_neon
+    series_layout: stacked_glitch
+    title_layout: brush_accent
+    badge_style: magenta_episode
+    hook_style: handwritten_arrow
+    colors:
+      accent: '#CCFF00'
+      accent2: '#FFFF66'
+      title: '#FFFFFF'
+      badge_fill: '#5C6B00'
+      hook_highlight: '#E6FF33'
+      part_outline: '#AAFF00'
+      part_text: '#DDFF66'
+    effects:
+      rain: true
+      glitch: true
+      scratch: true
+  fantasy_gold:
+    id: fantasy_gold
+    name: Fantasy Gold
+    description: Epic warm torchlight with ornate gold lettering.
+    style_templates:
+    - fantasy
+    - period_drama
+    grade: warm_glow
+    series_layout: stacked_clean
+    title_layout: brush_accent
+    badge_style: gold_episode
+    hook_style: handwritten_arrow
+    colors:
+      accent: '#FFD700'
+      accent2: '#FFF0B3'
+      title: '#FFF8E7'
+      badge_fill: '#8B6914'
+      hook_highlight: '#FFE566'
+      part_outline: '#C9A227'
+      part_text: '#F5D76E'
+    effects:
+      rain: false
+      glitch: false
+      scratch: false
+  fantasy_mystic:
+    id: fantasy_mystic
+    name: Fantasy Mystic
+    description: Soft magical twilight with violet accents.
+    style_templates:
+    - fantasy
+    - romance_drama
+    grade: soft_wash
+    series_layout: stacked_clean
+    title_layout: distressed_stack
+    badge_style: magenta_episode
+    hook_style: block_left
+    colors:
+      accent: '#B57EDC'
+      accent2: '#E8D4FF'
+      title: '#F8F0FF'
+      badge_fill: '#5A2D82'
+      hook_highlight: '#D4A5FF'
+      part_outline: '#9B6FD4'
+      part_text: '#E0C4FF'
+    effects:
+      rain: false
+      glitch: false
+      scratch: false
+  anime_pop:
+    id: anime_pop
+    name: Anime Pop
+    description: Bright saturated anime poster.
+    style_templates:
+    - anime
+    - comedy
+    grade: pastel
+    series_layout: single_impact
+    title_layout: uniform_impact
+    badge_style: magenta_episode
+    hook_style: block_left
+    colors:
+      accent: '#FF4D9E'
+      accent2: '#FFE066'
+      title: '#FFFFFF'
+      badge_fill: '#FF2D7A'
+      hook_highlight: '#FFE066'
+      part_outline: '#FF4D9E'
+      part_text: '#FFB8DC'
+    effects:
+      rain: false
+      glitch: false
+      scratch: false
+  anime_soft:
+    id: anime_soft
+    name: Anime Soft
+    description: Pastel slice-of-life cover.
+    style_templates:
+    - anime
+    - romance_drama
+    - comedy
+    grade: soft_wash
+    series_layout: single_impact
+    title_layout: uniform_impact
+    badge_style: outline_minimal
+    hook_style: block_left
+    colors:
+      accent: '#FF9EC8'
+      accent2: '#B8E0FF'
+      title: '#FFFFFF'
+      badge_fill: '#E878A8'
+      hook_highlight: '#B8E0FF'
+      part_outline: '#FF9EC8'
+      part_text: '#FFD6EB'
+    effects:
+      rain: false
+      glitch: false
+      scratch: false
+  romance_soft:
+    id: romance_soft
+    name: Romance Soft
+    description: Warm blush tones with soft handwritten hook.
+    style_templates:
+    - romance_drama
+    - anime
+    grade: soft_wash
+    series_layout: stacked_clean
+    title_layout: distressed_stack
+    badge_style: outline_minimal
+    hook_style: handwritten_arrow
+    colors:
+      accent: '#FF8FAB'
+      accent2: '#FFD6E0'
+      title: '#FFF5F7'
+      badge_fill: '#C45C7A'
+      hook_highlight: '#FF8FAB'
+      part_outline: '#E8A0B0'
+      part_text: '#FFD0DC'
+    effects:
+      rain: false
+      glitch: false
+      scratch: false
+  romance_elegant:
+    id: romance_elegant
+    name: Romance Elegant
+    description: Champagne and rose gold elegance.
+    style_templates:
+    - romance_drama
+    - period_drama
+    grade: warm_glow
+    series_layout: stacked_clean
+    title_layout: brush_accent
+    badge_style: gold_episode
+    hook_style: handwritten_arrow
+    colors:
+      accent: '#E8B4B8'
+      accent2: '#FFF0F2'
+      title: '#FFFAFB'
+      badge_fill: '#9E5A63'
+      hook_highlight: '#F5C6CA'
+      part_outline: '#D4A0A6'
+      part_text: '#FFE8EB'
+    effects:
+      rain: false
+      glitch: false
+      scratch: false
+  comedy_bright:
+    id: comedy_bright
+    name: Comedy Bright
+    description: High-energy comedy with sunny yellow accents.
+    style_templates:
+    - comedy
+    - anime
+    grade: pastel
+    series_layout: single_impact
+    title_layout: uniform_impact
+    badge_style: gold_episode
+    hook_style: block_left
+    colors:
+      accent: '#FFD93D'
+      accent2: '#FF6B6B'
+      title: '#FFFFFF'
+      badge_fill: '#FF9500'
+      hook_highlight: '#FFD93D'
+      part_outline: '#FFB800'
+      part_text: '#FFE566'
+    effects:
+      rain: false
+      glitch: false
+      scratch: false
+  comedy_pastel:
+    id: comedy_pastel
+    name: Comedy Pastel
+    description: Lighthearted pastel comedy.
+    style_templates:
+    - comedy
+    - anime
+    grade: pastel
+    series_layout: single_impact
+    title_layout: uniform_impact
+    badge_style: outline_minimal
+    hook_style: block_left
+    colors:
+      accent: '#7EEDC6'
+      accent2: '#FFB8A1'
+      title: '#FFFFFF'
+      badge_fill: '#5BC4A8'
+      hook_highlight: '#FFB8A1'
+      part_outline: '#7EEDC6'
+      part_text: '#C8FFF0'
+    effects:
+      rain: false
+      glitch: false
+      scratch: false
+  western_dust:
+    id: western_dust
+    name: Western Dust
+    description: Sun-bleached frontier dust with sepia.
+    style_templates:
+    - western
+    - action
+    grade: sepia_dust
+    series_layout: stacked_clean
+    title_layout: distressed_stack
+    badge_style: gold_episode
+    hook_style: block_left
+    colors:
+      accent: '#C4783B'
+      accent2: '#F5DEB3'
+      title: '#FFF8E7'
+      badge_fill: '#8B4513'
+      hook_highlight: '#E8A04A'
+      part_outline: '#A0522D'
+      part_text: '#DEB887'
+    effects:
+      rain: false
+      glitch: false
+      scratch: true
+  western_sunset:
+    id: western_sunset
+    name: Western Sunset
+    description: Golden-hour desert horizon.
+    style_templates:
+    - western
+    - romance_drama
+    grade: warm_glow
+    series_layout: stacked_clean
+    title_layout: brush_accent
+    badge_style: gold_episode
+    hook_style: handwritten_arrow
+    colors:
+      accent: '#FF6B35'
+      accent2: '#FFD166'
+      title: '#FFF5E6'
+      badge_fill: '#B84A1F'
+      hook_highlight: '#FF8C42'
+      part_outline: '#E85D04'
+      part_text: '#FFB366'
+    effects:
+      rain: false
+      glitch: false
+      scratch: false
+  period_drama_ivory:
+    id: period_drama_ivory
+    name: Period Drama Ivory
+    description: Regency ivory and sage.
+    style_templates:
+    - period_drama
+    - romance_drama
+    - fantasy
+    grade: warm_glow
+    series_layout: stacked_clean
+    title_layout: distressed_stack
+    badge_style: gold_episode
+    hook_style: block_left
+    colors:
+      accent: '#8FA68E'
+      accent2: '#FFFFF0'
+      title: '#FFFFF5'
+      badge_fill: '#5C6B5A'
+      hook_highlight: '#C8D4C7'
+      part_outline: '#8FA68E'
+      part_text: '#E8EDE7'
+    effects:
+      rain: false
+      glitch: false
+      scratch: false
+  period_drama_velvet:
+    id: period_drama_velvet
+    name: Period Drama Velvet
+    description: Deep velvet crimson and gold.
+    style_templates:
+    - period_drama
+    - fantasy
+    - noir
+    grade: warm_glow
+    series_layout: stacked_clean
+    title_layout: brush_accent
+    badge_style: gold_episode
+    hook_style: block_left
+    colors:
+      accent: '#8B1538'
+      accent2: '#D4AF37'
+      title: '#FFF8F0'
+      badge_fill: '#5C0A1E'
+      hook_highlight: '#D4AF37'
+      part_outline: '#A61B3A'
+      part_text: '#E8C4CC'
+    effects:
+      rain: false
+      glitch: false
+      scratch: false
+  action_fire:
+    id: action_fire
+    name: Action Fire
+    description: Explosive orange-red action poster.
+    style_templates:
+    - action
+    - thriller_mystery
+    - western
+    grade: high_contrast
+    series_layout: stacked_glitch
+    title_layout: uniform_impact
+    badge_style: red_episode
+    hook_style: block_left
+    colors:
+      accent: '#FF4500'
+      accent2: '#FFD700'
+      title: '#FFFFFF'
+      badge_fill: '#CC2200'
+      hook_highlight: '#FF6B35'
+      part_outline: '#FF4500'
+      part_text: '#FFB366'
+    effects:
+      rain: false
+      glitch: true
+      scratch: true
+  action_blur:
+    id: action_blur
+    name: Action Blur
+    description: Kinetic motion blur with electric blue.
+    style_templates:
+    - action
+    - sci_fi
+    - cyberpunk
+    grade: high_contrast
+    series_layout: single_impact
+    title_layout: uniform_impact
+    badge_style: cyan_episode
+    hook_style: block_left
+    colors:
+      accent: '#00B4FF'
+      accent2: '#FFFFFF'
+      title: '#FFFFFF'
+      badge_fill: '#005A8C'
+      hook_highlight: '#00D4FF'
+      part_outline: '#0088CC'
+      part_text: '#66D4FF'
+    effects:
+      rain: false
+      glitch: true
+      scratch: true
+  minimal_bold:
+    id: minimal_bold
+    name: Minimal Bold
+    description: Clean negative space with bold white type.
+    style_templates:
+    - thriller_mystery
+    - noir
+    - sci_fi
+    - comedy
+    grade: high_contrast
+    series_layout: minimal_top
+    title_layout: uniform_impact
+    badge_style: outline_minimal
+    hook_style: none
+    colors:
+      accent: '#FFFFFF'
+      accent2: '#CCCCCC'
+      title: '#FFFFFF'
+      badge_fill: '#1A1A1A'
+      hook_highlight: '#FFFFFF'
+      part_outline: '#FFFFFF'
+      part_text: '#E0E0E0'
+    effects:
+      rain: false
+      glitch: false
+      scratch: false
+  cross_neon_noir:
+    id: cross_neon_noir
+    name: Cross Neon Noir
+    description: Hybrid neon-noir crossover.
+    style_templates:
+    - thriller_mystery
+    - noir
+    - cyberpunk
+    - sci_fi
+    grade: rain_neon
+    series_layout: stacked_glitch
+    title_layout: brush_accent
+    badge_style: magenta_episode
+    hook_style: handwritten_arrow
+    colors:
+      accent: '#00F0FF'
+      accent2: '#FF00E5'
+      title: '#FFFFFF'
+      badge_fill: '#4A0E4E'
+      hook_highlight: '#00F0FF'
+      part_outline: '#FF00E5'
+      part_text: '#B366FF'
+    effects:
+      rain: true
+      glitch: true
+      scratch: true

@@ -15,6 +15,7 @@ image_prompt_rules: |
   brand names unless explicitly requested.
 
 cover:
+  default_design_style: comedy_bright
   hook_lines: ["WRONG", "PERSON", "TEXTED"]
   hook_highlight: WRONG
   background_prompt: >

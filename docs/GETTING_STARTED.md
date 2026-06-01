@@ -275,6 +275,7 @@ Cron tips:
 - Keep `OPENAI_IMAGE_STRICT=1` so billing failures stop the batch (no silent fallbacks)
 - Default `PIPELINE_VIDEO_MODE=local` — ffmpeg Ken Burns motion, **no video API credits**
 - Use `--local-videos` or leave `PIPELINE_VIDEO_MODE=local`; only pass `--video-mode fal` when you want paid fal motion
+- To use fal motion, set `PIPELINE_VIDEO_MODE=fal` and pick a model with `FAL_VIDEO_MODEL` — default **ByteDance Seedance 2.0** (`bytedance/seedance-2.0/image-to-video`), or **Google Veo 3** / **Veo 3.1** (`fal-ai/veo3/image-to-video`, `fal-ai/veo3.1/image-to-video`)
 - Use skip flags and `--image-ids` for selective regeneration
 - Batch 1–3 episodes; verify before continuing
 

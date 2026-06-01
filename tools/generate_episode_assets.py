@@ -26,8 +26,20 @@ from pipeline_config import (
     resolve_episode_path,
 )
 
+from cover_styles import (
+    compose_cover,
+    cover_background_prompt,
+    font_candidates,
+    fit_font,
+    load_font,
+    resolve_cover_style_id,
+)
 
-SERIES_DIR = get_series_dir()
+
+try:
+    SERIES_DIR = get_series_dir()
+except SystemExit:
+    SERIES_DIR = ROOT / "series" / "_unconfigured"
 EPISODE = SERIES_DIR / "episode_01"
 SCENES_PATH = EPISODE / "scenes.json"
 VOICE_TEXT_PATH = EPISODE / "voiceover_text.txt"
@@ -1012,73 +1024,8 @@ def generate_videos(force: bool = False, requested_ids=None, local_only: bool = 
             create_motion_fallback(scene_id, image_path, out_path, duration)
 
 
-def load_font(size, candidates=None):
-    candidates = candidates or [
-        "/System/Library/Fonts/Supplemental/Arial Bold.ttf",
-        "/System/Library/Fonts/Supplemental/Arial.ttf",
-        "/Library/Fonts/Arial.ttf",
-    ]
-    for path in candidates:
-        if Path(path).exists():
-            return ImageFont.truetype(path, size=size)
-    return ImageFont.load_default()
 
-
-def font_candidates(kind):
-    fonts = {
-        "impact": [
-            "/System/Library/Fonts/Supplemental/Impact.ttf",
-            "/System/Library/Fonts/Supplemental/DIN Condensed Bold.ttf",
-            "/System/Library/Fonts/Supplemental/Arial Black.ttf",
-            "/System/Library/Fonts/Supplemental/Arial Narrow Bold.ttf",
-        ],
-        "condensed": [
-            "/System/Library/Fonts/Supplemental/DIN Condensed Bold.ttf",
-            "/System/Library/Fonts/Avenir Next Condensed.ttc",
-            "/System/Library/Fonts/Supplemental/Arial Narrow Bold.ttf",
-            "/System/Library/Fonts/Supplemental/Impact.ttf",
-        ],
-        "hand": [
-            "/System/Library/Fonts/MarkerFelt.ttc",
-            "/System/Library/Fonts/Supplemental/Chalkduster.ttf",
-            "/System/Library/Fonts/Supplemental/ChalkboardSE.ttc",
-            "/System/Library/Fonts/Supplemental/Arial Bold Italic.ttf",
-        ],
-        "block": [
-            "/System/Library/Fonts/Supplemental/Arial Black.ttf",
-            "/System/Library/Fonts/Supplemental/Impact.ttf",
-            "/System/Library/Fonts/Supplemental/DIN Condensed Bold.ttf",
-            "/System/Library/Fonts/Supplemental/Arial Bold.ttf",
-        ],
-    }
-    return fonts.get(kind, fonts["block"])
-
-
-def cover_background_prompt(scenes_data=None):
-    cover = (scenes_data or {}).get("cover", {})
-    episode_background = cover.get(
-        "background_prompt",
-        (
-            "dark rainy apartment entrance; warm amber doorway in the middle distance with a "
-            "mysterious delivery woman silhouette holding a plain brown package; low-angle "
-            "cracked smartphone large in the wet foreground, screen shattered and glowing intense "
-            "neon green with reflections on the floor."
-        ),
-    )
-    return (
-        "Vertical 9:16 cinematic thriller poster scene plate matching the recurring cover style reference. "
-        "Generate only the background image; absolutely no typography, no badges, no arrows, no graphic layout. "
-        "Composition must preserve the reference layout: clean black negative space across the upper third for a "
-        "huge stacked title; main story threat in the middle distance; a cracked smartphone or key story object "
-        "large in the wet foreground with neon green glow and reflections. "
-        f"Episode-specific scene plate: {episode_background} "
-        "Heavy contrast, rain streaks, wet concrete, green glow, amber backlight, no gore. Full-bleed single "
-        "continuous photographic scene, no border, no matte frame, no inset panel, no logos, no readable brand "
-        "names, no text anywhere."
-    )
-
-
-def generate_openai_cover_base(out_path: Path, scenes_data):
+def generate_openai_cover_base(out_path: Path, scenes_data, cover_style: str | None = None):
     require_env("OPENAI_API_KEY")
     try:
         from openai import OpenAI
@@ -1094,7 +1041,7 @@ def generate_openai_cover_base(out_path: Path, scenes_data):
     client = OpenAI(timeout=timeout)
     result = client.images.generate(
         model=model,
-        prompt=cover_background_prompt(scenes_data),
+        prompt=cover_background_prompt(scenes_data, style_id=cover_style, series_dir=SERIES_DIR),
         size=size,
         quality=quality,
         output_format="png",
@@ -1107,249 +1054,8 @@ def generate_openai_cover_base(out_path: Path, scenes_data):
     print(f"Wrote OpenAI cover base {out_path} ({model}, {size}, {quality})")
 
 
-def cover_config(scenes_data):
-    cover = scenes_data.get("cover", {})
-    episode_title = cover.get("episode_title", scenes_data.get("episode_title", ""))
-    title_lines = cover.get("title_lines")
-    if not title_lines:
-        if episode_title.upper() == "DO NOT OPEN THE DOOR":
-            title_lines = ["DO NOT OPEN", "THE DOOR"]
-        else:
-            title_lines = textwrap.wrap(episode_title.upper(), width=13)[:2]
-    return {
-        "series_title": cover.get("series_title", merged_series_settings(SERIES_DIR).get("series", {}).get("title", "Your Series Title")).upper(),
-        "episode_number": str(cover.get("episode_number", "1")),
-        "part_number": str(cover.get("part_number", "1")),
-        "hook_lines": cover.get("hook_lines", ["DON'T", "MAKE THIS", "MISTAKE"]),
-        "hook_highlight": cover.get("hook_highlight", "MISTAKE").upper(),
-        "title_lines": [line.upper() for line in title_lines],
-    }
 
-
-def text_width(draw, text, font, stroke_width=0):
-    box = draw.textbbox((0, 0), text, font=font, stroke_width=stroke_width)
-    return box[2] - box[0]
-
-
-def fit_font(text, max_width, start_size, min_size, kind, stroke_width=0):
-    probe = ImageDraw.Draw(Image.new("RGB", (10, 10)))
-    for size in range(start_size, min_size - 1, -2):
-        font = load_font(size, font_candidates(kind))
-        if text_width(probe, text, font, stroke_width=stroke_width) <= max_width:
-            return font
-    return load_font(min_size, font_candidates(kind))
-
-
-def centered_text(draw, text, y, font, fill, stroke_width=0, stroke_fill=(0, 0, 0, 255)):
-    width = 1080
-    box = draw.textbbox((0, 0), text, font=font, stroke_width=stroke_width)
-    x = (width - (box[2] - box[0])) / 2
-    draw.text(
-        (x, y),
-        text,
-        font=font,
-        fill=fill,
-        stroke_width=stroke_width,
-        stroke_fill=stroke_fill,
-    )
-    return y + box[3] - box[1]
-
-
-def add_poster_grade(image):
-    image = ImageEnhance.Contrast(image).enhance(1.22)
-    image = ImageEnhance.Color(image).enhance(1.05)
-    width, height = image.size
-    overlay = Image.new("RGBA", image.size, (0, 0, 0, 0))
-    draw = ImageDraw.Draw(overlay)
-    draw.rectangle((0, 0, width, 610), fill=(0, 0, 0, 185))
-    draw.rectangle((0, height - 560, width, height), fill=(0, 0, 0, 170))
-    draw.rectangle((0, 0, 90, height), fill=(0, 0, 0, 120))
-    draw.rectangle((width - 90, 0, width, height), fill=(0, 0, 0, 120))
-    draw.rectangle((0, 0, width, 26), fill=(0, 0, 0, 255))
-    draw.rectangle((0, height - 26, width, height), fill=(0, 0, 0, 255))
-
-    rain = Image.new("RGBA", image.size, (0, 0, 0, 0))
-    rain_draw = ImageDraw.Draw(rain)
-    rng = random.Random(13)
-    for _ in range(170):
-        x = rng.randint(-80, width + 60)
-        y = rng.randint(0, height)
-        length = rng.randint(22, 78)
-        alpha = rng.randint(35, 100)
-        rain_draw.line((x, y, x + 10, y + length), fill=(170, 230, 225, alpha), width=1)
-    rain = rain.filter(ImageFilter.GaussianBlur(0.35))
-    return Image.alpha_composite(Image.alpha_composite(image.convert("RGBA"), overlay), rain)
-
-
-def draw_glitch_word(base, text, y):
-    width = 1080
-    font = fit_font(text, 960, 205, 120, "impact", stroke_width=2)
-    probe = ImageDraw.Draw(Image.new("RGBA", (width, 260), (0, 0, 0, 0)))
-    box = probe.textbbox((0, 0), text, font=font, stroke_width=2)
-    text_w = box[2] - box[0]
-    text_h = box[3] - box[1]
-    x = int((width - text_w) / 2)
-    layer = Image.new("RGBA", base.size, (0, 0, 0, 0))
-    draw = ImageDraw.Draw(layer)
-
-    glow = Image.new("RGBA", base.size, (0, 0, 0, 0))
-    glow_draw = ImageDraw.Draw(glow)
-    for offset in (-8, -4, 4, 8):
-        glow_draw.text((x + offset, y), text, font=font, fill=(0, 255, 98, 115), stroke_width=4, stroke_fill=(0, 255, 98, 70))
-    glow = glow.filter(ImageFilter.GaussianBlur(9))
-    base.alpha_composite(glow)
-
-    draw.text((x, y), text, font=font, fill=(0, 245, 94, 255), stroke_width=2, stroke_fill=(0, 40, 20, 255))
-    rng = random.Random(42)
-    for _ in range(10):
-        sy = y + rng.randint(0, max(1, text_h))
-        draw.rectangle(
-            (x - rng.randint(10, 45), sy, x + text_w + rng.randint(10, 45), sy + rng.randint(1, 4)),
-            fill=(0, 255, 96, rng.randint(45, 95)),
-        )
-    for _ in range(8):
-        sy = y + rng.randint(10, max(11, text_h - 4))
-        crop = layer.crop((x, sy, x + text_w, sy + rng.randint(3, 9)))
-        layer.alpha_composite(crop, (x + rng.randint(-28, 28), sy))
-    base.alpha_composite(layer)
-    return y + text_h + 8
-
-
-def draw_handwritten_hook(base, cfg):
-    draw = ImageDraw.Draw(base)
-    hook_lines = [line.upper() for line in cfg["hook_lines"]]
-    highlight = cfg["hook_highlight"]
-    x, y = 92, 760
-    white = (255, 255, 255, 255)
-    green = (35, 255, 112, 255)
-    for line in hook_lines:
-        font = load_font(58 if line != highlight else 66, font_candidates("hand"))
-        fill = green if line == highlight else white
-        draw.text((x, y), line, font=font, fill=fill, stroke_width=2, stroke_fill=(0, 0, 0, 210))
-        y += 62
-    draw.line((120, y - 8, 320, y - 42), fill=green, width=6)
-    draw.line((308, y + 35, 365, y + 112), fill=white, width=6)
-    draw.line((365, y + 112, 335, y + 103), fill=white, width=6)
-    draw.line((365, y + 112, 355, y + 82), fill=white, width=6)
-
-
-def draw_episode_badge(base, episode_number):
-    draw = ImageDraw.Draw(base)
-    x1, y1, x2, y2 = 398, 1468, 682, 1535
-    rng = random.Random(7)
-    for _ in range(90):
-        x = rng.randint(x1 - 35, x2 + 35)
-        y = rng.randint(y1 - 12, y2 + 12)
-        r = rng.randint(1, 3)
-        draw.ellipse((x - r, y - r, x + r, y + r), fill=(220, 0, 0, rng.randint(35, 115)))
-    draw.rectangle((x1, y1, x2, y2), fill=(210, 18, 18, 230))
-    font = fit_font(f"EPISODE {episode_number}", 240, 48, 30, "condensed", stroke_width=1)
-    centered_text(draw, f"EPISODE {episode_number}", y1 + 10, font, (255, 255, 255, 255), stroke_width=1)
-
-
-def fit_font_box(text, max_width, max_height, start_size, min_size, kind, stroke_width=0):
-    probe = ImageDraw.Draw(Image.new("RGB", (10, 10)))
-    for size in range(start_size, min_size - 1, -2):
-        font = load_font(size, font_candidates(kind))
-        box = probe.textbbox((0, 0), text, font=font, stroke_width=stroke_width)
-        if box[2] - box[0] <= max_width and box[3] - box[1] <= max_height:
-            return font
-    return load_font(min_size, font_candidates(kind))
-
-
-def draw_distressed_text(base, text, y, max_width, start_size, kind, fill, stroke_width=2, max_height=None):
-    if max_height:
-        font = fit_font_box(text, max_width, max_height, start_size, 58, kind, stroke_width=stroke_width)
-    else:
-        font = fit_font(text, max_width, start_size, 58, kind, stroke_width=stroke_width)
-    layer = Image.new("RGBA", base.size, (0, 0, 0, 0))
-    draw = ImageDraw.Draw(layer)
-    box = draw.textbbox((0, 0), text, font=font, stroke_width=stroke_width)
-    x = int((1080 - (box[2] - box[0])) / 2)
-    draw.text((x, y), text, font=font, fill=fill, stroke_width=stroke_width, stroke_fill=(0, 0, 0, 255))
-    alpha = layer.getchannel("A")
-    scratch = ImageDraw.Draw(alpha)
-    rng = random.Random(sum(ord(ch) for ch in text))
-    for _ in range(150):
-        sx = rng.randint(max(0, x), min(1079, x + box[2] - box[0]))
-        sy = rng.randint(y, min(1919, y + box[3] - box[1] + 20))
-        scratch.line((sx, sy, sx + rng.randint(8, 28), sy + rng.randint(-3, 3)), fill=0, width=rng.randint(1, 3))
-    layer.putalpha(alpha)
-    base.alpha_composite(layer)
-    return y + box[3] - box[1] + 8
-
-
-def draw_bottom_title(base, cfg):
-    title_lines = cfg["title_lines"]
-    y = 1552
-    if title_lines:
-        y = draw_distressed_text(
-            base,
-            title_lines[0],
-            y,
-            900,
-            104,
-            "impact",
-            (255, 255, 255, 255),
-            stroke_width=2,
-            max_height=118,
-        )
-    if len(title_lines) > 1:
-        brush_layer = Image.new("RGBA", base.size, (0, 0, 0, 0))
-        brush_y = max(y + 14, 1686)
-        draw_distressed_text(
-            brush_layer,
-            title_lines[1],
-            brush_y,
-            930,
-            102,
-            "hand",
-            (22, 210, 66, 255),
-            stroke_width=2,
-            max_height=120,
-        )
-        brush_layer = brush_layer.rotate(-2.2, resample=Image.Resampling.BICUBIC, center=(540, brush_y + 70))
-        base.alpha_composite(brush_layer)
-
-    draw = ImageDraw.Draw(base)
-    part_text = f"PART {cfg['part_number']}"
-    font = fit_font(part_text, 235, 44, 30, "block", stroke_width=1)
-    box = draw.textbbox((0, 0), part_text, font=font, stroke_width=1)
-    part_w = box[2] - box[0] + 88
-    x1 = int((1080 - part_w) / 2)
-    y1 = 1842
-    draw.rectangle((x1, y1, x1 + part_w, y1 + 52), outline=(0, 230, 82, 255), width=3)
-    centered_text(draw, part_text, y1 + 5, font, (36, 255, 105, 255), stroke_width=1)
-
-
-def compose_cover(base_path: Path, out_path: Path, scenes_data):
-    width, height = 1080, 1920
-    image = Image.open(base_path).convert("RGB")
-    ratio = max(width / image.width, height / image.height)
-    image = image.resize((int(image.width * ratio), int(image.height * ratio)), Image.Resampling.LANCZOS)
-    left = (image.width - width) // 2
-    top = (image.height - height) // 2
-    image = add_poster_grade(image.crop((left, top, left + width, top + height)))
-    cfg = cover_config(scenes_data)
-    draw = ImageDraw.Draw(image)
-
-    series_words = cfg["series_title"].split()
-    top_line = " ".join(series_words[:3]) or cfg["series_title"]
-    receive_line = " ".join(series_words[3:-1]) or "RECEIVES"
-    last_word = series_words[-1] if series_words else "TOMORROW"
-
-    centered_text(draw, top_line, 58, fit_font(top_line, 820, 92, 54, "condensed"), (255, 255, 255, 255), stroke_width=2)
-    centered_text(draw, receive_line, 166, fit_font(receive_line, 880, 150, 96, "impact"), (255, 255, 255, 255), stroke_width=3)
-    draw_glitch_word(image, last_word, 356)
-    draw_handwritten_hook(image, cfg)
-    draw_episode_badge(image, cfg["episode_number"])
-    draw_bottom_title(image, cfg)
-    out_path.parent.mkdir(parents=True, exist_ok=True)
-    image.convert("RGB").save(out_path, quality=95)
-    print(f"Wrote {out_path}")
-
-
-def generate_cover(force_cover: bool = False, provider: str = "openai"):
+def generate_cover(force_cover: bool = False, provider: str = "openai", cover_style: str | None = None):
     scenes_data = json.loads(SCENES_PATH.read_text(encoding="utf-8"))
     fal_available = bool(os.getenv("FAL_KEY"))
     strict_openai = env_bool("OPENAI_IMAGE_STRICT", True)
@@ -1371,7 +1077,7 @@ def generate_cover(force_cover: bool = False, provider: str = "openai"):
     if not base_path.exists():
         if provider == "openai":
             try:
-                generate_openai_cover_base(base_path, scenes_data)
+                generate_openai_cover_base(base_path, scenes_data, cover_style=cover_style)
             except Exception as exc:
                 notify_openai_generation_failure("cover base", slug, exc)
                 if strict_openai:
@@ -1382,7 +1088,7 @@ def generate_cover(force_cover: bool = False, provider: str = "openai"):
                 result = fal_client.subscribe(
                     "fal-ai/nano-banana-pro",
                     arguments={
-                        "prompt": cover_background_prompt(scenes_data),
+                        "prompt": cover_background_prompt(scenes_data, style_id=cover_style, series_dir=SERIES_DIR),
                         "image_size": "portrait_16_9",
                         "num_images": 1,
                     },
@@ -1413,7 +1119,8 @@ def generate_cover(force_cover: bool = False, provider: str = "openai"):
                 raise SystemExit(f"No local image found for cover fallback in {IMAGES_DIR}")
             Image.open(fallback).convert("RGB").save(base_path)
             print(f"Wrote {base_path} from {fallback.name}")
-    compose_cover(base_path, out_path, scenes_data)
+    resolved_style = cover_style or resolve_cover_style_id(scenes_data, SERIES_DIR)
+    compose_cover(base_path, out_path, scenes_data, style_id=resolved_style, series_dir=SERIES_DIR)
 
 
 def main():
@@ -1454,9 +1161,27 @@ def main():
         help="Cover background provider. Defaults to OpenAI/ChatGPT; typography is always composed locally.",
     )
     parser.add_argument("--openai-cover", action="store_true", help="Generate the cover background with OpenAI GPT Image.")
+    parser.add_argument("--cover-style", metavar="STYLE_ID", help="Cover design style id (see --list-cover-styles).")
+    parser.add_argument("--list-cover-styles", action="store_true", help="List available cover design styles and exit.")
     args = parser.parse_args()
 
     load_local_env()
+    if args.list_cover_styles:
+        from cover_styles import list_styles
+        from pipeline_config import load_series_config
+        template = None
+        try:
+            series_dir = get_series_dir(args.series)
+            template = load_series_config(series_dir).get("style_template")
+        except BaseException:
+            if args.series:
+                raise
+        for item in list_styles(template):
+            rec = " (template default)" if item["recommended"] else ""
+            print(f"{item['id']}: {item['name']}{rec}")
+            if item["description"]:
+                print(f"  {item['description']}")
+        return 0
     configure_series(args.series)
     configure_episode(args.episode)
     if args.list_voices:
@@ -1482,8 +1207,8 @@ def main():
         cover_provider = args.cover_provider
         if args.openai_cover:
             cover_provider = "openai"
-        generate_cover(force_cover=args.force_cover, provider=cover_provider)
-    if not (args.list_voices or args.voice or args.images or args.videos or args.cover):
+        generate_cover(force_cover=args.force_cover, provider=cover_provider, cover_style=args.cover_style)
+    if not (args.list_voices or args.voice or args.images or args.videos or args.cover or args.list_cover_styles):
         parser.print_help()
         return 1
     return 0

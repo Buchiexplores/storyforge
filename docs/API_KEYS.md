@@ -125,9 +125,24 @@ Only set this up if you want true AI-generated motion clips.
    ```bash
    FAL_KEY=your-fal-key-here
    PIPELINE_VIDEO_MODE=fal
+   FAL_VIDEO_MODEL=bytedance/seedance-2.0/image-to-video   # default in code — ByteDance Seedance 2.0
+   # FAL_VIDEO_MODEL=fal-ai/veo3/image-to-video            # Google Veo 3 (i2v with audio)
+   # FAL_VIDEO_MODEL=fal-ai/veo3.1/image-to-video          # Google Veo 3.1 (latest i2v)
+   # FAL_VIDEO_MODEL=bytedance/seedance-2.0/fast/image-to-video  # faster/cheaper Seedance
    ```
 
    (or leave `PIPELINE_VIDEO_MODE=local` and pass `--video-mode fal` per run.)
+
+**Motion models via `FAL_VIDEO_MODEL`**
+
+| Model ID | Provider | Notes |
+|----------|----------|-------|
+| `bytedance/seedance-2.0/image-to-video` | ByteDance | Default; cinematic i2v |
+| `bytedance/seedance-2.0/fast/image-to-video` | ByteDance | Faster/cheaper |
+| `fal-ai/veo3/image-to-video` | Google Veo 3 | i2v with audio |
+| `fal-ai/veo3.1/image-to-video` | Google Veo 3.1 | Latest i2v |
+
+See [CONFIGURATION.md → fal.ai motion models](CONFIGURATION.md#falai-motion-models-fal_video_model) for full env reference.
 
 You'll also need the optional dependency: uncomment `fal-client` in `requirements.txt` and reinstall.
 

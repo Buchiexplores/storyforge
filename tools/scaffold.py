@@ -14,6 +14,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
+from cover_styles import default_style_for_template
 from pipeline_config import ROOT
 
 STYLE_CHOICES = (
@@ -293,7 +294,7 @@ def build_voiceover_placeholder(episode_number: int, series_title: str, logline:
     )
 
 
-def _build_scenes_json(episode_number: int, series_title: str, logline: str, story_context: str, style: dict[str, Any]):
+def _build_scenes_json(episode_number: int, series_title: str, logline: str, story_context: str, style: dict[str, Any], style_name: str = "thriller_mystery"):
     import json
     scenes = json.loads((ROOT / "templates" / "episode" / "scenes.template.json").read_text(encoding="utf-8"))
     scenes["episode_title"] = f"Episode {episode_number:02d} Title"
@@ -307,6 +308,10 @@ def _build_scenes_json(episode_number: int, series_title: str, logline: str, sto
     scenes["cover"]["hook_lines"] = cover.get("hook_lines", scenes["cover"]["hook_lines"])
     scenes["cover"]["hook_highlight"] = cover.get("hook_highlight", scenes["cover"]["hook_highlight"])
     scenes["cover"]["background_prompt"] = cover.get("background_prompt", scenes["cover"].get("background_prompt", ""))
+    scenes["cover"]["design_style"] = style.get("cover", {}).get(
+        "default_design_style",
+        default_style_for_template(style_name or "thriller_mystery"),
+    )
     hook_seed = truncate(logline, 120)
     if scenes.get("scenes"):
         scenes["scenes"][0]["caption"] = f"Opening hook tied to: {hook_seed}"
@@ -374,7 +379,7 @@ def create_episode(
     created: list[Path] = []
     make_asset_dirs(episode_dir, created)
 
-    scenes = _build_scenes_json(episode_number, series_title, logline, story_context, style)
+    scenes = _build_scenes_json(episode_number, series_title, logline, story_context, style, style_name=style_name or "thriller_mystery")
     _write_if_missing(episode_dir / "scenes.json", json.dumps(scenes, indent=2) + "\n", created)
 
     _write_if_missing(

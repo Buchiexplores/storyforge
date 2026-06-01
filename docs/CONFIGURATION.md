@@ -23,7 +23,7 @@ Each pipeline stage maps to a tool module and supports one or more backends toda
 | Scene images | `tools/generate_episode_assets.py` → `generate_images()` | `openai`, `fal`, `local` | `--image-provider`, `--openai-images`, `--local-images` |
 | Cover background | `generate_episode_assets.py` → `generate_cover()` | `openai`, `fal`, `local` | `--cover-provider`, `--openai-cover` |
 | Voice | `generate_episode_assets.py` → `generate_voice()` | ElevenLabs only | `--voice` (no provider flag yet) |
-| Video motion | `generate_episode_assets.py` → `generate_videos()` | `local` (ffmpeg Ken Burns), `fal` | `--local-videos`, `--video-mode {local,fal}`, `PIPELINE_VIDEO_MODE` |
+| Video motion | `generate_episode_assets.py` → `generate_videos()` | `local` (ffmpeg Ken Burns), `fal` (default model: **ByteDance Seedance 2.0**; also **Google Veo 3 / Veo 3.1** via `FAL_VIDEO_MODEL`) | `--local-videos`, `--video-mode {local,fal}`, `PIPELINE_VIDEO_MODE`, `FAL_VIDEO_MODEL` |
 | Final render | `tools/render_episode.py` | ffmpeg only | No API keys |
 
 ### Environment variables by provider
@@ -37,6 +37,26 @@ Each pipeline stage maps to a tool module and supports one or more backends toda
 | **Local images** (`--image-provider local`) | None — generates storyboard placeholders |
 
 Default motion is **local ffmpeg** (`PIPELINE_VIDEO_MODE=local`): zero API cost. fal motion is opt-in via `--video-mode fal` or env override.
+
+### fal.ai motion models (`FAL_VIDEO_MODEL`)
+
+When `PIPELINE_VIDEO_MODE=fal`, set `FAL_VIDEO_MODEL` to pick the image-to-video backend. Requires `FAL_KEY`.
+
+| Model ID | Provider | Notes |
+|----------|----------|-------|
+| `bytedance/seedance-2.0/image-to-video` | ByteDance | Default; cinematic i2v |
+| `bytedance/seedance-2.0/fast/image-to-video` | ByteDance | Faster/cheaper |
+| `fal-ai/veo3/image-to-video` | Google Veo 3 | i2v with audio |
+| `fal-ai/veo3.1/image-to-video` | Google Veo 3.1 | Latest i2v |
+
+Example:
+
+```bash
+PIPELINE_VIDEO_MODE=fal
+FAL_VIDEO_MODEL=bytedance/seedance-2.0/image-to-video   # default in code
+# FAL_VIDEO_MODEL=fal-ai/veo3/image-to-video
+# FAL_VIDEO_MODEL=fal-ai/veo3.1/image-to-video
+```
 
 ### Adding a provider (contributor checklist)
 
@@ -87,7 +107,7 @@ Default motion is **local ffmpeg** (`PIPELINE_VIDEO_MODE=local`): zero API cost.
 |----------|---------|-------------|
 | `FAL_KEY` | *(empty)* | fal.ai API key |
 | `PIPELINE_VIDEO_MODE` | `local` | `local` or `fal` for motion clips |
-| `FAL_VIDEO_MODEL` | `bytedance/seedance-2.0/image-to-video` | fal video model |
+| `FAL_VIDEO_MODEL` | `bytedance/seedance-2.0/image-to-video` | fal image-to-video model — Seedance 2.0 (default), Seedance Fast (`bytedance/seedance-2.0/fast/image-to-video`), Google Veo 3 (`fal-ai/veo3/image-to-video`), Veo 3.1 (`fal-ai/veo3.1/image-to-video`) |
 | `FAL_VIDEO_RESOLUTION` | `720p` | fal resolution |
 | `FAL_VIDEO_TIMEOUT_SECONDS` | `480` | fal timeout |
 | `FAL_VIDEO_GENERATE_AUDIO` | `false` | fal clip audio |
@@ -219,8 +239,35 @@ Each provides `visual_style`, `image_prompt_rules`, `cover` defaults, and `platf
 | `--force-cover` | Regenerate cover background |
 | `--cover-provider {openai,fal,local}` | Cover background provider |
 | `--openai-cover` | OpenAI cover shortcut |
+| `--cover-style STYLE_ID` | Cover design style id |
+| `--list-cover-styles` | List cover styles and exit |
 
 ---
+
+
+## Cover design styles
+
+Styles live in `config/cover_styles.yaml` (26 presets). Typography is composed in
+`tools/cover_styles.py`. Resolution: `scenes.json` `cover.design_style` → series
+`cover.default_design_style` → style template default → `default_for_template`.
+
+| CLI | Description |
+|-----|-------------|
+| `--cover-style STYLE_ID` | Cover design style for `generate_episode_assets.py --cover` |
+| `--list-cover-styles` | List styles (filtered by series style template when configured) |
+
+### CLI: `regenerate_cover.py`
+
+| Flag | Description |
+|------|-------------|
+| `--series`, `--episode` | Target series/episode |
+| `--list-styles` | List styles for the series template |
+| `--style STYLE_ID` | Cover design style |
+| `--compose-only` | Compose onto existing `{slug}_cover_base.png` |
+| `--force-background` | Regenerate background before compose |
+| `--save-style` | Write `cover.design_style` to `scenes.json` |
+| `--cover-provider {openai,fal,local}` | Background provider |
+| `--openai-cover` | OpenAI background shortcut |
 
 ## CLI: `render_episode.py`
 

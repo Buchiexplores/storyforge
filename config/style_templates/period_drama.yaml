@@ -17,6 +17,7 @@ image_prompt_rules: |
   brand names unless explicitly requested.
 
 cover:
+  default_design_style: period_drama_ivory
   hook_lines: ["A LETTER", "ARRIVED", "TODAY"]
   hook_highlight: LETTER
   background_prompt: >

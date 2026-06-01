@@ -16,6 +16,7 @@ image_prompt_rules: |
   brand names unless device-screen text is explicitly requested.
 
 cover:
+  default_design_style: cyberpunk_magenta
   hook_lines: ["NEON", "RAIN", "PROTOCOL"]
   hook_highlight: RAIN
   background_prompt: >

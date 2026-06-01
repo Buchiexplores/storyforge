@@ -1,35 +1,85 @@
 # Cover Style Guide
 
 Every episode cover should look like a new poster from the same series, not a
-one-off thumbnail template.
+one-off thumbnail template. Storyforge ships **26 cover design styles** in
+`config/cover_styles.yaml`. The image model generates only the cinematic background;
+typography, badges, hooks, grades, and effects are composed locally in
+`tools/cover_styles.py` (used by `generate_episode_assets.py` and `regenerate_cover.py`).
 
-## Required visual language
+## How style is chosen
 
-- Vertical 9:16 thriller poster, dark rainy background, wet reflections, amber doorway light, neon accent glow.
-- Huge stacked title at the top: white condensed words plus one neon green glitch word.
-- Handwritten warning callout on the left with one green emphasis word and a white arrow.
-- Red episode badge above the episode title.
-- Distressed white episode title with a green brush-style final line.
-- Green outlined part label near the bottom.
-- Background composition should preserve depth: ominous doorway and story figure in the middle, cracked glowing phone or key prop large in the wet foreground, clean dark space behind the top title.
-- Do not ask the image model to render cover text. The generated image is only the cinematic scene plate; all words, badges, arrow, glitch, rain, and distress effects are added by the compositor.
+Resolution order (first match wins):
 
-The image model generates only the cinematic background. Typography is composed locally in `tools/generate_episode_assets.py` so titles stay readable and consistent.
+1. `scenes.json` → `cover.design_style` (per-episode)
+2. `series_config.yaml` → `cover.default_design_style` (series override)
+3. Style template → `cover.default_design_style` in `config/style_templates/<template>.yaml`
+4. `config/cover_styles.yaml` → `default_for_template` for the series `style_template`
 
-## Per-episode editable values
+List styles for your template:
 
-These live in each episode's `scenes.json` under `cover`:
+```bash
+python3 tools/generate_episode_assets.py --list-cover-styles
+python3 tools/regenerate_cover.py --series series/my_series --episode episode_01 --list-styles
+```
 
-- `series_title`
-- `episode_number`
-- `part_number`
-- `hook_lines`
-- `hook_highlight`
-- `title_lines`
-- `background_prompt` (optional scene-specific background plate)
+## Per-episode editable values (`scenes.json` → `cover`)
+
+| Field | Purpose |
+|-------|---------|
+| `design_style` | Style id from `cover_styles.yaml` (e.g. `thriller_neon_rain`, `horror_frost`) |
+| `series_title` | Stacked series title at top |
+| `episode_number` | Episode badge |
+| `part_number` | Part label |
+| `hook_lines` / `hook_highlight` | Left callout (style controls layout: handwritten, block, or none) |
+| `title_lines` | Bottom episode title (distressed / brush accent per style) |
+| `background_prompt` | Scene-specific background plate (no text in image) |
+
+## Style catalog
+
+Each style defines: `grade`, `series_layout`, `title_layout`, `badge_style`, `hook_style`,
+`colors` (hex), and `effects` (`rain`, `glitch`, `scratch`). Templates map to defaults:
+
+| Style template | Default style |
+|----------------|---------------|
+| `thriller_mystery` | `thriller_neon_rain` |
+| `horror` | `horror_frost` |
+| `noir` | `noir_classic` |
+| `action` | `action_fire` |
+| `sci_fi` | `sci_fi_cyan` |
+| `cyberpunk` | `cyberpunk_magenta` |
+| `fantasy` | `fantasy_gold` |
+| `anime` | `anime_pop` |
+| `romance_drama` | `romance_soft` |
+| `comedy` | `comedy_bright` |
+| `western` | `western_dust` |
+| `period_drama` | `period_drama_ivory` |
+
+Additional styles (e.g. `thriller_cold_case`, `cross_neon_noir`) are available when
+`style_templates` on the style entry includes your series template. See
+`config/cover_styles.yaml` for the full list.
+
+## Regenerating covers
+
+```bash
+# Interactive style picker (TTY) + full regen
+python3 tools/regenerate_cover.py --series series/my_series --episode episode_01
+
+# Explicit style, compose only (reuse existing base PNG)
+python3 tools/regenerate_cover.py --series series/my_series --episode episode_01 \
+  --style horror_frost --compose-only
+
+# New background + compose; persist style to scenes.json
+python3 tools/regenerate_cover.py --series series/my_series --episode episode_01 \
+  --style sci_fi_cyan --force-background --save-style
+
+# Pipeline flags
+python3 tools/generate_episode_assets.py --cover --cover-style noir_gold
+```
+
+Background providers: `--cover-provider openai|fal|local` or `--openai-cover`.
 
 ## Customizing for your series
 
-1. Edit `background_prompt` in each episode's `scenes.json`.
-2. Override cover defaults in your `series_config.yaml` or style template under `config/style_templates/`.
+1. Set `default_design_style` under `cover` in your style template or `series_config.yaml`.
+2. Edit per-episode `background_prompt` and `design_style` in `scenes.json`.
 3. See `docs/STORY_AUTHORING.md` for the full authoring workflow.
