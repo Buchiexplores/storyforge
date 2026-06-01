@@ -103,16 +103,7 @@ def cover_config(scenes_data: dict[str, Any], series_dir: Path | None = None, st
         if episode_title.upper() == "DO NOT OPEN THE DOOR":
             title_lines = ["DO NOT OPEN", "THE DOOR"]
         else:
-            title_lines = wrap_text_lines(
-                episode_title.upper(),
-                title_max_w,
-                title_kind,
-                max_lines=2,
-                start_size=96,
-                min_size=56,
-                break_size=88,
-                stroke_width=2,
-            )
+            title_lines = balanced_word_split(episode_title.upper(), max_lines=2)
     settings = merged_series_settings(series)
     series_title = cover.get(
         "series_title",
@@ -253,7 +244,7 @@ def text_width(draw, text, font, stroke_width=0):
 
 def fit_font(text, max_width, start_size, min_size, kind, stroke_width=0, absolute_min=36):
     probe = ImageDraw.Draw(Image.new("RGB", (10, 10)))
-    floor = max(absolute_min, min_size)
+    floor = absolute_min
     for size in range(start_size, floor - 1, -2):
         font = load_font(size, font_candidates(kind))
         if text_width(probe, text, font, stroke_width=stroke_width) <= max_width:
@@ -263,7 +254,7 @@ def fit_font(text, max_width, start_size, min_size, kind, stroke_width=0, absolu
 
 def fit_font_box(text, max_width, max_height, start_size, min_size, kind, stroke_width=0, absolute_min=36):
     probe = ImageDraw.Draw(Image.new("RGB", (10, 10)))
-    floor = max(absolute_min, min_size)
+    floor = absolute_min
     for size in range(start_size, floor - 1, -2):
         font = load_font(size, font_candidates(kind))
         box = probe.textbbox((0, 0), text, font=font, stroke_width=stroke_width)
@@ -275,6 +266,26 @@ def fit_font_box(text, max_width, max_height, start_size, min_size, kind, stroke
 def text_height(draw, text, font, stroke_width=0):
     box = draw.textbbox((0, 0), text, font=font, stroke_width=stroke_width)
     return box[3] - box[1]
+
+
+
+def balanced_word_split(text: str, max_lines: int = 2) -> list[str]:
+    words = text.split()
+    if not words:
+        return [""]
+    if max_lines <= 1:
+        return [" ".join(words)]
+    n = len(words)
+    base, extra = divmod(n, max_lines)
+    lines: list[str] = []
+    idx = 0
+    for i in range(max_lines):
+        count = base + (1 if i < extra else 0)
+        if count <= 0:
+            break
+        lines.append(" ".join(words[idx : idx + count]))
+        idx += count
+    return lines if lines else [" ".join(words)]
 
 
 def wrap_text_lines(
@@ -294,10 +305,11 @@ def wrap_text_lines(
 
     probe = ImageDraw.Draw(Image.new("RGB", (10, 10)))
     break_font = load_font(break_size, font_candidates(kind))
+    line_cap = min(max_lines, 6)
     lines: list[str] = []
     idx = 0
 
-    while idx < len(words) and len(lines) < max_lines:
+    while idx < len(words) and len(lines) < line_cap:
         current: list[str] = []
         while idx < len(words):
             trial = " ".join(current + [words[idx]])
@@ -311,7 +323,7 @@ def wrap_text_lines(
 
     if idx < len(words):
         remaining = words[idx:]
-        while remaining and len(lines) < max_lines:
+        while remaining and len(lines) < 6:
             current: list[str] = []
             while remaining:
                 trial = " ".join(current + [remaining[0]])
@@ -321,17 +333,6 @@ def wrap_text_lines(
                     break
             if current:
                 lines.append(" ".join(current))
-        if remaining and lines:
-            ellipsis = "..."
-            trimmed = lines[-1]
-            while trimmed:
-                trial = f"{trimmed} {ellipsis}".strip()
-                if text_width(probe, trial, break_font, stroke_width=stroke_width) <= max_width:
-                    lines[-1] = trial
-                    break
-                trimmed = trimmed.rsplit(" ", 1)[0] if " " in trimmed else trimmed[:-1]
-            else:
-                lines[-1] = ellipsis
 
     return lines if lines else [text]
 
@@ -605,16 +606,37 @@ def draw_distressed_text(base, text, y, max_width, start_size, kind, fill, strok
     return y + box[3] - box[1] + 8
 
 
+def _title_line_needs_wrap(line, max_width, kind, min_size=56, stroke_width=2):
+    probe = ImageDraw.Draw(Image.new("RGB", (10, 10)))
+    font = load_font(min_size, font_candidates(kind))
+    return text_width(probe, line, font, stroke_width=stroke_width) > max_width
+
+
+def _title_line_sublines(line, max_width, kind, min_size=56, stroke_width=2):
+    if not _title_line_needs_wrap(line, max_width, kind, min_size=min_size, stroke_width=stroke_width):
+        return [line]
+    return wrap_text_lines(
+        line,
+        max_width,
+        kind,
+        max_lines=6,
+        start_size=96,
+        min_size=min_size,
+        break_size=88,
+        stroke_width=stroke_width,
+    )
+
+
 def _estimate_title_block_height(title_lines, max_width, layout, scratch, typography):
     probe = ImageDraw.Draw(Image.new("RGB", (10, 10)))
     total = 0
+    start_size = 96
+    min_size = 56
     for i, line in enumerate(title_lines):
         title_kind = typography.get("title", "impact")
         kind = "hand" if i == 1 and layout == "brush_accent" else title_kind
-        start_size = 96
-        sublines = wrap_text_lines(line, max_width, kind, max_lines=2, start_size=96, min_size=56, break_size=88, stroke_width=2)
-        for sub in sublines:
-            font = fit_font_box(sub, max_width, 160, start_size, 56, kind, stroke_width=2)
+        for sub in _title_line_sublines(line, max_width, kind, min_size=min_size, stroke_width=2):
+            font = fit_font_box(sub, max_width, 160, start_size, min_size, kind, stroke_width=2)
             total += text_height(probe, sub, font, stroke_width=2) + 8
     return total
 
@@ -635,15 +657,12 @@ def draw_bottom_title(base, cfg):
     block_height = _estimate_title_block_height(title_lines, max_width, layout, scratch, typography)
     y = max(1540, part_y - block_height - 16)
 
-    if title_lines:
-        sublines = wrap_text_lines(title_lines[0], max_width, title_kind, max_lines=2, start_size=96, min_size=56, break_size=88, stroke_width=2)
+    for i, line in enumerate(title_lines):
+        kind = "hand" if i == 1 and layout == "brush_accent" else title_kind
+        fill = accent_fill if i == 1 and layout == "brush_accent" else title_fill
+        sublines = _title_line_sublines(line, max_width, kind, min_size=56, stroke_width=2)
         for sub in sublines:
-            y = draw_distressed_text(base, sub, y, max_width, 96, title_kind, title_fill, max_height=160, scratch=scratch)
-
-    if len(title_lines) > 1:
-        if layout == "brush_accent":
-            accent_sublines = wrap_text_lines(title_lines[1], max_width, "hand", max_lines=2, start_size=96, min_size=56, break_size=88, stroke_width=2)
-            for sub in accent_sublines:
+            if i == 1 and layout == "brush_accent":
                 brush_layer = Image.new("RGBA", base.size, (0, 0, 0, 0))
                 brush_y = y + 6
                 draw_distressed_text(brush_layer, sub, brush_y, max_width, 96, "hand", accent_fill, max_height=160, scratch=scratch)
@@ -652,10 +671,9 @@ def draw_bottom_title(base, cfg):
                 probe = ImageDraw.Draw(Image.new("RGB", (10, 10)))
                 font = fit_font_box(sub, max_width, 160, 96, 56, "hand", stroke_width=2)
                 y += text_height(probe, sub, font, stroke_width=2) + 8
-        else:
-            impact_sublines = wrap_text_lines(title_lines[1], max_width, title_kind, max_lines=2, start_size=96, min_size=56, break_size=88, stroke_width=2)
-            for sub in impact_sublines:
-                y = draw_distressed_text(base, sub, y + 6, max_width, 96, title_kind, title_fill, max_height=160, scratch=scratch)
+            else:
+                line_y = y + (6 if i > 0 else 0)
+                y = draw_distressed_text(base, sub, line_y, max_width, 96, kind, fill, max_height=160, scratch=scratch)
 
     draw = ImageDraw.Draw(base)
     part_number = cfg.get("part_number", "1")
@@ -690,10 +708,14 @@ def draw_series_header(base, cfg):
         return
 
     if layout == "single_impact":
-        lines = wrap_text_lines(cfg["series_title"], header_max_w, series_kind, max_lines=2, start_size=120, min_size=72, stroke_width=3)
+        series_title = cfg["series_title"]
+        if _title_line_needs_wrap(series_title, header_max_w, series_kind, min_size=56, stroke_width=3):
+            lines = balanced_word_split(series_title, max_lines=2)
+        else:
+            lines = [series_title]
         y = 72
         for line in lines:
-            font = fit_font(line, header_max_w, 120, 72, series_kind, stroke_width=3)
+            font = fit_font(line, header_max_w, 120, 56, series_kind, stroke_width=3)
             y = centered_text(draw, line, y, font, title_white, stroke_width=3) + 8
         return
 
@@ -703,7 +725,7 @@ def draw_series_header(base, cfg):
             return
         prefix = " ".join(series_words[:-1])
         last_word = series_words[-1]
-        prefix_lines = wrap_text_lines(prefix, header_max_w, series_kind, max_lines=2, start_size=92, min_size=54, stroke_width=2)
+        prefix_lines = balanced_word_split(prefix, max_lines=2)
         y = 58
         for line in prefix_lines:
             font = fit_font(line, header_max_w, 92, 54, series_kind, stroke_width=2)
